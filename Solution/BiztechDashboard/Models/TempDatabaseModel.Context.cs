@@ -27,4 +27,11 @@ namespace BiztechDashboard.Models
     
         public virtual DbSet<set_user> set_user { get; set; }
     }
+    public partial class TempDatabaseEntities : DbContext
+    {
+        public TempDatabaseEntities(String connString)
+            : base(connString)
+        {
+        }
+    }
 }

@@ -164,6 +164,7 @@
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\FavoritesController.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
+    <Compile Include="Controllers\GetUsersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TempProjectsController.cs" />
     <Compile Include="Global.asax.cs">
