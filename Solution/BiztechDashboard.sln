@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiztechDashboard", "BiztechDashboard\BiztechDashboard.csproj", "{9E885A76-88B2-472C-8CD2-3B9205838991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiztechDashboard.Tests", "BiztechDashboard.Tests\BiztechDashboard.Tests.csproj", "{F548F4AB-47C5-4A70-8AE9-893625C91264}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E885A76-88B2-472C-8CD2-3B9205838991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E885A76-88B2-472C-8CD2-3B9205838991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E885A76-88B2-472C-8CD2-3B9205838991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E885A76-88B2-472C-8CD2-3B9205838991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F548F4AB-47C5-4A70-8AE9-893625C91264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F548F4AB-47C5-4A70-8AE9-893625C91264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F548F4AB-47C5-4A70-8AE9-893625C91264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F548F4AB-47C5-4A70-8AE9-893625C91264}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

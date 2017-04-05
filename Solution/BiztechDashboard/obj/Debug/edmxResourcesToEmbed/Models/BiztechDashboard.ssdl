@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BiztechDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="WDSB_Applications">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppName" Type="varchar" MaxLength="150" />
+    <Property Name="AppBU" Type="int" Nullable="false" />
+    <Property Name="FrontTechnology" Type="varchar" MaxLength="50" />
+    <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="BackTechnology" Type="varchar" MaxLength="50" />
+    <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="AppLifespan" Type="int" />
+    <Property Name="PrimaryBUContact" Type="int" Nullable="false" />
+    <Property Name="SecondaryBUContact" Type="int" />
+    <Property Name="AppIsActive" Type="bit" />
+    <Property Name="AppPII" Type="bit" />
+    <Property Name="AppSecurity" Type="varchar" MaxLength="50" />
+    <Property Name="DateImplemented" Type="datetime2" Precision="7" />
+    <Property Name="LastProdDate" Type="datetime2" Precision="7" />
+    <Property Name="AppVersion" Type="varchar" MaxLength="10" />
+    <Property Name="ProjectID" Type="varchar" MaxLength="25" />
+    <Property Name="AppDesc" Type="varchar" MaxLength="100" />
+    <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
+    <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
+    <Property Name="AppUserID" Type="varchar" MaxLength="25" />
+    <Property Name="AppPassword" Type="varchar" MaxLength="25" />
+    <Property Name="AppIsWeb" Type="bit" />
+  </EntityType>
+  <EntityType Name="WDSB_BUContacts">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WDSB_BusinessUnits">
+    <Key>
+      <PropertyRef Name="BUID" />
+    </Key>
+    <Property Name="BUID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BUName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WDSB_Comments">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="DatePosted" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WDSB_Favorites">
+    <Key>
+      <PropertyRef Name="FavID" />
+    </Key>
+    <Property Name="FavID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WDSB_Features">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="Function" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="ScreenshotPath" Type="varchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WDSB_TempProjects">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="150" />
+    <Property Name="ProjectDesc" Type="varchar" MaxLength="100" />
+    <Property Name="ProjectDatasource" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectDatabaseName" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
+    <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
+    <Property Name="ProjectIsActive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
+    <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_BUContacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="WDSB_Applications">
+        <PropertyRef Name="PrimaryBUContact" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WDSB_Applications_WDSB_BUContacts1">
+    <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="0..1" />
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_BUContacts">
+        <PropertyRef Name="ContactID" />
+      </Principal>
+      <Dependent Role="WDSB_Applications">
+        <PropertyRef Name="SecondaryBUContact" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WDSB_Applications_WDSB_BusinessUnits">
+    <End Role="WDSB_BusinessUnits" Type="Self.WDSB_BusinessUnits" Multiplicity="1" />
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_BusinessUnits">
+        <PropertyRef Name="BUID" />
+      </Principal>
+      <Dependent Role="WDSB_Applications">
+        <PropertyRef Name="AppBU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WDSB_Comments_WDSB_Applications">
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+    <End Role="WDSB_Comments" Type="Self.WDSB_Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Comments">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WDSB_Favorites_WDSB_Applications">
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+    <End Role="WDSB_Favorites" Type="Self.WDSB_Favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Favorites">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WDSB_Features_WDSB_Applications">
+    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+    <End Role="WDSB_Features" Type="Self.WDSB_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Features">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BiztechDashboardModelStoreContainer">
+    <EntitySet Name="WDSB_Applications" EntityType="Self.WDSB_Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_BUContacts" EntityType="Self.WDSB_BUContacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_BusinessUnits" EntityType="Self.WDSB_BusinessUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_TempProjects" EntityType="Self.WDSB_TempProjects" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">
+      <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts1" Association="Self.FK_WDSB_Applications_WDSB_BUContacts1">
+      <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WDSB_Applications_WDSB_BusinessUnits" Association="Self.FK_WDSB_Applications_WDSB_BusinessUnits">
+      <End Role="WDSB_BusinessUnits" EntitySet="WDSB_BusinessUnits" />
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WDSB_Comments_WDSB_Applications" Association="Self.FK_WDSB_Comments_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Comments" EntitySet="WDSB_Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WDSB_Favorites_WDSB_Applications" Association="Self.FK_WDSB_Favorites_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Favorites" EntitySet="WDSB_Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="Self.FK_WDSB_Features_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Features" EntitySet="WDSB_Features" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
