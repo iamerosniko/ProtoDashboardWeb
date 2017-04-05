@@ -202,6 +202,24 @@
     <Compile Include="Models\Project.cs">
       <DependentUpon>BiztechBTSSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\set_user.cs">
+      <DependentUpon>TempDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempDatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TempDatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempDatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TempDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempDatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_Applications.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
@@ -565,6 +583,27 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BiztechBTSSModel.edmx</DependentUpon>
       <LastGenOutput>BiztechBTSSModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\TempDatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TempDatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\TempDatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>TempDatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TempDatabaseModel.edmx.diagram">
+      <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\TempDatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>TempDatabaseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

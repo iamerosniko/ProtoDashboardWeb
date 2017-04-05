@@ -1,5 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BiztechDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'dbbtVulTstp1.dbo.set_group_access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="set_group_access">
+          <Property Name="grp_id" Type="nvarchar" MaxLength="25" />
+          <Property Name="mod_id" Type="nvarchar" MaxLength="25" />
+          <Property Name="can_view" Type="bit" />
+          <Property Name="can_add" Type="bit" />
+          <Property Name="can_edit" Type="bit" />
+          <Property Name="can_delete" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'dbbtVulTstp1.dbo.set_user_access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="set_user_access">
+          <Property Name="user_id" Type="nvarchar" MaxLength="25" />
+          <Property Name="grp_id" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
   <EntityType Name="WDSB_Applications">
     <Key>
       <PropertyRef Name="AppID" />

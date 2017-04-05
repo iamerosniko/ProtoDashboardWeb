@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TempDatabaseModelStoreContainer" CdmEntityContainer="TempDatabaseEntities">
+    <EntitySetMapping Name="set_user">
+      <EntityTypeMapping TypeName="TempDatabaseModel.set_user">
+        <MappingFragment StoreEntitySet="set_user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_last_name" ColumnName="user_last_name" />
+          <ScalarProperty Name="user_first_name" ColumnName="user_first_name" />
+          <ScalarProperty Name="user_middle_name" ColumnName="user_middle_name" />
+          <ScalarProperty Name="can_PROD" ColumnName="can_PROD" />
+          <ScalarProperty Name="can_UAT" ColumnName="can_UAT" />
+          <ScalarProperty Name="can_PEER" ColumnName="can_PEER" />
+          <ScalarProperty Name="can_DEV" ColumnName="can_DEV" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

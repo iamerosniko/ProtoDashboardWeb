@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TempDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="set_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="user_last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="can_PROD" Type="Boolean" />
+    <Property Name="can_UAT" Type="Boolean" />
+    <Property Name="can_PEER" Type="Boolean" />
+    <Property Name="can_DEV" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="TempDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="set_user" EntityType="Self.set_user" />
+  </EntityContainer>
+</Schema>
