@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { TempProjectService } from '../../../services/temp-project.service';
 import { BTSSWDSBService } from    '../../../services/btss-wdsb.service';
 import { ApplicationService } from '../../../services/application.service';
+import { AppUserService } from '../../../services/app-user.service';
 //entities
 import { TempProject } from '../../../entities/tempproject';
 import { Application } from '../../../entities/application';
@@ -12,7 +13,8 @@ export class FnMain  {
     constructor(
         private tempProjectService: TempProjectService,
         private btssWdsbService : BTSSWDSBService,
-        private applicationService : ApplicationService
+        private applicationService : ApplicationService,
+        private appuserService : AppUserService
     ){ }
 
     tempProject : TempProject[];
@@ -66,11 +68,34 @@ export class FnMain  {
             this.applicationService.postApplication(element);
         });
     }
+/*Part 4 getting users from specific database app
+ *
+ */
+    //7.getUsers from WDSB
+    getUsersFromWDSB(appID : number):AppUsers[]{
+        var appUsers : AppUsers[];
+        this.appuserService.getUser(appID).then(user => appUsers = user);
+        return appUsers;
+    }
 
-    //7.getUsers
-    getUsers(app:Application) : AppUsers[]{
+    //8.deleteUsers where app
+    deleteUsers(appUsers:AppUsers[]): void{
+        (appUsers).forEach(element => {
+            this.appuserService.DeleteUser(element.AppUserID);
+        });
+    }
+
+    //9.getUsers from their database/application
+    getUsersFromApplications(app:Application) : AppUsers[]{
         var appUsers : AppUsers[];
         this.btssWdsbService.getUsers(app).then(user => appUsers = user);
         return appUsers;
+    }
+
+    //10.postUsers
+    postUsers(appUsers:AppUsers[]): void{
+        (appUsers).forEach(element => {
+            this.appuserService.postUser(element);
+        });
     }
 }

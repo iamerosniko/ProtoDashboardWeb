@@ -10,7 +10,7 @@ export class AppUserService {
     
     constructor(private http: Http){}
 
-    getProjects(): Promise<AppUsers[]> {
+    getUsers(): Promise<AppUsers[]> {
         return this.http
                 .get(this.apiUrl, {headers: this.headers})
                 .toPromise()
@@ -18,7 +18,7 @@ export class AppUserService {
                 .catch(this.handleError);
     }
 
-    getProject(id: string): Promise<AppUsers> {
+    getUser(id: number): Promise<AppUsers[]> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
                 .get(url)
@@ -27,7 +27,7 @@ export class AppUserService {
                 .catch(this.handleError);      
     }
 
-    postProject(newUser: AppUsers): Promise<AppUsers> {
+    postUser(newUser: AppUsers): Promise<AppUsers> {
         return this.http
             .post(this.apiUrl, JSON.stringify(newUser), {headers: this.headers})
             .toPromise()
@@ -35,7 +35,7 @@ export class AppUserService {
             .catch(this.handleError);
     }
 
-    putProject(user: AppUsers): Promise<AppUsers> {
+    putUser(user: AppUsers): Promise<AppUsers> {
         const url = `${this.apiUrl}/${user.AppUserID}`;
         return this.http
             .put(url, JSON.stringify(user), {headers: this.headers})
@@ -44,7 +44,7 @@ export class AppUserService {
             .catch(this.handleError);
     }
     
-    DeleteProject(id: string): Promise<void> {
+    DeleteUser(id: string): Promise<void> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
             .delete(url, {headers: this.headers})
