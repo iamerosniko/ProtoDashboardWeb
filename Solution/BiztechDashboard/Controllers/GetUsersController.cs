@@ -21,10 +21,10 @@ namespace BiztechDashboard.Controllers
     {
         private TempDatabaseEntities db = new TempDatabaseEntities();
 
-        private String BuildConnectionString(String DataSource, String Database)
+        private String BuildConnectionString(String dataSource, String database)
         {
             // Build the connection string from the provided datasource and database
-            String connString = @"data source=" + DataSource + ";initial catalog=" + Database + ";integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;multipleactiveresultsets=True;application name=EntityFramework;";
+            String connString = @"data source=" + dataSource + ";initial catalog=" + database + ";integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;multipleactiveresultsets=True;application name=EntityFramework;";
 
             // Build the MetaData... feel free to copy/paste it from the connection string in the config file.
             EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
@@ -38,27 +38,33 @@ namespace BiztechDashboard.Controllers
             return esb.ToString();
         }
         //Custom 1
-        public IQueryable<set_user> Getset_user()
-        {
-            string DataSource = @"JHJHST59\JHS1D";
-            string Database = "dbbtLCTp1";
-            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(DataSource, Database));
-            return myDb.set_user;
-            //return db.set_user;
-        }
+        //public IQueryable<set_user> Getset_user()
+        //{
+        //    string DataSource = @"JHJHST59\JHS1D";
+        //    string Database = "dbbtLCTp1";
+        //    TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(DataSource, Database));
+        //    return myDb.set_user;
+        //    //return db.set_user;
+        //}
 
 
-        // GET api/GetUsers/5
-        [ResponseType(typeof(set_user))]
-        public IHttpActionResult Getset_user(string id)
+        [ResponseType(typeof(List<WDSB_AppUsers_DTO>))]
+        public IHttpActionResult Getset_user(WDSB_Applications app)
         {
-            set_user set_user = db.set_user.Find(id);
-            if (set_user == null)
+            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(app.AppDatasource, app.AppDatabaseName));
+            IQueryable<WDSB_AppUsers_DTO> users  = from l in myDb.set_user
+                    select new WDSB_AppUsers_DTO
+                    {
+                        UserName = l.user_name,
+                        AppID = app.AppID
+                    };
+            //set_user set_user = db.set_user.Find(id);
+            if (users == null)
             {
                 return NotFound();
             }
 
-            return Ok(set_user);
+            return Ok(users.ToList());
         }
 
 
