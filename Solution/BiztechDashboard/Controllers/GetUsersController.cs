@@ -49,14 +49,15 @@ namespace BiztechDashboard.Controllers
 
 
         [ResponseType(typeof(List<WDSB_AppUsers_DTO>))]
-        public IHttpActionResult Getset_user(WDSB_Applications app)
+        public IHttpActionResult Getset_user(string ds,string db,int appID)
         {
-            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(app.AppDatasource, app.AppDatabaseName));
+            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, db));
             IQueryable<WDSB_AppUsers_DTO> users  = from l in myDb.set_user
                     select new WDSB_AppUsers_DTO
                     {
+                        AppUserID=Guid.NewGuid(),
                         UserName = l.user_name,
-                        AppID = app.AppID
+                        AppID = appID
                     };
             //set_user set_user = db.set_user.Find(id);
             if (users == null)
