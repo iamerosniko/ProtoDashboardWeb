@@ -6,20 +6,21 @@
     <edmx:Diagrams>
       <Diagram DiagramId="abbe2304c11a4e7abaea2fb877d1e33c" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Applications" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_BUContacts" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_BusinessUnits" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_BUContacts" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_BusinessUnits" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Comments" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Favorites" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Features" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_TempProjects" Width="1.5" PointX="7.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Favorites" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Features" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_TempProjects" Width="1.5" PointX="7" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts" ManuallyRouted="false" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts1" ManuallyRouted="false" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BusinessUnits" ManuallyRouted="false" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" ManuallyRouted="false" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" ManuallyRouted="false" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_AppUsers" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_AppUsers" Width="1.5" PointX="0.75" PointY="5.375" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Applications" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" Width="1.5" PointX="8.75" PointY="1.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -33,5 +33,6 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_Features> WDSB_Features { get; set; }
         public virtual DbSet<WDSB_TempProjects> WDSB_TempProjects { get; set; }
         public virtual DbSet<WDSB_AppUsers> WDSB_AppUsers { get; set; }
+        public virtual DbSet<VW_WDSB_GetNewApp> VW_WDSB_GetNewApp { get; set; }
     }
 }

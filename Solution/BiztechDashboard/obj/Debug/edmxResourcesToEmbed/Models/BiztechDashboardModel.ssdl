@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BiztechDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'dbbtVulTstp1.dbo.set_group_access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="set_group_access">
-          <Property Name="grp_id" Type="nvarchar" MaxLength="25" />
-          <Property Name="mod_id" Type="nvarchar" MaxLength="25" />
-          <Property Name="can_view" Type="bit" />
-          <Property Name="can_add" Type="bit" />
-          <Property Name="can_edit" Type="bit" />
-          <Property Name="can_delete" Type="bit" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'dbbtVulTstp1.dbo.set_user_access' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="set_user_access">
-          <Property Name="user_id" Type="nvarchar" MaxLength="25" />
-          <Property Name="grp_id" Type="nvarchar" MaxLength="25" />
-        </EntityType>-->
   <EntityType Name="WDSB_Applications">
     <Key>
       <PropertyRef Name="AppID" />
@@ -110,6 +94,36 @@ warning 6013: The table/view 'dbbtVulTstp1.dbo.set_user_access' does not have a 
     <Property Name="ProjectIsActive" Type="bit" />
     <Property Name="ProjectVersion" Type="varchar" MaxLength="10" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_WDSB_GetNewApp">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="AppID" Type="uniqueidentifier" />
+    <Property Name="AppName" Type="varchar" MaxLength="150" />
+    <Property Name="AppBU" Type="int" />
+    <Property Name="FrontTechnology" Type="varchar" MaxLength="50" />
+    <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="BackTechnology" Type="varchar" MaxLength="50" />
+    <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="AppLifespan" Type="int" />
+    <Property Name="PrimaryBUContact" Type="int" />
+    <Property Name="SecondaryBUContact" Type="int" />
+    <Property Name="AppIsActive" Type="bit" />
+    <Property Name="AppPII" Type="bit" />
+    <Property Name="AppSecurity" Type="varchar" MaxLength="50" />
+    <Property Name="DateImplemented" Type="datetime2" Precision="7" />
+    <Property Name="LastProdDate" Type="datetime2" Precision="7" />
+    <Property Name="AppVersion" Type="varchar" MaxLength="10" />
+    <Property Name="ProjectID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="AppDesc" Type="varchar" MaxLength="100" />
+    <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
+    <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
+    <Property Name="AppUserID" Type="varchar" MaxLength="25" />
+    <Property Name="AppPassword" Type="varchar" MaxLength="25" />
+    <Property Name="AppIsWeb" Type="bit" />
+  </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
     <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
@@ -203,6 +217,33 @@ warning 6013: The table/view 'dbbtVulTstp1.dbo.set_user_access' does not have a 
     <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_TempProjects" EntityType="Self.WDSB_TempProjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VW_WDSB_GetNewApp" EntityType="Self.VW_WDSB_GetNewApp" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_WDSB_GetNewApp].[AppID] AS [AppID], 
+    [VW_WDSB_GetNewApp].[AppName] AS [AppName], 
+    [VW_WDSB_GetNewApp].[AppBU] AS [AppBU], 
+    [VW_WDSB_GetNewApp].[FrontTechnology] AS [FrontTechnology], 
+    [VW_WDSB_GetNewApp].[FrontEndPath] AS [FrontEndPath], 
+    [VW_WDSB_GetNewApp].[BackTechnology] AS [BackTechnology], 
+    [VW_WDSB_GetNewApp].[BackEndPath] AS [BackEndPath], 
+    [VW_WDSB_GetNewApp].[AppLifespan] AS [AppLifespan], 
+    [VW_WDSB_GetNewApp].[PrimaryBUContact] AS [PrimaryBUContact], 
+    [VW_WDSB_GetNewApp].[SecondaryBUContact] AS [SecondaryBUContact], 
+    [VW_WDSB_GetNewApp].[AppIsActive] AS [AppIsActive], 
+    [VW_WDSB_GetNewApp].[AppPII] AS [AppPII], 
+    [VW_WDSB_GetNewApp].[AppSecurity] AS [AppSecurity], 
+    [VW_WDSB_GetNewApp].[DateImplemented] AS [DateImplemented], 
+    [VW_WDSB_GetNewApp].[LastProdDate] AS [LastProdDate], 
+    [VW_WDSB_GetNewApp].[AppVersion] AS [AppVersion], 
+    [VW_WDSB_GetNewApp].[ProjectID] AS [ProjectID], 
+    [VW_WDSB_GetNewApp].[AppDesc] AS [AppDesc], 
+    [VW_WDSB_GetNewApp].[AppDatasource] AS [AppDatasource], 
+    [VW_WDSB_GetNewApp].[AppDatabaseName] AS [AppDatabaseName], 
+    [VW_WDSB_GetNewApp].[AppUserID] AS [AppUserID], 
+    [VW_WDSB_GetNewApp].[AppPassword] AS [AppPassword], 
+    [VW_WDSB_GetNewApp].[AppIsWeb] AS [AppIsWeb]
+    FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">
       <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />

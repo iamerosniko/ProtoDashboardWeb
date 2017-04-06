@@ -103,5 +103,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VW_WDSB_GetNewApp">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.VW_WDSB_GetNewApp">
+        <MappingFragment StoreEntitySet="VW_WDSB_GetNewApp">
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="AppPassword" ColumnName="AppPassword" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+          <ScalarProperty Name="AppDatabaseName" ColumnName="AppDatabaseName" />
+          <ScalarProperty Name="AppDatasource" ColumnName="AppDatasource" />
+          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
+          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
+          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
+          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
+          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
+          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
+          <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
+          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
+          <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
+          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
+          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -221,6 +221,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\VW_WDSB_GetNewApp.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_Applications.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
