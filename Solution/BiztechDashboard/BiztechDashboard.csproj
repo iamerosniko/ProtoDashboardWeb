@@ -200,7 +200,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BiztechDashboardModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Connection_DTO.cs" />
     <Compile Include="Models\Project.cs">
       <DependentUpon>BiztechBTSSModel.tt</DependentUpon>
     </Compile>
@@ -222,7 +221,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Users_DTO.cs" />
     <Compile Include="Models\WDSB_Applications.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
