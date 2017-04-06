@@ -221,6 +221,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TempDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Users_DTO.cs" />
     <Compile Include="Models\WDSB_Applications.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
