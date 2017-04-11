@@ -14,17 +14,18 @@ var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
         this.fnMain = fnMain;
         this.name = 'Sync page';
+        this.newApps = null;
     }
-    // getSample():void{
-    //     this.name=this.fnMain.changeStringSmple();
-    // }
+    SyncMainComponent.prototype.ngOnInit = function () {
+        this.initAppSync();
+    };
     SyncMainComponent.prototype.initAppSync = function () {
         //this method is to delete temporary data in wdsb.tempProjects
         this.fnMain.deleteProjectsToTempProject(this.fnMain.getTempProjects());
         //this method is to add all applications found in btss to wdsb.tempProjects
         this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
         //this method is to check if there's a new applications found in btss
-        //NOTE: this is connected to fn-main number 5 tag
+        this.newApps = this.fnMain.getNewApplications();
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
         //this method is to save new applications to wdsb.applications
@@ -32,8 +33,20 @@ var SyncMainComponent = (function () {
     };
     //this method is to get users in every database / applications
     //also saves all users in one repository called wdsb.appusers
-    SyncMainComponent.prototype.initAppUserSync = function () {
+    SyncMainComponent.prototype.initAppUserSync = function (apps) {
+        var _this = this;
+        var status;
+        (apps).forEach(function (app) {
+            _this.deleteOldUsers(app.AppID);
+            status.push(_this.getNewUsers(app)); // gives an status if the 
+        });
         //TODO : Get users per database/applications
+    };
+    SyncMainComponent.prototype.deleteOldUsers = function (appID) {
+        this.fnMain.deleteUsers(this.fnMain.getUsersFromWDSB(appID));
+    };
+    SyncMainComponent.prototype.getNewUsers = function (app) {
+        return (this.fnMain.postUsers(this.fnMain.getUsersFromApplications(app)));
     };
     return SyncMainComponent;
 }());
@@ -41,7 +54,11 @@ SyncMainComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'sync-comp',
-        template: "<h1>Hello {{name}}</h1>\n    <a (click)=\"getSample()\" role=\"button\" tooltip=\"Refresh\" class=\"btn btn-default btn-sm\">\n      <i class=\"glyphicon glyphicon-refresh\"></i>  Refresh\n    </a>",
+        // template: `<h1>Hello {{name}}</h1>
+        //     <a (click)="getSample()" role="button" tooltip="Refresh" class="btn btn-default btn-sm">
+        //     <i class="glyphicon glyphicon-refresh"></i>  Refresh
+        //     </a>`,
+        templateUrl: 'sync-main.component.html',
     }),
     __metadata("design:paramtypes", [fn_main_1.FnMain])
 ], SyncMainComponent);

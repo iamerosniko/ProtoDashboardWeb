@@ -16,7 +16,15 @@ var ApplicationService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.apiUrl = 'api/Applications';
+        this.newAppUrl = 'api/NewApplications';
     }
+    ApplicationService.prototype.getNewApplications = function () {
+        return this.http
+            .get(this.newAppUrl, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ApplicationService.prototype.getApplications = function () {
         return this.http
             .get(this.apiUrl, { headers: this.headers })

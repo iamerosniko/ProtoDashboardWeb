@@ -1,25 +1,26 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FnMain } from './functions/fn-main';
 //entities
 import { Application } from '../../entities/application';
 @Component({
     moduleId: module.id,
     selector: 'sync-comp',
-  template: `<h1>Hello {{name}}</h1>
-    <a (click)="getSample()" role="button" tooltip="Refresh" class="btn btn-default btn-sm">
-      <i class="glyphicon glyphicon-refresh"></i>  Refresh
-    </a>`,
-    // templateUrl: 'sync-main.component.html',
+    // template: `<h1>Hello {{name}}</h1>
+    //     <a (click)="getSample()" role="button" tooltip="Refresh" class="btn btn-default btn-sm">
+    //     <i class="glyphicon glyphicon-refresh"></i>  Refresh
+    //     </a>`,
+    templateUrl: 'sync-main.component.html',
 })
-export class SyncMainComponent  { 
+export class SyncMainComponent implements OnInit  { 
     name = 'Sync page';
+    newApps:Application[]=null;
     constructor(
         private fnMain : FnMain,
     ){ }
 
-    // getSample():void{
-    //     this.name=this.fnMain.changeStringSmple();
-    // }
+    ngOnInit(){
+        this.initAppSync();
+    }
 
     initAppSync(){
         //this method is to delete temporary data in wdsb.tempProjects
@@ -27,7 +28,7 @@ export class SyncMainComponent  {
         //this method is to add all applications found in btss to wdsb.tempProjects
         this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
         //this method is to check if there's a new applications found in btss
-        //NOTE: this is connected to fn-main number 5 tag
+        this.newApps=this.fnMain.getNewApplications();
     }
 
     saveNewApplications(apps:Application[]){
@@ -36,8 +37,20 @@ export class SyncMainComponent  {
     }
     //this method is to get users in every database / applications
     //also saves all users in one repository called wdsb.appusers
-    initAppUserSync(){
+    initAppUserSync(apps:Application[]):void{
+        var status:boolean[];
+        (apps).forEach(app => {
+            this.deleteOldUsers(app.AppID); 
+            status.push(this.getNewUsers(app)); // gives an status if the 
+        });
         //TODO : Get users per database/applications
     }
 
+    deleteOldUsers(appID: number):void {
+        this.fnMain.deleteUsers(this.fnMain.getUsersFromWDSB(appID));
+    }
+
+    getNewUsers(app:Application):boolean{
+        return (this.fnMain.postUsers(this.fnMain.getUsersFromApplications(app)));
+    }   
 }

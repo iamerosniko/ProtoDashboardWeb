@@ -16,6 +16,7 @@ var BTSSWDSBService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.BTSSUrl = 'api/BTSSProjects';
+        this.userURL = 'api/GetUsers';
     }
     BTSSWDSBService.prototype.getProjects = function () {
         return this.http
@@ -30,6 +31,14 @@ var BTSSWDSBService = (function () {
             .get(url)
             .toPromise()
             .then(function (response) { return response.json(); }) // testing
+            .catch(this.handleError);
+    };
+    BTSSWDSBService.prototype.getUsers = function (app) {
+        var url = this.userURL + "/?ds=" + app.AppDatasource + "&db=" + app.AppDatabasename + "&appID=" + app.AppID;
+        return this.http
+            .get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); }) //testing
             .catch(this.handleError);
     };
     BTSSWDSBService.prototype.handleError = function (error) {

@@ -13,11 +13,13 @@ var core_1 = require("@angular/core");
 var temp_project_service_1 = require("../../../services/temp-project.service");
 var btss_wdsb_service_1 = require("../../../services/btss-wdsb.service");
 var application_service_1 = require("../../../services/application.service");
+var app_user_service_1 = require("../../../services/app-user.service");
 var FnMain = (function () {
-    function FnMain(tempProjectService, btssWdsbService, applicationService) {
+    function FnMain(tempProjectService, btssWdsbService, applicationService, appuserService) {
         this.tempProjectService = tempProjectService;
         this.btssWdsbService = btssWdsbService;
         this.applicationService = applicationService;
+        this.appuserService = appuserService;
     }
     //Part 1 : Clear Temporary Table  > wdsb.tempProjects
     //1.from wdsb.temprojects 
@@ -60,10 +62,10 @@ var FnMain = (function () {
      * (use VIEW in MSSQL right outer join + null)
     */
     //5.Compare wdsb.tempProjects and wdsb.Application
-    //TODO : Create a service that gets a resultset of comparison between
-    //       wdsb.tempProjects and wdsb.Application
     FnMain.prototype.getNewApplications = function () {
-        //return new Application[];
+        var newApp;
+        this.applicationService.getNewApplications().then(function (app) { return newApp = app; });
+        return newApp;
     };
     //6.add to wdsb.Applications
     FnMain.prototype.postApplications = function (app) {
@@ -72,12 +74,44 @@ var FnMain = (function () {
             _this.applicationService.postApplication(element);
         });
     };
+    /*Part 4 getting users from specific database app
+     *
+     */
+    //7.getUsers from WDSB
+    FnMain.prototype.getUsersFromWDSB = function (appID) {
+        var appUsers;
+        this.appuserService.getUser(appID).then(function (user) { return appUsers = user; });
+        return appUsers;
+    };
+    //8.deleteUsers where app
+    FnMain.prototype.deleteUsers = function (appUsers) {
+        var _this = this;
+        (appUsers).forEach(function (element) {
+            _this.appuserService.DeleteUser(element.AppUserID);
+        });
+    };
+    //9.getUsers from their database/application
+    FnMain.prototype.getUsersFromApplications = function (app) {
+        var appUsers;
+        this.btssWdsbService.getUsers(app).then(function (user) { return appUsers = user; });
+        return appUsers;
+    };
+    //10.postUsers
+    FnMain.prototype.postUsers = function (appUsers) {
+        var _this = this;
+        var isOk;
+        (appUsers).forEach(function (element) {
+            _this.appuserService.postUser(element).then(function () { isOk = true; });
+        });
+        return isOk;
+    };
     return FnMain;
 }());
 FnMain = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [temp_project_service_1.TempProjectService,
         btss_wdsb_service_1.BTSSWDSBService,
-        application_service_1.ApplicationService])
+        application_service_1.ApplicationService,
+        app_user_service_1.AppUserService])
 ], FnMain);
 exports.FnMain = FnMain;

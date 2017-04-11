@@ -57,10 +57,10 @@ export class FnMain  {
  * (use VIEW in MSSQL right outer join + null)
 */
     //5.Compare wdsb.tempProjects and wdsb.Application
-    //TODO : Create a service that gets a resultset of comparison between
-    //       wdsb.tempProjects and wdsb.Application
-    getNewApplications() : void{ //:Application[]{
-        //return new Application[];
+    getNewApplications() : Application[]{ 
+        var newApp : Application[];
+        this.applicationService.getNewApplications().then(app => newApp = app);
+        return newApp;
     }
     //6.add to wdsb.Applications
     postApplications(app:Application[]): void{
@@ -93,9 +93,11 @@ export class FnMain  {
     }
 
     //10.postUsers
-    postUsers(appUsers:AppUsers[]): void{
+    postUsers(appUsers:AppUsers[]): boolean{
+        var isOk:boolean;
         (appUsers).forEach(element => {
-            this.appuserService.postUser(element);
+            this.appuserService.postUser(element).then(()=>{isOk=true});
         });
+        return isOk;
     }
 }
