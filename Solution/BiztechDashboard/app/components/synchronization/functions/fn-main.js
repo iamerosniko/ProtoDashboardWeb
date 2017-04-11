@@ -34,13 +34,10 @@ var FnMain = (function () {
     };
     //2.delete to tempprojects
     FnMain.prototype.deleteProjectsToTempProject = function (tp) {
-        // (tp).forEach(element => {
-        //     this.tempProjectService.DeleteProject(element.ProjectID);
-        // });
-        for (var _i = 0, tp_1 = tp; _i < tp_1.length; _i++) {
-            var entry = tp_1[_i];
-            this.tempProjectService.DeleteProject(entry.ProjectID);
-        }
+        var _this = this;
+        (tp).forEach(function (element) {
+            _this.tempProjectService.DeleteProject(element.ProjectID);
+        });
     };
     //Part 2 : Insert list of applications from btss
     //3.from btss.project to wdsb.tempprojects
@@ -55,13 +52,10 @@ var FnMain = (function () {
     };
     //4.add to wdsb.tempprojects
     FnMain.prototype.postProjectsToTempProjects = function (tp) {
-        // (tp).forEach(element => {
-        //     this.tempProjectService.postProject(element);
-        // });
-        for (var _i = 0, tp_2 = tp; _i < tp_2.length; _i++) {
-            var entry = tp_2[_i];
-            this.tempProjectService.DeleteProject(entry);
-        }
+        var _this = this;
+        (tp).forEach(function (element) {
+            _this.tempProjectService.postProject(element);
+        });
     };
     /*Part 3 : Compare if already exists to wdsb.Applcation
      * if not exists > ADD

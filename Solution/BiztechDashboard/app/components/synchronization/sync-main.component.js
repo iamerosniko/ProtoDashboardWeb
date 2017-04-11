@@ -23,9 +23,9 @@ var SyncMainComponent = (function () {
         //this method is to delete temporary data in wdsb.tempProjects
         this.fnMain.deleteProjectsToTempProject(this.fnMain.getTempProjects());
         //this method is to add all applications found in btss to wdsb.tempProjects
-        //this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
+        this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
         //this method is to check if there's a new applications found in btss
-        //this.newApps = this.fnMain.getNewApplications();
+        this.newApps = this.fnMain.getNewApplications();
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
         //this method is to save new applications to wdsb.applications
