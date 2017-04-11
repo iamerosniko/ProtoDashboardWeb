@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 //services
 import { TempProjectService } from '../../../services/temp-project.service';
@@ -20,37 +21,34 @@ export class FnMain  {
     tempProject : TempProject[];
 //Part 1 : Clear Temporary Table  > wdsb.tempProjects
     //1.from wdsb.temprojects 
-    getTempProjects():TempProject[]{
+    getTempProjects():Promise<TempProject[]>{
         var tmpProj:TempProject[];
-        this.tempProjectService.getProjects()
-            .then(tp => {
-                tmpProj = tp;
-                //this.deleteProjectsToTempProject(tmpProj); //uncomment if not working as synchronous
-            });
-        return tmpProj;
+        return this.tempProjectService.getProjects();
+        //return tmpProj;
     }
     //2.delete to tempprojects
     deleteProjectsToTempProject(tp:TempProject[]){
-        (tp).forEach(element => {
-            this.tempProjectService.DeleteProject(element.ProjectID);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.DeleteProject(element.ProjectID);
+        // });
+        for (let entry of tp) {
+            this.tempProjectService.DeleteProject(entry.ProjectID); 
+        }
     }
 //Part 2 : Insert list of applications from btss
     //3.from btss.project to wdsb.tempprojects
-    getProjectsFromBTSS():TempProject[]{
+    getProjectsFromBTSS():Promise<TempProject[]>{
         var tmpProj:TempProject[];
-        this.btssWdsbService.getProjects()
-            .then(tp => {
-                tmpProj = tp;
-                //this.postProjectsToTempProjects(tmpProj); //uncomment if not working as synchronous
-            });
-        return tmpProj;
+        return this.btssWdsbService.getProjects();
     }
     //4.add to wdsb.tempprojects
     postProjectsToTempProjects(tp:TempProject[]){
-        (tp).forEach(element => {
-            this.tempProjectService.postProject(element);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.postProject(element);
+        // });
+        for (let entry of tp) {
+            this.tempProjectService.postProject(entry)
+        }
     }
 /*Part 3 : Compare if already exists to wdsb.Applcation
  * if not exists > ADD 
@@ -64,9 +62,12 @@ export class FnMain  {
     }
     //6.add to wdsb.Applications
     postApplications(app:Application[]): void{
-        (app).forEach(element => {
-            this.applicationService.postApplication(element);
-        });
+        // (app).forEach(element => {
+        //     this.applicationService.postApplication(element);
+        // });
+        for (let entry of app) {
+            this.applicationService.postApplication(entry); 
+        }
     }
 /*Part 4 getting users from specific database app
  *
@@ -80,9 +81,12 @@ export class FnMain  {
 
     //8.deleteUsers where app
     deleteUsers(appUsers:AppUsers[]): void{
-        (appUsers).forEach(element => {
-            this.appuserService.DeleteUser(element.AppUserID);
-        });
+        // (appUsers).forEach(element => {
+        //     this.appuserService.DeleteUser(element.AppUserID);
+        // });
+        for (let entry of appUsers) {
+            this.appuserService.DeleteUser(entry.AppUserID); 
+        }
     }
 
     //9.getUsers from their database/application
@@ -95,9 +99,12 @@ export class FnMain  {
     //10.postUsers
     postUsers(appUsers:AppUsers[]): boolean{
         var isOk:boolean;
-        (appUsers).forEach(element => {
-            this.appuserService.postUser(element).then(()=>{isOk=true});
-        });
+        // (appUsers).forEach(element => {
+        //     this.appuserService.postUser(element).then(()=>{isOk=true});
+        // });
+        for (let entry of appUsers) {
+            this.appuserService.postUser(entry).then(()=>{isOk=true}); 
+        }
         return isOk;
     }
 }

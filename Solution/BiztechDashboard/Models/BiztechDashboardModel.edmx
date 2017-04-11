@@ -89,15 +89,15 @@
           <Key>
             <PropertyRef Name="ProjectID" />
           </Key>
-          <Property Name="ProjectID" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ProjectName" Type="varchar" MaxLength="150" />
-          <Property Name="ProjectDesc" Type="varchar" MaxLength="100" />
+          <Property Name="ProjectDesc" Type="varchar(max)" />
           <Property Name="ProjectDatasource" Type="varchar" MaxLength="50" />
           <Property Name="ProjectDatabaseName" Type="varchar" MaxLength="50" />
           <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
           <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
           <Property Name="ProjectIsActive" Type="bit" />
-          <Property Name="ProjectVersion" Type="varchar" MaxLength="10" />
+          <Property Name="ProjectVersion" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -371,15 +371,15 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Key>
             <PropertyRef Name="ProjectID" />
           </Key>
-          <Property Name="ProjectID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProjectIsActive" Type="Boolean" />
-          <Property Name="ProjectVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />

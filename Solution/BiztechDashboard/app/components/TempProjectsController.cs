@@ -6,7 +6,6 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BiztechDashboard.Models;
@@ -17,43 +16,44 @@ namespace BiztechDashboard.Controllers
     {
         private BiztechDashboardContext db = new BiztechDashboardContext();
 
-        // GET api/TempProjects
+        // GET: api/TempProjects
         public IQueryable<WDSB_TempProjects> GetWDSB_TempProjects()
         {
             return db.WDSB_TempProjects;
         }
 
-        // GET api/TempProjects/5
+        // GET: api/TempProjects/5
         [ResponseType(typeof(WDSB_TempProjects))]
-        public async Task<IHttpActionResult> GetWDSB_TempProjects(string id)
+        public IHttpActionResult GetWDSB_TempProjects(string id)
         {
-            WDSB_TempProjects wdsb_tempprojects = await db.WDSB_TempProjects.FindAsync(id);
-            if (wdsb_tempprojects == null)
+            WDSB_TempProjects wDSB_TempProjects = db.WDSB_TempProjects.Find(id);
+            if (wDSB_TempProjects == null)
             {
                 return NotFound();
             }
 
-            return Ok(wdsb_tempprojects);
+            return Ok(wDSB_TempProjects);
         }
 
-        // PUT api/TempProjects/5
-        public async Task<IHttpActionResult> PutWDSB_TempProjects(string id, WDSB_TempProjects wdsb_tempprojects)
+        // PUT: api/TempProjects/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutWDSB_TempProjects(string id, WDSB_TempProjects wDSB_TempProjects)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != wdsb_tempprojects.ProjectID)
+            if (id != wDSB_TempProjects.ProjectID)
             {
                 return BadRequest();
             }
 
-            db.Entry(wdsb_tempprojects).State = EntityState.Modified;
+            db.Entry(wDSB_TempProjects).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -70,24 +70,24 @@ namespace BiztechDashboard.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST api/TempProjects
+        // POST: api/TempProjects
         [ResponseType(typeof(WDSB_TempProjects))]
-        public async Task<IHttpActionResult> PostWDSB_TempProjects(WDSB_TempProjects wdsb_tempprojects)
+        public IHttpActionResult PostWDSB_TempProjects(WDSB_TempProjects wDSB_TempProjects)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.WDSB_TempProjects.Add(wdsb_tempprojects);
+            db.WDSB_TempProjects.Add(wDSB_TempProjects);
 
             try
             {
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (WDSB_TempProjectsExists(wdsb_tempprojects.ProjectID))
+                if (WDSB_TempProjectsExists(wDSB_TempProjects.ProjectID))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace BiztechDashboard.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = wdsb_tempprojects.ProjectID }, wdsb_tempprojects);
+            return CreatedAtRoute("DefaultApi", new { id = wDSB_TempProjects.ProjectID }, wDSB_TempProjects);
         }
 
-        // DELETE api/TempProjects/5
+        // DELETE: api/TempProjects/5
         [ResponseType(typeof(WDSB_TempProjects))]
-        public async Task<IHttpActionResult> DeleteWDSB_TempProjects(string id)
+        public IHttpActionResult DeleteWDSB_TempProjects(string id)
         {
-            WDSB_TempProjects wdsb_tempprojects = await db.WDSB_TempProjects.FindAsync(id);
-            if (wdsb_tempprojects == null)
+            WDSB_TempProjects wDSB_TempProjects = db.WDSB_TempProjects.Find(id);
+            if (wDSB_TempProjects == null)
             {
                 return NotFound();
             }
 
-            db.WDSB_TempProjects.Remove(wdsb_tempprojects);
-            await db.SaveChangesAsync();
+            db.WDSB_TempProjects.Remove(wDSB_TempProjects);
+            db.SaveChanges();
 
-            return Ok(wdsb_tempprojects);
+            return Ok(wDSB_TempProjects);
         }
 
         protected override void Dispose(bool disposing)

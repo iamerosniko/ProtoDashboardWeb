@@ -20,11 +20,33 @@ var SyncMainComponent = (function () {
         this.initAppSync();
     };
     SyncMainComponent.prototype.initAppSync = function () {
-        //this method is to delete temporary data in wdsb.tempProjects
-        this.fnMain.deleteProjectsToTempProject(this.fnMain.getTempProjects());
-        //this method is to add all applications found in btss to wdsb.tempProjects
-        this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
-        //this method is to check if there's a new applications found in btss
+        this.removeAppFromTemp(); // 1 and 2 
+        this.getAppToTemp(); // 3 and 4
+        //this.fnMain.getTempProjects();
+        //this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
+        //this.newApps=this.fnMain.getNewApplications();
+    };
+    SyncMainComponent.prototype.removeAppFromTemp = function () {
+        var _this = this;
+        /* this method is to delete temporary data in wdsb.tempProjects */
+        this.fnMain.getTempProjects()
+            .then(function (tp) {
+            _this.fnMain.deleteProjectsToTempProject(tp);
+        });
+        console.log('done-removeAppFromTemp');
+    };
+    SyncMainComponent.prototype.getAppToTemp = function () {
+        var _this = this;
+        /* this method is to add all applications found in btss to wdsb.tempProjects */
+        this.fnMain.getProjectsFromBTSS()
+            .then(function (tp) {
+            console.log(tp.length);
+            _this.fnMain.postProjectsToTempProjects(tp);
+        });
+        console.log('done-getAppToTemp');
+    };
+    SyncMainComponent.prototype.getNewAppFromTemp = function () {
+        /*this method is to check if there's a new applications found in btss*/
         this.newApps = this.fnMain.getNewApplications();
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {

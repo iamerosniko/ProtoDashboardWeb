@@ -33,11 +33,11 @@ var TempProjectService = (function () {
             .catch(this.handleError);
     };
     TempProjectService.prototype.postProject = function (newProject) {
-        return this.http
+        this.http
             .post(this.apiUrl, JSON.stringify(newProject), { headers: this.headers })
             .toPromise()
-            .then(function (res) { return res.json(); })
-            .catch(this.handleError);
+            .then(function () { console.log(true); })
+            .catch(function () { console.log(newProject.ProjectID); });
     };
     TempProjectService.prototype.putProject = function (project) {
         var url = this.apiUrl + "/" + project.ProjectID;
@@ -52,8 +52,8 @@ var TempProjectService = (function () {
         return this.http
             .delete(url, { headers: this.headers })
             .toPromise()
-            .then(function () { return null; })
-            .catch(this.handleError);
+            .then(function () { return true; })
+            .catch(function () { return false; });
     };
     TempProjectService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

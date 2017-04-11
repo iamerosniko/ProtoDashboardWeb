@@ -27,12 +27,12 @@ export class TempProjectService {
                 .catch(this.handleError);      
     }
 
-    postProject(newProject: TempProject): Promise<TempProject> {
-        return this.http
+    postProject(newProject: TempProject):void{
+         this.http
             .post(this.apiUrl, JSON.stringify(newProject), {headers: this.headers})
             .toPromise()
-            .then(res => res.json())
-            .catch(this.handleError);
+            .then(()=>{console.log(true);})
+            .catch(()=>{console.log(newProject.ProjectID);});
     }
 
     putProject(project: TempProject): Promise<TempProject> {
@@ -44,13 +44,13 @@ export class TempProjectService {
             .catch(this.handleError);
     }
     
-    DeleteProject(id: string): Promise<void> {
+    DeleteProject(id: string): Promise<boolean> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
             .delete(url, {headers: this.headers})
             .toPromise()
-            .then(() => null)
-            .catch(this.handleError);
+            .then(() => true)
+            .catch(() => false);
     }
 
     private handleError(error: any): Promise<any> {

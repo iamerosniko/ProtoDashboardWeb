@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 //services
 var temp_project_service_1 = require("../../../services/temp-project.service");
@@ -25,37 +26,34 @@ var FnMain = (function () {
     //1.from wdsb.temprojects 
     FnMain.prototype.getTempProjects = function () {
         var tmpProj;
-        this.tempProjectService.getProjects()
-            .then(function (tp) {
-            tmpProj = tp;
-            //this.deleteProjectsToTempProject(tmpProj); //uncomment if not working as synchronous
-        });
-        return tmpProj;
+        return this.tempProjectService.getProjects();
+        //return tmpProj;
     };
     //2.delete to tempprojects
     FnMain.prototype.deleteProjectsToTempProject = function (tp) {
-        var _this = this;
-        (tp).forEach(function (element) {
-            _this.tempProjectService.DeleteProject(element.ProjectID);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.DeleteProject(element.ProjectID);
+        // });
+        for (var _i = 0, tp_1 = tp; _i < tp_1.length; _i++) {
+            var entry = tp_1[_i];
+            this.tempProjectService.DeleteProject(entry.ProjectID);
+        }
     };
     //Part 2 : Insert list of applications from btss
     //3.from btss.project to wdsb.tempprojects
     FnMain.prototype.getProjectsFromBTSS = function () {
         var tmpProj;
-        this.btssWdsbService.getProjects()
-            .then(function (tp) {
-            tmpProj = tp;
-            //this.postProjectsToTempProjects(tmpProj); //uncomment if not working as synchronous
-        });
-        return tmpProj;
+        return this.btssWdsbService.getProjects();
     };
     //4.add to wdsb.tempprojects
     FnMain.prototype.postProjectsToTempProjects = function (tp) {
-        var _this = this;
-        (tp).forEach(function (element) {
-            _this.tempProjectService.postProject(element);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.postProject(element);
+        // });
+        for (var _i = 0, tp_2 = tp; _i < tp_2.length; _i++) {
+            var entry = tp_2[_i];
+            this.tempProjectService.postProject(entry);
+        }
     };
     /*Part 3 : Compare if already exists to wdsb.Applcation
      * if not exists > ADD
@@ -69,10 +67,13 @@ var FnMain = (function () {
     };
     //6.add to wdsb.Applications
     FnMain.prototype.postApplications = function (app) {
-        var _this = this;
-        (app).forEach(function (element) {
-            _this.applicationService.postApplication(element);
-        });
+        // (app).forEach(element => {
+        //     this.applicationService.postApplication(element);
+        // });
+        for (var _i = 0, app_1 = app; _i < app_1.length; _i++) {
+            var entry = app_1[_i];
+            this.applicationService.postApplication(entry);
+        }
     };
     /*Part 4 getting users from specific database app
      *
@@ -85,10 +86,13 @@ var FnMain = (function () {
     };
     //8.deleteUsers where app
     FnMain.prototype.deleteUsers = function (appUsers) {
-        var _this = this;
-        (appUsers).forEach(function (element) {
-            _this.appuserService.DeleteUser(element.AppUserID);
-        });
+        // (appUsers).forEach(element => {
+        //     this.appuserService.DeleteUser(element.AppUserID);
+        // });
+        for (var _i = 0, appUsers_1 = appUsers; _i < appUsers_1.length; _i++) {
+            var entry = appUsers_1[_i];
+            this.appuserService.DeleteUser(entry.AppUserID);
+        }
     };
     //9.getUsers from their database/application
     FnMain.prototype.getUsersFromApplications = function (app) {
@@ -98,11 +102,14 @@ var FnMain = (function () {
     };
     //10.postUsers
     FnMain.prototype.postUsers = function (appUsers) {
-        var _this = this;
         var isOk;
-        (appUsers).forEach(function (element) {
-            _this.appuserService.postUser(element).then(function () { isOk = true; });
-        });
+        // (appUsers).forEach(element => {
+        //     this.appuserService.postUser(element).then(()=>{isOk=true});
+        // });
+        for (var _i = 0, appUsers_2 = appUsers; _i < appUsers_2.length; _i++) {
+            var entry = appUsers_2[_i];
+            this.appuserService.postUser(entry).then(function () { isOk = true; });
+        }
         return isOk;
     };
     return FnMain;
