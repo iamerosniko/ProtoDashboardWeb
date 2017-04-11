@@ -31,9 +31,12 @@ export class FnMain  {
     }
     //2.delete to tempprojects
     deleteProjectsToTempProject(tp:TempProject[]){
-        (tp).forEach(element => {
-            this.tempProjectService.DeleteProject(element.ProjectID);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.DeleteProject(element.ProjectID);
+        // });
+        for (let entry of tp) {
+             this.tempProjectService.DeleteProject(entry.ProjectID);
+        }
     }
 //Part 2 : Insert list of applications from btss
     //3.from btss.project to wdsb.tempprojects
@@ -48,9 +51,12 @@ export class FnMain  {
     }
     //4.add to wdsb.tempprojects
     postProjectsToTempProjects(tp:TempProject[]){
-        (tp).forEach(element => {
-            this.tempProjectService.postProject(element);
-        });
+        // (tp).forEach(element => {
+        //     this.tempProjectService.postProject(element);
+        // });
+        for (let entry of tp) {
+             this.tempProjectService.DeleteProject(entry);
+        }
     }
 /*Part 3 : Compare if already exists to wdsb.Applcation
  * if not exists > ADD 

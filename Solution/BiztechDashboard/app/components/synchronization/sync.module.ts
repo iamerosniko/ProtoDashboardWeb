@@ -17,7 +17,7 @@ import { FnMain } from './functions/fn-main';
 import { BTSSWDSBService } from '../../services/btss-wdsb.service';
 import { TempProjectService } from '../../services/temp-project.service';
 import { ApplicationService } from '../../services/application.service';
-//import { AppUserService } from '../../services/app-user.service';
+import { AppUserService } from '../../services/app-user.service';
 import { SyncRouting } from './sync.routing';
 @NgModule({
     imports: [
@@ -39,6 +39,7 @@ import { SyncRouting } from './sync.routing';
         BTSSWDSBService,
         TempProjectService,
         ApplicationService,
+        AppUserService,
         FnMain
     ]
 })

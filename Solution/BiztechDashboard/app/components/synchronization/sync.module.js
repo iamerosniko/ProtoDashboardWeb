@@ -23,7 +23,7 @@ var fn_main_1 = require("./functions/fn-main");
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
 var temp_project_service_1 = require("../../services/temp-project.service");
 var application_service_1 = require("../../services/application.service");
-//import { AppUserService } from '../../services/app-user.service';
+var app_user_service_1 = require("../../services/app-user.service");
 var sync_routing_1 = require("./sync.routing");
 var SynchronizationModule = (function () {
     function SynchronizationModule() {
@@ -50,6 +50,7 @@ SynchronizationModule = __decorate([
             btss_wdsb_service_1.BTSSWDSBService,
             temp_project_service_1.TempProjectService,
             application_service_1.ApplicationService,
+            app_user_service_1.AppUserService,
             fn_main_1.FnMain
         ]
     })
