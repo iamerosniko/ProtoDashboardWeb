@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs'; 
 import { Injectable } from '@angular/core';
 //services
 import { TempProjectService } from '../../../services/temp-project.service';
@@ -46,19 +46,19 @@ export class FnMain  {
         // (tp).forEach(element => {
         //     this.tempProjectService.postProject(element);
         // });
-        for (let entry of tp) {
-            this.tempProjectService.postProject(entry)
-        }
+        // for (let entry of tp) {
+        //     this.tempProjectService.postProject(entry)
+        // }
+        this.tempProjectService.postProjects(tp);
     }
 /*Part 3 : Compare if already exists to wdsb.Applcation
  * if not exists > ADD 
  * (use VIEW in MSSQL right outer join + null)
 */
     //5.Compare wdsb.tempProjects and wdsb.Application
-    getNewApplications() : Application[]{ 
-        var newApp : Application[];
-        this.applicationService.getNewApplications().then(app => newApp = app);
-        return newApp;
+    getNewApplications():Promise<Application[]>{ 
+        return this.applicationService.getNewApplications();
+        
     }
     //6.add to wdsb.Applications
     postApplications(app:Application[]): void{

@@ -39,6 +39,13 @@ var TempProjectService = (function () {
             .then(function () { console.log(true); })
             .catch(function () { console.log(newProject.ProjectID); });
     };
+    TempProjectService.prototype.postProjects = function (newProjects) {
+        return this.http
+            .post(this.apiUrl, JSON.stringify(newProjects), { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(function () { console.log(false); });
+    };
     TempProjectService.prototype.putProject = function (project) {
         var url = this.apiUrl + "/" + project.ProjectID;
         return this.http

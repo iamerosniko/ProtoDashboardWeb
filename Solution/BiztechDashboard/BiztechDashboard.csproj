@@ -121,6 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\components\synchronization\subcomponents\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -253,12 +254,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\about.component.html" />
-    <Content Include="app\about.component.js" />
-    <Content Include="app\app.component.html" />
     <Content Include="app\app.component.js" />
     <Content Include="app\app.module.js" />
     <Content Include="app\app.routing.js" />
+    <Content Include="app\components\dashboard\dashboard.module.js" />
+    <Content Include="app\components\dashboard\dashboard.routing.js" />
+    <Content Include="app\components\synchronization\functions\fn-main.js" />
+    <Content Include="app\components\synchronization\sync-main.component.html" />
+    <Content Include="app\components\synchronization\sync-main.component.js" />
+    <Content Include="app\components\synchronization\sync.module.js" />
+    <Content Include="app\components\synchronization\sync.routing.js" />
+    <Content Include="app\entities\application.js" />
+    <Content Include="app\entities\application.ts" />
+    <Content Include="app\entities\appusers.js" />
+    <Content Include="app\entities\appusers.ts" />
+    <Content Include="app\entities\tempproject.js" />
+    <Content Include="app\entities\tempproject.ts" />
+    <Content Include="app\services\app-user.service.js" />
+    <Content Include="app\services\app-user.service.ts" />
+    <Content Include="app\services\application.service.js" />
+    <Content Include="app\services\application.service.ts" />
+    <Content Include="app\services\btss-wdsb.service.js" />
+    <Content Include="app\services\btss-wdsb.service.ts" />
+    <Content Include="app\services\temp-project.service.js" />
+    <Content Include="app\services\temp-project.service.ts" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

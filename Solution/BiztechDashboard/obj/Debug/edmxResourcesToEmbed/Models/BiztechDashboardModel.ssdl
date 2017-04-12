@@ -84,15 +84,15 @@
     <Key>
       <PropertyRef Name="ProjectID" />
     </Key>
-    <Property Name="ProjectID" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ProjectName" Type="varchar" MaxLength="150" />
-    <Property Name="ProjectDesc" Type="varchar" MaxLength="100" />
+    <Property Name="ProjectDesc" Type="varchar(max)" />
     <Property Name="ProjectDatasource" Type="varchar" MaxLength="50" />
     <Property Name="ProjectDatabaseName" Type="varchar" MaxLength="50" />
     <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
     <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
     <Property Name="ProjectIsActive" Type="bit" />
-    <Property Name="ProjectVersion" Type="varchar" MaxLength="10" />
+    <Property Name="ProjectVersion" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

@@ -103,6 +103,6 @@ C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\bin\Sys
 C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\bin\System.Web.WebPages.Deployment.xml
 C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\bin\System.Web.WebPages.Razor.xml
 C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\bin\Antlr3.Runtime.pdb
-C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.csprojResolveAssemblyReference.cache
 C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.dll
 C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.pdb
+C:\Users\alverer\Documents\GitHub\WebDashboard\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.csprojResolveAssemblyReference.cache

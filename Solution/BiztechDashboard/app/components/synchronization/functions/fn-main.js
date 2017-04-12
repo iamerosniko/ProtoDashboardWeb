@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 //services
 var temp_project_service_1 = require("../../../services/temp-project.service");
@@ -50,10 +49,10 @@ var FnMain = (function () {
         // (tp).forEach(element => {
         //     this.tempProjectService.postProject(element);
         // });
-        for (var _i = 0, tp_2 = tp; _i < tp_2.length; _i++) {
-            var entry = tp_2[_i];
-            this.tempProjectService.postProject(entry);
-        }
+        // for (let entry of tp) {
+        //     this.tempProjectService.postProject(entry)
+        // }
+        this.tempProjectService.postProjects(tp);
     };
     /*Part 3 : Compare if already exists to wdsb.Applcation
      * if not exists > ADD
@@ -61,9 +60,7 @@ var FnMain = (function () {
     */
     //5.Compare wdsb.tempProjects and wdsb.Application
     FnMain.prototype.getNewApplications = function () {
-        var newApp;
-        this.applicationService.getNewApplications().then(function (app) { return newApp = app; });
-        return newApp;
+        return this.applicationService.getNewApplications();
     };
     //6.add to wdsb.Applications
     FnMain.prototype.postApplications = function (app) {

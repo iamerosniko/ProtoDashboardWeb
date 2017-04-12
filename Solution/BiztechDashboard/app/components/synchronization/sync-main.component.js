@@ -21,11 +21,17 @@ var SyncMainComponent = (function () {
     };
     SyncMainComponent.prototype.initAppSync = function () {
         this.removeAppFromTemp(); // 1 and 2 
-        this.getAppToTemp(); // 3 and 4
-        //this.fnMain.getTempProjects();
-        //this.fnMain.postProjectsToTempProjects(this.fnMain.getProjectsFromBTSS());
-        //this.newApps=this.fnMain.getNewApplications();
+        this.getAppToTemp(); // 3 and 4    
+        this.getNewAppFromTemp();
+        // this.data.subscribe(()=>{
+        //     this.getNewAppFromTemp();
+        // });
+        // var vm=this;
+        // vm.removeAppFromTemp(); // 1 and 2 
+        // vm.getAppToTemp(); // 3 and 4
+        // vm.getNewAppFromTemp();    
     };
+    //1
     SyncMainComponent.prototype.removeAppFromTemp = function () {
         var _this = this;
         /* this method is to delete temporary data in wdsb.tempProjects */
@@ -35,20 +41,28 @@ var SyncMainComponent = (function () {
         });
         console.log('done-removeAppFromTemp');
     };
+    //2
     SyncMainComponent.prototype.getAppToTemp = function () {
         var _this = this;
         /* this method is to add all applications found in btss to wdsb.tempProjects */
         this.fnMain.getProjectsFromBTSS()
             .then(function (tp) {
-            console.log(tp.length);
-            _this.fnMain.postProjectsToTempProjects(tp);
+            console.log(tp.length),
+                _this.fnMain.postProjectsToTempProjects(tp);
         });
         console.log('done-getAppToTemp');
     };
+    //3
     SyncMainComponent.prototype.getNewAppFromTemp = function () {
+        var _this = this;
         /*this method is to check if there's a new applications found in btss*/
-        this.newApps = this.fnMain.getNewApplications();
+        this.fnMain.getNewApplications()
+            .then(function (apps) {
+            _this.newApps = apps;
+            console.log('done-getNewAppFromTemp');
+        });
     };
+    /*                     OTHERS                         */
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
         //this method is to save new applications to wdsb.applications
         this.fnMain.postApplications(apps);
