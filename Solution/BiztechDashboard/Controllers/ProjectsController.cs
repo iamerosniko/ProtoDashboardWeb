@@ -70,33 +70,31 @@ namespace BiztechDashboard.Controllers
         }
 
         // POST api/Projects
-        [ResponseType(typeof(WDSB_Projects))]
-        public IHttpActionResult PostWDSB_Projects(WDSB_Projects wdsb_projects)
+        [ResponseType(typeof(string))]
+        public IHttpActionResult PostWDSB_Projects(List<WDSB_Projects> wdsb_projects )
         {
+            int good = 0;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.WDSB_Projects.Add(wdsb_projects);
+            foreach (var temp in wdsb_projects)
+            {
+                db.WDSB_Projects.Add(temp);
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (WDSB_ProjectsExists(wdsb_projects.ProjectID))
+                try
                 {
-                    return Conflict();
+                    db.SaveChanges();
+                    good += 1;
                 }
-                else
+                catch (DbUpdateException)
                 {
-                    throw;
+
                 }
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = wdsb_projects.ProjectID }, wdsb_projects);
+            return Ok("Good: " + good + "Error: " + (wdsb_projects.Count() - good).ToString());
         }
 
         // DELETE api/Projects/5
