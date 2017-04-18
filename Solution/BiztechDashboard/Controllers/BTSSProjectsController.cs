@@ -25,13 +25,14 @@ namespace BiztechDashboard.Controllers
                    {
                        ProjectDatabaseName = i.DatabaseName,
                        ProjectDatasource = i.Datasource,
-                       ProjectDesc = i.Desc,
+                       //ProjectDesc = i.Desc,
                        ProjectID = i.Id,
                        ProjectIsActive = i.IsActive,
                        ProjectName = i.Name,
                        ProjectPassword = i.Password,
-                       ProjectUserID = i.UserID,
-                       ProjectVersion = i.Version
+                       ProjectUserID = i.UserID
+                       //,
+                       //ProjectVersion = i.Version
                    };
         }
 

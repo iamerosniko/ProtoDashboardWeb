@@ -17,10 +17,10 @@ namespace BiztechDashboard.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public WDSB_Applications()
         {
+            this.WDSB_AppUsers = new HashSet<WDSB_AppUsers>();
             this.WDSB_Comments = new HashSet<WDSB_Comments>();
             this.WDSB_Favorites = new HashSet<WDSB_Favorites>();
             this.WDSB_Features = new HashSet<WDSB_Features>();
-            this.WDSB_AppUsers = new HashSet<WDSB_AppUsers>();
         }
     
         public int AppID { get; set; }
@@ -39,24 +39,31 @@ namespace BiztechDashboard.Models
         public Nullable<System.DateTime> DateImplemented { get; set; }
         public Nullable<System.DateTime> LastProdDate { get; set; }
         public string AppVersion { get; set; }
-        public string ProjectID { get; set; }
         public string AppDesc { get; set; }
         public string AppDatasource { get; set; }
         public string AppDatabaseName { get; set; }
         public string AppUserID { get; set; }
         public string AppPassword { get; set; }
         public Nullable<bool> AppIsWeb { get; set; }
+        public string ProjectDevID { get; set; }
+        public string ProjectModID { get; set; }
+        public string ProjectOpsID { get; set; }
+        public string AppIconPath { get; set; }
+        public Nullable<bool> IsUatAvail { get; set; }
     
         public virtual WDSB_BUContacts WDSB_BUContacts { get; set; }
         public virtual WDSB_BUContacts WDSB_BUContacts1 { get; set; }
         public virtual WDSB_BusinessUnits WDSB_BusinessUnits { get; set; }
+        public virtual WDSB_Projects WDSB_Projects { get; set; }
+        public virtual WDSB_Projects WDSB_Projects1 { get; set; }
+        public virtual WDSB_Projects WDSB_Projects2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WDSB_AppUsers> WDSB_AppUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Comments> WDSB_Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Favorites> WDSB_Favorites { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Features> WDSB_Features { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WDSB_AppUsers> WDSB_AppUsers { get; set; }
     }
 }

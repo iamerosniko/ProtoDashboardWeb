@@ -14,28 +14,12 @@ namespace BiztechDashboard.Models
     
     public partial class VW_WDSB_GetNewApp
     {
-        public Nullable<System.Guid> AppID { get; set; }
-        public string AppName { get; set; }
-        public Nullable<int> AppBU { get; set; }
-        public string FrontTechnology { get; set; }
-        public string FrontEndPath { get; set; }
-        public string BackTechnology { get; set; }
-        public string BackEndPath { get; set; }
-        public Nullable<int> AppLifespan { get; set; }
-        public Nullable<int> PrimaryBUContact { get; set; }
-        public Nullable<int> SecondaryBUContact { get; set; }
-        public Nullable<bool> AppIsActive { get; set; }
-        public Nullable<bool> AppPII { get; set; }
-        public string AppSecurity { get; set; }
-        public Nullable<System.DateTime> DateImplemented { get; set; }
-        public Nullable<System.DateTime> LastProdDate { get; set; }
-        public string AppVersion { get; set; }
         public string ProjectID { get; set; }
-        public string AppDesc { get; set; }
+        public string AppName { get; set; }
+        public Nullable<bool> AppIsActive { get; set; }
         public string AppDatasource { get; set; }
         public string AppDatabaseName { get; set; }
         public string AppUserID { get; set; }
         public string AppPassword { get; set; }
-        public Nullable<bool> AppIsWeb { get; set; }
     }
 }
