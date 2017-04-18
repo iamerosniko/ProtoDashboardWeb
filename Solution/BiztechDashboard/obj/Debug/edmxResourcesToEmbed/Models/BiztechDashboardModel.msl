@@ -121,12 +121,12 @@
     <EntitySetMapping Name="VW_WDSB_GetNewApp">
       <EntityTypeMapping TypeName="BiztechDashboardModel.VW_WDSB_GetNewApp">
         <MappingFragment StoreEntitySet="VW_WDSB_GetNewApp">
-          <ScalarProperty Name="AppPassword" ColumnName="AppPassword" />
-          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
-          <ScalarProperty Name="AppDatabaseName" ColumnName="AppDatabaseName" />
-          <ScalarProperty Name="AppDatasource" ColumnName="AppDatasource" />
-          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
+          <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
+          <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+          <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
+          <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
         </MappingFragment>
       </EntityTypeMapping>

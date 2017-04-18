@@ -120,12 +120,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <PropertyRef Name="ProjectID" />
           </Key>
           <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="AppName" Type="varchar" MaxLength="150" />
-          <Property Name="AppIsActive" Type="bit" />
-          <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
-          <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
-          <Property Name="AppUserID" Type="varchar" MaxLength="25" />
-          <Property Name="AppPassword" Type="varchar" MaxLength="25" />
+          <Property Name="ProjectName" Type="varchar" MaxLength="150" />
+          <Property Name="ProjectDatasource" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectDatabaseName" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
+          <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
+          <Property Name="ProjectIsActive" Type="bit" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
@@ -260,12 +260,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <EntitySet Name="VW_WDSB_GetNewApp" EntityType="Self.VW_WDSB_GetNewApp" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [VW_WDSB_GetNewApp].[ProjectID] AS [ProjectID], 
-    [VW_WDSB_GetNewApp].[AppName] AS [AppName], 
-    [VW_WDSB_GetNewApp].[AppIsActive] AS [AppIsActive], 
-    [VW_WDSB_GetNewApp].[AppDatasource] AS [AppDatasource], 
-    [VW_WDSB_GetNewApp].[AppDatabaseName] AS [AppDatabaseName], 
-    [VW_WDSB_GetNewApp].[AppUserID] AS [AppUserID], 
-    [VW_WDSB_GetNewApp].[AppPassword] AS [AppPassword]
+    [VW_WDSB_GetNewApp].[ProjectName] AS [ProjectName], 
+    [VW_WDSB_GetNewApp].[ProjectDatasource] AS [ProjectDatasource], 
+    [VW_WDSB_GetNewApp].[ProjectDatabaseName] AS [ProjectDatabaseName], 
+    [VW_WDSB_GetNewApp].[ProjectUserID] AS [ProjectUserID], 
+    [VW_WDSB_GetNewApp].[ProjectPassword] AS [ProjectPassword], 
+    [VW_WDSB_GetNewApp].[ProjectIsActive] AS [ProjectIsActive]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">
@@ -618,12 +618,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <PropertyRef Name="ProjectID" />
           </Key>
           <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="AppIsActive" Type="Boolean" />
-          <Property Name="AppDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AppDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AppUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="AppPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectIsActive" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -751,12 +751,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <EntitySetMapping Name="VW_WDSB_GetNewApp">
             <EntityTypeMapping TypeName="BiztechDashboardModel.VW_WDSB_GetNewApp">
               <MappingFragment StoreEntitySet="VW_WDSB_GetNewApp">
-                <ScalarProperty Name="AppPassword" ColumnName="AppPassword" />
-                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
-                <ScalarProperty Name="AppDatabaseName" ColumnName="AppDatabaseName" />
-                <ScalarProperty Name="AppDatasource" ColumnName="AppDatasource" />
-                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
+                <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
+                <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+                <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
+                <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>

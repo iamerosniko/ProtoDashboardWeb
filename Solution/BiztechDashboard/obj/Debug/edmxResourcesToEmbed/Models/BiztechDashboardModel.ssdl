@@ -115,12 +115,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
       <PropertyRef Name="ProjectID" />
     </Key>
     <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="AppName" Type="varchar" MaxLength="150" />
-    <Property Name="AppIsActive" Type="bit" />
-    <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
-    <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
-    <Property Name="AppUserID" Type="varchar" MaxLength="25" />
-    <Property Name="AppPassword" Type="varchar" MaxLength="25" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="150" />
+    <Property Name="ProjectDatasource" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectDatabaseName" Type="varchar" MaxLength="50" />
+    <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
+    <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
+    <Property Name="ProjectIsActive" Type="bit" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
@@ -255,12 +255,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     <EntitySet Name="VW_WDSB_GetNewApp" EntityType="Self.VW_WDSB_GetNewApp" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [VW_WDSB_GetNewApp].[ProjectID] AS [ProjectID], 
-    [VW_WDSB_GetNewApp].[AppName] AS [AppName], 
-    [VW_WDSB_GetNewApp].[AppIsActive] AS [AppIsActive], 
-    [VW_WDSB_GetNewApp].[AppDatasource] AS [AppDatasource], 
-    [VW_WDSB_GetNewApp].[AppDatabaseName] AS [AppDatabaseName], 
-    [VW_WDSB_GetNewApp].[AppUserID] AS [AppUserID], 
-    [VW_WDSB_GetNewApp].[AppPassword] AS [AppPassword]
+    [VW_WDSB_GetNewApp].[ProjectName] AS [ProjectName], 
+    [VW_WDSB_GetNewApp].[ProjectDatasource] AS [ProjectDatasource], 
+    [VW_WDSB_GetNewApp].[ProjectDatabaseName] AS [ProjectDatabaseName], 
+    [VW_WDSB_GetNewApp].[ProjectUserID] AS [ProjectUserID], 
+    [VW_WDSB_GetNewApp].[ProjectPassword] AS [ProjectPassword], 
+    [VW_WDSB_GetNewApp].[ProjectIsActive] AS [ProjectIsActive]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">

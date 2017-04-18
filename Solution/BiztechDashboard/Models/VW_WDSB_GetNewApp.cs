@@ -15,11 +15,11 @@ namespace BiztechDashboard.Models
     public partial class VW_WDSB_GetNewApp
     {
         public string ProjectID { get; set; }
-        public string AppName { get; set; }
-        public Nullable<bool> AppIsActive { get; set; }
-        public string AppDatasource { get; set; }
-        public string AppDatabaseName { get; set; }
-        public string AppUserID { get; set; }
-        public string AppPassword { get; set; }
+        public string ProjectName { get; set; }
+        public string ProjectDatasource { get; set; }
+        public string ProjectDatabaseName { get; set; }
+        public string ProjectUserID { get; set; }
+        public string ProjectPassword { get; set; }
+        public Nullable<bool> ProjectIsActive { get; set; }
     }
 }
