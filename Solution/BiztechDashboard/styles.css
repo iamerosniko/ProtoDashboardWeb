@@ -3,11 +3,103 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+/* WD */
 
-.ng-valid[required], .ng-valid.required {
-  border-left: 5px solid #42A948;
+.navbar-blue {
+    background: #1F4267; /*002d5b*/
+    color: #ffffff;
 }
 
-.ng-invalid:not(form) {
-  border-left: 5px solid #a94442;
+.navbar-blue .navbar-brand {
+    color: #ffffff;
 }
+
+.navbar-blue .navbar-brand:hover,
+.navbar-blue .navbar-brand:focus {
+    color: #9f9f9f;
+    background-color: transparent;
+}
+.navbar-blue .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-blue .navbar-nav > li > a:hover,
+.navbar-blue .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #5A799A;
+}
+
+.navbar-blue .navbar-nav > .active > a,
+.navbar-blue .navbar-nav > .active > a:hover,
+.navbar-blue .navbar-nav > .active > a:focus {
+    transition: all 0.3s ease;
+    background-color: #5A799A; /*124171*/ /*01458D*/
+}
+.navbar-blue .navbar-nav > .disabled > a,
+.navbar-blue .navbar-nav > .disabled > a:hover,
+.navbar-blue .navbar-nav > .disabled > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+.navbar-blue .navbar-toggle:hover,
+.navbar-blue .navbar-toggle:focus {
+    background-color: #1f4267; /*002d5b*/
+}
+.navbar-blue .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-blue .navbar-collapse,
+.navbar-blue .navbar-form {
+    border-color: #fff;
+}
+.navbar-blue .navbar-nav > .open > a,
+.navbar-blue .navbar-nav > .open > a:hover,
+.navbar-blue .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #080808;
+}
+
+.main-content {
+    padding-top: 60px;
+    background: #ecf0f5;
+}
+
+.thumbnail-img {
+    width:60px; 
+    height:90px;
+}
+
+.thumbnail-selector:hover > .thumbnail{
+    background-color: #e3eaf1;
+}
+
+.breadcrumb {
+    background-color: #e3eaf1;
+}
+
+.col-md-6 > input[type="text"].searchbar {
+    width: 50%;
+}
+
+.col-md-12 > input[type="text"].searchbar {
+    width: 25%;
+}
+
+@media (max-width: 767px) { 
+    .col-md-6 > input[type="text"].searchbar,
+    .col-md-12 > input[type="text"].searchbar {
+        width: 100%;
+    }
+}
+
+.popover {
+    max-width: 100%;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #646564; /* old IE */
+    background-color: #646564; /* Modern Browsers */
+}
+
