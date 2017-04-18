@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
 import { Application } from '../entities/application';
+import { TempProject } from '../entities/tempproject';
 @Injectable()
 export class ApplicationService {
     private headers = new Headers({'Content-Type': 'application/json'});
@@ -10,7 +11,7 @@ export class ApplicationService {
     private newAppUrl = 'api/NewApplications';
     constructor(private http: Http){}
 
-    getNewApplications():Promise<Application[]>{
+    getNewApplications():Promise<TempProject[]>{
         return this.http
                 .get(this.newAppUrl, {headers: this.headers})
                 .toPromise()

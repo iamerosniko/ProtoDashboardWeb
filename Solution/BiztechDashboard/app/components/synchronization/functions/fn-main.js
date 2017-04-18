@@ -67,10 +67,7 @@ var FnMain = (function () {
         // (app).forEach(element => {
         //     this.applicationService.postApplication(element);
         // });
-        for (var _i = 0, app_1 = app; _i < app_1.length; _i++) {
-            var entry = app_1[_i];
-            this.applicationService.postApplication(entry);
-        }
+        this.tempProjectService.postProjects2(app);
     };
     /*Part 4 getting users from specific database app
      *

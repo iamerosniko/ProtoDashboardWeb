@@ -7,18 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var appRoutes = [
-    { path: '', redirectTo: '/Applications', pathMatch: 'full' }
+var ac_parent_component_1 = require("./ac-parent.component");
+//import { SyncMainComponent } from './sync-main.component';
+var syncRoutes = [
+    { path: 'Applications', component: ac_parent_component_1.ACComponent }
 ];
-var AppRouting = (function () {
-    function AppRouting() {
+var AppCatalogRouting = (function () {
+    function AppCatalogRouting() {
     }
-    return AppRouting;
+    return AppCatalogRouting;
 }());
-AppRouting = __decorate([
+AppCatalogRouting = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
+        imports: [router_1.RouterModule.forChild(syncRoutes)],
         exports: [router_1.RouterModule]
     })
-], AppRouting);
-exports.AppRouting = AppRouting;
+], AppCatalogRouting);
+exports.AppCatalogRouting = AppCatalogRouting;

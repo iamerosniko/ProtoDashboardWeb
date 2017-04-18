@@ -7,7 +7,7 @@ import { TempProject } from '../entities/tempproject';
 export class TempProjectService {
     private headers = new Headers({'Content-Type': 'application/json'});
     private apiUrl = 'api/TempProjects';  
-    
+    private api2Url = 'api/Projects';
     constructor(private http: Http){}
 
     getProjects(): Promise<TempProject[]> {
@@ -38,6 +38,14 @@ export class TempProjectService {
     postProjects(newProjects: TempProject[]):Promise<string>{
          return this.http
             .post(this.apiUrl, JSON.stringify(newProjects), {headers: this.headers})
+            .toPromise()
+            .then(response => response.json())
+            .catch(()=>{console.log(false);});
+    }
+
+    postProjects2(newProjects: TempProject[]):Promise<string>{
+         return this.http
+            .post(this.api2Url, JSON.stringify(newProjects), {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(()=>{console.log(false);});

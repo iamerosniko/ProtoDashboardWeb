@@ -6,19 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var appRoutes = [
-    { path: '', redirectTo: '/Applications', pathMatch: 'full' }
-];
-var AppRouting = (function () {
-    function AppRouting() {
+var ACGridComponent = (function () {
+    function ACGridComponent() {
     }
-    return AppRouting;
+    return ACGridComponent;
 }());
-AppRouting = __decorate([
-    core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
-        exports: [router_1.RouterModule]
+ACGridComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'ac-grid',
+        templateUrl: "ac-grid.component.html"
     })
-], AppRouting);
-exports.AppRouting = AppRouting;
+], ACGridComponent);
+exports.ACGridComponent = ACGridComponent;

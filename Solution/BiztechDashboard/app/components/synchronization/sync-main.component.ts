@@ -3,6 +3,8 @@ import { FnMain } from './functions/fn-main';
 import { Observable } from 'rxjs/Observable';
 //entities
 import { Application } from '../../entities/application';
+
+import { TempProject } from '../../entities/tempproject';
 @Component({
     moduleId: module.id,
     selector: 'sync-comp',
@@ -14,7 +16,7 @@ import { Application } from '../../entities/application';
 })
 export class SyncMainComponent implements OnInit  { 
     name = 'Sync page';
-    newApps:Application[]=null;
+    newApps:TempProject[]=null;
     constructor(
         private fnMain : FnMain,
     ){ }
@@ -60,14 +62,12 @@ export class SyncMainComponent implements OnInit  {
         /*this method is to check if there's a new applications found in btss*/
         this.fnMain.getNewApplications()
             .then(apps =>{
-                this.newApps=apps;console.log('done-getNewAppFromTemp');
+                this.newApps=apps;
+                console.log('done-getNewAppFromTemp');
             });
-        
     }
-
-
 /*                     OTHERS                         */
-    saveNewApplications(apps:Application[]){
+    saveNewApplications(apps:TempProject[]){
         //this method is to save new applications to wdsb.applications
         this.fnMain.postApplications(apps);
     }

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'my-app',
-  templateUrl:`app.component.html`
+  templateUrl:`ac-parent.component.html`
 })
-export class AppComponent  { 
+export class ACComponent  { 
+  viewtype:number=0;
   
 }

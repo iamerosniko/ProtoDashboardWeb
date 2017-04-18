@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li class="active">Applications Catalog</li>
+            </ol>
+        </div>
+    </div>
+    <h3>Applications Catalog</h3>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <div class="btn-group" role="group">
+                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Favorite Apps..."><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Available for you..."><span class="glyphicon glyphicon-bookmark"></span></a>
+                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="All BizTech Apps..."><span class="glyphicon glyphicon-list-alt"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12"><!--Added-->
+            <div class="col-md-6">
+                <input type="text" class="form-control input-sm searchbar" placeholder="Search for apps..."/>
+            </div>
+            <div class="col-md-6">
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-default btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-export"></span>&nbsp;Export App List</a></li>
+                            <li><a (click)="viewtype=1"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List View</a></li>
+                            <li><a (click)="viewtype=0"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid View</a></li>
+                            <!--<li role="separator" class="divider"></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!--Added-->
+    </div>
+    <hr />
+</div>
+<!--data-->
+<ac-grid *ngIf="viewtype==0"></ac-grid>
+<ac-list *ngIf="viewtype==1"></ac-list>
+<!--Pagination-->
+<div class="container">
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,19 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var appRoutes = [
-    { path: '', redirectTo: '/Applications', pathMatch: 'full' }
-];
-var AppRouting = (function () {
-    function AppRouting() {
+var ACComponent = (function () {
+    function ACComponent() {
+        this.viewtype = 0;
     }
-    return AppRouting;
+    return ACComponent;
 }());
-AppRouting = __decorate([
-    core_1.NgModule({
-        imports: [router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
-        exports: [router_1.RouterModule]
+ACComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-app',
+        templateUrl: "ac-parent.component.html"
     })
-], AppRouting);
-exports.AppRouting = AppRouting;
+], ACComponent);
+exports.ACComponent = ACComponent;

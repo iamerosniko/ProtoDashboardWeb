@@ -16,6 +16,7 @@ var TempProjectService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.apiUrl = 'api/TempProjects';
+        this.api2Url = 'api/Projects';
     }
     TempProjectService.prototype.getProjects = function () {
         return this.http
@@ -42,6 +43,13 @@ var TempProjectService = (function () {
     TempProjectService.prototype.postProjects = function (newProjects) {
         return this.http
             .post(this.apiUrl, JSON.stringify(newProjects), { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(function () { console.log(false); });
+    };
+    TempProjectService.prototype.postProjects2 = function (newProjects) {
+        return this.http
+            .post(this.api2Url, JSON.stringify(newProjects), { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(function () { console.log(false); });
