@@ -12,7 +12,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let app of newApps">
-                <td>{{app.AppName}}</td>
+                <td>{{app.ProjectName}}</td>
+                <td>{{app.ProjectDatasource}}</td>
+                <td>{{app.ProjectDatabasename}}</td>
+                <td>{{app.ProjectUserID}}</td>
             </tr>
         </tbody>
     </table>    
