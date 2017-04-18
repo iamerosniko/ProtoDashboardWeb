@@ -14,7 +14,7 @@ var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
         this.fnMain = fnMain;
         this.name = 'Sync page';
-        this.newApps = null;
+        this.newApps = [];
     }
     SyncMainComponent.prototype.ngOnInit = function () {
         this.initAppSync();

@@ -1,5 +1,5 @@
 <div [hidden]="newApps==null">
-    <button class="btn btn-default btn-sm" type="button" (click)="saveNewApplications(newApps)">Add to Projects</button>
+    <button class="btn btn-default btn-sm" type="button" [disabled]="!newApps.length>0" (click)="saveNewApplications(newApps)">Add to Projects</button>
     <table class="table table-hover">
         <thead>
             <tr>

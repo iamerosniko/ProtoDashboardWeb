@@ -16,7 +16,7 @@ import { TempProject } from '../../entities/tempproject';
 })
 export class SyncMainComponent implements OnInit  { 
     name = 'Sync page';
-    newApps:TempProject[]=null;
+    newApps:TempProject[]=[];
     constructor(
         private fnMain : FnMain,
     ){ }
