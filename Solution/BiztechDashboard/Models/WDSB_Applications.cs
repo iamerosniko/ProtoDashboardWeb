@@ -17,7 +17,6 @@ namespace BiztechDashboard.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public WDSB_Applications()
         {
-            this.WDSB_AppUsers = new HashSet<WDSB_AppUsers>();
             this.WDSB_Comments = new HashSet<WDSB_Comments>();
             this.WDSB_Favorites = new HashSet<WDSB_Favorites>();
             this.WDSB_Features = new HashSet<WDSB_Features>();
@@ -57,8 +56,6 @@ namespace BiztechDashboard.Models
         public virtual WDSB_Projects WDSB_Projects { get; set; }
         public virtual WDSB_Projects WDSB_Projects1 { get; set; }
         public virtual WDSB_Projects WDSB_Projects2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WDSB_AppUsers> WDSB_AppUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Comments> WDSB_Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

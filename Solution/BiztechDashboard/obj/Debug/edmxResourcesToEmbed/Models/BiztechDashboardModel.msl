@@ -50,15 +50,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_AppUsers">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppUsers">
-        <MappingFragment StoreEntitySet="WDSB_AppUsers">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WDSB_Applications">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
         <MappingFragment StoreEntitySet="WDSB_Applications">
@@ -128,6 +119,15 @@
           <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
           <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_AppUsers">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppUsers">
+        <MappingFragment StoreEntitySet="WDSB_AppUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

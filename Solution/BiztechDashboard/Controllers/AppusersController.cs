@@ -98,24 +98,6 @@ namespace BiztechDashboard.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = wdsb_appusers.AppUserID }, wdsb_appusers);
         }
-        //test
-        [Route("api/Appusers/DeleteUsers")]
-        public void DeleteUsers(List<WDSB_AppUsers>wdsb_appusers)
-        {
-            foreach (var a in wdsb_appusers)
-            {
-                try
-                {
-                    db.WDSB_AppUsers.Remove(a);
-                    db.SaveChanges();
-                }
-                catch
-                {
-
-                }
-            }
-        }
-
 
         // DELETE api/Appusers/5
         [ResponseType(typeof(WDSB_AppUsers))]
@@ -131,6 +113,23 @@ namespace BiztechDashboard.Controllers
             db.SaveChanges();
 
             return Ok(wdsb_appusers);
+        }
+
+        [Route("api/Appusers/DeleteUsers")]
+        public void DeleteUsers(List<WDSB_AppUsers> wdsb_appusers)
+        {
+            foreach (var a in wdsb_appusers)
+            {
+                try
+                {
+                    db.WDSB_AppUsers.Remove(a);
+                    db.SaveChanges();
+                }
+                catch
+                {
+
+                }
+            }
         }
 
         protected override void Dispose(bool disposing)

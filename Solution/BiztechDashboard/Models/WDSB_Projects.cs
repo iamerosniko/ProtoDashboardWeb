@@ -20,6 +20,7 @@ namespace BiztechDashboard.Models
             this.WDSB_Applications = new HashSet<WDSB_Applications>();
             this.WDSB_Applications1 = new HashSet<WDSB_Applications>();
             this.WDSB_Applications2 = new HashSet<WDSB_Applications>();
+            this.WDSB_AppUsers = new HashSet<WDSB_AppUsers>();
         }
     
         public string ProjectID { get; set; }
@@ -36,5 +37,7 @@ namespace BiztechDashboard.Models
         public virtual ICollection<WDSB_Applications> WDSB_Applications1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Applications> WDSB_Applications2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WDSB_AppUsers> WDSB_AppUsers { get; set; }
     }
 }

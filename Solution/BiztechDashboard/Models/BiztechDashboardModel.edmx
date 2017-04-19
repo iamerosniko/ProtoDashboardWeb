@@ -42,7 +42,7 @@
             <PropertyRef Name="AppUserID" />
           </Key>
           <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="WDSB_BUContacts">
@@ -199,15 +199,15 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WDSB_AppUsers_WDSB_Applications">
-          <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+        <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
+          <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="1" />
           <End Role="WDSB_AppUsers" Type="Self.WDSB_AppUsers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="WDSB_Applications">
-              <PropertyRef Name="AppID" />
+            <Principal Role="WDSB_Projects">
+              <PropertyRef Name="ProjectID" />
             </Principal>
             <Dependent Role="WDSB_AppUsers">
-              <PropertyRef Name="AppID" />
+              <PropertyRef Name="ProjectID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -292,8 +292,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
           </AssociationSet>
-          <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Applications" Association="Self.FK_WDSB_AppUsers_WDSB_Applications">
-            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+          <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="Self.FK_WDSB_AppUsers_WDSB_Projects">
+            <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
             <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
           </AssociationSet>
           <AssociationSet Name="FK_WDSB_Comments_WDSB_Applications" Association="Self.FK_WDSB_Comments_WDSB_Applications">
@@ -369,7 +369,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" />
           <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" />
           <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" />
-          <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
           <EntitySet Name="WDSB_Applications" EntityType="BiztechDashboardModel.WDSB_Applications" />
           <EntitySet Name="WDSB_Projects" EntityType="BiztechDashboardModel.WDSB_Projects" />
           <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
@@ -397,10 +396,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
           </AssociationSet>
-          <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Applications">
-            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-            <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
-          </AssociationSet>
           <AssociationSet Name="FK_WDSB_Comments_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications">
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
             <End Role="WDSB_Comments" EntitySet="WDSB_Comments" />
@@ -414,16 +409,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <End Role="WDSB_Features" EntitySet="WDSB_Features" />
           </AssociationSet>
           <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
+          <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
+          <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects">
+            <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
+            <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="WDSB_AppUsers">
-          <Key>
-            <PropertyRef Name="AppUserID" />
-          </Key>
-          <Property Name="AppUserID" Type="Guid" Nullable="false" />
-          <Property Name="AppID" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Applications" FromRole="WDSB_AppUsers" ToRole="WDSB_Applications" />
-        </EntityType>
         <EntityType Name="WDSB_Applications">
           <Key>
             <PropertyRef Name="AppID" />
@@ -461,7 +452,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects" FromRole="WDSB_Applications" ToRole="WDSB_Projects" />
           <NavigationProperty Name="WDSB_Projects1" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects1" FromRole="WDSB_Applications" ToRole="WDSB_Projects" />
           <NavigationProperty Name="WDSB_Projects2" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects2" FromRole="WDSB_Applications" ToRole="WDSB_Projects" />
-          <NavigationProperty Name="WDSB_AppUsers" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_AppUsers" />
           <NavigationProperty Name="WDSB_Comments" Relationship="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Comments" />
           <NavigationProperty Name="WDSB_Favorites" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Favorites" />
           <NavigationProperty Name="WDSB_Features" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Features" />
@@ -480,6 +470,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
           <NavigationProperty Name="WDSB_Applications1" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects1" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
           <NavigationProperty Name="WDSB_Applications2" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects2" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
+          <NavigationProperty Name="WDSB_AppUsers" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_AppUsers" />
         </EntityType>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -565,18 +556,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WDSB_AppUsers_WDSB_Applications">
-          <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
-          <End Type="BiztechDashboardModel.WDSB_AppUsers" Role="WDSB_AppUsers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WDSB_Applications">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="WDSB_AppUsers">
-              <PropertyRef Name="AppID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_WDSB_Comments_WDSB_Applications">
           <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
           <End Type="BiztechDashboardModel.WDSB_Comments" Role="WDSB_Comments" Multiplicity="*" />
@@ -625,6 +604,27 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProjectIsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="WDSB_AppUsers">
+          <Key>
+            <PropertyRef Name="AppUserID" />
+          </Key>
+          <Property Name="AppUserID" Type="Guid" Nullable="false" />
+          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_AppUsers" ToRole="WDSB_Projects" />
+        </EntityType>
+        <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
+          <End Type="BiztechDashboardModel.WDSB_Projects" Role="WDSB_Projects" Multiplicity="1" />
+          <End Type="BiztechDashboardModel.WDSB_AppUsers" Role="WDSB_AppUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WDSB_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="WDSB_AppUsers">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -677,15 +677,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Function" ColumnName="Function" />
                 <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WDSB_AppUsers">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppUsers">
-              <MappingFragment StoreEntitySet="WDSB_AppUsers">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AppID" ColumnName="AppID" />
-                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -758,6 +749,15 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
                 <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
                 <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_AppUsers">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppUsers">
+              <MappingFragment StoreEntitySet="WDSB_AppUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

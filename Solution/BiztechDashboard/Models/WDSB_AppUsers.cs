@@ -15,9 +15,9 @@ namespace BiztechDashboard.Models
     public partial class WDSB_AppUsers
     {
         public System.Guid AppUserID { get; set; }
-        public int AppID { get; set; }
+        public string ProjectID { get; set; }
         public string UserName { get; set; }
     
-        public virtual WDSB_Applications WDSB_Applications { get; set; }
+        public virtual WDSB_Projects WDSB_Projects { get; set; }
     }
 }

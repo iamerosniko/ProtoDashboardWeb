@@ -37,7 +37,7 @@
       <PropertyRef Name="AppUserID" />
     </Key>
     <Property Name="AppUserID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="ProjectID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="WDSB_BUContacts">
@@ -194,15 +194,15 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WDSB_AppUsers_WDSB_Applications">
-    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+  <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
+    <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="1" />
     <End Role="WDSB_AppUsers" Type="Self.WDSB_AppUsers" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="WDSB_Applications">
-        <PropertyRef Name="AppID" />
+      <Principal Role="WDSB_Projects">
+        <PropertyRef Name="ProjectID" />
       </Principal>
       <Dependent Role="WDSB_AppUsers">
-        <PropertyRef Name="AppID" />
+        <PropertyRef Name="ProjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -287,8 +287,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
       <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
     </AssociationSet>
-    <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Applications" Association="Self.FK_WDSB_AppUsers_WDSB_Applications">
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+    <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="Self.FK_WDSB_AppUsers_WDSB_Projects">
+      <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
       <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
     </AssociationSet>
     <AssociationSet Name="FK_WDSB_Comments_WDSB_Applications" Association="Self.FK_WDSB_Comments_WDSB_Applications">
