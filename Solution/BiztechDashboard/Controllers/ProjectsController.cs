@@ -16,10 +16,23 @@ namespace BiztechDashboard.Controllers
     {
         private BiztechDashboardContext db = new BiztechDashboardContext();
 
+        //get all projects
         // GET api/Projects
         public IQueryable<WDSB_Projects> GetWDSB_Projects()
         {
             return db.WDSB_Projects;
+        }
+
+        //gets projects with integration with btss only
+        public IQueryable<WDSB_Projects> GetProjects_BTSS()
+        {
+            var projects = from i in db.WDSB_Projects
+                           where i.ProjectDatasource != null
+                           where i.ProjectDatabaseName != null
+                           select i;
+
+            return projects;
+
         }
 
         // GET api/Projects/5

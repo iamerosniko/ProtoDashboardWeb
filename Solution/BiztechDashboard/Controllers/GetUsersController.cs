@@ -37,19 +37,9 @@ namespace BiztechDashboard.Controllers
             // Generate the full string and return it
             return esb.ToString();
         }
-        //Custom 1
-        //public IQueryable<set_user> Getset_user()
-        //{
-        //    string DataSource = @"JHJHST59\JHS1D";
-        //    string Database = "dbbtLCTp1";
-        //    TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(DataSource, Database));
-        //    return myDb.set_user;
-        //    //return db.set_user;
-        //}
-
 
         [ResponseType(typeof(List<WDSB_AppUsers_DTO>))]
-        public IHttpActionResult Getset_user(string ds,string db,int appID)
+        public IHttpActionResult Getset_user(string ds,string db,string projectID)
         {
             TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, db));
             IQueryable<WDSB_AppUsers_DTO> users  = from l in myDb.set_user
@@ -57,7 +47,7 @@ namespace BiztechDashboard.Controllers
                     {
                         AppUserID=Guid.NewGuid(),
                         UserName = l.user_name,
-                        AppID = appID
+                        ProjectID = projectID
                     };
             //set_user set_user = db.set_user.Find(id);
             if (users == null)
@@ -83,48 +73,5 @@ namespace BiztechDashboard.Controllers
             return db.set_user.Count(e => e.user_id == id) > 0;
         }
 
-        //CUSTOM2
-        // GET api/GetUsers
-        //public List<Users_DTO> Getset_user()
-        //{
-        //    string DataSource = @"JHJHST59\JHS1D";
-        //    string Database = "dbbtLTCRCLMp1";
-        //    List<Users_DTO> users = new List<Users_DTO>();
-
-        //    SqlConnection con = new SqlConnection(@"data source=" + DataSource + ";initial catalog=" + Database + ";integrated security=True;");
-        //    SqlCommand cmd = new SqlCommand("Select * from set_user;",con);
-        //    using (con)
-        //    {
-        //        con.Open();
-        //        SqlDataReader rdr = null;
-        //        rdr = cmd.ExecuteReader();
-        //        while (rdr.Read())
-        //        {
-
-        //            users.Add(new Users_DTO
-        //            {
-        //                user_name = (string)rdr["user_name"]
-        //            });
-        //        }
-        //        con.Close();
-        //    }
-        //    return users;
-
-        //    //TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(DataSource, Database));
-        //    //return myDb.set_user;
-        //    //return db.set_user;
-        //}
-
-        //NORMAL
-        //public IQueryable<set_user> Getset_user()
-        //{
-        //    //string DataSource = @"JHJHST59\JHS1D";
-        //    //string Database = "dbbtLTCRCLMp1";
-        //    //TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(DataSource, Database));
-        //    //return myDb.set_user;
-        //    return db.set_user;
-        //}
-        
-        
     }
 }

@@ -101,23 +101,9 @@ namespace BiztechDashboard.Controllers
 
         // DELETE api/Appusers/5
         [ResponseType(typeof(WDSB_AppUsers))]
-        public IHttpActionResult DeleteWDSB_AppUsers(Guid id)
+        public void DeleteWDSB_AppUsers()
         {
-            WDSB_AppUsers wdsb_appusers = db.WDSB_AppUsers.Find(id);
-            if (wdsb_appusers == null)
-            {
-                return NotFound();
-            }
-
-            db.WDSB_AppUsers.Remove(wdsb_appusers);
-            db.SaveChanges();
-
-            return Ok(wdsb_appusers);
-        }
-
-        [Route("api/Appusers/DeleteUsers")]
-        public void DeleteUsers(List<WDSB_AppUsers> wdsb_appusers)
-        {
+            List<WDSB_AppUsers> wdsb_appusers = db.WDSB_AppUsers.ToList();
             foreach (var a in wdsb_appusers)
             {
                 try
@@ -125,10 +111,7 @@ namespace BiztechDashboard.Controllers
                     db.WDSB_AppUsers.Remove(a);
                     db.SaveChanges();
                 }
-                catch
-                {
-
-                }
+                catch { }
             }
         }
 
