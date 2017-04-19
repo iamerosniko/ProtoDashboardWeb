@@ -24,11 +24,12 @@ namespace BiztechDashboard.Controllers
         }
 
         //gets projects with integration with btss only
-        public IQueryable<WDSB_Projects> GetProjects_BTSS()
+
+        [Route("api/Projects/GetWDSB_Projects2")]
+        public IQueryable<WDSB_Projects> GetWDSB_Projects2()
         {
             var projects = from i in db.WDSB_Projects
-                           where i.ProjectDatasource != null
-                           where i.ProjectDatabaseName != null
+                           where i.ProjectDatasource != ""
                            select i;
 
             return projects;

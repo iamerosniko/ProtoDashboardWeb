@@ -141,3 +141,4 @@ C:\Users\alverer\Documents\GitHub\ProtoDashboardWeb\Solution\BiztechDashboard\bi
 C:\Users\alverer\Documents\GitHub\ProtoDashboardWeb\Solution\BiztechDashboard\bin\System.Web.WebPages.Razor.xml
 C:\Users\alverer\Documents\GitHub\ProtoDashboardWeb\Solution\BiztechDashboard\bin\Antlr3.Runtime.pdb
 C:\Users\alverer\Documents\GitHub\ProtoDashboardWeb\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.pdb
+C:\Users\alverer\Documents\GitHub\ProtoDashboardWeb\Solution\BiztechDashboard\obj\Debug\BiztechDashboard.csprojResolveAssemblyReference.cache
