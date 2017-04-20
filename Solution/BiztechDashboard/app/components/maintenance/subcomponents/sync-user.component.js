@@ -29,7 +29,7 @@ var SyncUserComponent = (function () {
     SyncUserComponent.prototype.checkifComplete = function () {
         var projectCount = this.projects.length;
         this.progress += 1;
-        this.checkProgress = (this.progress / projectCount) * 100;
+        this.checkProgress = Math.round((this.progress / projectCount) * 100);
         if (this.progress == projectCount) {
             console.log("done");
             this.progress = 0;
