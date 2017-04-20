@@ -39,7 +39,7 @@ namespace BiztechDashboard.Controllers
             return esb.ToString();
         }
 
-        [ResponseType(typeof(int))]
+        [ResponseType(typeof(WDSB_AffectedUsers))]
         public IHttpActionResult Getset_user(string ds,string dbase,string projectID)
         {
             TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, dbase));
@@ -56,7 +56,7 @@ namespace BiztechDashboard.Controllers
                 //set_user set_user = db.set_user.Find(id);
                 if (users == null)
                 {
-                    return Ok(0); //no user
+                    return Ok(new WDSB_AffectedUsers { AffectedUsers = 0 }); //no user
                 }
                 else
                 {
@@ -66,12 +66,12 @@ namespace BiztechDashboard.Controllers
                         db2.SaveChanges();
                         ctr++;
                     }
-                    return Ok(ctr); //added users
+                    return Ok(new WDSB_AffectedUsers { AffectedUsers = ctr }); //added users
                 }
             }
             catch 
-            { 
-                return Ok(-1); //unable to connect
+            {
+                return Ok(new WDSB_AffectedUsers { AffectedUsers = -1 }); //unable to connect
             }
         }
 

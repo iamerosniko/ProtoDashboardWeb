@@ -33,8 +33,8 @@ var BTSSWDSBService = (function () {
             .then(function (response) { return response.json(); }) // testing
             .catch(this.handleError);
     };
-    BTSSWDSBService.prototype.getUsers = function (app) {
-        var url = this.userURL + "/?ds=" + app.AppDatasource + "&dbase=" + app.AppDatabasename + "&appID=" + app.AppID;
+    BTSSWDSBService.prototype.getUsers = function (myproject) {
+        var url = this.userURL + "/Getset_User/?ds=" + myproject.ProjectDatasource + "&dbase=" + myproject.ProjectDb + "&projectID=" + myproject.ProjectID;
         return this.http
             .get(url, { headers: this.headers })
             .toPromise()

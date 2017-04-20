@@ -32,7 +32,7 @@ namespace BiztechDashboard.Controllers
                            where i.ProjectDatasource != ""
                            select new WDSB_ProjectUsers
                            {
-                               ProjectDatabaseName=i.ProjectDatabaseName,
+                               ProjectDb=i.ProjectDatabaseName,
                                ProjectDatasource=i.ProjectDatasource,
                                ProjectID=i.ProjectID,
                                ProjectIsActive=i.ProjectIsActive,

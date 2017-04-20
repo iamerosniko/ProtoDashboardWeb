@@ -1,10 +1,10 @@
 "use strict";
 var ProjectUsers = (function () {
-    function ProjectUsers(ProjectID, ProjectName, ProjectDatasource, ProjectDatabasename, ProjectUserID, ProjectPassword, ProjectIsActive, ProjectSyncStatus) {
+    function ProjectUsers(ProjectID, ProjectName, ProjectDatasource, ProjectDb, ProjectUserID, ProjectPassword, ProjectIsActive, ProjectSyncStatus) {
         this.ProjectID = ProjectID;
         this.ProjectName = ProjectName;
         this.ProjectDatasource = ProjectDatasource;
-        this.ProjectDatabasename = ProjectDatabasename;
+        this.ProjectDb = ProjectDb;
         this.ProjectUserID = ProjectUserID;
         this.ProjectPassword = ProjectPassword;
         this.ProjectIsActive = ProjectIsActive;

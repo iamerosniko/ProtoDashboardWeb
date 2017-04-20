@@ -23,13 +23,6 @@ var SyncMainComponent = (function () {
         this.removeAppFromTemp(); // 1 and 2 
         this.getAppToTemp(); // 3 and 4    
         this.getNewAppFromTemp();
-        // this.data.subscribe(()=>{
-        //     this.getNewAppFromTemp();
-        // });
-        // var vm=this;
-        // vm.removeAppFromTemp(); // 1 and 2 
-        // vm.getAppToTemp(); // 3 and 4
-        // vm.getNewAppFromTemp();    
     };
     //1
     SyncMainComponent.prototype.removeAppFromTemp = function () {

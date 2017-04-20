@@ -5,7 +5,6 @@ import { BTSSWDSBService } from    '../../../services/btss-wdsb.service';
 import { AppUserService } from '../../../services/app-user.service';
 import { ProjectService } from '../../../services/project.service';
 //entities
-import { Project } from '../../../entities/project';
 import { ProjectUsers } from '../../../entities/projectusers';
 import { Application } from '../../../entities/application';
 import { AppUsers } from '../../../entities/appusers';
@@ -31,9 +30,7 @@ export class FnUser  {
     }
 /*Part 2 delete all users before synchronization*/
     //3.getUsers from their database/application retrieves number of users
-    getUsersFromApplications(app:Application) : number{
-        var result : number;
-        this.btssWdsbService.getUsers(app).then(user => result = user);
-        return result;
+    getUsersFromApplications(projects:ProjectUsers) : Promise<any>{
+        return this.btssWdsbService.getUsers(projects);
     }
 }

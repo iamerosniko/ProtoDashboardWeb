@@ -14,6 +14,8 @@ var SyncUserComponent = (function () {
     function SyncUserComponent(fnUser) {
         this.fnUser = fnUser;
         this.name = 'Sync page';
+        this.progress = 0;
+        this.checkProgress = 0;
         this.projects = [];
     }
     SyncUserComponent.prototype.ngOnInit = function () {
@@ -24,8 +26,32 @@ var SyncUserComponent = (function () {
         this.fnUser.getProjectsWithBTSSAuthentication()
             .then(function (projs) { _this.projects = projs; });
     };
+    SyncUserComponent.prototype.checkifComplete = function () {
+        var projectCount = this.projects.length;
+        this.progress += 1;
+        this.checkProgress = (this.progress / projectCount) * 100;
+        if (this.progress == projectCount) {
+            console.log("done");
+            this.progress = 0;
+        }
+    };
     SyncUserComponent.prototype.initUserSync = function () {
+        var _this = this;
+        this.progress = 0;
         this.fnUser.deleteAllUsers();
+        var _loop_1 = function (proj) {
+            this_1.fnUser.getUsersFromApplications(proj)
+                .then(function (num) {
+                proj.ProjectSyncStatus = num.AffectedUsers,
+                    //console.log(proj.ProjectName + ' = ' + proj.ProjectSyncStatus),
+                    _this.checkifComplete();
+            });
+        };
+        var this_1 = this;
+        for (var _i = 0, _a = this.projects; _i < _a.length; _i++) {
+            var proj = _a[_i];
+            _loop_1(proj);
+        }
     };
     return SyncUserComponent;
 }());

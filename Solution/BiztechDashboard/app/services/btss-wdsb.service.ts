@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
 import { Project } from '../entities/project';
+import { ProjectUsers } from '../entities/projectusers';
 import { AppUsers } from '../entities/appusers';
 import { Application } from '../entities/application';
 @Injectable()
@@ -29,12 +30,12 @@ export class BTSSWDSBService {
                 .catch(this.handleError);
     }
     
-    getUsers(app : Application): Promise<number> {
-        const url = `${this.userURL}/?ds=${app.AppDatasource}&dbase=${app.AppDatabasename}&appID=${app.AppID}`;
+    getUsers(myproject : ProjectUsers): Promise<any> {
+        const url = `${this.userURL}/Getset_User/?ds=${myproject.ProjectDatasource}&dbase=${myproject.ProjectDb}&projectID=${myproject.ProjectID}`;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()
-                .then(response => response.json()) //testing
+                .then(response=>response.json()) //testing
                 .catch(this.handleError);
     }
 

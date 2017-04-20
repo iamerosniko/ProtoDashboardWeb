@@ -1,0 +1,23 @@
+<div>
+    <button class="btn btn-default btn-sm" [disabled]="!progress==0" (click)="initUserSync()" type="button" >Get Users</button>
+    total progress : {{checkProgress |number:'3.2'}}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>DataSource</th>
+                <th>DatabaseName</th>
+                <th>Users</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let project of projects">
+                <td>{{project.ProjectName}}</td>
+                <td>{{project.ProjectDatasource}}</td>
+                <td>{{project.ProjectDb}}</td>
+                <td>{{project.ProjectSyncStatus}}<td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
+

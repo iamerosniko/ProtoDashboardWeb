@@ -31,10 +31,8 @@ var FnUser = (function () {
     };
     /*Part 2 delete all users before synchronization*/
     //3.getUsers from their database/application retrieves number of users
-    FnUser.prototype.getUsersFromApplications = function (app) {
-        var result;
-        this.btssWdsbService.getUsers(app).then(function (user) { return result = user; });
-        return result;
+    FnUser.prototype.getUsersFromApplications = function (projects) {
+        return this.btssWdsbService.getUsers(projects);
     };
     return FnUser;
 }());

@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { FnUser } from './../functions/fn-user';
 import { Observable } from 'rxjs/Observable';
 //entities
-import { Project } from '../../../entities/project';
 import { ProjectUsers } from '../../../entities/projectusers';
 @Component({
     moduleId: module.id,
@@ -15,6 +14,8 @@ import { ProjectUsers } from '../../../entities/projectusers';
 })
 export class SyncUserComponent implements OnInit  { 
     name = 'Sync page';
+    progress:number=0;
+    checkProgress:number=0;
     projects:ProjectUsers[]=[];
     constructor(
         private fnUser : FnUser,
@@ -29,15 +30,28 @@ export class SyncUserComponent implements OnInit  {
         .then(projs => {this.projects = projs;})
     }
 
-    initUserSync():void{
-        this.fnUser.deleteAllUsers();
+    checkifComplete():void{
+        var projectCount:number = this.projects.length;
+        this.progress+=1;
+        this.checkProgress=(this.progress/projectCount)*100;
+        if (this.progress == projectCount){
+            console.log("done");
+            this.progress=0;
+        }
     }
 
-    // deleteOldUsers(appID: number):void {
-    //     this.fnUser.deleteUsers(this.fnUser.getUsersFromWDSB(appID));
-    // }
 
-    // getNewUsers(app:Application):boolean{
-    //     return (this.fnUser.postUsers(this.fnUser.getUsersFromApplications(app)));
-    // } 
+    initUserSync():void{
+        this.progress=0;
+        this.fnUser.deleteAllUsers();
+        for (let proj of this.projects) {
+            this.fnUser.getUsersFromApplications(proj)
+            .then(num=>{
+                proj.ProjectSyncStatus=num.AffectedUsers,
+                //console.log(proj.ProjectName + ' = ' + proj.ProjectSyncStatus),
+                this.checkifComplete();
+            });
+        }
+    }
+
 }
