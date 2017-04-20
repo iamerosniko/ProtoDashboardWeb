@@ -19,7 +19,8 @@ namespace BiztechDashboard.Controllers
 {
     public class GetUsersController : ApiController
     {
-        private TempDatabaseEntities db = new TempDatabaseEntities();
+        private TempDatabaseEntities db= new TempDatabaseEntities();
+        private BiztechDashboardContext db2 = new BiztechDashboardContext(); 
 
         private String BuildConnectionString(String dataSource, String database)
         {
@@ -38,24 +39,40 @@ namespace BiztechDashboard.Controllers
             return esb.ToString();
         }
 
-        [ResponseType(typeof(List<WDSB_AppUsers_DTO>))]
-        public IHttpActionResult Getset_user(string ds,string db,string projectID)
+        [ResponseType(typeof(int))]
+        public IHttpActionResult Getset_user(string ds,string dbase,string projectID)
         {
-            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, db));
-            IQueryable<WDSB_AppUsers_DTO> users  = from l in myDb.set_user
-                    select new WDSB_AppUsers_DTO
-                    {
-                        AppUserID=Guid.NewGuid(),
-                        UserName = l.user_name,
-                        ProjectID = projectID
-                    };
-            //set_user set_user = db.set_user.Find(id);
-            if (users == null)
+            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, dbase));
+            int ctr = 0;
+            try
             {
-                return NotFound();
+                IQueryable<WDSB_AppUsers> users = from l in myDb.set_user
+                                                      select new WDSB_AppUsers
+                                                      {
+                                                          AppUserID = Guid.NewGuid(),
+                                                          UserName = l.user_name,
+                                                          ProjectID = projectID
+                                                      };
+                //set_user set_user = db.set_user.Find(id);
+                if (users == null)
+                {
+                    return Ok(0); //no user
+                }
+                else
+                {
+                    foreach (var a in users)
+                    {
+                        db2.Entry(a).State=EntityState.Added;
+                        db2.SaveChanges();
+                        ctr++;
+                    }
+                    return Ok(ctr); //added users
+                }
             }
-
-            return Ok(users.ToList());
+            catch 
+            { 
+                return Ok(-1); //unable to connect
+            }
         }
 
 
