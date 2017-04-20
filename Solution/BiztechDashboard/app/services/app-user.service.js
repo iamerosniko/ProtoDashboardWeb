@@ -15,17 +15,18 @@ var AppUserService = (function () {
     function AppUserService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Appusers';
+        this.apiAppUsers = 'api/Appusers';
     }
     AppUserService.prototype.getUsers = function () {
         return this.http
-            .get(this.apiUrl, { headers: this.headers })
+            .get(this.apiAppUsers, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    //get users where appid = ''
     AppUserService.prototype.getUser = function (id) {
-        var url = this.apiUrl + "/" + id;
+        var url = this.apiAppUsers + "/" + id;
         return this.http
             .get(url)
             .toPromise()
@@ -34,23 +35,22 @@ var AppUserService = (function () {
     };
     AppUserService.prototype.postUser = function (newUser) {
         return this.http
-            .post(this.apiUrl, JSON.stringify(newUser), { headers: this.headers })
+            .post(this.apiAppUsers, JSON.stringify(newUser), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     AppUserService.prototype.putUser = function (user) {
-        var url = this.apiUrl + "/" + user.AppUserID;
+        var url = this.apiAppUsers + "/" + user.AppUserID;
         return this.http
             .put(url, JSON.stringify(user), { headers: this.headers })
             .toPromise()
             .then(function () { return user; })
             .catch(this.handleError);
     };
-    AppUserService.prototype.DeleteUser = function (id) {
-        var url = this.apiUrl + "/" + id;
+    AppUserService.prototype.DeleteUser = function () {
         return this.http
-            .delete(url, { headers: this.headers })
+            .delete(this.apiAppUsers, { headers: this.headers })
             .toPromise()
             .then(function () { return null; })
             .catch(this.handleError);

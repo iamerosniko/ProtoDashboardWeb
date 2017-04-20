@@ -2,7 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
-import { TempProject } from '../entities/tempproject';
+import { Project } from '../entities/project';
 @Injectable()
 export class TempProjectService {
     private headers = new Headers({'Content-Type': 'application/json'});
@@ -10,7 +10,7 @@ export class TempProjectService {
     private api2Url = 'api/Projects';
     constructor(private http: Http){}
 
-    getProjects(): Promise<TempProject[]> {
+    getProjects(): Promise<Project[]> {
         return this.http
                 .get(this.apiUrl, {headers: this.headers})
                 .toPromise()
@@ -18,7 +18,7 @@ export class TempProjectService {
                 .catch(this.handleError);
     }
 
-    getProject(id: string): Promise<TempProject> {
+    getProject(id: string): Promise<Project> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
                 .get(url)
@@ -27,23 +27,23 @@ export class TempProjectService {
                 .catch(this.handleError);      
     }
 
-    postProject(newProject: TempProject):void{
+    postProject(newTempProject: Project):void{
          this.http
-            .post(this.apiUrl, JSON.stringify(newProject), {headers: this.headers})
+            .post(this.apiUrl, JSON.stringify(newTempProject), {headers: this.headers})
             .toPromise()
             .then(()=>{console.log(true);})
-            .catch(()=>{console.log(newProject.ProjectID);});
+            .catch(()=>{console.log(newTempProject.ProjectID);});
     }
 
-    postProjects(newProjects: TempProject[]):Promise<string>{
+    postProjects(newTempProjects: Project[]):Promise<string>{
          return this.http
-            .post(this.apiUrl, JSON.stringify(newProjects), {headers: this.headers})
+            .post(this.apiUrl, JSON.stringify(newTempProjects), {headers: this.headers})
             .toPromise()
             .then(response => response.json())
             .catch(()=>{console.log(false);});
     }
 
-    postProjects2(newProjects: TempProject[]):Promise<string>{
+    postProjects2(newProjects: Project[]):Promise<string>{
          return this.http
             .post(this.api2Url, JSON.stringify(newProjects), {headers: this.headers})
             .toPromise()
@@ -51,7 +51,7 @@ export class TempProjectService {
             .catch(()=>{console.log(false);});
     }
 
-    putProject(project: TempProject): Promise<TempProject> {
+    putProject(project: Project): Promise<Project> {
         const url = `${this.apiUrl}/${project.ProjectID}`;
         return this.http
             .put(url, JSON.stringify(project), {headers: this.headers})

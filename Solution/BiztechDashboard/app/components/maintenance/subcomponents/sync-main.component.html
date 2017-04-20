@@ -1,0 +1,26 @@
+<div [hidden]="newApps.length==0">
+    <button class="btn btn-default btn-sm" type="button" [disabled]="!newApps.length>0" (click)="saveNewApplications(newApps)">Add to Projects</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Task</th>
+                <th>Assignee</th>
+                <th>Progress</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let app of newApps">
+                <td>{{app.ProjectName}}</td>
+                <td>{{app.ProjectDatasource}}</td>
+                <td>{{app.ProjectDatabasename}}</td>
+                <td>{{app.ProjectUserID}}</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>
+<div [hidden]="!newApps.length==0">
+    no new applications found
+</div>
+

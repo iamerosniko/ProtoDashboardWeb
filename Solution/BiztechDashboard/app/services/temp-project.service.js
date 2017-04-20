@@ -33,16 +33,16 @@ var TempProjectService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    TempProjectService.prototype.postProject = function (newProject) {
+    TempProjectService.prototype.postProject = function (newTempProject) {
         this.http
-            .post(this.apiUrl, JSON.stringify(newProject), { headers: this.headers })
+            .post(this.apiUrl, JSON.stringify(newTempProject), { headers: this.headers })
             .toPromise()
             .then(function () { console.log(true); })
-            .catch(function () { console.log(newProject.ProjectID); });
+            .catch(function () { console.log(newTempProject.ProjectID); });
     };
-    TempProjectService.prototype.postProjects = function (newProjects) {
+    TempProjectService.prototype.postProjects = function (newTempProjects) {
         return this.http
-            .post(this.apiUrl, JSON.stringify(newProjects), { headers: this.headers })
+            .post(this.apiUrl, JSON.stringify(newTempProjects), { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(function () { console.log(false); });

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SyncMainComponent } from './components/synchronization/sync-main.component';
-
 const appRoutes: Routes = [
     { path: '', redirectTo: '/Applications', pathMatch: 'full' }
 ];

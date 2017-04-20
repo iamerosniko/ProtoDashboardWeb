@@ -253,6 +253,7 @@
     <Compile Include="Models\WDSB_Projects.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WDSB_ProjectUsers.cs" />
     <Compile Include="Models\WDSB_TempProjects.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

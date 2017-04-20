@@ -6,20 +6,20 @@ import { AppUsers } from '../entities/appusers';
 @Injectable()
 export class AppUserService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private apiUrl = 'api/Appusers';  
+    private apiAppUsers = 'api/Appusers';  
     
     constructor(private http: Http){}
 
     getUsers(): Promise<AppUsers[]> {
         return this.http
-                .get(this.apiUrl, {headers: this.headers})
+                .get(this.apiAppUsers, {headers: this.headers})
                 .toPromise()
                 .then(response => response.json())
                 .catch(this.handleError);
     }
-
+    //get users where appid = ''
     getUser(id: number): Promise<AppUsers[]> {
-        const url = `${this.apiUrl}/${id}`;
+        const url = `${this.apiAppUsers}/${id}`;
         return this.http
                 .get(url)
                 .toPromise()
@@ -29,14 +29,14 @@ export class AppUserService {
 
     postUser(newUser: AppUsers): Promise<AppUsers> {
         return this.http
-            .post(this.apiUrl, JSON.stringify(newUser), {headers: this.headers})
+            .post(this.apiAppUsers, JSON.stringify(newUser), {headers: this.headers})
             .toPromise()
             .then(res => res.json())
             .catch(this.handleError);
     }
 
     putUser(user: AppUsers): Promise<AppUsers> {
-        const url = `${this.apiUrl}/${user.AppUserID}`;
+        const url = `${this.apiAppUsers}/${user.AppUserID}`;
         return this.http
             .put(url, JSON.stringify(user), {headers: this.headers})
             .toPromise()
@@ -44,15 +44,14 @@ export class AppUserService {
             .catch(this.handleError);
     }
     
-    DeleteUser(id: string): Promise<void> {
-        const url = `${this.apiUrl}/${id}`;
+    DeleteUser(): Promise<void> {
         return this.http
-            .delete(url, {headers: this.headers})
+            .delete(this.apiAppUsers, {headers: this.headers})
             .toPromise()
             .then(() => null)
             .catch(this.handleError);
     }
-
+    
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

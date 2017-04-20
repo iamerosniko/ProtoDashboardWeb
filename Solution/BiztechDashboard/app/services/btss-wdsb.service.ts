@@ -2,7 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
-import { TempProject } from '../entities/tempproject';
+import { Project } from '../entities/project';
 import { AppUsers } from '../entities/appusers';
 import { Application } from '../entities/application';
 @Injectable()
@@ -12,7 +12,7 @@ export class BTSSWDSBService {
     private userURL = 'api/GetUsers';
     constructor(private http: Http){}
 
-    getProjects(): Promise<TempProject[]> {
+    getProjects(): Promise<Project[]> {
         return this.http
                 .get(this.BTSSUrl, {headers: this.headers})
                 .toPromise()
@@ -20,7 +20,7 @@ export class BTSSWDSBService {
                 .catch(this.handleError);
     }
 
-    getProject(id: string): Promise<TempProject> {
+    getProject(id: string): Promise<Project> {
         const url = `${this.BTSSUrl}/${id}`;
         return this.http
                 .get(url)
@@ -29,8 +29,8 @@ export class BTSSWDSBService {
                 .catch(this.handleError);
     }
     
-    getUsers(app : Application): Promise<AppUsers[]> {
-        const url = `${this.userURL}/?ds=${app.AppDatasource}&db=${app.AppDatabasename}&appID=${app.AppID}`;
+    getUsers(app : Application): Promise<number> {
+        const url = `${this.userURL}/?ds=${app.AppDatasource}&dbase=${app.AppDatabasename}&appID=${app.AppID}`;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()

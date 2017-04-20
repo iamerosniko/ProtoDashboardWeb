@@ -22,6 +22,8 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.min.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.min.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
+        //ngx-bootstrap 
+      'ngx-bootstrap':'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js',
         //material
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
