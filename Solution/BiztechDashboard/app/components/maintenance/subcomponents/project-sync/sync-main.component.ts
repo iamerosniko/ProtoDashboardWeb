@@ -60,9 +60,10 @@ export class SyncMainComponent implements OnInit  {
             });
     }
 /*                     OTHERS                         */
-    // saveNewApplications(apps:Project[]){
-    //     //this method is to save new applications to wdsb.applications
-    //     this.fnMain.postApplications(apps);
-    // }
+    saveNewApplications(apps:Project[]){
+        //this method is to save new applications to wdsb.applications
+        this.fnMain.postApplications(apps);
+        this.initAppSync();
+    }
       
 }

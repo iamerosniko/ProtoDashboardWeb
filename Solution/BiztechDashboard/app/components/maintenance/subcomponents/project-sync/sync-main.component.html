@@ -1,21 +1,18 @@
 <div [hidden]="newApps.length==0">
     <button class="btn btn-default btn-sm" type="button" [disabled]="!newApps.length>0" (click)="saveNewApplications(newApps)">Add to Projects</button>
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Status</th>
-                <th>Task</th>
-                <th>Assignee</th>
-                <th>Progress</th>
-                <th>Option</th>
+                <th>Project Name</th>
+                <th>Datasource</th>
+                <th>Database Name</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let app of newApps">
                 <td>{{app.ProjectName}}</td>
                 <td>{{app.ProjectDatasource}}</td>
-                <td>{{app.ProjectDatabasename}}</td>
-                <td>{{app.ProjectUserID}}</td>
+                <td>{{app.ProjectDatabaseName}}</td>
             </tr>
         </tbody>
     </table>    

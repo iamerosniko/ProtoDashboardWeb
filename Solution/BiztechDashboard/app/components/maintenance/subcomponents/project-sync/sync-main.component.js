@@ -55,6 +55,12 @@ var SyncMainComponent = (function () {
             console.log('done-getNewAppFromTemp');
         });
     };
+    /*                     OTHERS                         */
+    SyncMainComponent.prototype.saveNewApplications = function (apps) {
+        //this method is to save new applications to wdsb.applications
+        this.fnMain.postApplications(apps);
+        this.initAppSync();
+    };
     return SyncMainComponent;
 }());
 SyncMainComponent = __decorate([
