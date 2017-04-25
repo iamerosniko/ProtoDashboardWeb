@@ -30,6 +30,8 @@ namespace BiztechDashboard.Models
         public string ProjectUserID { get; set; }
         public string ProjectPassword { get; set; }
         public Nullable<bool> ProjectIsActive { get; set; }
+        public string FrontEndPath { get; set; }
+        public string BackEndPath { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Applications> WDSB_Applications { get; set; }

@@ -56,9 +56,11 @@
     <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" />
     <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" />
     <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" />
+    <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
+    <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
+    <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
     <EntitySet Name="WDSB_Applications" EntityType="BiztechDashboardModel.WDSB_Applications" />
     <EntitySet Name="WDSB_Projects" EntityType="BiztechDashboardModel.WDSB_Projects" />
-    <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts">
       <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
@@ -95,13 +97,44 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Features" EntitySet="WDSB_Features" />
     </AssociationSet>
-    <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
-    <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
     <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects">
       <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
       <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="WDSB_TempProjects">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectIsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="VW_WDSB_GetNewApp">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ProjectIsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WDSB_AppUsers">
+    <Key>
+      <PropertyRef Name="AppUserID" />
+    </Key>
+    <Property Name="AppUserID" Type="Guid" Nullable="false" />
+    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_AppUsers" ToRole="WDSB_Projects" />
+  </EntityType>
   <EntityType Name="WDSB_Applications">
     <Key>
       <PropertyRef Name="AppID" />
@@ -110,9 +143,7 @@
     <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="AppBU" Type="Int32" Nullable="false" />
     <Property Name="FrontTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="FrontEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="BackTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="BackEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="AppLifespan" Type="Int32" />
     <Property Name="PrimaryBUContact" Type="Int32" Nullable="false" />
     <Property Name="SecondaryBUContact" Type="Int32" />
@@ -123,10 +154,6 @@
     <Property Name="LastProdDate" Type="DateTime" Precision="7" />
     <Property Name="AppVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="AppDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="AppDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AppDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="AppUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="AppPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="AppIsWeb" Type="Boolean" />
     <Property Name="ProjectDevID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ProjectModID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -154,22 +181,12 @@
     <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="ProjectIsActive" Type="Boolean" />
+    <Property Name="FrontEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="BackEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
     <NavigationProperty Name="WDSB_Applications1" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects1" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
     <NavigationProperty Name="WDSB_Applications2" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects2" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
     <NavigationProperty Name="WDSB_AppUsers" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_AppUsers" />
-  </EntityType>
-  <EntityType Name="WDSB_TempProjects">
-    <Key>
-      <PropertyRef Name="ProjectID" />
-    </Key>
-    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectIsActive" Type="Boolean" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />
@@ -279,27 +296,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="VW_WDSB_GetNewApp">
-    <Key>
-      <PropertyRef Name="ProjectID" />
-    </Key>
-    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-    <Property Name="ProjectIsActive" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="WDSB_AppUsers">
-    <Key>
-      <PropertyRef Name="AppUserID" />
-    </Key>
-    <Property Name="AppUserID" Type="Guid" Nullable="false" />
-    <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_AppUsers" ToRole="WDSB_Projects" />
-  </EntityType>
   <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
     <End Type="BiztechDashboardModel.WDSB_Projects" Role="WDSB_Projects" Multiplicity="1" />
     <End Type="BiztechDashboardModel.WDSB_AppUsers" Role="WDSB_AppUsers" Multiplicity="*" />

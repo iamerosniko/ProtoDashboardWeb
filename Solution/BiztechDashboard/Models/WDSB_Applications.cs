@@ -26,9 +26,7 @@ namespace BiztechDashboard.Models
         public string AppName { get; set; }
         public int AppBU { get; set; }
         public string FrontTechnology { get; set; }
-        public string FrontEndPath { get; set; }
         public string BackTechnology { get; set; }
-        public string BackEndPath { get; set; }
         public Nullable<int> AppLifespan { get; set; }
         public int PrimaryBUContact { get; set; }
         public Nullable<int> SecondaryBUContact { get; set; }
@@ -39,10 +37,6 @@ namespace BiztechDashboard.Models
         public Nullable<System.DateTime> LastProdDate { get; set; }
         public string AppVersion { get; set; }
         public string AppDesc { get; set; }
-        public string AppDatasource { get; set; }
-        public string AppDatabaseName { get; set; }
-        public string AppUserID { get; set; }
-        public string AppPassword { get; set; }
         public Nullable<bool> AppIsWeb { get; set; }
         public string ProjectDevID { get; set; }
         public string ProjectModID { get; set; }

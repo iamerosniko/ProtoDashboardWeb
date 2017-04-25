@@ -8,9 +8,7 @@
     <Property Name="AppName" Type="varchar" MaxLength="150" />
     <Property Name="AppBU" Type="int" Nullable="false" />
     <Property Name="FrontTechnology" Type="varchar" MaxLength="50" />
-    <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
     <Property Name="BackTechnology" Type="varchar" MaxLength="50" />
-    <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
     <Property Name="AppLifespan" Type="int" />
     <Property Name="PrimaryBUContact" Type="int" Nullable="false" />
     <Property Name="SecondaryBUContact" Type="int" />
@@ -21,10 +19,6 @@
     <Property Name="LastProdDate" Type="datetime2" Precision="7" />
     <Property Name="AppVersion" Type="varchar" MaxLength="10" />
     <Property Name="AppDesc" Type="varchar" MaxLength="100" />
-    <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
-    <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
-    <Property Name="AppUserID" Type="varchar" MaxLength="25" />
-    <Property Name="AppPassword" Type="varchar" MaxLength="25" />
     <Property Name="AppIsWeb" Type="bit" />
     <Property Name="ProjectDevID" Type="varchar" MaxLength="50" />
     <Property Name="ProjectModID" Type="varchar" MaxLength="50" />
@@ -95,6 +89,8 @@
     <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
     <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
     <Property Name="ProjectIsActive" Type="bit" />
+    <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="WDSB_TempProjects">
     <Key>

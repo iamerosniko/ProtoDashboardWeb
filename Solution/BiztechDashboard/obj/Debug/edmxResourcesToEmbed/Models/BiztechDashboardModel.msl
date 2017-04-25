@@ -50,52 +50,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_Applications">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
-        <MappingFragment StoreEntitySet="WDSB_Applications">
-          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
-          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-          <ScalarProperty Name="AppPassword" ColumnName="AppPassword" />
-          <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
-          <ScalarProperty Name="AppDatabaseName" ColumnName="AppDatabaseName" />
-          <ScalarProperty Name="AppDatasource" ColumnName="AppDatasource" />
-          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
-          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-          <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
-          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-          <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
-          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-          <ScalarProperty Name="AppName" ColumnName="AppName" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_Projects">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Projects">
-        <MappingFragment StoreEntitySet="WDSB_Projects">
-          <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
-          <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
-          <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
-          <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
-          <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
-          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WDSB_TempProjects">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_TempProjects">
         <MappingFragment StoreEntitySet="WDSB_TempProjects">
@@ -128,6 +82,48 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
           <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_Applications">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
+        <MappingFragment StoreEntitySet="WDSB_Applications">
+          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
+          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
+          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
+          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
+          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
+          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
+          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
+          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
+          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
+          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_Projects">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Projects">
+        <MappingFragment StoreEntitySet="WDSB_Projects">
+          <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
+          <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
+          <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
+          <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
+          <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+          <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
+          <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

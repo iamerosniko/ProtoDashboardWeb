@@ -13,9 +13,7 @@
           <Property Name="AppName" Type="varchar" MaxLength="150" />
           <Property Name="AppBU" Type="int" Nullable="false" />
           <Property Name="FrontTechnology" Type="varchar" MaxLength="50" />
-          <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
           <Property Name="BackTechnology" Type="varchar" MaxLength="50" />
-          <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
           <Property Name="AppLifespan" Type="int" />
           <Property Name="PrimaryBUContact" Type="int" Nullable="false" />
           <Property Name="SecondaryBUContact" Type="int" />
@@ -26,10 +24,6 @@
           <Property Name="LastProdDate" Type="datetime2" Precision="7" />
           <Property Name="AppVersion" Type="varchar" MaxLength="10" />
           <Property Name="AppDesc" Type="varchar" MaxLength="100" />
-          <Property Name="AppDatasource" Type="varchar" MaxLength="50" />
-          <Property Name="AppDatabaseName" Type="varchar" MaxLength="50" />
-          <Property Name="AppUserID" Type="varchar" MaxLength="25" />
-          <Property Name="AppPassword" Type="varchar" MaxLength="25" />
           <Property Name="AppIsWeb" Type="bit" />
           <Property Name="ProjectDevID" Type="varchar" MaxLength="50" />
           <Property Name="ProjectModID" Type="varchar" MaxLength="50" />
@@ -100,6 +94,8 @@
           <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
           <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
           <Property Name="ProjectIsActive" Type="bit" />
+          <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
+          <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -369,9 +365,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" />
           <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" />
           <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" />
+          <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
+          <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
+          <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
           <EntitySet Name="WDSB_Applications" EntityType="BiztechDashboardModel.WDSB_Applications" />
           <EntitySet Name="WDSB_Projects" EntityType="BiztechDashboardModel.WDSB_Projects" />
-          <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
           <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts">
             <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
@@ -408,13 +406,44 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
             <End Role="WDSB_Features" EntitySet="WDSB_Features" />
           </AssociationSet>
-          <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
-          <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
           <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects">
             <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
             <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="WDSB_TempProjects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectIsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="VW_WDSB_GetNewApp">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ProjectIsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="WDSB_AppUsers">
+          <Key>
+            <PropertyRef Name="AppUserID" />
+          </Key>
+          <Property Name="AppUserID" Type="Guid" Nullable="false" />
+          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_AppUsers" ToRole="WDSB_Projects" />
+        </EntityType>
         <EntityType Name="WDSB_Applications">
           <Key>
             <PropertyRef Name="AppID" />
@@ -423,9 +452,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AppBU" Type="Int32" Nullable="false" />
           <Property Name="FrontTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FrontEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="BackTechnology" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BackEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="AppLifespan" Type="Int32" />
           <Property Name="PrimaryBUContact" Type="Int32" Nullable="false" />
           <Property Name="SecondaryBUContact" Type="Int32" />
@@ -436,10 +463,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="LastProdDate" Type="DateTime" Precision="7" />
           <Property Name="AppVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="AppDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="AppDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AppDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AppUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="AppPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="AppIsWeb" Type="Boolean" />
           <Property Name="ProjectDevID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProjectModID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -467,22 +490,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="ProjectIsActive" Type="Boolean" />
+          <Property Name="FrontEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BackEndPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
           <NavigationProperty Name="WDSB_Applications1" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects1" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
           <NavigationProperty Name="WDSB_Applications2" Relationship="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects2" FromRole="WDSB_Projects" ToRole="WDSB_Applications" />
           <NavigationProperty Name="WDSB_AppUsers" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_Projects" ToRole="WDSB_AppUsers" />
-        </EntityType>
-        <EntityType Name="WDSB_TempProjects">
-          <Key>
-            <PropertyRef Name="ProjectID" />
-          </Key>
-          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectIsActive" Type="Boolean" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />
@@ -592,27 +605,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VW_WDSB_GetNewApp">
-          <Key>
-            <PropertyRef Name="ProjectID" />
-          </Key>
-          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectDatasource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectDatabaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectUserID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectPassword" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <Property Name="ProjectIsActive" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="WDSB_AppUsers">
-          <Key>
-            <PropertyRef Name="AppUserID" />
-          </Key>
-          <Property Name="AppUserID" Type="Guid" Nullable="false" />
-          <Property Name="ProjectID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="WDSB_Projects" Relationship="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" FromRole="WDSB_AppUsers" ToRole="WDSB_Projects" />
-        </EntityType>
         <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
           <End Type="BiztechDashboardModel.WDSB_Projects" Role="WDSB_Projects" Multiplicity="1" />
           <End Type="BiztechDashboardModel.WDSB_AppUsers" Role="WDSB_AppUsers" Multiplicity="*" />
@@ -680,52 +672,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WDSB_Applications">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
-              <MappingFragment StoreEntitySet="WDSB_Applications">
-                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
-                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-                <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-                <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-                <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-                <ScalarProperty Name="AppPassword" ColumnName="AppPassword" />
-                <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
-                <ScalarProperty Name="AppDatabaseName" ColumnName="AppDatabaseName" />
-                <ScalarProperty Name="AppDatasource" ColumnName="AppDatasource" />
-                <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
-                <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-                <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-                <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-                <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-                <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-                <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-                <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-                <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-                <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
-                <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-                <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
-                <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-                <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-                <ScalarProperty Name="AppName" ColumnName="AppName" />
-                <ScalarProperty Name="AppID" ColumnName="AppID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WDSB_Projects">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Projects">
-              <MappingFragment StoreEntitySet="WDSB_Projects">
-                <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
-                <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
-                <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
-                <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
-                <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
-                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
-                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="WDSB_TempProjects">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_TempProjects">
               <MappingFragment StoreEntitySet="WDSB_TempProjects">
@@ -758,6 +704,48 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
                 <ScalarProperty Name="AppUserID" ColumnName="AppUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_Applications">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
+              <MappingFragment StoreEntitySet="WDSB_Applications">
+                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
+                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+                <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
+                <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
+                <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+                <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+                <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+                <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
+                <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
+                <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
+                <ScalarProperty Name="AppPII" ColumnName="AppPII" />
+                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
+                <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
+                <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
+                <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
+                <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
+                <ScalarProperty Name="AppBU" ColumnName="AppBU" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_Projects">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Projects">
+              <MappingFragment StoreEntitySet="WDSB_Projects">
+                <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
+                <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
+                <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
+                <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
+                <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />
+                <ScalarProperty Name="ProjectDatabaseName" ColumnName="ProjectDatabaseName" />
+                <ScalarProperty Name="ProjectDatasource" ColumnName="ProjectDatasource" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
