@@ -11,21 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var TempProjectService = (function () {
-    function TempProjectService(http) {
+var BUService = (function () {
+    function BUService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/TempProjects';
-        this.api2Url = 'api/Projects';
+        this.apiUrl = 'api/BusinessUnits';
     }
-    TempProjectService.prototype.getProjects = function () {
+    BUService.prototype.getBUs = function () {
         return this.http
             .get(this.apiUrl, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    TempProjectService.prototype.getProject = function (id) {
+    BUService.prototype.getBU = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http
             .get(url)
@@ -33,36 +32,22 @@ var TempProjectService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    TempProjectService.prototype.postProject = function (newTempProject) {
+    BUService.prototype.postBU = function (bu) {
         this.http
-            .post(this.apiUrl, JSON.stringify(newTempProject), { headers: this.headers })
+            .post(this.apiUrl, JSON.stringify(bu), { headers: this.headers })
             .toPromise()
             .then(function () { console.log(true); })
-            .catch(function () { console.log(newTempProject.ProjectID); });
+            .catch(function () { console.log(bu.BUID); });
     };
-    TempProjectService.prototype.postProjects = function (newTempProjects) {
+    BUService.prototype.putBU = function (bu) {
+        var url = this.apiUrl + "/" + bu.BUID;
         return this.http
-            .post(this.apiUrl, JSON.stringify(newTempProjects), { headers: this.headers })
+            .put(url, JSON.stringify(bu), { headers: this.headers })
             .toPromise()
-            .then(function (response) { return response.json(); })
-            .catch(function () { console.log(false); });
-    };
-    TempProjectService.prototype.postProjects2 = function (newProjects) {
-        return this.http
-            .post(this.api2Url, JSON.stringify(newProjects), { headers: this.headers })
-            .toPromise()
-            .then(function () { console.log(true); })
-            .catch(function () { console.log(false); });
-    };
-    TempProjectService.prototype.putProject = function (project) {
-        var url = this.apiUrl + "/" + project.ProjectID;
-        return this.http
-            .put(url, JSON.stringify(project), { headers: this.headers })
-            .toPromise()
-            .then(function () { return project; })
+            .then(function () { return bu; })
             .catch(this.handleError);
     };
-    TempProjectService.prototype.DeleteProject = function (id) {
+    BUService.prototype.DeleteBU = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http
             .delete(url, { headers: this.headers })
@@ -70,14 +55,14 @@ var TempProjectService = (function () {
             .then(function () { return true; })
             .catch(function () { return false; });
     };
-    TempProjectService.prototype.handleError = function (error) {
+    BUService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    return TempProjectService;
+    return BUService;
 }());
-TempProjectService = __decorate([
+BUService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], TempProjectService);
-exports.TempProjectService = TempProjectService;
+], BUService);
+exports.BUService = BUService;

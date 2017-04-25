@@ -28,7 +28,9 @@ import { TempProjectService } from '../../services/temp-project.service';
 import { ProjectService } from '../../services/project.service';
 import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
-import { MaintenanceRouting } from './maintenance.routing';
+import { BUService } from '../../services/bu.service';
+//routing
+import { MaintenanceRouting } from './maintenance.routing';BUService
 @NgModule({
     imports: [
         ProgressbarModule.forRoot(),
@@ -59,6 +61,7 @@ import { MaintenanceRouting } from './maintenance.routing';
         ProjectService,
         ApplicationService,
         AppUserService,
+        BUService,
         FnMain,
         FnUser
     ]

@@ -14,50 +14,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Benefit Administration</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Structured Settlements</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Operations</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Licensing and Commissions</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Thorough Search</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Institutional Annuity Claims</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Retail Death Benefit Administration</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Death Matching</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Disbursement and Inforce Administration</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Annuity Administration</td>
+                    <tr *ngFor="let bu of bUnits">
+                        <td>{{bu.BUName}}</td>
                         <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
                     </tr>
                 </tbody>
             </table>
         </div> 
     </div>
+    <!--pagination-->
     <div class="row">
         <div class="col-md-12">
             <ul class="pagination pull-right">

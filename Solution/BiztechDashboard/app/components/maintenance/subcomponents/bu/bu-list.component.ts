@@ -1,9 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 //entities
-import { Application } from '../../../../entities/application';
-
-import { Project } from '../../../../entities/project';
+import { BU } from '../../../../entities/bu';
+//services
+import { BUService } from '../../../../services/bu.service';
 @Component({
     moduleId: module.id,
     selector: 'bu-list',
@@ -11,12 +11,19 @@ import { Project } from '../../../../entities/project';
 })
 export class BUListComponent implements OnInit  { 
     name = 'Sync page';
-    newApps:Project[]=[];
+    bUnits:BU[]=[];
+    selectedBU:BU;
     constructor(
+        public buService:BUService
     ){ }
 
     ngOnInit(){
-      //  this.initAppSync();
+        this.getBUs();
+    }
+
+    getBUs(){
+        this.buService.getBUs()
+            .then(b=>this.bUnits=b);
     }
     
 }

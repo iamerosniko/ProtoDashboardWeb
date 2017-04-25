@@ -2,15 +2,14 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
-import { Project } from '../entities/project';
+import { BU } from '../entities/bu';
 @Injectable()
-export class TempProjectService {
+export class BUService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private apiUrl = 'api/TempProjects';  
-    private api2Url = 'api/Projects';
+    private apiUrl = 'api/BusinessUnits';
     constructor(private http: Http){}
 
-    getProjects(): Promise<Project[]> {
+    getBUs(): Promise<BU[]> {
         return this.http
                 .get(this.apiUrl, {headers: this.headers})
                 .toPromise()
@@ -18,7 +17,7 @@ export class TempProjectService {
                 .catch(this.handleError);
     }
 
-    getProject(id: string): Promise<Project> {
+    getBU(id: string): Promise<BU> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
                 .get(url)
@@ -27,40 +26,24 @@ export class TempProjectService {
                 .catch(this.handleError);      
     }
 
-    postProject(newTempProject: Project):void{
+    postBU(bu: BU):void{
          this.http
-            .post(this.apiUrl, JSON.stringify(newTempProject), {headers: this.headers})
+            .post(this.apiUrl, JSON.stringify(bu), {headers: this.headers})
             .toPromise()
             .then(()=>{console.log(true);})
-            .catch(()=>{console.log(newTempProject.ProjectID);});
+            .catch(()=>{console.log(bu.BUID);});
     }
 
-    postProjects(newTempProjects: Project[]):Promise<string>{
-         return this.http
-            .post(this.apiUrl, JSON.stringify(newTempProjects), {headers: this.headers})
-            .toPromise()
-            .then(response => response.json())
-            .catch(()=>{console.log(false);});
-    }
-
-    postProjects2(newProjects: Project[]):Promise<any>{
+    putBU(bu: BU): Promise<BU> {
+        const url = `${this.apiUrl}/${bu.BUID}`;
         return this.http
-            .post(this.api2Url, JSON.stringify(newProjects), {headers: this.headers})
+            .put(url, JSON.stringify(bu), {headers: this.headers})
             .toPromise()
-            .then(()=>{console.log(true)})
-            .catch(()=>{console.log(false)});
-    }
-
-    putProject(project: Project): Promise<Project> {
-        const url = `${this.apiUrl}/${project.ProjectID}`;
-        return this.http
-            .put(url, JSON.stringify(project), {headers: this.headers})
-            .toPromise()
-            .then(() => project)
+            .then(() => bu)
             .catch(this.handleError);
     }
     
-    DeleteProject(id: string): Promise<boolean> {
+    DeleteBU(id: string): Promise<boolean> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
             .delete(url, {headers: this.headers})

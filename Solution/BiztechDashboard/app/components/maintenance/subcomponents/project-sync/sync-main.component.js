@@ -61,8 +61,19 @@ var SyncMainComponent = (function () {
         });
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
+        var _this = this;
         //this method is to save new applications to wdsb.applications
-        this.fnMain.postApplications(apps);
+        this.fnMain.postApplications(apps).then(function () {
+            _this.initAppSync();
+        });
+        // var result = confirm("Confirm Add?");
+        // if (result == true) {
+        //     this.fnMain.postApplications(apps);  
+        //     alert("Successfully saved!");
+        // }
+        // else {
+        // //Do nothing
+        // } 
     };
     return SyncMainComponent;
 }());

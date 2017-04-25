@@ -34,7 +34,10 @@ var temp_project_service_1 = require("../../services/temp-project.service");
 var project_service_1 = require("../../services/project.service");
 var application_service_1 = require("../../services/application.service");
 var app_user_service_1 = require("../../services/app-user.service");
+var bu_service_1 = require("../../services/bu.service");
+//routing
 var maintenance_routing_1 = require("./maintenance.routing");
+bu_service_1.BUService;
 var MaintenanceModule = (function () {
     function MaintenanceModule() {
     }
@@ -71,6 +74,7 @@ MaintenanceModule = __decorate([
             project_service_1.ProjectService,
             application_service_1.ApplicationService,
             app_user_service_1.AppUserService,
+            bu_service_1.BUService,
             fn_main_1.FnMain,
             fn_user_1.FnUser
         ]

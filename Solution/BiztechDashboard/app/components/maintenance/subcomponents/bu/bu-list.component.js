@@ -9,13 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+//services
+var bu_service_1 = require("../../../../services/bu.service");
 var BUListComponent = (function () {
-    function BUListComponent() {
+    function BUListComponent(buService) {
+        this.buService = buService;
         this.name = 'Sync page';
-        this.newApps = [];
+        this.bUnits = [];
     }
     BUListComponent.prototype.ngOnInit = function () {
-        //  this.initAppSync();
+        this.getBUs();
+    };
+    BUListComponent.prototype.getBUs = function () {
+        var _this = this;
+        this.buService.getBUs()
+            .then(function (b) { return _this.bUnits = b; });
     };
     return BUListComponent;
 }());
@@ -25,6 +33,6 @@ BUListComponent = __decorate([
         selector: 'bu-list',
         templateUrl: 'bu-list.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [bu_service_1.BUService])
 ], BUListComponent);
 exports.BUListComponent = BUListComponent;

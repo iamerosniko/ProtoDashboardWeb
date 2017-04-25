@@ -66,7 +66,7 @@ var FnMain = (function () {
         // (app).forEach(element => {
         //     this.applicationService.postApplication(element);
         // });
-        this.tempProjectService.postProjects2(app);
+        return this.tempProjectService.postProjects2(app);
     };
     return FnMain;
 }());
