@@ -19,7 +19,12 @@ export class SyncMainComponent implements OnInit  {
     newApps:Project[]=[];
     constructor(
         private fnMain : FnMain,
-    ){ }
+        
+    ){ 
+        setInterval(() => {
+        this.initAppSync();
+     }, 10000);
+    }
 
     ngOnInit(){
         this.initAppSync();
@@ -59,11 +64,11 @@ export class SyncMainComponent implements OnInit  {
                 console.log('done-getNewAppFromTemp');
             });
     }
-/*                     OTHERS                         */
+
     saveNewApplications(apps:Project[]){
         //this method is to save new applications to wdsb.applications
-        this.fnMain.postApplications(apps);
-        this.initAppSync();
+        this.fnMain.postApplications(apps);  
+
     }
       
 }
