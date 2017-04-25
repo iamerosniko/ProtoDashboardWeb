@@ -17,7 +17,9 @@ var SyncMainComponent = (function () {
         this.name = 'Sync page';
         this.newApps = [];
         setInterval(function () {
-            _this.initAppSync();
+            if (_this.newApps.length > 0) {
+                _this.initAppSync();
+            }
         }, 10000);
     }
     SyncMainComponent.prototype.ngOnInit = function () {
@@ -36,7 +38,7 @@ var SyncMainComponent = (function () {
             .then(function (tp) {
             _this.fnMain.deleteProjectsToTempProject(tp);
         });
-        console.log('done-removeAppFromTemp');
+        // console.log('done-removeAppFromTemp');
     };
     //2
     SyncMainComponent.prototype.getAppToTemp = function () {
@@ -44,10 +46,10 @@ var SyncMainComponent = (function () {
         /* this method is to add all applications found in btss to wdsb.tempProjects */
         this.fnMain.getProjectsFromBTSS()
             .then(function (tp) {
-            console.log(tp.length),
-                _this.fnMain.postProjectsToTempProjects(tp);
+            // console.log(tp.length),
+            _this.fnMain.postProjectsToTempProjects(tp);
         });
-        console.log('done-getAppToTemp');
+        // console.log('done-getAppToTemp');
     };
     //3
     SyncMainComponent.prototype.getNewAppFromTemp = function () {
@@ -56,7 +58,7 @@ var SyncMainComponent = (function () {
         this.fnMain.getNewApplications()
             .then(function (apps) {
             _this.newApps = apps;
-            console.log('done-getNewAppFromTemp');
+            // console.log('done-getNewAppFromTemp');
         });
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {

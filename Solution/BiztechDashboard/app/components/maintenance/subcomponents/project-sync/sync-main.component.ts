@@ -16,13 +16,16 @@ import { Project } from '../../../../entities/project';
 })
 export class SyncMainComponent implements OnInit  { 
     name = 'Sync page';
+
     newApps:Project[]=[];
     constructor(
         private fnMain : FnMain,
         
     ){ 
         setInterval(() => {
-        this.initAppSync();
+            if(this.newApps.length>0){
+                this.initAppSync();
+            }
      }, 10000);
     }
 
@@ -42,17 +45,17 @@ export class SyncMainComponent implements OnInit  {
         .then(tp=>{
             this.fnMain.deleteProjectsToTempProject(tp);
         });
-        console.log('done-removeAppFromTemp');
+        // console.log('done-removeAppFromTemp');
     }
     //2
     getAppToTemp():void{
         /* this method is to add all applications found in btss to wdsb.tempProjects */
         this.fnMain.getProjectsFromBTSS()
         .then(tp=>{
-            console.log(tp.length),
+            // console.log(tp.length),
             this.fnMain.postProjectsToTempProjects(tp)
         });
-        console.log('done-getAppToTemp');
+        // console.log('done-getAppToTemp');
 
     }
     //3
@@ -61,14 +64,13 @@ export class SyncMainComponent implements OnInit  {
         this.fnMain.getNewApplications()
             .then(apps =>{
                 this.newApps=apps;
-                console.log('done-getNewAppFromTemp');
+                // console.log('done-getNewAppFromTemp');
             });
     }
 
     saveNewApplications(apps:Project[]){
         //this method is to save new applications to wdsb.applications
         this.fnMain.postApplications(apps);  
-
     }
       
 }
