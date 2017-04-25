@@ -18,6 +18,8 @@ var app_form_component_1 = require("./subcomponents/applications/app-form.compon
 var bu_list_component_1 = require("./subcomponents/bu/bu-list.component");
 var bu_form_component_1 = require("./subcomponents/bu/bu-form.component");
 /*Contacts*/
+var contact_list_component_1 = require("./subcomponents/contacts/contact-list.component");
+var contact_form_component_1 = require("./subcomponents/contacts/contact-form.component");
 /*Project-sync*/
 var sync_main_component_1 = require("./subcomponents/project-sync/sync-main.component");
 /*user-sync*/
@@ -56,6 +58,8 @@ MaintenanceModule = __decorate([
             app_form_component_1.AppFormComponent,
             bu_list_component_1.BUListComponent,
             bu_form_component_1.BUFormComponent,
+            contact_list_component_1.ContactListComponent,
+            contact_form_component_1.ContactFormComponent,
             sync_main_component_1.SyncMainComponent,
             sync_user_component_1.SyncUserComponent,
         ],

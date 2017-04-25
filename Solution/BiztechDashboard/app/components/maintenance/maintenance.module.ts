@@ -12,6 +12,8 @@ import { AppFormComponent } from './subcomponents/applications/app-form.componen
 import { BUListComponent } from './subcomponents/bu/bu-list.component';
 import { BUFormComponent } from './subcomponents/bu/bu-form.component';
 /*Contacts*/
+import { ContactListComponent } from './subcomponents/contacts/contact-list.component';
+import { ContactFormComponent } from './subcomponents/contacts/contact-form.component';
 /*Project-sync*/
 import { SyncMainComponent } from './subcomponents/project-sync/sync-main.component';
 /*user-sync*/
@@ -44,6 +46,8 @@ import { MaintenanceRouting } from './maintenance.routing';
         AppFormComponent,
         BUListComponent,
         BUFormComponent,
+        ContactListComponent,
+        ContactFormComponent,
         SyncMainComponent,
         SyncUserComponent,
     ],
