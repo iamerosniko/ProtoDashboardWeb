@@ -19,6 +19,7 @@ namespace BiztechDashboard.Models
         public string Comment { get; set; }
         public string UserName { get; set; }
         public System.DateTime DatePosted { get; set; }
+        public string Subject { get; set; }
     
         public virtual WDSB_Applications WDSB_Applications { get; set; }
     }

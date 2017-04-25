@@ -22,6 +22,7 @@
     <EntitySetMapping Name="WDSB_Comments">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Comments">
         <MappingFragment StoreEntitySet="WDSB_Comments">
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="CommentID" ColumnName="CommentID" />
           <ScalarProperty Name="AppID" ColumnName="AppID" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />

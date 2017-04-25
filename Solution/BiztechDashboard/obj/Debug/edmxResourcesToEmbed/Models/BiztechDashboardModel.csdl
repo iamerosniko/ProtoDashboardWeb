@@ -29,6 +29,7 @@
     <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DatePosted" Type="DateTime" Nullable="false" Precision="7" />
     <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" FromRole="WDSB_Comments" ToRole="WDSB_Applications" />
+    <Property Name="Subject" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="WDSB_Favorites">
     <Key>

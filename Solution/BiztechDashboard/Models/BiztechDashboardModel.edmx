@@ -64,6 +64,7 @@
           <Property Name="Comment" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="DatePosted" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Subject" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="WDSB_Favorites">
           <Key>
@@ -338,6 +339,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DatePosted" Type="DateTime" Nullable="false" Precision="7" />
           <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" FromRole="WDSB_Comments" ToRole="WDSB_Applications" />
+          <Property Name="Subject" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="WDSB_Favorites">
           <Key>
@@ -644,6 +646,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <EntitySetMapping Name="WDSB_Comments">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Comments">
               <MappingFragment StoreEntitySet="WDSB_Comments">
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="CommentID" ColumnName="CommentID" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />

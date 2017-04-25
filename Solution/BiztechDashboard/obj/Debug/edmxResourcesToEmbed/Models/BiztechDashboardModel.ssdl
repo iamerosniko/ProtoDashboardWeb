@@ -59,6 +59,7 @@
     <Property Name="Comment" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="DatePosted" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Subject" Type="varchar" MaxLength="25" />
   </EntityType>
   <EntityType Name="WDSB_Favorites">
     <Key>
