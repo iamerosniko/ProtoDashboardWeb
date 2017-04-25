@@ -1,8 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { FnUser } from './../functions/fn-user';
+import { FnUser } from '../../functions/fn-user';
 import { Observable } from 'rxjs/Observable';
 //entities
-import { ProjectUsers } from '../../../entities/projectusers';
+import { ProjectUsers } from '../../../../entities/projectusers';
 @Component({
     moduleId: module.id,
     selector: 'sync-comp',

@@ -7,5 +7,7 @@ export class Project {
         public ProjectUserID : string,
         public ProjectPassword : string,
         public ProjectIsActive: Boolean,
+        public FrontEndPath: string,
+        public BackEndPath: string
     ){}
 }

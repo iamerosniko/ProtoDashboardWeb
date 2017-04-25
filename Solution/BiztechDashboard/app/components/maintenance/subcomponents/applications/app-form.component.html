@@ -1,0 +1,368 @@
+<div class="tab-pane fade"  id="createApp">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <a href="#tableApp" class="close" aria-controls="tableApp" role="tab" data-toggle="tab">&times;</a>
+            <h4>New Application</h4>
+        </div>
+        <div class="panel-body">
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active">
+                            <a href="#appDetails" aria-controls="appDetails" role="tab" data-toggle="tab">Details</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#appFeatures" aria-controls="appFeatures" role="tab" data-toggle="tab">Features</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="appDetails">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#primaryDetails">Primary Details</a>
+                                                </h4>
+                                            </div>
+                                            <div id="primaryDetails" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <label>Application Name</label>
+                                                    <input type="text" class="form-control input-sm" />
+                                                    <br />
+                                                    <label>Description</label>
+                                                    <textarea style="height:100px;;" class="form-control input-sm"></textarea>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input id="chkActive" type="checkbox" class="css-checkbox med" ><label for="chkActive" class="css-label med elegant">Is Active?</label>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input id="chkPII" type="checkbox" class="css-checkbox med" ><label for="chkPII" class="css-label med elegant">Is PII?</label>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-9 col-md-offset-3">
+                                                            <label>Security</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Date Implemented</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Last Production Date</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#buDetails">Business Unit Details</a>
+                                                </h4>
+                                            </div>
+                                            <div id="buDetails" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>BU Owner</label>
+                                                            <select class="form-control input-sm"></select>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Primary Contact</label>
+                                                            <select class="form-control input-sm"></select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Secondary Contact</label>
+                                                            <select class="form-control input-sm"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#techDetails">Technology Details</a>
+                                                </h4>
+                                            </div>
+                                            <div id="techDetails" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <input id="chkWeb" type="checkbox" class="css-checkbox med" ><label for="chkWeb" class="css-label med elegant">Is Web?</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input id="chkUat" type="checkbox" class="css-checkbox med" ><label for="chkUat" class="css-label med elegant">UAT Accessible?</label>
+                                                        </div>
+                                                        <br />
+                                                        <div class="col-md-6">
+                                                            <label>Front-end Technology</label>
+                                                            <select class="form-control input-sm"></select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Front-end Path</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Back-end Technology</label>
+                                                            <select class="form-control input-sm"></select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label>Back-end Path</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Lifespan</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Version</label>
+                                                            <input type="text" class="form-control input-sm" />
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <label>DEV Environment ID</label>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-sm" placeholder="Project ID"/>
+                                                                <span class="input-group-btn">
+                                                                    <a href="#" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#modalSearchProject">
+                                                                        <span class="glyphicon glyphicon-search"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control input-sm" placeholder="Path"/>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <label>UAT Environment ID</label>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-sm" placeholder="Project ID"/>
+                                                                <span class="input-group-btn">
+                                                                    <a href="#" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#modalSearchProject">
+                                                                        <span class="glyphicon glyphicon-search"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control input-sm" placeholder="Path"/>
+                                                        </div>
+                                                    </div>
+                                                    <br />
+                                                    <label>PROD Environment ID</label>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control input-sm" placeholder="Project ID"/>
+                                                                <span class="input-group-btn">
+                                                                    <a href="#" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#modalSearchProject">
+                                                                        <span class="glyphicon glyphicon-search"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control input-sm" placeholder="Path"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="appFeatures">
+                            <div class="row">
+                                <a href="#" class="btn btn-default btn-md">New Item <span class="glyphicon glyphicon-plus-sign"></span></a>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                <a href="#" class="accordion-toggle" data-toggle="collapse" data-target="#feature"><span class="glyphicon glyphicon-list-alt"></span> Feature 1</a>
+                                                <div class="collapse in" id="feature">
+                                                    <div class="bs-callout bs-callout-primary">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>Function</label>
+                                                                <input type="text" class="form-control input-sm" />
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label>Description</label>
+                                                                <textarea class="form-control input-sm" style="height: 50px;"></textarea>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <label>Screenshot</label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control input-sm" id="txtFilePath"/>
+                                                                    <span class="input-group-btn">
+                                                                        <a href="#" class="btn btn-default btn-sm" id="btnOpenFile">
+                                                                            <span class="glyphicon glyphicon-folder-open"></span>
+                                                                        </a>
+                                                                        <input type="file" style="display:none" id="screenshot" name="postFile"/>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="modalSearchProject" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4>Project List</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <div class="searchbox">
+                                                        <input type="text" class="form-control input-sm" placeholder="Search for project..."/>
+                                                        <span class = "glyphicon glyphicon-search form-control-feedback"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table class="table table-hover table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="col-md-4">Project Id</th>
+                                                            <th class="col-md-8">Project Name</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">123</a></td>
+                                                            <td>Project 1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">124</a></td>
+                                                            <td>Project 2</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">125</a></td>
+                                                            <td>Project 3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">126</a></td>
+                                                            <td>Project 4</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">127</a></td>
+                                                            <td>Project 5</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">128</a></td>
+                                                            <td>Project 6</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">129</a></td>
+                                                            <td>Project 7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">130</a></td>
+                                                            <td>Project 8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">131</a></td>
+                                                            <td>Project 9</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="#" data-dismiss="modal">132</a></td>
+                                                            <td>Project 10</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <ul class="pagination pull-right">
+                                                    <li>
+                                                        <a href="#" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li>
+                                                        <a href="#" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-primary btn-md">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
+                        <a href="#tableApp" class="btn btn-default btn-md" aria-controls="tableApp" role="tab" data-toggle="tab">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var fn_main_1 = require("./../functions/fn-main");
+var fn_main_1 = require("../../functions/fn-main");
 var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
         this.fnMain = fnMain;

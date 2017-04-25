@@ -1,10 +1,10 @@
 import { Component,OnInit } from '@angular/core';
-import { FnMain } from './../functions/fn-main';
+import { FnMain } from '../../functions/fn-main';
 import { Observable } from 'rxjs/Observable';
 //entities
-import { Application } from '../../../entities/application';
+import { Application } from '../../../../entities/application';
 
-import { Project } from '../../../entities/project';
+import { Project } from '../../../../entities/project';
 @Component({
     moduleId: module.id,
     selector: 'sync-comp',

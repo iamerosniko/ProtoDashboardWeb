@@ -9,12 +9,19 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
-// ngx-components
-var ngx_bootstrap_1 = require("ngx-bootstrap");
 //Components
-var sync_main_component_1 = require("./subcomponents/sync-main.component");
-var sync_user_component_1 = require("./subcomponents/sync-user.component");
 var maintenance_component_1 = require("./maintenance.component");
+/*Applications */
+var app_list_component_1 = require("./subcomponents/applications/app-list.component");
+var app_form_component_1 = require("./subcomponents/applications/app-form.component");
+/*BU*/
+var bu_list_component_1 = require("./subcomponents/bu/bu-list.component");
+var bu_form_component_1 = require("./subcomponents/bu/bu-form.component");
+/*Contacts*/
+/*Project-sync*/
+var sync_main_component_1 = require("./subcomponents/project-sync/sync-main.component");
+/*user-sync*/
+var sync_user_component_1 = require("./subcomponents/user-sync/sync-user.component");
 //functions (providers)
 var fn_main_1 = require("./functions/fn-main");
 var fn_user_1 = require("./functions/fn-user");
@@ -33,7 +40,6 @@ var MaintenanceModule = (function () {
 MaintenanceModule = __decorate([
     core_1.NgModule({
         imports: [
-            ngx_bootstrap_1.TabsModule.forRoot(),
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,
@@ -46,6 +52,10 @@ MaintenanceModule = __decorate([
         ],
         declarations: [
             maintenance_component_1.MaintenanceComponent,
+            app_list_component_1.AppListComponent,
+            app_form_component_1.AppFormComponent,
+            bu_list_component_1.BUListComponent,
+            bu_form_component_1.BUFormComponent,
             sync_main_component_1.SyncMainComponent,
             sync_user_component_1.SyncUserComponent,
         ],

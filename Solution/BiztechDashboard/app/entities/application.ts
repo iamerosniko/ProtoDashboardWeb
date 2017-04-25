@@ -4,9 +4,7 @@ export class Application {
         public AppName: string,//foreign key
         public AppBU: number,
         public FrontTechnology: string,
-        public FrontEndPath: string,
         public BackTechnology: string,
-        public BackEndPath: string,
         public AppLifespan: number,
         public PrimaryBUContact: number,
         public SecondaryBUContact: number,
@@ -18,10 +16,10 @@ export class Application {
         public AppVersion : string,
         public ProjectID : string,
         public AppDesc : string,
-        public AppDatasource : string,
-        public AppDatabasename : string,
-        public AppUserID : string,
-        public AppPassword : string,
-        public AppisWeb : Boolean
+        public AppisWeb : Boolean,
+        public ProjectDevID : string,
+        public ProjectModID : string,
+        public ProjectOpsID : string,
+        public IsUatAvail : boolean
     ){}
 }

@@ -3,12 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
-// ngx-components
-import { TabsModule } from 'ngx-bootstrap';
 //Components
-import { SyncMainComponent } from './subcomponents/sync-main.component';
-import { SyncUserComponent } from './subcomponents/sync-user.component';
 import { MaintenanceComponent } from './maintenance.component';
+/*Applications */
+import { AppListComponent } from './subcomponents/applications/app-list.component';
+import { AppFormComponent } from './subcomponents/applications/app-form.component';
+/*BU*/
+import { BUListComponent } from './subcomponents/bu/bu-list.component';
+import { BUFormComponent } from './subcomponents/bu/bu-form.component';
+/*Contacts*/
+/*Project-sync*/
+import { SyncMainComponent } from './subcomponents/project-sync/sync-main.component';
+/*user-sync*/
+import { SyncUserComponent } from './subcomponents/user-sync/sync-user.component';
 //functions (providers)
 import { FnMain } from './functions/fn-main';
 import { FnUser } from './functions/fn-user';
@@ -21,7 +28,6 @@ import { AppUserService } from '../../services/app-user.service';
 import { MaintenanceRouting } from './maintenance.routing';
 @NgModule({
     imports: [
-        TabsModule.forRoot(),
         CommonModule,
         FormsModule,
         HttpModule,
@@ -34,6 +40,10 @@ import { MaintenanceRouting } from './maintenance.routing';
     ],
     declarations: [
         MaintenanceComponent,
+        AppListComponent,
+        AppFormComponent,
+        BUListComponent,
+        BUFormComponent,
         SyncMainComponent,
         SyncUserComponent,
     ],
