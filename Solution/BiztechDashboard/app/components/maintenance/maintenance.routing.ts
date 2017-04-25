@@ -6,7 +6,9 @@ import { SyncUserComponent } from './subcomponents/sync-user.component';
 import { MaintenanceComponent } from './maintenance.component';
 const syncRoutes: Routes = [
     { path : 'Administrator' , component : MaintenanceComponent },
-    { path : 'Users' , component : SyncUserComponent }
+    { path : 'Users' , component : SyncUserComponent },
+    { path : 'Project-Sync' , component : SyncMainComponent },
+    
 ];
 
  @NgModule ({

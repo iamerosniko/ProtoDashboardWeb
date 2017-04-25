@@ -1,3 +1,4 @@
+<!--Header and Breadcrumb-->
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -8,6 +9,7 @@
     </div>
     <h3>Applications Catalog</h3>
 </div>
+<!--View Selector and Searchbar-->
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -34,6 +36,7 @@
                             <li><a href="#"><span class="glyphicon glyphicon-export"></span>&nbsp;Export App List</a></li>
                             <li><a (click)="viewtype=1"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List View</a></li>
                             <li><a (click)="viewtype=0"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid View</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;New Application</a></li>
                             <!--<li role="separator" class="divider"></li>-->
                         </ul>
                     </div>
@@ -42,7 +45,17 @@
         </div><!--Added-->
     </div>
     <hr />
+    <!--indicators-->
+    <div class="row" [hidden]="true">
+        <div class=col-md-12>
+            <label>Availability Indicators</label>
+            <div class="btn btn-circle btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div> Available&nbsp;|&nbsp;
+            <div class="btn btn-circle btn-warning btn-xs"><span class="glyphicon glyphicon-alert"></span></div> Scheduled Maintenance&nbsp;|&nbsp;
+            <div class="btn btn-circle btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></div> Unavailable (System Downtime/Ongoing Maintenance)
+        </div>
+    </div>
 </div>
+<br />
 <!--data-->
 <ac-grid *ngIf="viewtype==0"></ac-grid>
 <ac-list *ngIf="viewtype==1"></ac-list>

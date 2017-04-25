@@ -16,15 +16,16 @@ import { Routes } from '@angular/router';
 import { ACComponent } from './ac-parent.component';
 import { ACGridComponent } from './views/ac-grid.component';
 import { ACListComponent } from './views/ac-list.component';
+import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
 
 /*******************Custom Function Provider**********************************/
-//import { FnMain } from './functions/fn-main';
+import { FnApp } from './functions/fn-app';
 
 /*******************Services**********************************/
-// import { BTSSWDSBService } from '../../services/btss-wdsb.service';
-// import { TempProjectService } from '../../services/temp-project.service';
-// import { ApplicationService } from '../../services/application.service';
-//import { AppUserService } from '../../services/app-user.service';
+import { BTSSWDSBService } from '../../services/btss-wdsb.service';
+import { TempProjectService } from '../../services/temp-project.service';
+import { ApplicationService } from '../../services/application.service';
+import { AppUserService } from '../../services/app-user.service';
 
 /*******************Routing**********************************/
 import { AppCatalogRouting } from './appcatalog.routing';
@@ -41,16 +42,16 @@ import { AppCatalogRouting } from './appcatalog.routing';
         AppCatalogRouting,
     ],
     declarations: [
-        //SyncMainComponent,
         ACComponent,
         ACListComponent,
-        ACGridComponent
+        ACGridComponent,
+        ACThumbnailComponent
     ],
     providers: [
-        // BTSSWDSBService,
-        // TempProjectService,
-        // ApplicationService,
-        // FnMain
+        BTSSWDSBService,
+        TempProjectService,
+        ApplicationService,
+        FnApp
     ]
 })
 

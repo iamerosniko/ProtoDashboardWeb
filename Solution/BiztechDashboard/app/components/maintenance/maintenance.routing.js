@@ -7,11 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var sync_main_component_1 = require("./subcomponents/sync-main.component");
 var sync_user_component_1 = require("./subcomponents/sync-user.component");
 var maintenance_component_1 = require("./maintenance.component");
 var syncRoutes = [
     { path: 'Administrator', component: maintenance_component_1.MaintenanceComponent },
-    { path: 'Users', component: sync_user_component_1.SyncUserComponent }
+    { path: 'Users', component: sync_user_component_1.SyncUserComponent },
+    { path: 'Project-Sync', component: sync_main_component_1.SyncMainComponent },
 ];
 var MaintenanceRouting = (function () {
     function MaintenanceRouting() {

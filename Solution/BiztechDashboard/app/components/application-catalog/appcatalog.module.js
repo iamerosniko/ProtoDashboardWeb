@@ -20,13 +20,13 @@ var http_1 = require("@angular/http");
 var ac_parent_component_1 = require("./ac-parent.component");
 var ac_grid_component_1 = require("./views/ac-grid.component");
 var ac_list_component_1 = require("./views/ac-list.component");
+var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
 /*******************Custom Function Provider**********************************/
-//import { FnMain } from './functions/fn-main';
+var fn_app_1 = require("./functions/fn-app");
 /*******************Services**********************************/
-// import { BTSSWDSBService } from '../../services/btss-wdsb.service';
-// import { TempProjectService } from '../../services/temp-project.service';
-// import { ApplicationService } from '../../services/application.service';
-//import { AppUserService } from '../../services/app-user.service';
+var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
+var temp_project_service_1 = require("../../services/temp-project.service");
+var application_service_1 = require("../../services/application.service");
 /*******************Routing**********************************/
 var appcatalog_routing_1 = require("./appcatalog.routing");
 var AppCatalogModule = (function () {
@@ -48,12 +48,17 @@ AppCatalogModule = __decorate([
             appcatalog_routing_1.AppCatalogRouting,
         ],
         declarations: [
-            //SyncMainComponent,
             ac_parent_component_1.ACComponent,
             ac_list_component_1.ACListComponent,
-            ac_grid_component_1.ACGridComponent
+            ac_grid_component_1.ACGridComponent,
+            ac_thumbnail_component_1.ACThumbnailComponent
         ],
-        providers: []
+        providers: [
+            btss_wdsb_service_1.BTSSWDSBService,
+            temp_project_service_1.TempProjectService,
+            application_service_1.ApplicationService,
+            fn_app_1.FnApp
+        ]
     })
 ], AppCatalogModule);
 exports.AppCatalogModule = AppCatalogModule;
