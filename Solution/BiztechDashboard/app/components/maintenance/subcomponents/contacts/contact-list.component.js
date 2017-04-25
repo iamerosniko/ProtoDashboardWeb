@@ -9,22 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var BUFormComponent = (function () {
-    function BUFormComponent() {
+var ContactListComponent = (function () {
+    function ContactListComponent() {
         this.name = 'Sync page';
         this.newApps = [];
     }
-    BUFormComponent.prototype.ngOnInit = function () {
-        // this.initAppSync();
+    ContactListComponent.prototype.ngOnInit = function () {
+        //  this.initAppSync();
     };
-    return BUFormComponent;
+    return ContactListComponent;
 }());
-BUFormComponent = __decorate([
+ContactListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'bu-form',
-        templateUrl: 'bu-form.component.html',
+        selector: 'contact-list',
+        templateUrl: 'contact-list.component.html',
     }),
     __metadata("design:paramtypes", [])
-], BUFormComponent);
-exports.BUFormComponent = BUFormComponent;
+], ContactListComponent);
+exports.ContactListComponent = ContactListComponent;

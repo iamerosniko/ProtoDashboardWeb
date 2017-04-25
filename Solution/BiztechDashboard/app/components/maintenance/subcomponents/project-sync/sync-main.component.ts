@@ -7,7 +7,7 @@ import { Application } from '../../../../entities/application';
 import { Project } from '../../../../entities/project';
 @Component({
     moduleId: module.id,
-    selector: 'sync-comp',
+    selector: 'proj-sync',
     // template: `<h1>Hello {{name}}</h1>
     //     <a (click)="getSample()" role="button" tooltip="Refresh" class="btn btn-default btn-sm">
     //     <i class="glyphicon glyphicon-refresh"></i>  Refresh

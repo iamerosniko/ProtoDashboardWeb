@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { ProjectUsers } from '../../../../entities/projectusers';
 @Component({
     moduleId: module.id,
-    selector: 'sync-comp',
+    selector: 'user-sync',
     // template: `<h1>Hello {{name}}</h1>
     //     <a (click)="getSample()" role="button" tooltip="Refresh" class="btn btn-default btn-sm">
     //     <i class="glyphicon glyphicon-refresh"></i>  Refresh

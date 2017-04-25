@@ -6,10 +6,10 @@ import { Application } from '../../../../entities/application';
 import { Project } from '../../../../entities/project';
 @Component({
     moduleId: module.id,
-    selector: 'bu-list',
-    templateUrl: 'bu-list.component.html',
+    selector: 'contact-list',
+    templateUrl: 'contact-list.component.html',
 })
-export class BUListComponent implements OnInit  { 
+export class ContactListComponent implements OnInit  { 
     name = 'Sync page';
     newApps:Project[]=[];
     constructor(
