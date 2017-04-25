@@ -12,6 +12,7 @@ var core_1 = require("@angular/core");
 //entities
 var MaintenanceComponent = (function () {
     function MaintenanceComponent() {
+        this.showForm = false;
     }
     MaintenanceComponent.prototype.ngOnInit = function () {
     };

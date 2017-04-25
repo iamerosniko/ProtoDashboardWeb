@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var maintenance_component_1 = require("../../maintenance.component");
 //services
 var bu_service_1 = require("../../../../services/bu.service");
 var BUListComponent = (function () {
@@ -27,6 +28,10 @@ var BUListComponent = (function () {
     };
     return BUListComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
+], BUListComponent.prototype, "mainView", void 0);
 BUListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

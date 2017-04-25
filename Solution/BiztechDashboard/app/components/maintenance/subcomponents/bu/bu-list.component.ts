@@ -1,7 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 //entities
 import { BU } from '../../../../entities/bu';
+import { MaintenanceComponent } from '../../maintenance.component';
 //services
 import { BUService } from '../../../../services/bu.service';
 @Component({
@@ -10,6 +11,8 @@ import { BUService } from '../../../../services/bu.service';
     templateUrl: 'bu-list.component.html',
 })
 export class BUListComponent implements OnInit  { 
+    @Input() mainView:MaintenanceComponent;
+
     name = 'Sync page';
     bUnits:BU[]=[];
     selectedBU:BU;

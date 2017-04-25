@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class MaintenanceComponent implements OnInit  { 
     constructor(
     ){ }
-
+    showForm:boolean=false;
     ngOnInit(){
         
     }

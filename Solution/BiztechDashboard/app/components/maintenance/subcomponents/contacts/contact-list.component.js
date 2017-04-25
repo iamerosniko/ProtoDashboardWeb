@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var maintenance_component_1 = require("../../maintenance.component");
 var ContactListComponent = (function () {
     function ContactListComponent() {
         this.name = 'Sync page';
@@ -19,6 +20,10 @@ var ContactListComponent = (function () {
     };
     return ContactListComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
+], ContactListComponent.prototype, "mainView", void 0);
 ContactListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
