@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
+import { ProgressbarModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
@@ -30,6 +31,7 @@ import { AppUserService } from '../../services/app-user.service';
 import { MaintenanceRouting } from './maintenance.routing';
 @NgModule({
     imports: [
+        ProgressbarModule.forRoot(),
         CommonModule,
         FormsModule,
         HttpModule,

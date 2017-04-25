@@ -60,10 +60,11 @@ export class FnMain  {
         
     }
     //6.add to wdsb.Applications
-    postApplications(app:Project[]): void{
+    postApplications(app:Project[]){
         // (app).forEach(element => {
         //     this.applicationService.postApplication(element);
         // });
-        this.tempProjectService.postProjects2(app); 
+        this.tempProjectService.postProjects2(app);
+         
     }
 }

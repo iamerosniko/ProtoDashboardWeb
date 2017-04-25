@@ -22,11 +22,11 @@ export class SyncMainComponent implements OnInit  {
         private fnMain : FnMain,
         
     ){ 
-        setInterval(() => {
-            if(this.newApps.length>0){
-                this.initAppSync();
-            }
-     }, 10000);
+    //     setInterval(() => {
+    //         if(this.newApps.length>0){
+    //             this.initAppSync();
+    //         }
+    //  }, 10000);
     }
 
     ngOnInit(){

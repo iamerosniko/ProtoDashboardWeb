@@ -43,8 +43,8 @@ export class TempProjectService {
             .catch(()=>{console.log(false);});
     }
 
-    postProjects2(newProjects: Project[]):Promise<string>{
-         return this.http
+    postProjects2(newProjects: Project[]){
+        this.http
             .post(this.api2Url, JSON.stringify(newProjects), {headers: this.headers})
             .toPromise()
             .then(response => response.json())

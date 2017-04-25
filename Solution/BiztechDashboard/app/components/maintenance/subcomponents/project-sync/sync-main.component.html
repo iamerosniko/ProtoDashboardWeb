@@ -1,4 +1,5 @@
 <div [hidden]="newApps.length==0">
+    # of projects found in BTSS that are not in WDSB : {{newApps.length}}
     <button class="btn btn-default btn-sm" type="button" [disabled]="!newApps.length>0" (click)="saveNewApplications(newApps);">Add to Projects</button>
     <table class="table table-hover table-striped">
         <thead>
@@ -19,7 +20,6 @@
 </div>
 <div [hidden]="!newApps.length==0">
     <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
-    
     no new applications found
 </div>
 

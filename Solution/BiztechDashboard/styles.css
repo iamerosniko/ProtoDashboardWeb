@@ -4,7 +4,6 @@ h1 {
   font-size: 250%;
 }
 /* WD */
-
 .navbar-blue {
     background: #1F4267; /*002d5b*/
     color: #ffffff;
@@ -58,8 +57,14 @@ h1 {
     background-color: #080808;
 }
 
+body{
+   background: #ecf0f5; 
+}
+
 .main-content {
-    padding-top: 60px;
+    position:absolute;
+    width:100%;
+    padding-top: 60px; 
     background: #ecf0f5;
 }
 
@@ -68,27 +73,17 @@ h1 {
     height:90px;
 }
 
-.thumbnail-selector:hover > .thumbnail{
+.thumbnail-display-img {
+    width:90px; 
+    height:120px;
+}
+
+.thumbnail-selector:hover > .thumbnail {
     background-color: #e3eaf1;
 }
 
 .breadcrumb {
     background-color: #e3eaf1;
-}
-
-.col-md-6 > input[type="text"].searchbar {
-    width: 50%;
-}
-
-.col-md-12 > input[type="text"].searchbar {
-    width: 25%;
-}
-
-@media (max-width: 767px) { 
-    .col-md-6 > input[type="text"].searchbar,
-    .col-md-12 > input[type="text"].searchbar {
-        width: 100%;
-    }
 }
 
 .popover {
@@ -103,3 +98,264 @@ hr {
     background-color: #646564; /* Modern Browsers */
 }
 
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+.carousel-inner > .item > .item-details {
+    margin-left:140px;
+    margin-bottom:30px;
+}
+
+@media (max-width: 767px) { 
+    .carousel-inner > .item > .item-details {
+        margin-left:30px;
+        margin-bottom:10px;
+    }
+
+    .option-button {
+        margin-top: 20px;
+    }
+}
+
+.carousel-indicators > li {
+    border-color:#777;
+}
+
+.btn-favorite {
+    color: #fff;
+    background-color: #c3c458;
+    border-color: #e6e7af;
+}
+
+.btn-favorite:focus,
+.btn-favorite:hover {
+    color: #fff;
+    background-color: #9ea02a;
+    border-color: #7a7c09;
+}
+
+.btn-circle {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    padding-top:2px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.favorite {
+    float:left;
+}
+.favorite:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+.favorite:not(:checked) > label {
+    float:right;
+    width:1.1em;
+    padding:1 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:130%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+.favorite:not(:checked) > label:before {
+    font-family: 'Glyphicons Halflings';
+    content: '\e006';
+}
+.favorite > input:checked ~ label {
+    color: #c3c458;
+    text-shadow:1px 1px #9ea02a, 2px 2px #7a7c09, .1em .1em .2em rgba(0,0,0,.5);
+}
+.favorite:not(:checked) > label:hover,
+.favorite:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1.16em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:130%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    font-family: 'Glyphicons Halflings';
+    content: '\e006';
+}
+
+.rating > input:checked ~ label {
+    color: #c3c458;
+    text-shadow:1px 1px #9ea02a, 2px 2px #7a7c09, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px #9ea02a, 2px 2px #7a7c09, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+.searchbox {
+    position: relative;
+}
+
+.searchbox > input[type=text] {
+    border-radius: 14px;
+    max-width: 100%;
+    padding-right: 25px;
+}
+
+.col-md-6 > .searchbox > input[type="text"] {
+    width: 60%;
+}
+
+.col-md-6 > .searchbox > span {
+    padding-right:240px;
+}
+
+.col-md-12 > .searchbox > input[type="text"] {
+    width: 25%;
+}
+
+.modal-lg .modal-body .searchbox > span {
+    padding-right:188px;
+}
+
+@media (max-width: 767px) { 
+    .col-md-6 > .searchbox > input[type="text"],
+    .col-md-12 > .searchbox > input[type="text"] {
+        width: 100%;
+    }
+
+    .col-md-6 > .searchbox > span {
+        padding-right:5px;;
+    }
+}
+
+.accordion-toggle:hover {
+    text-decoration: none;
+}
+.accordion-toggle:focus {
+    text-decoration: none;
+}
+
+.accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+
+.accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.jumbotron {
+    background-color: #c3e0f8;
+}
+
+.jumbotron img {
+    width:80%;
+}

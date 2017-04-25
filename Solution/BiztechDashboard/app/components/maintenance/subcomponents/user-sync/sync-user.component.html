@@ -2,7 +2,11 @@
     <button class="btn btn-default btn-sm" [disabled]="!progress==0" (click)="getProjects()" type="button" >Get Projects</button>
     
     <button class="btn btn-default btn-sm" [disabled]="!progress==0" (click)="initUserSync()" type="button" >Get Users</button>
-    total progress : {{checkProgress}}
+    total progress : 
+    <progressbar [max]="100" [value]="checkProgress">
+        <span style="color:white; white-space:nowrap;">{{checkProgress}} / {{100}}</span>
+    </progressbar>
+    <!--{{checkProgress}}-->
     <table class="table table-hover">
         <thead>
             <tr>

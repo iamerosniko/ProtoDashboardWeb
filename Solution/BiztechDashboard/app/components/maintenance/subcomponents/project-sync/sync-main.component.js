@@ -12,15 +12,14 @@ var core_1 = require("@angular/core");
 var fn_main_1 = require("../../functions/fn-main");
 var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
-        var _this = this;
         this.fnMain = fnMain;
         this.name = 'Sync page';
         this.newApps = [];
-        setInterval(function () {
-            if (_this.newApps.length > 0) {
-                _this.initAppSync();
-            }
-        }, 10000);
+        //     setInterval(() => {
+        //         if(this.newApps.length>0){
+        //             this.initAppSync();
+        //         }
+        //  }, 10000);
     }
     SyncMainComponent.prototype.ngOnInit = function () {
         this.initAppSync();

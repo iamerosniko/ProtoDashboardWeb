@@ -48,7 +48,7 @@ var TempProjectService = (function () {
             .catch(function () { console.log(false); });
     };
     TempProjectService.prototype.postProjects2 = function (newProjects) {
-        return this.http
+        this.http
             .post(this.api2Url, JSON.stringify(newProjects), { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
