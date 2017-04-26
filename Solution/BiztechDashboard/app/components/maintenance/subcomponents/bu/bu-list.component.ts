@@ -12,9 +12,9 @@ import { BUService } from '../../../../services/bu.service';
 })
 export class BUListComponent implements OnInit  { 
     @Input() mainView:MaintenanceComponent;
-
     name = 'Sync page';
     bUnits:BU[]=[];
+
     selectedBU:BU;
     constructor(
         public buService:BUService
