@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var maintenance_component_1 = require("../../maintenance.component");
 var ContactFormComponent = (function () {
     function ContactFormComponent() {
         this.name = 'Sync page';
@@ -19,6 +20,10 @@ var ContactFormComponent = (function () {
     };
     return ContactFormComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
+], ContactFormComponent.prototype, "mainView", void 0);
 ContactFormComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

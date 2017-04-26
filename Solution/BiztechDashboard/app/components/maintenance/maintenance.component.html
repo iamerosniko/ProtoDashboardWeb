@@ -16,13 +16,16 @@
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" class="active">
-                        <a href="#applications" aria-controls="applications" role="tab" data-toggle="tab">Applications</a>
+                        <a href="#applications" aria-controls="applications"
+                           (click)="showForm=false" role="tab" data-toggle="tab">Applications</a>
                     </li>
                     <li role="presentation">
-                        <a href="#bu" aria-controls="bu" role="tab" data-toggle="tab">Business Units</a>
+                        <a href="#bu" aria-controls="bu"
+                            (click)="showForm=false" role="tab" data-toggle="tab">Business Units</a>
                     </li>
                     <li role="presentation">
-                        <a href="#bucontacts" aria-controls="bucontacts" role="tab" data-toggle="tab">Business Unit Contacts</a>
+                        <a href="#bucontacts" aria-controls="bucontacts" 
+                            (click)="showForm=false" role="tab" data-toggle="tab">Business Unit Contacts</a>
                     </li>
                     <li role="presentation">
                         <a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Project Synchronization</a>
@@ -39,9 +42,9 @@
                         <div class="col-md-12">
                             <div class="tab-content">
                                 <!--List of applications-->
-                                <app-list [mainView]="this"></app-list>
+                                <app-list [hidden]="showForm" [mainView]="this"></app-list>
                                 <!--New Application-->
-                                <app-form></app-form>
+                                <app-form [hidden]="!showForm" [mainView]="this"></app-form>
                             </div>
                         </div>
                     </div>
@@ -52,9 +55,9 @@
                         <div class="col-md-12">
                             <div class="tab-content">
                                 <!--BU LIST-->
-                                <bu-list [mainView]="this"></bu-list>
+                                <bu-list [hidden]="showForm" [mainView]="this"></bu-list>
                                 <!--BU FORM-->
-                                <bu-form></bu-form>
+                                <bu-form [hidden]="!showForm" [mainView]="this"></bu-form>
                             </div>
                         </div>
                     </div>
@@ -65,9 +68,9 @@
                         <div class="col-md-12">
                             <div class="tab-content">
                                 <!--CONTACTS LIST SECTION-->
-                                <contact-list [mainView]="this"></contact-list>
+                                <contact-list [hidden]="showForm" [mainView]="this"></contact-list>
                                 <!--Contact Form Section-->
-                                <contact-form></contact-form>
+                                <contact-form [hidden]="!showForm" [mainView]="this"></contact-form>
                             </div>
                         </div>
                     </div>
