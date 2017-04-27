@@ -10,36 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 //services
-var btss_wdsb_service_1 = require("../../../services/btss-wdsb.service");
-var app_user_service_1 = require("../../../services/app-user.service");
-var project_service_1 = require("../../../services/project.service");
+var contact_service_1 = require("../../../services/contact.service");
 var FnContact = (function () {
-    function FnContact(btssWdsbService, appuserService, projectService) {
-        this.btssWdsbService = btssWdsbService;
-        this.appuserService = appuserService;
-        this.projectService = projectService;
+    function FnContact(contactService) {
+        this.contactService = contactService;
     }
-    /*  Project section */
-    /* Get all projects */
-    FnContact.prototype.getProjectsWithBTSSAuthentication = function () {
-        return this.projectService.getProjects2();
+    //get all
+    FnContact.prototype.getContacts = function () {
+        return this.contactService.getContacts();
     };
-    /*  USER SYNCHRONIZATION section           */
-    /*Part 1 delete all users before synchronization*/
-    FnContact.prototype.deleteAllUsers = function () {
-        this.appuserService.DeleteUser();
+    //getone
+    FnContact.prototype.getContact = function (id) {
+        return this.contactService.getContact(id);
     };
-    /*Part 2 delete all users before synchronization*/
-    //3.getUsers from their database/application retrieves number of users
-    FnContact.prototype.getUsersFromApplications = function (projects) {
-        return this.btssWdsbService.getUsers(projects);
+    //submit
+    FnContact.prototype.submitContact = function (isNew, contact) {
+        return isNew ? this.contactService.postContact(contact) : this.contactService.putContact(contact);
     };
     return FnContact;
 }());
 FnContact = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [btss_wdsb_service_1.BTSSWDSBService,
-        app_user_service_1.AppUserService,
-        project_service_1.ProjectService])
+    __metadata("design:paramtypes", [contact_service_1.ContactService])
 ], FnContact);
 exports.FnContact = FnContact;

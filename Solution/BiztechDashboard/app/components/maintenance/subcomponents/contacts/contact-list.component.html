@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <a href="#createBuContact" class="btn btn-default btn-md" 
                 aria-controls="createBuContact" role="tab" data-toggle="tab"
-                (click)="mainView.showForm=true">
+                (click)="mainView.toFormView('New',true)">
                 New BU Contact <span class="glyphicon glyphicon-plus-sign"></span>
             </a>
         </div>
@@ -16,45 +16,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Amy Miskavitch</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Michael Petrowski</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Peter Mead</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Melissa Nei</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Brent Morrison</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Austin Mitchel</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Kristen Flaherty</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Sherrie Green</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>Kara Vopalensky</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    </tr>
-                    <tr>
-                        <td>David Rawlings</td>
-                        <td><a href="#updateBuContact" class="btn btn-default btn-sm" aria-controls="updateBuContact" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
+                    <tr *ngFor="let bu of mainView.listContact">
+                        <td>{{bu.FirstName + ' ' +bu.LastName}}</td>
+                        <td>
+                            <a href="#createBuContact" class="btn btn-default btn-sm"
+                                 aria-controls="createBuContact" role="tab" 
+                                 data-toggle="tab">
+                                 <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

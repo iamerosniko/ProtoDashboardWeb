@@ -2,14 +2,14 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
-import { BU } from '../entities/bu';
+import { Contact } from '../entities/contact';
 @Injectable()
-export class BUService {
+export class ContactService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private apiUrl = 'api/BusinessUnits';
+    private apiUrl = 'api/BUContacts';
     constructor(private http: Http){}
 
-    getBUs(): Promise<BU[]> {
+    getContacts(): Promise<Contact[]> {
         return this.http
                 .get(this.apiUrl, {headers: this.headers})
                 .toPromise()
@@ -17,7 +17,7 @@ export class BUService {
                 .catch(this.handleError);
     }
 
-    getBU(id: string): Promise<BU> {
+    getContact(id: number): Promise<Contact> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
                 .get(url)
@@ -26,24 +26,24 @@ export class BUService {
                 .catch(this.handleError);      
     }
 
-    postBU(bu: BU):void{
-         this.http
-            .post(this.apiUrl, JSON.stringify(bu), {headers: this.headers})
+    postContact(contact: Contact):Promise<any>{
+        return this.http
+            .post(this.apiUrl, JSON.stringify(contact), {headers: this.headers})
             .toPromise()
             .then(()=>{console.log(true);})
-            .catch(()=>{console.log(bu.BUID);});
+            .catch(()=>{console.log(false);});
     }
 
-    putBU(bu: BU): Promise<BU> {
-        const url = `${this.apiUrl}/${bu.BUID}`;
+    putContact(contact: Contact): Promise<any> {
+        const url = `${this.apiUrl}/${contact.ContactID}`;
         return this.http
-            .put(url, JSON.stringify(bu), {headers: this.headers})
+            .put(url, JSON.stringify(contact), {headers: this.headers})
             .toPromise()
-            .then(() => bu)
+            .then(() => contact)
             .catch(this.handleError);
     }
     
-    DeleteBU(id: string): Promise<boolean> {
+    DeleteContact(id: number): Promise<boolean> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
             .delete(url, {headers: this.headers})

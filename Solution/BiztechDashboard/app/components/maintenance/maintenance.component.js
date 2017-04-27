@@ -11,11 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 //entities
 var bu_1 = require("../../entities/bu");
+var contact_1 = require("../../entities/contact");
 //services
 var fn_bu_1 = require("./functions/fn-bu");
+var fn_contact_1 = require("./functions/fn-contact");
 var MaintenanceComponent = (function () {
-    function MaintenanceComponent(fnBU) {
+    function MaintenanceComponent(fnBU, fnContact) {
         this.fnBU = fnBU;
+        this.fnContact = fnContact;
         //applications
         //features
         //projects
@@ -23,6 +26,9 @@ var MaintenanceComponent = (function () {
         this.listBU = [];
         this.selectedBU = new bu_1.BU(0, '');
         //contacts
+        this.listContact = [];
+        this.selectedContact = new contact_1.Contact(0, '', '', '');
+        //main
         this.showForm = false;
         this.formMode = 'New';
     }
@@ -36,11 +42,13 @@ var MaintenanceComponent = (function () {
         if (mode == 'New') {
             //clear all details
             this.selectedBU = new bu_1.BU(0, '');
+            this.selectedContact = new contact_1.Contact(0, '', '', '');
         }
     };
     MaintenanceComponent.prototype.refreshLists = function () {
         var _this = this;
         this.fnBU.getBUs().then(function (b) { return _this.listBU = b; }).catch(function () { _this.listBU = []; });
+        this.fnContact.getContacts().then(function (b) { return _this.listContact = b; }).catch(function () { _this.listContact = []; });
     };
     MaintenanceComponent.prototype.submitBU = function () {
         var _this = this;
@@ -62,6 +70,7 @@ MaintenanceComponent = __decorate([
         selector: 'maintenance-parent',
         templateUrl: 'maintenance.component.html',
     }),
-    __metadata("design:paramtypes", [fn_bu_1.FnBU])
+    __metadata("design:paramtypes", [fn_bu_1.FnBU,
+        fn_contact_1.FnContact])
 ], MaintenanceComponent);
 exports.MaintenanceComponent = MaintenanceComponent;

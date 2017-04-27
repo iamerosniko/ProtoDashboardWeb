@@ -11,20 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require("rxjs/add/operator/toPromise");
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var BUService = (function () {
-    function BUService(http) {
+var ContactService = (function () {
+    function ContactService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/BusinessUnits';
+        this.apiUrl = 'api/BUContacts';
     }
-    BUService.prototype.getBUs = function () {
+    ContactService.prototype.getContacts = function () {
         return this.http
             .get(this.apiUrl, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    BUService.prototype.getBU = function (id) {
+    ContactService.prototype.getContact = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http
             .get(url)
@@ -32,22 +32,22 @@ var BUService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    BUService.prototype.postBU = function (bu) {
-        this.http
-            .post(this.apiUrl, JSON.stringify(bu), { headers: this.headers })
+    ContactService.prototype.postContact = function (contact) {
+        return this.http
+            .post(this.apiUrl, JSON.stringify(contact), { headers: this.headers })
             .toPromise()
             .then(function () { console.log(true); })
-            .catch(function () { console.log(bu.BUID); });
+            .catch(function () { console.log(false); });
     };
-    BUService.prototype.putBU = function (bu) {
-        var url = this.apiUrl + "/" + bu.BUID;
+    ContactService.prototype.putContact = function (contact) {
+        var url = this.apiUrl + "/" + contact.ContactID;
         return this.http
-            .put(url, JSON.stringify(bu), { headers: this.headers })
+            .put(url, JSON.stringify(contact), { headers: this.headers })
             .toPromise()
-            .then(function () { return bu; })
+            .then(function () { return contact; })
             .catch(this.handleError);
     };
-    BUService.prototype.DeleteBU = function (id) {
+    ContactService.prototype.DeleteContact = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http
             .delete(url, { headers: this.headers })
@@ -55,14 +55,14 @@ var BUService = (function () {
             .then(function () { return true; })
             .catch(function () { return false; });
     };
-    BUService.prototype.handleError = function (error) {
+    ContactService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     };
-    return BUService;
+    return ContactService;
 }());
-BUService = __decorate([
+ContactService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], BUService);
-exports.BUService = BUService;
+], ContactService);
+exports.ContactService = ContactService;

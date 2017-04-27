@@ -23,6 +23,7 @@ import { SyncUserComponent } from './subcomponents/user-sync/sync-user.component
 import { FnMain } from './functions/fn-main';
 import { FnUser } from './functions/fn-user';
 import { FnBU } from './functions/fn-bu';
+import { FnContact } from './functions/fn-contact';
 //services
 import { BTSSWDSBService } from '../../services/btss-wdsb.service';
 import { TempProjectService } from '../../services/temp-project.service';
@@ -30,6 +31,7 @@ import { ProjectService } from '../../services/project.service';
 import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
 import { BUService } from '../../services/bu.service';
+import { ContactService } from '../../services/contact.service';
 //routing
 import { MaintenanceRouting } from './maintenance.routing';BUService
 @NgModule({
@@ -63,8 +65,11 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
         ApplicationService,
         AppUserService,
         BUService,
+        ContactService,
         FnMain,
-        FnUser,FnBU
+        FnUser,
+        FnBU,
+        FnContact
         
     ]
 })
