@@ -17,15 +17,15 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" class="active">
                         <a href="#applications" aria-controls="applications"
-                           (click)="toListView()" role="tab" data-toggle="tab">Applications</a>
+                           (click)="toFormView('New',false)" role="tab" data-toggle="tab">Applications</a>
                     </li>
                     <li role="presentation">
                         <a href="#bu" aria-controls="bu"
-                            (click)="toListView()" role="tab" data-toggle="tab">Business Units</a>
+                            (click)="toFormView('New',false)" role="tab" data-toggle="tab">Business Units</a>
                     </li>
                     <li role="presentation">
                         <a href="#bucontacts" aria-controls="bucontacts" 
-                            (click)="toListView()" role="tab" data-toggle="tab">Business Unit Contacts</a>
+                            (click)="toFormView('New',false)" role="tab" data-toggle="tab">Business Unit Contacts</a>
                     </li>
                     <li role="presentation">
                         <a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Project Synchronization</a>
@@ -35,15 +35,15 @@
                     </li>
                 </ul>
             </div>
+            <router-outlet name="aux"></router-outlet>
+
             <div class="col-md-10 tab-content">
                 <!--Applications SECTION-->
                 <div class="tab-pane fade in active" id="applications">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <!--List of applications-->
                                 <app-list [hidden]="showForm" [mainView]="this"></app-list>
-                                <!--New Application-->
                                 <app-form [hidden]="!showForm" [mainView]="this"></app-form>
                             </div>
                         </div>
@@ -54,9 +54,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <!--BU LIST-->
                                 <bu-list [hidden]="showForm" [mainView]="this"></bu-list>
-                                <!--BU FORM-->
                                 <bu-form [hidden]="!showForm" [mainView]="this"></bu-form>
                             </div>
                         </div>
@@ -67,9 +65,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <!--CONTACTS LIST SECTION-->
                                 <contact-list [hidden]="showForm" [mainView]="this"></contact-list>
-                                <!--Contact Form Section-->
                                 <contact-form [hidden]="!showForm" [mainView]="this"></contact-form>
                             </div>
                         </div>

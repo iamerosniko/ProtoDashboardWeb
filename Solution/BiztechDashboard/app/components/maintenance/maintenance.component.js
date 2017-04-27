@@ -10,17 +10,49 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 //entities
+var bu_1 = require("../../entities/bu");
+//services
+var fn_bu_1 = require("./functions/fn-bu");
 var MaintenanceComponent = (function () {
-    function MaintenanceComponent() {
+    function MaintenanceComponent(fnBU) {
+        this.fnBU = fnBU;
+        //applications
+        //features
+        //projects
+        //bu
+        this.listBU = [];
+        this.selectedBU = new bu_1.BU(0, '');
+        //contacts
         this.showForm = false;
         this.formMode = 'New';
     }
-    MaintenanceComponent.prototype.toFormView = function (mode) {
+    MaintenanceComponent.prototype.toFormView = function (mode, form) {
         this.formMode = mode;
-        this.showForm = true;
+        this.showForm = form;
+        this.checkForm(mode);
+        this.refreshLists();
     };
-    MaintenanceComponent.prototype.toListView = function () {
-        this.showForm = false;
+    MaintenanceComponent.prototype.checkForm = function (mode) {
+        if (mode == 'New') {
+            //clear all details
+            this.selectedBU = new bu_1.BU(0, '');
+        }
+    };
+    MaintenanceComponent.prototype.refreshLists = function () {
+        var _this = this;
+        this.fnBU.getBUs().then(function (b) { return _this.listBU = b; }).catch(function () { _this.listBU = []; });
+    };
+    MaintenanceComponent.prototype.submitBU = function () {
+        var _this = this;
+        this.fnBU.submitBU(this.selectedBU.BUID == 0, this.selectedBU)
+            .then(function () {
+            _this.refreshLists();
+            _this.toFormView('New', false);
+            console.log('success');
+        })
+            .catch(function () {
+            _this.refreshLists();
+        });
     };
     return MaintenanceComponent;
 }());
@@ -30,6 +62,6 @@ MaintenanceComponent = __decorate([
         selector: 'maintenance-parent',
         templateUrl: 'maintenance.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [fn_bu_1.FnBU])
 ], MaintenanceComponent);
 exports.MaintenanceComponent = MaintenanceComponent;

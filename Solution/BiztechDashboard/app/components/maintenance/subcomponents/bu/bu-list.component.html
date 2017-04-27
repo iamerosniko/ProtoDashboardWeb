@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <a href="#createBu" class="btn btn-default btn-md" 
                 aria-controls="createBu" role="tab" data-toggle="tab"
-                (click)="mainView.showForm=true">
+                (click)="mainView.toFormView('New',true)">
                 New Business Unit <span class="glyphicon glyphicon-plus-sign"></span>
             </a>
         </div>
@@ -16,9 +16,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let bu of bUnits">
+                    <tr *ngFor="let bu of mainView.listBU">
                         <td>{{bu.BUName}}</td>
-                        <td><a href="#updateBu" class="btn btn-default btn-sm" aria-controls="updateBu" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a href="#createBu" class="btn btn-default btn-sm" 
+                            aria-controls="updateBu" role="tab" data-toggle="tab"
+                            (click)="selectBU(bu)"><span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

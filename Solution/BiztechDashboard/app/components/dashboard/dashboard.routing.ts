@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MaintenanceComponent } from './maintenance.component';
 
+//import { SyncMainComponent } from './sync-main.component';
 const syncRoutes: Routes = [
-    { path : 'Maintenance' , component : MaintenanceComponent },
+    //{ path : 'sync' , component : SyncMainComponent }
 ];
 
  @NgModule ({
@@ -11,4 +11,4 @@ const syncRoutes: Routes = [
      exports: [ RouterModule ]
  })
 
-export class MaintenanceRouting {}
+export class DashboardRouting {}

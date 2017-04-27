@@ -10,18 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var maintenance_component_1 = require("../../maintenance.component");
+var bu_service_1 = require("../../../../services/bu.service");
+//services
 var BUFormComponent = (function () {
-    function BUFormComponent() {
+    function BUFormComponent(buService) {
+        this.buService = buService;
+        this.isNew = true;
         this.name = 'Sync page';
     }
-    BUFormComponent.prototype.checkForm = function () {
-        if (this.mainView.formMode == 'New') {
-            console.log('new');
+    BUFormComponent.prototype.submit = function () {
+        if (this.mainView.selectedBU.BUID == 0) {
+            this.buService.postBU(this.mainView.selectedBU);
         }
         else {
-            console.log('update');
+            this.buService.putBU(this.mainView.selectedBU);
         }
-        return this.mainView.formMode;
     };
     return BUFormComponent;
 }());
@@ -35,6 +38,6 @@ BUFormComponent = __decorate([
         selector: 'bu-form',
         templateUrl: 'bu-form.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [bu_service_1.BUService])
 ], BUFormComponent);
 exports.BUFormComponent = BUFormComponent;

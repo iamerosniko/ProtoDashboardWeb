@@ -3,15 +3,16 @@
         <div class="panel-heading">
             <a href="#tableBu" class="close" 
                 aria-controls="tableBu" role="tab" 
-                (click)="mainView.changeView('New')" data-toggle="tab">&times;</a>
-            <h4>{{checkForm()}} Business Unit</h4>
+                (click)="mainView.toFormView('New',false
+                )" data-toggle="tab">&times;</a>
+            <h4>{{mainView.formMode}} Business Unit</h4>
         </div>
         <div class="panel-body">
             <br />
             <div class="row">
                 <div class="col-md-12">
                     <label>Business Unit Name</label>
-                    <input type="text" class="form-control input-sm" />
+                    <input type="text" [(ngModel)]="mainView.selectedBU.BUName" class="form-control input-sm" />
                 </div>
             </div>
             <br />
@@ -20,7 +21,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="btn-group pull-right">
-                        <a class="btn btn-primary btn-md">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
+                        <a class="btn btn-primary btn-md" (click)="mainView.submitBU()">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
                         <a href="#tableBu" class="btn btn-default btn-md" aria-controls="tableBu" role="tab" data-toggle="tab">Go Back</a>
                     </div>
                 </div>

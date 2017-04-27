@@ -22,6 +22,7 @@ import { SyncUserComponent } from './subcomponents/user-sync/sync-user.component
 //functions (providers)
 import { FnMain } from './functions/fn-main';
 import { FnUser } from './functions/fn-user';
+import { FnBU } from './functions/fn-bu';
 //services
 import { BTSSWDSBService } from '../../services/btss-wdsb.service';
 import { TempProjectService } from '../../services/temp-project.service';
@@ -63,7 +64,8 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
         AppUserService,
         BUService,
         FnMain,
-        FnUser
+        FnUser,FnBU
+        
     ]
 })
 

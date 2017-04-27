@@ -33,11 +33,11 @@ var BUService = (function () {
             .catch(this.handleError);
     };
     BUService.prototype.postBU = function (bu) {
-        this.http
+        return this.http
             .post(this.apiUrl, JSON.stringify(bu), { headers: this.headers })
             .toPromise()
-            .then(function () { console.log(true); })
-            .catch(function () { console.log(bu.BUID); });
+            .then(function () { return JSON.stringify(true); })
+            .catch(function () { return JSON.stringify(false); });
     };
     BUService.prototype.putBU = function (bu) {
         var url = this.apiUrl + "/" + bu.BUID;

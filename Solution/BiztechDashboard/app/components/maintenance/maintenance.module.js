@@ -28,6 +28,7 @@ var sync_user_component_1 = require("./subcomponents/user-sync/sync-user.compone
 //functions (providers)
 var fn_main_1 = require("./functions/fn-main");
 var fn_user_1 = require("./functions/fn-user");
+var fn_bu_1 = require("./functions/fn-bu");
 //services
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
 var temp_project_service_1 = require("../../services/temp-project.service");
@@ -76,7 +77,7 @@ MaintenanceModule = __decorate([
             app_user_service_1.AppUserService,
             bu_service_1.BUService,
             fn_main_1.FnMain,
-            fn_user_1.FnUser
+            fn_user_1.FnUser, fn_bu_1.FnBU
         ]
     })
 ], MaintenanceModule);

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MaintenanceComponent } from './maintenance.component';
-
+import { ACComponent } from './ac-parent.component';
+//import { SyncMainComponent } from './sync-main.component';
 const syncRoutes: Routes = [
-    { path : 'Maintenance' , component : MaintenanceComponent },
+    { path : 'Applications' , component : ACComponent }
 ];
 
  @NgModule ({
@@ -11,4 +11,4 @@ const syncRoutes: Routes = [
      exports: [ RouterModule ]
  })
 
-export class MaintenanceRouting {}
+export class AppCatalogRouting {}

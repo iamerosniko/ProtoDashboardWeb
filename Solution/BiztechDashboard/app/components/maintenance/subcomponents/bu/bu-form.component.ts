@@ -1,8 +1,9 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-//entities
-import { Application } from '../../../../entities/application';
 import { MaintenanceComponent } from '../../maintenance.component';
+import { BU } from '../../../../entities/bu';
+import { BUService } from '../../../../services/bu.service';
+//services
 @Component({
     moduleId: module.id,
     selector: 'bu-form',
@@ -10,18 +11,18 @@ import { MaintenanceComponent } from '../../maintenance.component';
 })
 export class BUFormComponent    {
     @Input() mainView:MaintenanceComponent; 
+    isNew:boolean=true;
     name = 'Sync page';
     constructor(
+        public buService:BUService
     ){ }
 
-    checkForm():string{
-        if(this.mainView.formMode=='New'){
-
-            console.log('new');
+    submit(){
+        if(this.mainView.selectedBU.BUID==0){
+            this.buService.postBU(this.mainView.selectedBU);
         }
         else{
-            console.log('update');
+            this.buService.putBU(this.mainView.selectedBU);
         }
-        return this.mainView.formMode
     }
 }
