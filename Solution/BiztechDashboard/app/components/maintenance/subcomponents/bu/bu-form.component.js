@@ -13,10 +13,15 @@ var maintenance_component_1 = require("../../maintenance.component");
 var BUFormComponent = (function () {
     function BUFormComponent() {
         this.name = 'Sync page';
-        this.newApps = [];
     }
-    BUFormComponent.prototype.ngOnInit = function () {
-        // this.initAppSync();
+    BUFormComponent.prototype.checkForm = function () {
+        if (this.mainView.formMode == 'New') {
+            console.log('new');
+        }
+        else {
+            console.log('update');
+        }
+        return this.mainView.formMode;
     };
     return BUFormComponent;
 }());

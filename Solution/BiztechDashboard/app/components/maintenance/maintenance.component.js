@@ -15,7 +15,12 @@ var MaintenanceComponent = (function () {
         this.showForm = false;
         this.formMode = 'New';
     }
-    MaintenanceComponent.prototype.ngOnInit = function () {
+    MaintenanceComponent.prototype.toFormView = function (mode) {
+        this.formMode = mode;
+        this.showForm = true;
+    };
+    MaintenanceComponent.prototype.toListView = function () {
+        this.showForm = false;
     };
     return MaintenanceComponent;
 }());
