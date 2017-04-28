@@ -12,11 +12,10 @@ var core_1 = require("@angular/core");
 var maintenance_component_1 = require("../../maintenance.component");
 var ContactListComponent = (function () {
     function ContactListComponent() {
-        this.name = 'Sync page';
-        this.newApps = [];
     }
-    ContactListComponent.prototype.ngOnInit = function () {
-        //  this.initAppSync();
+    ContactListComponent.prototype.selectContact = function (contact) {
+        this.mainView.selectedContact = contact;
+        this.mainView.toFormView('Update', true);
     };
     return ContactListComponent;
 }());
@@ -29,7 +28,6 @@ ContactListComponent = __decorate([
         moduleId: module.id,
         selector: 'contact-list',
         templateUrl: 'contact-list.component.html',
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], ContactListComponent);
 exports.ContactListComponent = ContactListComponent;

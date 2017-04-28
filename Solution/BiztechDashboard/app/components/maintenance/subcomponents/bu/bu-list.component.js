@@ -13,7 +13,6 @@ var maintenance_component_1 = require("../../maintenance.component");
 //services
 var BUListComponent = (function () {
     function BUListComponent() {
-        this.name = 'Sync page';
     }
     BUListComponent.prototype.selectBU = function (bu) {
         this.mainView.selectedBU = bu;

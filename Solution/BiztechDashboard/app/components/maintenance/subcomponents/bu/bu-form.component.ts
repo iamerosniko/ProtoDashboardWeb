@@ -12,7 +12,7 @@ import { BUService } from '../../../../services/bu.service';
 export class BUFormComponent    {
     @Input() mainView:MaintenanceComponent; 
     isNew:boolean=true;
-    name = 'Sync page';
+    
     constructor(
         public buService:BUService
     ){ }

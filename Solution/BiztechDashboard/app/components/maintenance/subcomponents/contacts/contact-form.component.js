@@ -9,14 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+//entities
 var maintenance_component_1 = require("../../maintenance.component");
+var contact_service_1 = require("../../../../services/contact.service");
 var ContactFormComponent = (function () {
-    function ContactFormComponent() {
-        this.name = 'Sync page';
-        this.newApps = [];
+    function ContactFormComponent(contactService) {
+        this.contactService = contactService;
+        this.isNew = true;
     }
-    ContactFormComponent.prototype.ngOnInit = function () {
-        // this.initAppSync();
+    ContactFormComponent.prototype.submit = function () {
+        if (this.mainView.selectedContact.ContactID == 0) {
+            this.contactService.postContact(this.mainView.selectedContact);
+        }
+        else {
+            this.contactService.putContact(this.mainView.selectedContact);
+        }
     };
     return ContactFormComponent;
 }());
@@ -30,6 +37,6 @@ ContactFormComponent = __decorate([
         selector: 'contact-form',
         templateUrl: 'contact-form.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [contact_service_1.ContactService])
 ], ContactFormComponent);
 exports.ContactFormComponent = ContactFormComponent;

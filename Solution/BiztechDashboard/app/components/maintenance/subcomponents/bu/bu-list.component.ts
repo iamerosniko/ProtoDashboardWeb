@@ -11,8 +11,7 @@ import { MaintenanceComponent } from '../../maintenance.component';
 })
 export class BUListComponent{ 
     @Input() mainView:MaintenanceComponent;
-    name = 'Sync page';
-
+    
     selectBU(bu:BU){
         this.mainView.selectedBU=bu;
         this.mainView.toFormView('Update',true);

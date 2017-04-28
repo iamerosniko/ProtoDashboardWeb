@@ -16,12 +16,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let bu of mainView.listContact">
-                        <td>{{bu.FirstName + ' ' +bu.LastName}}</td>
+                    <tr *ngFor="let contact of mainView.listContact">
+                        <td>{{contact.FirstName + ' ' +contact.LastName}}</td>
                         <td>
                             <a href="#createBuContact" class="btn btn-default btn-sm"
                                  aria-controls="createBuContact" role="tab" 
-                                 data-toggle="tab">
+                                 (click)="selectContact(contact)" data-toggle="tab">
                                  <span class="glyphicon glyphicon-edit"></span>
                             </a>
                         </td>

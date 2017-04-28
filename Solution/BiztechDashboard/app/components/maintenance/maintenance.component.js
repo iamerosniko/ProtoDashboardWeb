@@ -62,6 +62,18 @@ var MaintenanceComponent = (function () {
             _this.refreshLists();
         });
     };
+    MaintenanceComponent.prototype.submitContact = function () {
+        var _this = this;
+        this.fnContact.submitContact(this.selectedContact.ContactID == 0, this.selectedContact)
+            .then(function () {
+            _this.refreshLists();
+            _this.toFormView('New', false);
+            console.log('success');
+        })
+            .catch(function () {
+            _this.refreshLists();
+        });
+    };
     return MaintenanceComponent;
 }());
 MaintenanceComponent = __decorate([

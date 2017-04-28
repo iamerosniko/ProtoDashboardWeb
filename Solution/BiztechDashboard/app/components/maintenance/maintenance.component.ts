@@ -61,4 +61,16 @@ export class MaintenanceComponent {
             });
     }
 
+    submitContact(){
+        this.fnContact.submitContact(this.selectedContact.ContactID==0,this.selectedContact)
+            .then(()=>{
+                this.refreshLists();
+                this.toFormView('New',false);
+                console.log('success');
+            })
+            .catch(()=>{
+                this.refreshLists();
+            });
+    }
+
 }

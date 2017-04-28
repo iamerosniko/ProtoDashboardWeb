@@ -16,7 +16,6 @@ var BUFormComponent = (function () {
     function BUFormComponent(buService) {
         this.buService = buService;
         this.isNew = true;
-        this.name = 'Sync page';
     }
     BUFormComponent.prototype.submit = function () {
         if (this.mainView.selectedBU.BUID == 0) {

@@ -4,20 +4,20 @@
             <a href="#tableBuContact" class="close" 
                 aria-controls="tableBuContact" role="tab"
                 (click)="mainView.showForm=false" data-toggle="tab">&times;</a>
-            <h4>New BU Contact</h4>
+            <h4>{{mainView.formMode}} BU Contact</h4>
         </div>
         <div class="panel-body">
             <br />
             <div class="row form-group form-horizontal">
                 <div class="col-md-12">
                     <label>First Name</label>
-                    <input type="text" class="form-control input-sm" />
+                    <input [(ngModel)]="mainView.selectedContact.FirstName" type="text" class="form-control input-sm" />
                     <br />
                     <label>Middle Name</label>
-                    <input type="text" class="form-control input-sm" />
+                    <input [(ngModel)]="mainView.selectedContact.MiddleName" type="text" class="form-control input-sm" />
                     <br />
                     <label>Last Name</label>
-                    <input type="text" class="form-control input-sm" />
+                    <input [(ngModel)]="mainView.selectedContact.LastName" type="text" class="form-control input-sm" />
                 </div>
             </div>
             <br />
@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="btn-group pull-right">
-                        <a class="btn btn-primary btn-md">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
-                        <a href="#tableBuContact" class="btn btn-default btn-md" aria-controls="tableBuContact" role="tab" data-toggle="tab">Go Back</a>
+                        <a class="btn btn-primary btn-md" (click)="mainView.submitContact()">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
+                        <a href="#tableBuContact" (click)="mainView.toFormView('New',false)"  class="btn btn-default btn-md" aria-controls="tableBuContact" role="tab" data-toggle="tab">Go Back</a>
                     </div>
                 </div>
             </div>
