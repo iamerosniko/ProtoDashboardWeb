@@ -45,11 +45,13 @@ var MaintenanceComponent = (function () {
             this.selectedContact = new contact_1.Contact(0, '', '', '');
         }
     };
+    //all
     MaintenanceComponent.prototype.refreshLists = function () {
         var _this = this;
         this.fnBU.getBUs().then(function (b) { return _this.listBU = b; }).catch(function () { _this.listBU = []; });
         this.fnContact.getContacts().then(function (b) { return _this.listContact = b; }).catch(function () { _this.listContact = []; });
     };
+    //BU
     MaintenanceComponent.prototype.submitBU = function () {
         var _this = this;
         this.fnBU.submitBU(this.selectedBU.BUID == 0, this.selectedBU)
@@ -62,6 +64,7 @@ var MaintenanceComponent = (function () {
             _this.refreshLists();
         });
     };
+    //Contacts
     MaintenanceComponent.prototype.submitContact = function () {
         var _this = this;
         this.fnContact.submitContact(this.selectedContact.ContactID == 0, this.selectedContact)

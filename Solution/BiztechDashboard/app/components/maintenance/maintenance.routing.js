@@ -9,7 +9,9 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var maintenance_component_1 = require("./maintenance.component");
 var syncRoutes = [
-    { path: 'Maintenance', component: maintenance_component_1.MaintenanceComponent },
+    {
+        path: 'Maintenance', component: maintenance_component_1.MaintenanceComponent,
+    },
 ];
 var MaintenanceRouting = (function () {
     function MaintenanceRouting() {
@@ -18,8 +20,8 @@ var MaintenanceRouting = (function () {
 }());
 MaintenanceRouting = __decorate([
     core_1.NgModule({
-        imports: [router_1.RouterModule.forChild(syncRoutes)],
-        exports: [router_1.RouterModule]
+        imports: [router_1.RouterModule.forChild(syncRoutes),],
+        exports: [router_1.RouterModule,]
     })
 ], MaintenanceRouting);
 exports.MaintenanceRouting = MaintenanceRouting;

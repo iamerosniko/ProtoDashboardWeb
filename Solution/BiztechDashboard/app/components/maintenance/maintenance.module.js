@@ -9,7 +9,9 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+/* ngx-bootstrap */
 var ngx_bootstrap_1 = require("ngx-bootstrap");
+var ngx_bootstrap_2 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
@@ -49,7 +51,8 @@ var MaintenanceModule = (function () {
 MaintenanceModule = __decorate([
     core_1.NgModule({
         imports: [
-            ngx_bootstrap_1.ProgressbarModule.forRoot(),
+            ngx_bootstrap_2.ProgressbarModule.forRoot(),
+            ngx_bootstrap_1.AccordionModule.forRoot(),
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,

@@ -43,12 +43,12 @@ export class MaintenanceComponent {
             this.selectedContact=new Contact(0,'','','');
         }
     }
-
+    //all
     private refreshLists(){
         this.fnBU.getBUs().then(b=>this.listBU=b).catch(()=>{this.listBU=[]});
         this.fnContact.getContacts().then(b=>this.listContact=b).catch(()=>{this.listContact=[]});
     }
-
+    //BU
     submitBU(){
         this.fnBU.submitBU(this.selectedBU.BUID==0,this.selectedBU)
             .then(()=>{
@@ -60,7 +60,7 @@ export class MaintenanceComponent {
                 this.refreshLists();
             });
     }
-
+    //Contacts
     submitContact(){
         this.fnContact.submitContact(this.selectedContact.ContactID==0,this.selectedContact)
             .then(()=>{
