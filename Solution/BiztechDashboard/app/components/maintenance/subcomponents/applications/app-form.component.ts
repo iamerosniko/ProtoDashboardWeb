@@ -1,6 +1,6 @@
 import { Component,OnInit,Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 //entities
 import { Application } from '../../../../entities/application';
 import { MaintenanceComponent } from '../../maintenance.component';
@@ -19,6 +19,7 @@ export class AppFormComponent implements OnInit  {
     selectedApp:Application
     constructor(
         private route: ActivatedRoute,
+        private router :Router,
         private fn : FnMainApp
     ){
         this.clrApp();
@@ -41,5 +42,8 @@ export class AppFormComponent implements OnInit  {
             });
         });
     }
-    
+    applicationView(){
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', {outlets: {'apps': ['Lists']}}]);
+    }
 }

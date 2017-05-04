@@ -15,8 +15,9 @@ var application_1 = require("../../../../entities/application");
 var maintenance_component_1 = require("../../maintenance.component");
 var fn_main_app_1 = require("../../functions/fn-main-app");
 var AppFormComponent = (function () {
-    function AppFormComponent(route, fn) {
+    function AppFormComponent(route, router, fn) {
         this.route = route;
+        this.router = router;
         this.fn = fn;
         this.name = 'Sync page';
         this.newApps = [];
@@ -37,6 +38,10 @@ var AppFormComponent = (function () {
             });
         });
     };
+    AppFormComponent.prototype.applicationView = function () {
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
+    };
     return AppFormComponent;
 }());
 __decorate([
@@ -50,6 +55,7 @@ AppFormComponent = __decorate([
         templateUrl: 'app-form.component.html',
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        router_1.Router,
         fn_main_app_1.FnMainApp])
 ], AppFormComponent);
 exports.AppFormComponent = AppFormComponent;
