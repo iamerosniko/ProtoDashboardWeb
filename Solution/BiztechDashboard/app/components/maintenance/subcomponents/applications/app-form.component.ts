@@ -15,13 +15,21 @@ export class AppFormComponent implements OnInit  {
     @Input() mainView:MaintenanceComponent;
     name = 'Sync page';
     newApps:Project[]=[];
-    selectedApp:Application;
     formMode:string= 'New';
-    
+    selectedApp:Application
     constructor(
         private route: ActivatedRoute,
         private fn : FnMainApp
-    ){ }
+    ){
+        this.clrApp();
+    }
+
+    clrApp(){
+        this.selectedApp= new Application(
+            0,'',0,'','',0,0,0,false,false,'',
+            null,null,'','','',false,'','','',false
+        );
+    }
 
     ngOnInit(){
         this.route.params.subscribe((params: {id: number}) => {
