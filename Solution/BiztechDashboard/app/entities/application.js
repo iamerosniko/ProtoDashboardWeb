@@ -2,7 +2,7 @@
 var Application = (function () {
     function Application(AppID, //primary key
         AppName, //foreign key
-        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDaAppte, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsUatAvail) {
+        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsUatAvail) {
         this.AppID = AppID;
         this.AppName = AppName;
         this.AppBU = AppBU;
@@ -15,7 +15,7 @@ var Application = (function () {
         this.AppPII = AppPII;
         this.AppSecurity = AppSecurity;
         this.DateImplemented = DateImplemented;
-        this.LastProdDaAppte = LastProdDaAppte;
+        this.LastProdDate = LastProdDate;
         this.AppVersion = AppVersion;
         this.ProjectID = ProjectID;
         this.AppDesc = AppDesc;

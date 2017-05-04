@@ -12,7 +12,7 @@ export class Application {
         public AppPII: Boolean,
         public AppSecurity : string,
         public DateImplemented: Date,
-        public LastProdDaAppte : Date,
+        public LastProdDate : Date,
         public AppVersion : string,
         public ProjectID : string,
         public AppDesc : string,

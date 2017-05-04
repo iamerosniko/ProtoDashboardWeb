@@ -9,9 +9,12 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+/*datetime*/
 /* ngx-bootstrap */
+var ng2_datetime_picker_1 = require("ng2-datetime-picker");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ngx_bootstrap_2 = require("ngx-bootstrap");
+var ngx_bootstrap_3 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
@@ -54,6 +57,8 @@ MaintenanceModule = __decorate([
         imports: [
             ngx_bootstrap_2.ProgressbarModule.forRoot(),
             ngx_bootstrap_1.AccordionModule.forRoot(),
+            ngx_bootstrap_3.DatepickerModule.forRoot(),
+            ng2_datetime_picker_1.Ng2DatetimePickerModule,
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,

@@ -61,13 +61,37 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Date Implemented</label>
-                                                            <input type="text" class="form-control input-sm" />
+                                                            <!--<input type="text"  [value]="getDate(1)" class="form-control input-sm" />-->
+                                                            <input
+                                                                [(ngModel)]="selectedApp.DateImplemented"
+                                                                class="form-control input-sm"
+                                                                ng2-datetime-picker
+                                                                date-only="true" 
+                                                            />
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Last Production Date</label>
-                                                            <input type="text" class="form-control input-sm" />
+                                                            <input
+                                                                [(ngModel)]="selectedApp.LastProdDate"
+                                                                class="form-control input-sm"
+                                                                ng2-datetime-picker
+                                                                date-only="true" 
+                                                            />
+                                                            <!--<input type="text"  [value]="dt" class="form-control input-sm" />-->
                                                         </div>
                                                     </div>
+                                                    <!--<div class="row">
+                                                        <div class="col-md-6">
+                                                            <div style="display:inline-block; min-height:290px;">
+                                                                <datepicker date-only="true" [(ngModel)]="dt" (selectionDone)="updateDate(1)"></datepicker>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div style="display:inline-block; min-height:290px;">
+                                                                <datepicker date-only="true" [(ngModel)]="dt" (selectionDone)="updateDate(2)" ></datepicker>
+                                                            </div>
+                                                        </div>
+                                                    </div>-->
                                                 </div>
                                             </div>
                                         </div>
