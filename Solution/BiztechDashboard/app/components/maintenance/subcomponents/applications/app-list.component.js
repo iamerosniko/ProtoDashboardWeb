@@ -10,14 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var maintenance_component_1 = require("../../maintenance.component");
+//functions
+var fn_main_app_1 = require("../../functions/fn-main-app");
 var AppListComponent = (function () {
-    function AppListComponent(router) {
+    function AppListComponent(router, fn) {
         this.router = router;
-        this.name = 'Sync page';
-        this.newApps = [];
+        this.fn = fn;
+        this.applications = [];
     }
     AppListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.fn.getApps()
+            .then(function (apps) {
+            _this.applications = apps;
+        });
     };
     AppListComponent.prototype.applicationView = function (id) {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
@@ -25,16 +31,13 @@ var AppListComponent = (function () {
     };
     return AppListComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
-], AppListComponent.prototype, "mainView", void 0);
 AppListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'app-list',
         templateUrl: 'app-list.component.html',
     }),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router,
+        fn_main_app_1.FnMainApp])
 ], AppListComponent);
 exports.AppListComponent = AppListComponent;

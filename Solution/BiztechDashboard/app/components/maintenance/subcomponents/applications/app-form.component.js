@@ -13,7 +13,6 @@ var router_1 = require("@angular/router");
 //entities
 var application_1 = require("../../../../entities/application");
 var fn_main_app_1 = require("../../functions/fn-main-app");
-var moment = require("moment");
 var AppFormComponent = (function () {
     function AppFormComponent(route, router, fn) {
         this.route = route;
@@ -24,31 +23,6 @@ var AppFormComponent = (function () {
         this.showDate = 0;
         this.clrApp();
     }
-    AppFormComponent.prototype.getDate = function (field) {
-        //date implemented
-        if (field == 1) {
-            return moment(this.selectedApp.DateImplemented).format('MM/DD/YYYY');
-        }
-        else if (field == 2) {
-            return moment(this.selectedApp.LastProdDate).format('MM/DD/YYYY');
-        }
-        else {
-            return '';
-        }
-    };
-    AppFormComponent.prototype.updateDate = function (field) {
-        //date implemented
-        if (field == 1) {
-            this.selectedApp.DateImplemented = new Date(this.dt.getDate());
-        }
-        else if (field == 2) {
-            this.selectedApp.LastProdDate = new Date(this.dt.getDate());
-        }
-        else {
-            return '';
-        }
-        this.getDate(field);
-    };
     AppFormComponent.prototype.clrApp = function () {
         this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false);
     };
