@@ -23,13 +23,13 @@ namespace BiztechDashboard.Controllers
         }
 
         // GET: api/Applications/5
-        [ResponseType(typeof(WDSB_Applications))]
+        [ResponseType(typeof(WDSB_Applications_DTO))]
         public IHttpActionResult GetWDSB_Applications(int id)
         {
             WDSB_Applications wDSB_Applications = db.WDSB_Applications.Find(id);
             if (wDSB_Applications == null)
             {
-                return Ok(new WDSB_Applications());
+                return Ok(new WDSB_Applications_DTO());
             }
 
             return Ok(wDSB_Applications);
