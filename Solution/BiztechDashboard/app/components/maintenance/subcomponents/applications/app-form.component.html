@@ -148,7 +148,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Version</label>
-                                                            <input type="text" class="form-control input-sm" />
+                                                            <input type="text" [(ngModel)]="selectedApp.AppLifeSpan"  class="form-control input-sm" />
                                                         </div>
                                                     </div>
                                                     <br />
@@ -213,7 +213,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="appFeatures">
+                        <div class="tab-pane fade" [disabled]="formMode=='New'" id="appFeatures">
                             <div class="row">
                                 <a href="#" class="btn btn-default btn-md">New Item <span class="glyphicon glyphicon-plus-sign"></span></a>
                             </div>
