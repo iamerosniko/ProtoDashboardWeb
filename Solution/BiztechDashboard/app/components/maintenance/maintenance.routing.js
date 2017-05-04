@@ -8,9 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var maintenance_component_1 = require("./maintenance.component");
+var app_parent_component_1 = require("./subcomponents/applications/app-parent.component");
+var app_form_component_1 = require("./subcomponents/applications/app-form.component");
 var syncRoutes = [
     {
         path: 'Maintenance', component: maintenance_component_1.MaintenanceComponent,
+        children: [
+            {
+                path: 'Lists', component: app_parent_component_1.AppParentComponent, outlet: 'apps'
+            },
+            {
+                path: 'Form', component: app_form_component_1.AppFormComponent, outlet: 'apps'
+            },
+        ]
     },
 ];
 var MaintenanceRouting = (function () {

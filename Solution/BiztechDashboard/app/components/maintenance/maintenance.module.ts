@@ -9,6 +9,7 @@ import { ProgressbarModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
+import { AppParentComponent } from './subcomponents/applications/app-parent.component';
 import { AppListComponent } from './subcomponents/applications/app-list.component';
 import { AppFormComponent } from './subcomponents/applications/app-form.component';
 /*BU*/
@@ -52,6 +53,7 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
     ],
     declarations: [
         MaintenanceComponent,
+        AppParentComponent,
         AppListComponent,
         AppFormComponent,
         BUListComponent,

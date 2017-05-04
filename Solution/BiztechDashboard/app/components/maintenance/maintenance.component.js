@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 //entities
 var bu_1 = require("../../entities/bu");
 var contact_1 = require("../../entities/contact");
@@ -16,9 +17,10 @@ var contact_1 = require("../../entities/contact");
 var fn_bu_1 = require("./functions/fn-bu");
 var fn_contact_1 = require("./functions/fn-contact");
 var MaintenanceComponent = (function () {
-    function MaintenanceComponent(fnBU, fnContact) {
+    function MaintenanceComponent(fnBU, fnContact, router) {
         this.fnBU = fnBU;
         this.fnContact = fnContact;
+        this.router = router;
         //applications
         //features
         //projects
@@ -31,12 +33,17 @@ var MaintenanceComponent = (function () {
         //main
         this.showForm = false;
         this.formMode = 'New';
+        this.refreshLists();
     }
     MaintenanceComponent.prototype.toFormView = function (mode, form) {
         this.formMode = mode;
         this.showForm = form;
         this.checkForm(mode);
         this.refreshLists();
+    };
+    MaintenanceComponent.prototype.applicationView = function (path) {
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', { outlets: { 'apps': [path] } }]);
     };
     MaintenanceComponent.prototype.checkForm = function (mode) {
         if (mode == 'New') {
@@ -86,6 +93,7 @@ MaintenanceComponent = __decorate([
         templateUrl: 'maintenance.component.html',
     }),
     __metadata("design:paramtypes", [fn_bu_1.FnBU,
-        fn_contact_1.FnContact])
+        fn_contact_1.FnContact,
+        router_1.Router])
 ], MaintenanceComponent);
 exports.MaintenanceComponent = MaintenanceComponent;

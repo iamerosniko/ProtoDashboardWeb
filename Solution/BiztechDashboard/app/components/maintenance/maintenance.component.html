@@ -16,10 +16,6 @@
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" class="active">
-                        <a href="#applications" aria-controls="applications"
-                           (click)="toFormView('New',false)" role="tab" data-toggle="tab">Applications</a>
-                    </li>
-                    <li role="presentation">
                         <a href="#bu" aria-controls="bu"
                             (click)="toFormView('New',false)" role="tab" data-toggle="tab">Business Units</a>
                     </li>
@@ -33,22 +29,19 @@
                     <li role="presentation">
                         <a href="#users" aria-controls="users" role="tab" data-toggle="tab">Project Users</a>
                     </li>
+                    <li role="presentation">
+                        <a href="#applications" aria-controls="applications"
+                           (click)="toFormView('New',false); applicationView('Lists');" role="tab" data-toggle="tab">Applications</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-10 tab-content">
                 <!--Applications SECTION-->
-                <div class="tab-pane fade in active" id="applications">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tab-content">
-                                <app-list [hidden]="showForm" [mainView]="this"></app-list>
-                                <app-form [hidden]="!showForm" [mainView]="this"></app-form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tab-pane fade" id="applications">
+                    <router-outlet name="apps"></router-outlet>
                 </div>
                 <!--Business Unit SECTION-->
-                <div class="tab-pane fade" id="bu">
+                <div class="tab-pane fade in active" id="bu">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">

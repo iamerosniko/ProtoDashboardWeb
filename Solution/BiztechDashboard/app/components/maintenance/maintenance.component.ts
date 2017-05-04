@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router }  from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 //entities
 import { BU } from '../../entities/bu';
@@ -14,8 +15,11 @@ import { FnContact } from './functions/fn-contact';
 export class MaintenanceComponent { 
     constructor(
         public fnBU:FnBU,
-        public fnContact:FnContact
-    ){ }
+        public fnContact:FnContact,
+        private router: Router,
+    ){
+        this.refreshLists();
+     }
     //applications
     //features
     //projects
@@ -34,6 +38,11 @@ export class MaintenanceComponent {
         this.showForm=form;
         this.checkForm(mode);
         this.refreshLists();
+    }
+
+    applicationView(path:string){
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', {outlets: {'apps': [path]}}]);
     }
 
     private checkForm(mode:string){
