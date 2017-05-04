@@ -9,7 +9,6 @@ import { ProgressbarModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
-import { AppParentComponent } from './subcomponents/applications/app-parent.component';
 import { AppListComponent } from './subcomponents/applications/app-list.component';
 import { AppFormComponent } from './subcomponents/applications/app-form.component';
 /*BU*/
@@ -24,6 +23,7 @@ import { SyncMainComponent } from './subcomponents/project-sync/sync-main.compon
 import { SyncUserComponent } from './subcomponents/user-sync/sync-user.component';
 //functions (providers)
 import { FnMain } from './functions/fn-main';
+import { FnMainApp } from './functions/fn-main-app';
 import { FnUser } from './functions/fn-user';
 import { FnBU } from './functions/fn-bu';
 import { FnContact } from './functions/fn-contact';
@@ -53,7 +53,6 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
     ],
     declarations: [
         MaintenanceComponent,
-        AppParentComponent,
         AppListComponent,
         AppFormComponent,
         BUListComponent,
@@ -71,6 +70,7 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
         AppUserService,
         BUService,
         ContactService,
+        FnMainApp,
         FnMain,
         FnUser,
         FnBU,

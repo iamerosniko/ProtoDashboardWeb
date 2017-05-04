@@ -9,14 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var maintenance_component_1 = require("../../maintenance.component");
 var AppListComponent = (function () {
-    function AppListComponent() {
+    function AppListComponent(router) {
+        this.router = router;
         this.name = 'Sync page';
         this.newApps = [];
     }
     AppListComponent.prototype.ngOnInit = function () {
-        //  this.initAppSync();
+    };
+    AppListComponent.prototype.applicationView = function (id) {
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', { outlets: { 'apps': [id] } }]);
     };
     return AppListComponent;
 }());
@@ -30,6 +35,6 @@ AppListComponent = __decorate([
         selector: 'app-list',
         templateUrl: 'app-list.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [router_1.Router])
 ], AppListComponent);
 exports.AppListComponent = AppListComponent;

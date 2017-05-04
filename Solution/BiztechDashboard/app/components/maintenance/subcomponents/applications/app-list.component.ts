@@ -1,4 +1,5 @@
 import { Component,OnInit,Input } from '@angular/core';
+import { Router }  from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 //entities
 import { Application } from '../../../../entities/application';
@@ -16,10 +17,15 @@ export class AppListComponent implements OnInit  {
     name = 'Sync page';
     newApps:Project[]=[];
     constructor(
+        private router: Router,
     ){ }
 
     ngOnInit(){
-      //  this.initAppSync();
+    }
+
+    applicationView(id:number){
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', {outlets: {'apps': [id]}}]);
     }
     
 }

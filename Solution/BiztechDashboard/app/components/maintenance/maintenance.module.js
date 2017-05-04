@@ -15,7 +15,6 @@ var ngx_bootstrap_2 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
-var app_parent_component_1 = require("./subcomponents/applications/app-parent.component");
 var app_list_component_1 = require("./subcomponents/applications/app-list.component");
 var app_form_component_1 = require("./subcomponents/applications/app-form.component");
 /*BU*/
@@ -30,6 +29,7 @@ var sync_main_component_1 = require("./subcomponents/project-sync/sync-main.comp
 var sync_user_component_1 = require("./subcomponents/user-sync/sync-user.component");
 //functions (providers)
 var fn_main_1 = require("./functions/fn-main");
+var fn_main_app_1 = require("./functions/fn-main-app");
 var fn_user_1 = require("./functions/fn-user");
 var fn_bu_1 = require("./functions/fn-bu");
 var fn_contact_1 = require("./functions/fn-contact");
@@ -66,7 +66,6 @@ MaintenanceModule = __decorate([
         ],
         declarations: [
             maintenance_component_1.MaintenanceComponent,
-            app_parent_component_1.AppParentComponent,
             app_list_component_1.AppListComponent,
             app_form_component_1.AppFormComponent,
             bu_list_component_1.BUListComponent,
@@ -84,6 +83,7 @@ MaintenanceModule = __decorate([
             app_user_service_1.AppUserService,
             bu_service_1.BUService,
             contact_service_1.ContactService,
+            fn_main_app_1.FnMainApp,
             fn_main_1.FnMain,
             fn_user_1.FnUser,
             fn_bu_1.FnBU,

@@ -27,7 +27,7 @@ export class ApplicationService {
                 .catch(this.handleError);
     }
 
-    getApplication(id: string): Promise<Application> {
+    getApplication(id: number): Promise<Application> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
                 .get(url)
