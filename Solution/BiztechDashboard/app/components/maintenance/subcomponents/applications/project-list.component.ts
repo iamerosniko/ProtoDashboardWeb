@@ -6,7 +6,7 @@ import { Project } from '../../../../entities/project';
 import { ProjectService } from '../../../../services/project.service';
 @Component({
     moduleId: module.id,
-    selector: 'app-list',
+    selector: 'proj-list',
     templateUrl: 'project-list.component.html',
 })
 export class ProjectListComponent implements OnInit  { 

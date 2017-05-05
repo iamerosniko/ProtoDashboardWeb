@@ -28,7 +28,7 @@ var ProjectListComponent = (function () {
 ProjectListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'app-list',
+        selector: 'proj-list',
         templateUrl: 'project-list.component.html',
     }),
     __metadata("design:paramtypes", [project_service_1.ProjectService])
