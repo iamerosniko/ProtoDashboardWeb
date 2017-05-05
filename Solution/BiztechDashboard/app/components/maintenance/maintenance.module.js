@@ -18,6 +18,7 @@ var ngx_bootstrap_3 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
+var project_list_component_1 = require("./subcomponents/applications/project-list.component");
 var app_list_component_1 = require("./subcomponents/applications/app-list.component");
 var app_form_component_1 = require("./subcomponents/applications/app-form.component");
 /*BU*/
@@ -71,6 +72,7 @@ MaintenanceModule = __decorate([
         ],
         declarations: [
             maintenance_component_1.MaintenanceComponent,
+            project_list_component_1.ProjectListComponent,
             app_list_component_1.AppListComponent,
             app_form_component_1.AppFormComponent,
             bu_list_component_1.BUListComponent,

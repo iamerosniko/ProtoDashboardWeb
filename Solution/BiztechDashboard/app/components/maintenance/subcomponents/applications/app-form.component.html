@@ -187,6 +187,7 @@
                                                         <div class="col-md-6">
                                                             <label>Lifespan</label>
                                                             <input  [(ngModel)]="selectedApp.AppLifespan"
+                                                                pattern="[0-9]+"
                                                                 type="text" class="form-control input-sm" />
                                                         </div>
                                                     </div>
@@ -304,103 +305,7 @@
                             </div>
                         </div>
                         <div id="modalSearchProject" class="modal fade" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4>Project List</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="col-md-6">
-                                                    <div class="searchbox">
-                                                        <input type="text" class="form-control input-sm" placeholder="Search for project..."/>
-                                                        <span class = "glyphicon glyphicon-search form-control-feedback"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <table class="table table-hover table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="col-md-4">Project Id</th>
-                                                            <th class="col-md-8">Project Name</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">123</a></td>
-                                                            <td>Project 1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">124</a></td>
-                                                            <td>Project 2</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">125</a></td>
-                                                            <td>Project 3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">126</a></td>
-                                                            <td>Project 4</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">127</a></td>
-                                                            <td>Project 5</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">128</a></td>
-                                                            <td>Project 6</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">129</a></td>
-                                                            <td>Project 7</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">130</a></td>
-                                                            <td>Project 8</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">131</a></td>
-                                                            <td>Project 9</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="#" data-dismiss="modal">132</a></td>
-                                                            <td>Project 10</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <ul class="pagination pull-right">
-                                                    <li>
-                                                        <a href="#" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                        </a>
-                                                    </li>
-                                                    <li><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li>
-                                                        <a href="#" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <proj-list></proj-list>
                         </div>
                     </div>
                 </div>

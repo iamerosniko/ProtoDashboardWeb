@@ -13,6 +13,7 @@ import { DatepickerModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
+import { ProjectListComponent } from './subcomponents/applications/project-list.component';
 import { AppListComponent } from './subcomponents/applications/app-list.component';
 import { AppFormComponent } from './subcomponents/applications/app-form.component';
 /*BU*/
@@ -59,6 +60,7 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
     ],
     declarations: [
         MaintenanceComponent,
+        ProjectListComponent,
         AppListComponent,
         AppFormComponent,
         BUListComponent,
