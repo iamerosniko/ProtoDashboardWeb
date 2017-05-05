@@ -10,15 +10,18 @@
             <br />
             <div class="row">
                 <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
+                    <ul class="nav nav-pills nav-stacked">
                         <li role="presentation" class="active">
                             <a href="#appDetails" aria-controls="appDetails" role="tab" data-toggle="tab">Details</a>
                         </li>
-                        <li role="presentation">
-                            <a href="#appFeatures" aria-controls="appFeatures" role="tab" data-toggle="tab">Features</a>
+                        <li role="presentation" *ngIf="selectedApp.AppID == 0 ? false : true" >
+                            <a href="#appFeatures" 
+                             aria-controls="appFeatures" role="tab" data-toggle="tab">Features</a>
                         </li>
                     </ul>
+                    <!--[hidden]="selectedApp.AppID==0 ? true : null"-->
                 </div>
+
                 <div class="col-md-10">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="appDetails">
@@ -95,18 +98,32 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>BU Owner</label>
-                                                            <select class="form-control input-sm"></select>
+                                                            <select class="form-control input-sm"
+                                                                 [(ngModel)]="selectedApp.AppBU"
+                                                                 required
+                                                            >
+                                                                <option *ngFor="let bu of dropDownBU" [value]="bu.BUID">{{bu.BUName}}</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                     <br />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Primary Contact</label>
-                                                            <select class="form-control input-sm"></select>
+                                                            <select class="form-control input-sm"
+                                                                [(ngModel)]="selectedApp.PrimaryBUContact"
+                                                                required
+                                                            >
+                                                                <option *ngFor="let con1 of dropDownContact1" [value]="con1.ContactID">{{con1.FirstName + ' ' +con1.LastName}}</option>
+                                                            </select>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Secondary Contact</label>
-                                                            <select class="form-control input-sm"></select>
+                                                            <select class="form-control input-sm"
+                                                                [(ngModel)]="selectedApp.SecondaryBUContact"
+                                                            >
+                                                                <option *ngFor="let con2 of dropDownContact2" [value]="con2.ContactID">{{con2.FirstName + ' ' +con2.LastName}}</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,7 +242,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade"  id="appFeatures">
+                        <div class="tab-pane fade" id="appFeatures"  >
                             <div class="row">
                                 <a href="#" class="btn btn-default btn-md">New Item <span class="glyphicon glyphicon-plus-sign"></span></a>
                             </div>

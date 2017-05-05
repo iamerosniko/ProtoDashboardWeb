@@ -12,13 +12,22 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 //entities
 var application_1 = require("../../../../entities/application");
+var contact_1 = require("../../../../entities/contact");
+//functions
 var fn_main_app_1 = require("../../functions/fn-main-app");
+var fn_bu_1 = require("../../functions/fn-bu");
+var fn_contact_1 = require("../../functions/fn-contact");
 var AppFormComponent = (function () {
-    function AppFormComponent(route, router, fn) {
+    function AppFormComponent(route, router, fnMainApp, fnBU, fnContact) {
         this.route = route;
         this.router = router;
-        this.fn = fn;
+        this.fnMainApp = fnMainApp;
+        this.fnBU = fnBU;
+        this.fnContact = fnContact;
         this.formMode = 'New';
+        this.dropDownBU = [];
+        this.dropDownContact1 = [];
+        this.dropDownContact2 = [];
         this.dt = new Date();
         this.showDate = 0;
         this.clrApp();
@@ -29,12 +38,38 @@ var AppFormComponent = (function () {
     AppFormComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
-            _this.fn.getApp(params.id)
+            _this.fnMainApp.getApp(params.id)
                 .then(function (app) {
                 _this.selectedApp = app;
                 _this.formMode = _this.selectedApp.AppID == 0
                     ? 'New' : 'Update';
             });
+        });
+        this.getDropdownBU();
+        this.getDropdownContact1();
+        this.getDropdownContact2();
+    };
+    AppFormComponent.prototype.getDropdownBU = function () {
+        var _this = this;
+        this.fnBU.getBUs()
+            .then(function (bus) {
+            _this.dropDownBU = bus;
+        });
+    };
+    AppFormComponent.prototype.getDropdownContact1 = function () {
+        var _this = this;
+        this.fnContact.getContacts()
+            .then(function (contacts) {
+            _this.dropDownContact1 = contacts;
+        });
+        this.dropDownContact2.push(new contact_1.Contact(null, '---None---', '', ''));
+    };
+    AppFormComponent.prototype.getDropdownContact2 = function () {
+        var _this = this;
+        this.fnContact.getContacts()
+            .then(function (contacts) {
+            _this.dropDownContact2 = contacts;
+            _this.dropDownContact2.push(new contact_1.Contact(null, '---None---', '', ''));
         });
     };
     AppFormComponent.prototype.applicationView = function () {
@@ -51,6 +86,8 @@ AppFormComponent = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
-        fn_main_app_1.FnMainApp])
+        fn_main_app_1.FnMainApp,
+        fn_bu_1.FnBU,
+        fn_contact_1.FnContact])
 ], AppFormComponent);
 exports.AppFormComponent = AppFormComponent;

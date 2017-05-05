@@ -5,7 +5,12 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { Application } from '../../../../entities/application';
 import { MaintenanceComponent } from '../../maintenance.component';
 import { Project } from '../../../../entities/project';
+import { BU } from '../../../../entities/bu';
+import { Contact } from '../../../../entities/contact';
+//functions
 import { FnMainApp } from '../../functions/fn-main-app';
+import { FnBU } from '../../functions/fn-bu';
+import { FnContact } from '../../functions/fn-contact';
 @Component({
     moduleId: module.id,
     selector: 'app-form',
@@ -13,6 +18,9 @@ import { FnMainApp } from '../../functions/fn-main-app';
 })
 export class AppFormComponent implements OnInit  { 
     formMode:string= 'New';
+    dropDownBU:BU[]=[];
+    dropDownContact1:Contact[]=[];
+    dropDownContact2:Contact[]=[];
     dt:Date= new Date();
     selectedApp:Application
     showDate:number=0;
@@ -20,7 +28,9 @@ export class AppFormComponent implements OnInit  {
     constructor(
         private route: ActivatedRoute,
         private router :Router,
-        private fn : FnMainApp
+        private fnMainApp : FnMainApp,
+        private fnBU : FnBU,
+        private fnContact : FnContact
     ){
         this.clrApp();
     }
@@ -34,14 +44,43 @@ export class AppFormComponent implements OnInit  {
 
     ngOnInit(){
         this.route.params.subscribe((params: {id: number}) => {
-           this.fn.getApp(params.id)
+           this.fnMainApp.getApp(params.id)
             .then(app => {
                 this.selectedApp=app;
                 this.formMode = this.selectedApp.AppID==0 
                     ? 'New' : 'Update'; 
             });
         });
+        this.getDropdownBU();
+        this.getDropdownContact1();
+        this.getDropdownContact2();
     }
+
+    getDropdownBU(){
+        this.fnBU.getBUs()
+            .then(bus => {
+                this.dropDownBU = bus;
+            });
+    }
+
+    getDropdownContact1(){
+        this.fnContact.getContacts()
+            .then(contacts => {
+                this.dropDownContact1 = contacts;
+            });
+            
+        this.dropDownContact2.push(new Contact(null,'---None---','',''));
+    }
+
+    getDropdownContact2(){
+        this.fnContact.getContacts()
+            .then(contacts => {
+                this.dropDownContact2 = contacts;
+                this.dropDownContact2.push(new Contact(null,'---None---','',''));
+            });
+    }
+
+
     applicationView(){
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', {outlets: {'apps': ['Lists']}}]);
