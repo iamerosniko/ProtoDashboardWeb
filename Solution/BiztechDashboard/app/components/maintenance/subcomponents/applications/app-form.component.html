@@ -140,15 +140,26 @@
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <input id="chkWeb" type="checkbox" class="css-checkbox med" ><label for="chkWeb" class="css-label med elegant">Is Web?</label>
+                                                            <input id="chkWeb"  type="checkbox" 
+                                                                [(ngModel)]="selectedApp.AppIsWeb"
+                                                                class="css-checkbox med" >
+                                                            <label for="chkWeb" class="css-label med elegant">Is Web?</label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input id="chkUat" type="checkbox" class="css-checkbox med" ><label for="chkUat" class="css-label med elegant">UAT Accessible?</label>
+                                                            <input id="chkUat" type="checkbox"
+                                                                [(ngModel)]="selectedApp.IsUatAvail" 
+                                                                class="css-checkbox med" >
+                                                            <label for="chkUat" class="css-label med elegant">UAT Accessible?</label>
                                                         </div>
                                                         <br />
                                                         <div class="col-md-6">
                                                             <label>Front-end Technology</label>
-                                                            <select class="form-control input-sm"></select>
+                                                            <select class="form-control input-sm"
+                                                                 [(ngModel)]="selectedApp.FrontTechnology"
+                                                                 required
+                                                            >
+                                                                <option *ngFor="let fe of feTech" [value]="fe">{{fe}}</option>
+                                                            </select>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Front-end Path</label>
@@ -159,7 +170,12 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Back-end Technology</label>
-                                                            <select class="form-control input-sm"></select>
+                                                            <select class="form-control input-sm"
+                                                                 [(ngModel)]="selectedApp.BackTechnology"
+                                                                 required
+                                                            >
+                                                                <option *ngFor="let be of beTech" [value]="be">{{be}}</option>
+                                                            </select>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Back-end Path</label>
@@ -170,14 +186,16 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Lifespan</label>
-                                                            <input type="text" class="form-control input-sm" />
+                                                            <input  [(ngModel)]="selectedApp.AppLifespan"
+                                                                type="text" class="form-control input-sm" />
                                                         </div>
                                                     </div>
                                                     <br />
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Version</label>
-                                                            <input type="text" [(ngModel)]="selectedApp.AppLifeSpan"  class="form-control input-sm" />
+                                                            <input type="text" [(ngModel)]="selectedApp.AppVersion"  
+                                                                class="form-control input-sm" />
                                                         </div>
                                                     </div>
                                                     <br />

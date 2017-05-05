@@ -30,7 +30,11 @@ var AppFormComponent = (function () {
         this.dropDownContact2 = [];
         this.dt = new Date();
         this.showDate = 0;
+        this.feTech = [];
+        this.beTech = [];
         this.clrApp();
+        this.feTech = ["MS Access", ".NET"];
+        this.beTech = ["MS Access", "MS SQL"];
     }
     AppFormComponent.prototype.clrApp = function () {
         this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false);

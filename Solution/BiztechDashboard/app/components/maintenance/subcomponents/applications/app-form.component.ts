@@ -24,7 +24,8 @@ export class AppFormComponent implements OnInit  {
     dt:Date= new Date();
     selectedApp:Application
     showDate:number=0;
-
+    feTech:any=[];
+    beTech:any=[];
     constructor(
         private route: ActivatedRoute,
         private router :Router,
@@ -33,6 +34,8 @@ export class AppFormComponent implements OnInit  {
         private fnContact : FnContact
     ){
         this.clrApp();
+        this.feTech=["MS Access",".NET"];
+        this.beTech=["MS Access","MS SQL"];
     }
 
     clrApp(){
@@ -79,7 +82,6 @@ export class AppFormComponent implements OnInit  {
                 this.dropDownContact2.push(new Contact(null,'---None---','',''));
             });
     }
-
 
     applicationView(){
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
