@@ -38,7 +38,6 @@ export class SyncMainComponent implements OnInit  {
                 var a = app.BackEndPath;
                 var b = app.FrontEndPath;
                 if(!(a==null || b==null)){
-                    console.log(a.trim());
                     if(a.trim().length>0 && b.trim().length>0)
                     {
                         this.appDetailCompleted += 1;

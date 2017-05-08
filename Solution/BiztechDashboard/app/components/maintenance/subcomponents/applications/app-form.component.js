@@ -32,6 +32,7 @@ var AppFormComponent = (function () {
         this.showDate = 0;
         this.feTech = [];
         this.beTech = [];
+        this.mode = 0;
         this.clrApp();
         this.feTech = ["MS Access", ".NET"];
         this.beTech = ["MS Access", "MS SQL"];

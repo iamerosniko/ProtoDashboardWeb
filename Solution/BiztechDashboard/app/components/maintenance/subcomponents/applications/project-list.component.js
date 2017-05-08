@@ -24,6 +24,11 @@ var ProjectListComponent = (function () {
             _this.projects = projects;
         });
     };
+    ProjectListComponent.prototype.selectProject = function (id) {
+        this.application.ProjectDevID = this.mode == 1 ? id : this.application.ProjectDevID;
+        this.application.ProjectModID = this.mode == 2 ? id : this.application.ProjectModID;
+        this.application.ProjectOpsID = this.mode == 3 ? id : this.application.ProjectOpsID;
+    };
     return ProjectListComponent;
 }());
 __decorate([
