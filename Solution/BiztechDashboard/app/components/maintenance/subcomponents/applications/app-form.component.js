@@ -91,7 +91,7 @@ var AppFormComponent = (function () {
             || this.selectedApp.ProjectDevID.trim().length == 0
             || this.selectedApp.ProjectModID.trim().length == 0
             || this.selectedApp.ProjectOpsID.trim().length == 0);
-        console.log(myState);
+        //console.log(myState);
         return myState;
     };
     AppFormComponent.prototype.submitApp = function () {
