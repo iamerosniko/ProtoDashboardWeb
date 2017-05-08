@@ -82,6 +82,10 @@ var AppFormComponent = (function () {
         this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
     };
     AppFormComponent.prototype.checkState = function () {
+        console.log(this.selectedApp.AppName == "" ||
+            this.selectedApp.AppBU == 0);
+        return this.selectedApp.AppName == "" ||
+            this.selectedApp.AppBU == 0;
     };
     return AppFormComponent;
 }());

@@ -29,7 +29,19 @@ namespace BiztechDashboard.Controllers
             WDSB_Applications wDSB_Applications = db.WDSB_Applications.Find(id);
             if (wDSB_Applications == null)
             {
-                return Ok(new WDSB_Applications_DTO());
+                return Ok(new WDSB_Applications_DTO{
+                    AppName="",
+                    FrontTechnology="",
+                    BackTechnology="",
+                    AppSecurity="",
+                    AppVersion="",
+                    AppDesc="",
+                    ProjectDevID="",
+                    ProjectModID="",
+                    ProjectOpsID="",
+                    AppIconPath="",
+                    AppIsActive=true
+                });
             }
 
             return Ok(wDSB_Applications);

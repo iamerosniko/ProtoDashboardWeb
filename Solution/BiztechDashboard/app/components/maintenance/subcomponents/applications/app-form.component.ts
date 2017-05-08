@@ -89,7 +89,10 @@ export class AppFormComponent implements OnInit  {
         this.router.navigate(['/Maintenance', {outlets: {'apps': ['Lists']}}]);
     }
 
-    checkState(){
-        
+    checkState():boolean{
+        console.log(this.selectedApp.AppName=="" || 
+            this.selectedApp.AppBU==0);
+        return this.selectedApp.AppName=="" || 
+            this.selectedApp.AppBU==0;
     }
 }
