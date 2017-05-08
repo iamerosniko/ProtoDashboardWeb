@@ -14,7 +14,7 @@ namespace BiztechDashboard.Models
         public string BackTechnology { get; set; }
         public int AppLifespan { get; set; }
         public int PrimaryBUContact { get; set; }
-        public int SecondaryBUContact { get; set; }
+        public Nullable<int> SecondaryBUContact { get; set; }
         public bool AppIsActive { get; set; }
         public bool AppPII { get; set; }
         public string AppSecurity { get; set; }

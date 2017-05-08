@@ -82,15 +82,19 @@ var AppFormComponent = (function () {
         this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
     };
     AppFormComponent.prototype.checkState = function () {
-        var myState = (this.selectedApp.AppName.trim().length > 0 ||
+        var myState = (this.selectedApp.AppName.trim().length == 0 ||
             this.selectedApp.AppBU == 0 ||
-            this.selectedApp.FrontTechnology.trim().length > 0 ||
-            this.selectedApp.BackTechnology.trim().length > 0 ||
+            this.selectedApp.FrontTechnology.trim().length == 0 ||
+            this.selectedApp.BackTechnology.trim().length == 0 ||
             this.selectedApp.PrimaryBUContact == 0
-            || this.selectedApp.AppSecurity.trim().length > 0
-            || this.selectedApp.ProjectModID.trim().length > 0
-            || this.selectedApp.ProjectOpsID.trim().length > 0);
+            || this.selectedApp.AppSecurity.trim().length == 0
+            || this.selectedApp.ProjectModID.trim().length == 0
+            || this.selectedApp.ProjectOpsID.trim().length == 0);
+        console.log(myState);
         return myState;
+    };
+    AppFormComponent.prototype.submitApp = function () {
+        this.fnMainApp.submitApp(this.selectedApp.AppID == 0, this.selectedApp);
     };
     return AppFormComponent;
 }());

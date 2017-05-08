@@ -40,7 +40,8 @@ namespace BiztechDashboard.Controllers
                     ProjectModID="",
                     ProjectOpsID="",
                     AppIconPath="",
-                    AppIsActive=true
+                    AppIsActive=true,
+                    SecondaryBUContact=null
                 });
             }
 
