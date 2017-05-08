@@ -56,9 +56,9 @@ var MaintenanceModule = (function () {
 MaintenanceModule = __decorate([
     core_1.NgModule({
         imports: [
-            ngx_bootstrap_2.ProgressbarModule.forRoot(),
-            ngx_bootstrap_1.AccordionModule.forRoot(),
-            ngx_bootstrap_3.DatepickerModule.forRoot(),
+            ngx_bootstrap_3.ProgressbarModule.forRoot(),
+            ngx_bootstrap_2.AccordionModule.forRoot(),
+            ngx_bootstrap_1.ModalModule.forRoot(),
             ng2_datetime_picker_1.Ng2DatetimePickerModule,
             common_1.CommonModule,
             forms_1.FormsModule,

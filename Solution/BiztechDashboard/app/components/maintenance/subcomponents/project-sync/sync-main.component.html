@@ -1,25 +1,33 @@
+<button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
 <div [hidden]="newApps.length==0">
     # of projects found in BTSS that are not in WDSB : {{newApps.length}}
-    <button class="btn btn-default btn-sm" type="button" [disabled]="!newApps.length>0" (click)="saveNewApplications(newApps);">Add to Projects</button>
+    <button class="btn btn-default btn-sm" type="button" [disabled]="!appLength==appDetailCompleted" (click)="saveNewApplications(newApps);">Add to Projects</button>
     <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Project Name</th>
-                <th>Datasource</th>
-                <th>Database Name</th>
+                <th>Front End Path</th>
+                <th>Back End Path</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let app of newApps">
                 <td>{{app.ProjectName}}</td>
-                <td>{{app.ProjectDatasource}}</td>
-                <td>{{app.ProjectDatabaseName}}</td>
+                <td>
+                    <input type="text" [(ngModel)]="app.FrontEndPath"  
+                       required class="form-control input-sm" />
+                </td> 
+                <td>
+                    <input type="text" [(ngModel)]="app.BackEndPath"  
+                       required class="form-control input-sm" />
+                </td>
+                <!--<td>{{app.ProjectDatasource}}</td>-->
+                <!--<td>{{app.ProjectDatabaseName}}</td>-->
             </tr>
         </tbody>
     </table>    
 </div>
 <div [hidden]="!newApps.length==0">
-    <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
     no new applications found
 </div>
 

@@ -6,10 +6,9 @@ import { Routes } from '@angular/router';
 /*datetime*/
 /* ngx-bootstrap */
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
-
+import { ModalModule } from 'ngx-bootstrap';
 import { AccordionModule } from 'ngx-bootstrap';
 import { ProgressbarModule } from 'ngx-bootstrap';
-import { DatepickerModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
@@ -46,7 +45,7 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
     imports: [
         ProgressbarModule.forRoot(),
         AccordionModule.forRoot(), 
-        DatepickerModule.forRoot(),
+        ModalModule.forRoot(),
         Ng2DatetimePickerModule,
         CommonModule,
         FormsModule,

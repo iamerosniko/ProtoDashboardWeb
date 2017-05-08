@@ -12,15 +12,36 @@ var core_1 = require("@angular/core");
 var fn_main_1 = require("../../functions/fn-main");
 var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
+        var _this = this;
         this.fnMain = fnMain;
-        this.name = 'Sync page';
+        this.appLength = 0;
+        this.appDetailCompleted = 0;
         this.newApps = [];
-        //     setInterval(() => {
-        //         if(this.newApps.length>0){
-        //             this.initAppSync();
-        //         }
-        //  }, 10000);
+        setInterval(function () {
+            _this.checkComplete();
+        }, 1000);
     }
+    SyncMainComponent.prototype.checkComplete = function () {
+        this.appLength = this.newApps.length;
+        if (this.appLength == 0) {
+            return true;
+        }
+        else {
+            this.appDetailCompleted = 0;
+            for (var _i = 0, _a = this.newApps; _i < _a.length; _i++) {
+                var app = _a[_i];
+                var a = app.BackEndPath;
+                var b = app.FrontEndPath;
+                if (!(a == null || b == null)) {
+                    console.log(a.trim());
+                    if (a.trim().length > 0 && b.trim().length > 0) {
+                        this.appDetailCompleted += 1;
+                    }
+                }
+            }
+            return this.appLength == this.appDetailCompleted;
+        }
+    };
     SyncMainComponent.prototype.ngOnInit = function () {
         this.initAppSync();
     };

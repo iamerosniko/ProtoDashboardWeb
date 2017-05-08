@@ -118,6 +118,8 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     <Property Name="ProjectUserID" Type="varchar" MaxLength="25" />
     <Property Name="ProjectPassword" Type="varchar" MaxLength="25" />
     <Property Name="ProjectIsActive" Type="bit" />
+    <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
+    <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
@@ -257,7 +259,9 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     [VW_WDSB_GetNewApp].[ProjectDatabaseName] AS [ProjectDatabaseName], 
     [VW_WDSB_GetNewApp].[ProjectUserID] AS [ProjectUserID], 
     [VW_WDSB_GetNewApp].[ProjectPassword] AS [ProjectPassword], 
-    [VW_WDSB_GetNewApp].[ProjectIsActive] AS [ProjectIsActive]
+    [VW_WDSB_GetNewApp].[ProjectIsActive] AS [ProjectIsActive], 
+    [VW_WDSB_GetNewApp].[FrontEndPath] AS [FrontEndPath], 
+    [VW_WDSB_GetNewApp].[BackEndPath] AS [BackEndPath]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">

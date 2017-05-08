@@ -15,18 +15,38 @@ import { Project } from '../../../../entities/project';
     templateUrl: 'sync-main.component.html',
 })
 export class SyncMainComponent implements OnInit  { 
-    name = 'Sync page';
-
+    appLength:number=0;
+    appDetailCompleted:number=0;
     newApps:Project[]=[];
     constructor(
         private fnMain : FnMain,
         
     ){ 
-    //     setInterval(() => {
-    //         if(this.newApps.length>0){
-    //             this.initAppSync();
-    //         }
-    //  }, 10000);
+        setInterval(() => {
+            this.checkComplete();
+     }, 1000);
+    }
+
+    checkComplete():boolean{
+        this.appLength=this.newApps.length;
+        if(this.appLength==0){
+            return true;
+        }
+        else{
+            this.appDetailCompleted=0;
+            for (let app of this.newApps) {
+                var a = app.BackEndPath;
+                var b = app.FrontEndPath;
+                if(!(a==null || b==null)){
+                    console.log(a.trim());
+                    if(a.trim().length>0 && b.trim().length>0)
+                    {
+                        this.appDetailCompleted += 1;
+                    }
+                }
+            }
+            return this.appLength == this.appDetailCompleted;
+        }
     }
 
     ngOnInit(){

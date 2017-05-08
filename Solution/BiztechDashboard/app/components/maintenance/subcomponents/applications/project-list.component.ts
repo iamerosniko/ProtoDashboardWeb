@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 //entities
 import { Project } from '../../../../entities/project';
 //services
+import { Application } from '../../../../entities/application';
 import { ProjectService } from '../../../../services/project.service';
 @Component({
     moduleId: module.id,
@@ -11,6 +12,10 @@ import { ProjectService } from '../../../../services/project.service';
 })
 export class ProjectListComponent implements OnInit  { 
     projects:Project[]=[];
+
+    @Input() application:Application;
+    @Input() mode : number;
+
     constructor(
         private service: ProjectService
     ){ }
@@ -21,4 +26,6 @@ export class ProjectListComponent implements OnInit  {
                 this.projects=projects;
             });
     }    
+
+    
 }

@@ -67,6 +67,8 @@
     <EntitySetMapping Name="VW_WDSB_GetNewApp">
       <EntityTypeMapping TypeName="BiztechDashboardModel.VW_WDSB_GetNewApp">
         <MappingFragment StoreEntitySet="VW_WDSB_GetNewApp">
+          <ScalarProperty Name="BackEndPath" ColumnName="BackEndPath" />
+          <ScalarProperty Name="FrontEndPath" ColumnName="FrontEndPath" />
           <ScalarProperty Name="ProjectIsActive" ColumnName="ProjectIsActive" />
           <ScalarProperty Name="ProjectPassword" ColumnName="ProjectPassword" />
           <ScalarProperty Name="ProjectUserID" ColumnName="ProjectUserID" />

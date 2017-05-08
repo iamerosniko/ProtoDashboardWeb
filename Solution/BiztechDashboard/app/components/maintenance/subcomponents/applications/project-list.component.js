@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 //services
+var application_1 = require("../../../../entities/application");
 var project_service_1 = require("../../../../services/project.service");
 var ProjectListComponent = (function () {
     function ProjectListComponent(service) {
@@ -25,6 +26,14 @@ var ProjectListComponent = (function () {
     };
     return ProjectListComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", application_1.Application)
+], ProjectListComponent.prototype, "application", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], ProjectListComponent.prototype, "mode", void 0);
 ProjectListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
