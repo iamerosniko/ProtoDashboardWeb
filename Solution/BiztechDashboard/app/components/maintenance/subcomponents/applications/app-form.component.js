@@ -82,10 +82,15 @@ var AppFormComponent = (function () {
         this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
     };
     AppFormComponent.prototype.checkState = function () {
-        console.log(this.selectedApp.AppName == "" ||
-            this.selectedApp.AppBU == 0);
-        return this.selectedApp.AppName == "" ||
-            this.selectedApp.AppBU == 0;
+        var myState = (this.selectedApp.AppName.trim().length > 0 ||
+            this.selectedApp.AppBU == 0 ||
+            this.selectedApp.FrontTechnology.trim().length > 0 ||
+            this.selectedApp.BackTechnology.trim().length > 0 ||
+            this.selectedApp.PrimaryBUContact == 0
+            || this.selectedApp.AppSecurity.trim().length > 0
+            || this.selectedApp.ProjectModID.trim().length > 0
+            || this.selectedApp.ProjectOpsID.trim().length > 0);
+        return myState;
     };
     return AppFormComponent;
 }());
