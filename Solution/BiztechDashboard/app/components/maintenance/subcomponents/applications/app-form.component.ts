@@ -101,7 +101,7 @@ export class AppFormComponent implements OnInit  {
             || this.selectedApp.ProjectModID.trim().length == 0 
             || this.selectedApp.ProjectOpsID.trim().length == 0 
         );
-        console.log(myState);
+        //console.log(myState);
         return myState;
     }
 
