@@ -41,4 +41,8 @@ export class ACGridComponent  {
   getProjectAuth(projectID:string):boolean{
     return this.fnAppClient.getAuth(projectID);
   }
+
+  getBUName(buID:number){
+    this.fnAppClient.getBUName(buID);
+  }
 }

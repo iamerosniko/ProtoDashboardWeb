@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row" *ngFor="let myList of listApps">
         <ac-thumbnail *ngFor="let app of myList" 
-            [app]="app" 
+            [app]="app" [buName]="getBUName(app.AppBU)"
             [canProd]="getProjectAuth(app.ProjectOpsID)">
         </ac-thumbnail>
     </div>
