@@ -15,11 +15,11 @@ namespace BiztechDashboard.Models
         public int AppLifespan { get; set; }
         public int PrimaryBUContact { get; set; }
         public Nullable<int> SecondaryBUContact { get; set; }
-        public bool AppIsActive { get; set; }
+        public Nullable<bool> AppIsActive { get; set; }
         public bool AppPII { get; set; }
         public string AppSecurity { get; set; }
-        public System.DateTime DateImplemented { get; set; }
-        public System.DateTime LastProdDate { get; set; }
+        public Nullable<System.DateTime> DateImplemented { get; set; }
+        public Nullable<System.DateTime> LastProdDate { get; set; }
         public string AppVersion { get; set; }
         public string AppDesc { get; set; }
         public bool AppIsWeb { get; set; }

@@ -97,6 +97,7 @@ export class AppFormComponent implements OnInit  {
             this.selectedApp.BackTechnology.trim().length == 0  || 
             this.selectedApp.PrimaryBUContact == 0 
             || this.selectedApp.AppSecurity.trim().length == 0 
+            || this.selectedApp.ProjectDevID.trim().length == 0
             || this.selectedApp.ProjectModID.trim().length == 0 
             || this.selectedApp.ProjectOpsID.trim().length == 0 
         );
@@ -105,6 +106,10 @@ export class AppFormComponent implements OnInit  {
     }
 
     submitApp():void{
-        this.fnMainApp.submitApp(this.selectedApp.AppID==0,this.selectedApp);
+        this.fnMainApp.submitApp(this.selectedApp.AppID==0,this.selectedApp)
+        .then(()=>{
+            alert("success");
+            this.applicationView();
+        });
     }
 }

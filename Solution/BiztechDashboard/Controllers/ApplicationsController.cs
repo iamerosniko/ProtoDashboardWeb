@@ -17,9 +17,41 @@ namespace BiztechDashboard.Controllers
         private BiztechDashboardContext db = new BiztechDashboardContext();
 
         // GET: api/Applications
-        public IQueryable<WDSB_Applications> GetWDSB_Applications()
+        public List<WDSB_Applications_DTO> GetWDSB_Applications()
         {
-            return db.WDSB_Applications;
+            //return db.WDSB_Applications;
+            var a = from i in db.WDSB_Applications
+                    select i;
+            List<WDSB_Applications_DTO> apps = new List<WDSB_Applications_DTO>();
+
+            foreach (var app in a)
+            {
+                apps.Add(new WDSB_Applications_DTO
+                {
+                    AppBU=app.AppBU,
+                    AppDesc=app.AppDesc,
+                    AppIconPath=app.AppIconPath,
+                    AppID=app.AppID,
+                    AppIsActive=app.AppIsActive,
+                    AppIsWeb=(bool) app.AppIsWeb,
+                    AppLifespan=(int) app.AppLifespan,
+                    AppName=app.AppName,
+                    AppPII=(bool)app.AppPII,
+                    AppSecurity=app.AppSecurity,
+                    AppVersion=app.AppVersion,
+                    BackTechnology=app.BackTechnology,
+                    DateImplemented=app.DateImplemented,
+                    FrontTechnology=app.FrontTechnology,
+                    IsUatAvail=(bool)app.IsUatAvail,
+                    LastProdDate=app.LastProdDate,
+                    PrimaryBUContact=app.PrimaryBUContact,
+                    ProjectDevID=app.ProjectDevID,
+                    ProjectModID=app.ProjectModID,
+                    ProjectOpsID=app.ProjectOpsID,
+                    SecondaryBUContact=app.SecondaryBUContact
+                });
+            }
+            return apps;
         }
 
         // GET: api/Applications/5

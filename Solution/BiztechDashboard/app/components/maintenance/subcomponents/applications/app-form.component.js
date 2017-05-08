@@ -88,13 +88,19 @@ var AppFormComponent = (function () {
             this.selectedApp.BackTechnology.trim().length == 0 ||
             this.selectedApp.PrimaryBUContact == 0
             || this.selectedApp.AppSecurity.trim().length == 0
+            || this.selectedApp.ProjectDevID.trim().length == 0
             || this.selectedApp.ProjectModID.trim().length == 0
             || this.selectedApp.ProjectOpsID.trim().length == 0);
         console.log(myState);
         return myState;
     };
     AppFormComponent.prototype.submitApp = function () {
-        this.fnMainApp.submitApp(this.selectedApp.AppID == 0, this.selectedApp);
+        var _this = this;
+        this.fnMainApp.submitApp(this.selectedApp.AppID == 0, this.selectedApp)
+            .then(function () {
+            alert("success");
+            _this.applicationView();
+        });
     };
     return AppFormComponent;
 }());
