@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Application } from '../../../entities/application';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';
+import { FnAppClient } from '../functions/fn-app-client';
 @Component({
   moduleId: module.id,
   selector: 'ac-grid',
@@ -10,7 +11,8 @@ export class ACGridComponent  {
   apps:Application[]=[];
   listApps:Application[][]=[];
   constructor(
-      private fn: FnMainApp
+      private fn: FnMainApp,
+      private fnAppClient: FnAppClient
   ){ }
   ngOnInit(){
     this.fn.getApps()
@@ -19,7 +21,7 @@ export class ACGridComponent  {
           this.sliceToFour();
       });
   }
-
+  //populating list
   sliceToFour(){
     var ctr=0,listCtr=0;
     var tempList:Application[]=[];
@@ -34,5 +36,9 @@ export class ACGridComponent  {
 
       }
     }
+  }
+  //isProdAuth
+  getProjectAuth(projectID:string):boolean{
+    return this.fnAppClient.getAuth(projectID);
   }
 }

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BiztechDashboard.Models;
+using System.Web;
 
 namespace BiztechDashboard.Controllers
 {
@@ -34,6 +35,29 @@ namespace BiztechDashboard.Controllers
 
             return Ok(wdsb_appusers);
         }
+
+        [Route("api/Appusers/GetAuth")]
+        public WDSB_Auth GetAuth(string projectID)
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //Domain Name only
+            string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
+            bool isAuth = false;
+            var appUsers = from i in db.WDSB_AppUsers
+                           where i.ProjectID == projectID
+                           where i.UserName == currentUsername
+                           select i;
+            if (appUsers.Count() > 0)
+                isAuth = true;
+            return new WDSB_Auth
+            {
+                isAuth = isAuth
+            };
+        }
+
 
         // PUT api/Appusers/5
         public IHttpActionResult PutWDSB_AppUsers(Guid id, WDSB_AppUsers wdsb_appusers)

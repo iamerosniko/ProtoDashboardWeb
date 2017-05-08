@@ -7,4 +7,9 @@ import { Application } from '../../../entities/application';
 })
 export class ACThumbnailComponent  { 
   @Input() app: Application;
+  @Input() canProd:boolean;
+  constructor(
+  ){
+
+  }
 }

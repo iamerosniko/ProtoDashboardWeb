@@ -10,9 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var application_1 = require("../../../entities/application");
+var fn_app_client_1 = require("../functions/fn-app-client");
 var ACThumbnailComponent = (function () {
-    function ACThumbnailComponent() {
+    function ACThumbnailComponent(fnAppClient) {
+        this.fnAppClient = fnAppClient;
     }
+    //isProdAuth
+    ACThumbnailComponent.prototype.getProjectAuth = function (projectID) {
+        return this.fnAppClient.getAuth(projectID);
+    };
     return ACThumbnailComponent;
 }());
 __decorate([
@@ -24,6 +30,7 @@ ACThumbnailComponent = __decorate([
         moduleId: module.id,
         selector: 'ac-thumbnail',
         templateUrl: "ac-thumbnail.component.html"
-    })
+    }),
+    __metadata("design:paramtypes", [fn_app_client_1.FnAppClient])
 ], ACThumbnailComponent);
 exports.ACThumbnailComponent = ACThumbnailComponent;

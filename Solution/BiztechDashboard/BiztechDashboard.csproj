@@ -237,6 +237,7 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_AppUsers_DTO.cs" />
+    <Compile Include="Models\WDSB_Auth.cs" />
     <Compile Include="Models\WDSB_BUContacts.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

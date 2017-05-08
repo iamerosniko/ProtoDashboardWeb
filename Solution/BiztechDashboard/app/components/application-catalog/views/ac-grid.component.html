@@ -1,7 +1,7 @@
 <!--Data-->
 <div class="container">
     <div class="row" *ngFor="let myList of listApps">
-        <ac-thumbnail *ngFor="let app of myList" [app]="app"></ac-thumbnail>
+        <ac-thumbnail *ngFor="let app of myList" [app]="app" [canProd]="getProjectAuth(app.ProjectOpsID)"></ac-thumbnail>
     </div>
     <!--<div class="row">
         <div class="col-md-3">

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
 import { AppUsers } from '../entities/appusers';
+import { Auth } from '../entities/auth';
 @Injectable()
 export class AppUserService {
     private headers = new Headers({'Content-Type': 'application/json'});
@@ -17,6 +18,16 @@ export class AppUserService {
                 .then(response => response.json())
                 .catch(this.handleError);
     }
+
+    getAuth(projectID:string):Promise<Auth>{
+        const url = `${this.apiAppUsers}/GetAuth/?projectID=${projectID}`;
+        return this.http
+                .get(url)
+                .toPromise()
+                .then(response => response.json())  
+                .catch(this.handleError);      
+    }
+
     //get users where appid = ''
     getUser(id: number): Promise<AppUsers[]> {
         const url = `${this.apiAppUsers}/${id}`;

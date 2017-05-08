@@ -19,7 +19,7 @@ import { ACListComponent } from './views/ac-list.component';
 import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
 
 /*******************Custom Function Provider**********************************/
-import { FnApp } from './functions/fn-app';
+import { FnAppClient } from './functions/fn-app-client';
 
 /*******************Services**********************************/
 import { BTSSWDSBService } from '../../services/btss-wdsb.service';
@@ -51,7 +51,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
         BTSSWDSBService,
         TempProjectService,
         ApplicationService,
-        FnApp
+        FnAppClient
     ]
 })
 

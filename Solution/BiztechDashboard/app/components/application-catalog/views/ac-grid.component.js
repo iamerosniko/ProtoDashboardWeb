@@ -24,6 +24,7 @@ var ACGridComponent = (function () {
             _this.sliceToFour();
         });
     };
+    //populating list
     ACGridComponent.prototype.sliceToFour = function () {
         var ctr = 0, listCtr = 0;
         var tempList = [];

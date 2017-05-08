@@ -24,6 +24,14 @@ var AppUserService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    AppUserService.prototype.getAuth = function (projectID) {
+        var url = this.apiAppUsers + "/GetAuth/?projectID=" + projectID;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     //get users where appid = ''
     AppUserService.prototype.getUser = function (id) {
         var url = this.apiAppUsers + "/" + id;
