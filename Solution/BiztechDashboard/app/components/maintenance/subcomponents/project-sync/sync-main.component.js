@@ -12,14 +12,13 @@ var core_1 = require("@angular/core");
 var fn_main_1 = require("../../functions/fn-main");
 var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain) {
-        var _this = this;
         this.fnMain = fnMain;
         this.appLength = 0;
         this.appDetailCompleted = 0;
         this.newApps = [];
-        setInterval(function () {
-            _this.checkComplete();
-        }, 1000);
+        //     setInterval(() => {
+        //         this.checkComplete();
+        //  }, 1000);
     }
     SyncMainComponent.prototype.checkComplete = function () {
         this.appLength = this.newApps.length;
@@ -77,6 +76,7 @@ var SyncMainComponent = (function () {
         this.fnMain.getNewApplications()
             .then(function (apps) {
             _this.newApps = apps;
+            _this.checkComplete();
             // console.log('done-getNewAppFromTemp');
         });
     };

@@ -88,4 +88,8 @@ export class AppFormComponent implements OnInit  {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', {outlets: {'apps': ['Lists']}}]);
     }
+
+    checkState(){
+        
+    }
 }

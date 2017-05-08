@@ -22,9 +22,9 @@ export class SyncMainComponent implements OnInit  {
         private fnMain : FnMain,
         
     ){ 
-        setInterval(() => {
-            this.checkComplete();
-     }, 1000);
+    //     setInterval(() => {
+    //         this.checkComplete();
+    //  }, 1000);
     }
 
     checkComplete():boolean{
@@ -83,6 +83,7 @@ export class SyncMainComponent implements OnInit  {
         this.fnMain.getNewApplications()
             .then(apps =>{
                 this.newApps=apps;
+                this.checkComplete();
                 // console.log('done-getNewAppFromTemp');
             });
     }

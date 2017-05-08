@@ -81,6 +81,8 @@ var AppFormComponent = (function () {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
     };
+    AppFormComponent.prototype.checkState = function () {
+    };
     return AppFormComponent;
 }());
 AppFormComponent = __decorate([
