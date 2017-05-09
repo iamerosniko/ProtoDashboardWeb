@@ -105,16 +105,19 @@ namespace BiztechDashboard.Controllers
 
             foreach (var temp in wdsb_projects)
             {
-                db.WDSB_Projects.Add(temp);
-
-                try
+                if (temp.FrontEndPath.Trim().Length > 0 && temp.BackEndPath.Trim().Length > 0)
                 {
-                    db.SaveChanges();
-                    good += 1;
-                }
-                catch (DbUpdateException)
-                {
+                    db.WDSB_Projects.Add(temp);
 
+                    try
+                    {
+                        db.SaveChanges();
+                        good += 1;
+                    }
+                    catch (DbUpdateException)
+                    {
+
+                    }
                 }
             }
             return Ok("Good: " + good + "Error: " + (wdsb_projects.Count() - good).ToString());

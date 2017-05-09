@@ -19,7 +19,7 @@ namespace BiztechDashboard.Controllers
         // GET api/NewApplications
         public IQueryable<VW_WDSB_GetNewApp> GetVW_WDSB_GetNewApp()
         {
-            return db.VW_WDSB_GetNewApp;
+            return db.VW_WDSB_GetNewApp.OrderBy(x=> x.ProjectName);
         }
 
     }
