@@ -27,10 +27,10 @@
 <!--Pagination-->
 <div class="container">
     <hr />
-    <!--<div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="text-center">
-                <ul class="pagination">
+                <!--<ul class="pagination">
                     <li>
                         <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -46,9 +46,9 @@
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
-                </ul>
+                </ul>-->
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
-    </div>-->
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
 </div>
