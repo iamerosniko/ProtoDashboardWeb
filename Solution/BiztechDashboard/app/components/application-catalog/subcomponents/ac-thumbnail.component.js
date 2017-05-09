@@ -9,15 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var application_1 = require("../../../entities/application");
+var appforclient_1 = require("../../../entities/appforclient");
 var ACThumbnailComponent = (function () {
     function ACThumbnailComponent() {
     }
+    ACThumbnailComponent.prototype.run = function () {
+        window.open(this.app.OpsFront);
+    };
     return ACThumbnailComponent;
 }());
 __decorate([
     core_1.Input(),
-    __metadata("design:type", application_1.Application)
+    __metadata("design:type", appforclient_1.AppForClient)
 ], ACThumbnailComponent.prototype, "app", void 0);
 ACThumbnailComponent = __decorate([
     core_1.Component({
