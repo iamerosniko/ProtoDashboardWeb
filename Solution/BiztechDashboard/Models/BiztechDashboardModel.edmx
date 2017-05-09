@@ -136,6 +136,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Name="AppName" Type="varchar" MaxLength="150" />
           <Property Name="AppIsWeb" Type="bit" />
           <Property Name="BUName" Type="varchar" MaxLength="100" />
+          <Property Name="ProjectOpsID" Type="varchar" MaxLength="50" />
           <Property Name="DevFront" Type="varchar" MaxLength="250" />
           <Property Name="ModFront" Type="varchar" MaxLength="250" />
           <Property Name="OpsFront" Type="varchar" MaxLength="250" />
@@ -291,6 +292,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
     [WDSB_VW_ApplicationsDB].[AppName] AS [AppName], 
     [WDSB_VW_ApplicationsDB].[AppIsWeb] AS [AppIsWeb], 
     [WDSB_VW_ApplicationsDB].[BUName] AS [BUName], 
+    [WDSB_VW_ApplicationsDB].[ProjectOpsID] AS [ProjectOpsID], 
     [WDSB_VW_ApplicationsDB].[DevFront] AS [DevFront], 
     [WDSB_VW_ApplicationsDB].[ModFront] AS [ModFront], 
     [WDSB_VW_ApplicationsDB].[OpsFront] AS [OpsFront], 
@@ -668,6 +670,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Name="OpsFront" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="IsUatAvail" Type="Boolean" />
           <Property Name="AppIsActive" Type="Boolean" />
+          <Property Name="ProjectOpsID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -807,6 +810,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <EntitySetMapping Name="WDSB_VW_ApplicationsDB">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_VW_ApplicationsDB">
               <MappingFragment StoreEntitySet="WDSB_VW_ApplicationsDB">
+                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
                 <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
                 <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />

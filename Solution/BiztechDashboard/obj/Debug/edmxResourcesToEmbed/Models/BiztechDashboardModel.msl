@@ -133,6 +133,7 @@
     <EntitySetMapping Name="WDSB_VW_ApplicationsDB">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_VW_ApplicationsDB">
         <MappingFragment StoreEntitySet="WDSB_VW_ApplicationsDB">
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
           <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />

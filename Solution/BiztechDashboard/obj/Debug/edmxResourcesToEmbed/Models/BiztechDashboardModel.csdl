@@ -325,5 +325,6 @@
     <Property Name="OpsFront" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="IsUatAvail" Type="Boolean" />
     <Property Name="AppIsActive" Type="Boolean" />
+    <Property Name="ProjectOpsID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

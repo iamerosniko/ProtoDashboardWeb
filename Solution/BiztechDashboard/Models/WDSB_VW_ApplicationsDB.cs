@@ -23,5 +23,6 @@ namespace BiztechDashboard.Models
         public string OpsFront { get; set; }
         public Nullable<bool> IsUatAvail { get; set; }
         public Nullable<bool> AppIsActive { get; set; }
+        public string ProjectOpsID { get; set; }
     }
 }
