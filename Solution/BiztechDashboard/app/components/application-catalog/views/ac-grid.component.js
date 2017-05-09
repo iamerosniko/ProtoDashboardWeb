@@ -20,7 +20,7 @@ var ACGridComponent = (function () {
     }
     ACGridComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.fn.getApps()
+        this.fn.getAppsClient()
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();

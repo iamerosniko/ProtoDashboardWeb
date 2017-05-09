@@ -32,6 +32,14 @@ var ApplicationService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ApplicationService.prototype.getApplicationsForClient = function () {
+        var url = this.apiUrl + "/GetWDSB_ApplicationsClient";
+        return this.http
+            .get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ApplicationService.prototype.getApplication = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http

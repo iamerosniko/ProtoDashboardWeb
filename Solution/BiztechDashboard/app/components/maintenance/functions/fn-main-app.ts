@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { ApplicationService } from '../../../services/application.service';
 //entities
 import { Application } from '../../../entities/application';
+import { AppForClient } from '../../../entities/appforclient';
 
 @Injectable()
 export class FnMainApp  { 
@@ -11,9 +12,13 @@ export class FnMainApp  {
     constructor(
         private appService : ApplicationService
     ){ }
-    //get all
+    //get all (admin)
     getApps():Promise<Application[]>{
         return this.appService.getApplications();
+    }
+    //get all (for client side only)
+    getAppsClient():Promise<AppForClient[]>{
+        return this.appService.getApplicationsForClient();
     }
     //getone
     getApp(id:number):Promise<Application>{

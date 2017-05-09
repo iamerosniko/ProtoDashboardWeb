@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Application } from '../../../entities/application';
+import { AppForClient } from '../../../entities/appforclient';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';
 import { FnAppClient } from '../functions/fn-app-client';
 @Component({
@@ -8,14 +9,14 @@ import { FnAppClient } from '../functions/fn-app-client';
   templateUrl:`ac-grid.component.html`
 })
 export class ACGridComponent  { 
-  apps:Application[]=[];
-  listApps:Application[][]=[];
+  apps:AppForClient[]=[];
+  listApps:AppForClient[][]=[];
   constructor(
       private fn: FnMainApp,
       private fnAppClient: FnAppClient
   ){ }
   ngOnInit(){
-    this.fn.getApps()
+    this.fn.getAppsClient()
       .then(apps=>{
           this.apps=apps;
           this.sliceToFour();
@@ -24,7 +25,7 @@ export class ACGridComponent  {
   //populating list
   sliceToFour(){
     var ctr=0,listCtr=0;
-    var tempList:Application[]=[];
+    var tempList:AppForClient[]=[];
     for (let app of this.apps) {
       tempList.push(app);
       ctr+=1;

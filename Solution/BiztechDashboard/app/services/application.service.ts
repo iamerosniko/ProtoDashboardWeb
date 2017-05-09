@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 //import { UUID } from 'angular2-uuid';
 import { Application } from '../entities/application';
+import { AppForClient } from '../entities/appforclient';
 import { Project } from '../entities/project';
 @Injectable()
 export class ApplicationService {
@@ -22,6 +23,15 @@ export class ApplicationService {
     getApplications(): Promise<Application[]> {
         return this.http
                 .get(this.apiUrl, {headers: this.headers})
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+
+    getApplicationsForClient(): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_ApplicationsClient`;
+        return this.http
+                .get(url, {headers: this.headers})
                 .toPromise()
                 .then(response => response.json())
                 .catch(this.handleError);

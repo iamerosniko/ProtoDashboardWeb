@@ -15,9 +15,13 @@ var FnMainApp = (function () {
     function FnMainApp(appService) {
         this.appService = appService;
     }
-    //get all
+    //get all (admin)
     FnMainApp.prototype.getApps = function () {
         return this.appService.getApplications();
+    };
+    //get all (for client side only)
+    FnMainApp.prototype.getAppsClient = function () {
+        return this.appService.getApplicationsForClient();
     };
     //getone
     FnMainApp.prototype.getApp = function (id) {
