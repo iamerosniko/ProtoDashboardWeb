@@ -34,7 +34,6 @@ export class ACGridComponent  {
         this.listApps.push(tempList);
         ctr=0;
         tempList=[];
-
       }
     }
   }

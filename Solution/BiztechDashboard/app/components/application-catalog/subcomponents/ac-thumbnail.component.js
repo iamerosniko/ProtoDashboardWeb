@@ -23,10 +23,6 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Boolean)
 ], ACThumbnailComponent.prototype, "canProd", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], ACThumbnailComponent.prototype, "buName", void 0);
 ACThumbnailComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
