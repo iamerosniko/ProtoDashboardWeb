@@ -102,6 +102,7 @@
       <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
       <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
     </AssociationSet>
+    <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="BiztechDashboardModel.WDSB_VW_ApplicationsDB" />
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -311,4 +312,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="WDSB_VW_ApplicationsDB">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="AppIsWeb" Type="Boolean" />
+    <Property Name="BUName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DevFront1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DevBack1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DevFront2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DevBack2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DevFront3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DevBack3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

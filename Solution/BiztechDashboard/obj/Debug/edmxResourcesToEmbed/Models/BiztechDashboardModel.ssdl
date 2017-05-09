@@ -121,6 +121,22 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
     <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WDSB_VW_ApplicationsDB">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="AppIsWeb" Type="bit" />
+    <Property Name="BUName" Type="varchar" MaxLength="100" />
+    <Property Name="DevFront1" Type="varchar" MaxLength="250" />
+    <Property Name="DevBack1" Type="varchar" MaxLength="250" />
+    <Property Name="DevFront2" Type="varchar" MaxLength="250" />
+    <Property Name="DevBack2" Type="varchar" MaxLength="250" />
+    <Property Name="DevFront3" Type="varchar" MaxLength="250" />
+    <Property Name="DevBack3" Type="varchar" MaxLength="250" />
+  </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
     <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
@@ -263,6 +279,19 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     [VW_WDSB_GetNewApp].[FrontEndPath] AS [FrontEndPath], 
     [VW_WDSB_GetNewApp].[BackEndPath] AS [BackEndPath]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="Self.WDSB_VW_ApplicationsDB" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [WDSB_VW_ApplicationsDB].[AppID] AS [AppID], 
+    [WDSB_VW_ApplicationsDB].[AppIsWeb] AS [AppIsWeb], 
+    [WDSB_VW_ApplicationsDB].[BUName] AS [BUName], 
+    [WDSB_VW_ApplicationsDB].[DevFront1] AS [DevFront1], 
+    [WDSB_VW_ApplicationsDB].[DevBack1] AS [DevBack1], 
+    [WDSB_VW_ApplicationsDB].[DevFront2] AS [DevFront2], 
+    [WDSB_VW_ApplicationsDB].[DevBack2] AS [DevBack2], 
+    [WDSB_VW_ApplicationsDB].[DevFront3] AS [DevFront3], 
+    [WDSB_VW_ApplicationsDB].[DevBack3] AS [DevBack3]
+    FROM [dbo].[WDSB_VW_ApplicationsDB] AS [WDSB_VW_ApplicationsDB]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">
       <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />

@@ -260,6 +260,9 @@
     <Compile Include="Models\WDSB_TempProjects.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WDSB_VW_ApplicationsDB.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

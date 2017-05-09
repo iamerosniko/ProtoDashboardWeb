@@ -87,7 +87,6 @@ var AppFormComponent = (function () {
             this.selectedApp.FrontTechnology.trim().length == 0 ||
             this.selectedApp.BackTechnology.trim().length == 0 ||
             this.selectedApp.PrimaryBUContact == 0
-            || this.selectedApp.AppSecurity.trim().length == 0
             || this.selectedApp.ProjectDevID.trim().length == 0
             || this.selectedApp.ProjectModID.trim().length == 0
             || this.selectedApp.ProjectOpsID.trim().length == 0);
