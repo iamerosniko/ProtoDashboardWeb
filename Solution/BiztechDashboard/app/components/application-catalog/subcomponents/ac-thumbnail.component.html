@@ -22,12 +22,12 @@
             <img src="images/AppLogo.png" class="thumbnail-img">
             <div class="caption">
                 <p><strong>{{app.AppName}}</strong></p>
-                <p><span class="glyphicon glyphicon-user"></span>{{buName}}</p>
+                <p><span class="glyphicon glyphicon-user"></span>{{app.BUName}}</p>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="btn-group pull-right" role="group">
-                        <button type="button" class="btn btn-default btn-sm" [disabled]="!getProjectAuth(app.ProjectOpsID)">Run</button>
+                        <button type="button" class="btn btn-default btn-sm" [disabled]="!canProd">Run</button>
                         <button type="button" class="btn btn-default btn-sm" onclick="viewDetails()">View Details</button>
                     </div>
                 </div>
