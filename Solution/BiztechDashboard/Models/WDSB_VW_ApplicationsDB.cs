@@ -15,14 +15,13 @@ namespace BiztechDashboard.Models
     public partial class WDSB_VW_ApplicationsDB
     {
         public int AppID { get; set; }
+        public string AppName { get; set; }
         public Nullable<bool> AppIsWeb { get; set; }
         public string BUName { get; set; }
-        public string DevFront1 { get; set; }
-        public string DevBack1 { get; set; }
-        public string DevFront2 { get; set; }
-        public string DevBack2 { get; set; }
-        public string DevFront3 { get; set; }
-        public string DevBack3 { get; set; }
-        public string AppName { get; set; }
+        public string DevFront { get; set; }
+        public string ModFront { get; set; }
+        public string OpsFront { get; set; }
+        public Nullable<bool> IsUatAvail { get; set; }
+        public Nullable<bool> AppIsActive { get; set; }
     }
 }

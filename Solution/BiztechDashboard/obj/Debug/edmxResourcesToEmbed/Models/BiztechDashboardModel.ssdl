@@ -131,12 +131,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
     <Property Name="AppName" Type="varchar" MaxLength="150" />
     <Property Name="AppIsWeb" Type="bit" />
     <Property Name="BUName" Type="varchar" MaxLength="100" />
-    <Property Name="DevFront1" Type="varchar" MaxLength="250" />
-    <Property Name="DevBack1" Type="varchar" MaxLength="250" />
-    <Property Name="DevFront2" Type="varchar" MaxLength="250" />
-    <Property Name="DevBack2" Type="varchar" MaxLength="250" />
-    <Property Name="DevFront3" Type="varchar" MaxLength="250" />
-    <Property Name="DevBack3" Type="varchar" MaxLength="250" />
+    <Property Name="DevFront" Type="varchar" MaxLength="250" />
+    <Property Name="ModFront" Type="varchar" MaxLength="250" />
+    <Property Name="OpsFront" Type="varchar" MaxLength="250" />
+    <Property Name="IsUatAvail" Type="bit" />
+    <Property Name="AppIsActive" Type="bit" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
@@ -287,12 +286,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
     [WDSB_VW_ApplicationsDB].[AppName] AS [AppName], 
     [WDSB_VW_ApplicationsDB].[AppIsWeb] AS [AppIsWeb], 
     [WDSB_VW_ApplicationsDB].[BUName] AS [BUName], 
-    [WDSB_VW_ApplicationsDB].[DevFront1] AS [DevFront1], 
-    [WDSB_VW_ApplicationsDB].[DevBack1] AS [DevBack1], 
-    [WDSB_VW_ApplicationsDB].[DevFront2] AS [DevFront2], 
-    [WDSB_VW_ApplicationsDB].[DevBack2] AS [DevBack2], 
-    [WDSB_VW_ApplicationsDB].[DevFront3] AS [DevFront3], 
-    [WDSB_VW_ApplicationsDB].[DevBack3] AS [DevBack3]
+    [WDSB_VW_ApplicationsDB].[DevFront] AS [DevFront], 
+    [WDSB_VW_ApplicationsDB].[ModFront] AS [ModFront], 
+    [WDSB_VW_ApplicationsDB].[OpsFront] AS [OpsFront], 
+    [WDSB_VW_ApplicationsDB].[IsUatAvail] AS [IsUatAvail], 
+    [WDSB_VW_ApplicationsDB].[AppIsActive] AS [AppIsActive]
     FROM [dbo].[WDSB_VW_ApplicationsDB] AS [WDSB_VW_ApplicationsDB]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">

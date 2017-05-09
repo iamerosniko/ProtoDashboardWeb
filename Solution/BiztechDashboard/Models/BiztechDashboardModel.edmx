@@ -136,12 +136,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Name="AppName" Type="varchar" MaxLength="150" />
           <Property Name="AppIsWeb" Type="bit" />
           <Property Name="BUName" Type="varchar" MaxLength="100" />
-          <Property Name="DevFront1" Type="varchar" MaxLength="250" />
-          <Property Name="DevBack1" Type="varchar" MaxLength="250" />
-          <Property Name="DevFront2" Type="varchar" MaxLength="250" />
-          <Property Name="DevBack2" Type="varchar" MaxLength="250" />
-          <Property Name="DevFront3" Type="varchar" MaxLength="250" />
-          <Property Name="DevBack3" Type="varchar" MaxLength="250" />
+          <Property Name="DevFront" Type="varchar" MaxLength="250" />
+          <Property Name="ModFront" Type="varchar" MaxLength="250" />
+          <Property Name="OpsFront" Type="varchar" MaxLength="250" />
+          <Property Name="IsUatAvail" Type="bit" />
+          <Property Name="AppIsActive" Type="bit" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Role="WDSB_BUContacts" Type="Self.WDSB_BUContacts" Multiplicity="1" />
@@ -292,12 +291,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
     [WDSB_VW_ApplicationsDB].[AppName] AS [AppName], 
     [WDSB_VW_ApplicationsDB].[AppIsWeb] AS [AppIsWeb], 
     [WDSB_VW_ApplicationsDB].[BUName] AS [BUName], 
-    [WDSB_VW_ApplicationsDB].[DevFront1] AS [DevFront1], 
-    [WDSB_VW_ApplicationsDB].[DevBack1] AS [DevBack1], 
-    [WDSB_VW_ApplicationsDB].[DevFront2] AS [DevFront2], 
-    [WDSB_VW_ApplicationsDB].[DevBack2] AS [DevBack2], 
-    [WDSB_VW_ApplicationsDB].[DevFront3] AS [DevFront3], 
-    [WDSB_VW_ApplicationsDB].[DevBack3] AS [DevBack3]
+    [WDSB_VW_ApplicationsDB].[DevFront] AS [DevFront], 
+    [WDSB_VW_ApplicationsDB].[ModFront] AS [ModFront], 
+    [WDSB_VW_ApplicationsDB].[OpsFront] AS [OpsFront], 
+    [WDSB_VW_ApplicationsDB].[IsUatAvail] AS [IsUatAvail], 
+    [WDSB_VW_ApplicationsDB].[AppIsActive] AS [AppIsActive]
     FROM [dbo].[WDSB_VW_ApplicationsDB] AS [WDSB_VW_ApplicationsDB]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="Self.FK_WDSB_Applications_WDSB_BUContacts">
@@ -662,15 +660,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
             <PropertyRef Name="AppID" />
           </Key>
           <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="AppIsWeb" Type="Boolean" />
           <Property Name="BUName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DevFront1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DevBack1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DevFront2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DevBack2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DevFront3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DevBack3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DevFront" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ModFront" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="OpsFront" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsUatAvail" Type="Boolean" />
+          <Property Name="AppIsActive" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -810,15 +807,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <EntitySetMapping Name="WDSB_VW_ApplicationsDB">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_VW_ApplicationsDB">
               <MappingFragment StoreEntitySet="WDSB_VW_ApplicationsDB">
-                <ScalarProperty Name="AppName" ColumnName="AppName" />
-                <ScalarProperty Name="DevBack3" ColumnName="DevBack3" />
-                <ScalarProperty Name="DevFront3" ColumnName="DevFront3" />
-                <ScalarProperty Name="DevBack2" ColumnName="DevBack2" />
-                <ScalarProperty Name="DevFront2" ColumnName="DevFront2" />
-                <ScalarProperty Name="DevBack1" ColumnName="DevBack1" />
-                <ScalarProperty Name="DevFront1" ColumnName="DevFront1" />
+                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+                <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+                <ScalarProperty Name="ModFront" ColumnName="ModFront" />
+                <ScalarProperty Name="DevFront" ColumnName="DevFront" />
                 <ScalarProperty Name="BUName" ColumnName="BUName" />
                 <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
               </MappingFragment>
             </EntityTypeMapping>
