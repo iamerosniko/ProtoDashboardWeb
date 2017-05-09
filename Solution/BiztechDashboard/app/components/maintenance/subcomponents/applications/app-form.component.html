@@ -311,7 +311,7 @@
                 <div class="col-md-12">
                     <div class="btn-group pull-right">
                         <button [disabled]="checkState()" (click)="submitApp()" class="btn btn-primary btn-md">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></button>
-                        <a href="#tableApp" class="btn btn-default btn-md" aria-controls="tableApp" role="tab" data-toggle="tab">Go Back</a>
+                        <a (click)="applicationView()" class="btn btn-default btn-md" aria-controls="tableApp" role="tab" data-toggle="tab">Go Back</a>
                     </div>
                 </div>
             </div>

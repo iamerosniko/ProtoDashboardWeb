@@ -18,7 +18,7 @@
                 <tbody>
                     <tr *ngFor="let app of applications">
                         <td>{{app.AppName}}</td>
-                        <td><a href="#updateApp" class="btn btn-default btn-sm" aria-controls="updateApp" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a (click)="applicationView(app.AppID)" class="btn btn-default btn-sm" aria-controls="updateApp" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-edit"></span></a></td>
                     </tr>
                 </tbody>
             </table>
