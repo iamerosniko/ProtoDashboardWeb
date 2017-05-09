@@ -33,7 +33,10 @@ var FnAppClient = (function () {
     //getBuName()
     FnAppClient.prototype.getBUName = function (id) {
         var buname;
-        this.fnBU.getBU(id).then(function (bu) { return buname = bu.BUName; });
+        this.fnBU.getBU(id).then(function (bu) {
+            buname = bu.BUName;
+            console.log(buname);
+        });
         return buname;
     };
     return FnAppClient;

@@ -47,7 +47,7 @@ var ACGridComponent = (function () {
         return this.fnAppClient.getAuth(projectID);
     };
     ACGridComponent.prototype.getBUName = function (buID) {
-        this.fnAppClient.getBUName(buID);
+        return this.fnAppClient.getBUName(buID);
     };
     return ACGridComponent;
 }());

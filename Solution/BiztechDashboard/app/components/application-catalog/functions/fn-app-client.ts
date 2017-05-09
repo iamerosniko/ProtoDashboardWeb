@@ -30,7 +30,10 @@ export class FnAppClient  {
     //getBuName()
     getBUName(id:number):string{
         var buname:string;
-        this.fnBU.getBU(id).then(bu=>buname=bu.BUName);
+        this.fnBU.getBU(id).then(bu=>{
+            buname=bu.BUName;
+            console.log(buname);
+        });
         return buname;
     }
 }

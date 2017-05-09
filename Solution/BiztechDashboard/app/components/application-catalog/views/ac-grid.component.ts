@@ -42,7 +42,7 @@ export class ACGridComponent  {
     return this.fnAppClient.getAuth(projectID);
   }
 
-  getBUName(buID:number){
-    this.fnAppClient.getBUName(buID);
+  getBUName(buID:number):string{
+    return this.fnAppClient.getBUName(buID);
   }
 }
