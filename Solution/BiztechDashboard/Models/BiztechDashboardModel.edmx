@@ -133,6 +133,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
             <PropertyRef Name="AppID" />
           </Key>
           <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="AppName" Type="varchar" MaxLength="150" />
           <Property Name="AppIsWeb" Type="bit" />
           <Property Name="BUName" Type="varchar" MaxLength="100" />
           <Property Name="DevFront1" Type="varchar" MaxLength="250" />
@@ -288,6 +289,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="Self.WDSB_VW_ApplicationsDB" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [WDSB_VW_ApplicationsDB].[AppID] AS [AppID], 
+    [WDSB_VW_ApplicationsDB].[AppName] AS [AppName], 
     [WDSB_VW_ApplicationsDB].[AppIsWeb] AS [AppIsWeb], 
     [WDSB_VW_ApplicationsDB].[BUName] AS [BUName], 
     [WDSB_VW_ApplicationsDB].[DevFront1] AS [DevFront1], 
@@ -668,6 +670,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Name="DevBack2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="DevFront3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="DevBack3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -807,6 +810,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <EntitySetMapping Name="WDSB_VW_ApplicationsDB">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_VW_ApplicationsDB">
               <MappingFragment StoreEntitySet="WDSB_VW_ApplicationsDB">
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
                 <ScalarProperty Name="DevBack3" ColumnName="DevBack3" />
                 <ScalarProperty Name="DevFront3" ColumnName="DevFront3" />
                 <ScalarProperty Name="DevBack2" ColumnName="DevBack2" />

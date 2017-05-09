@@ -325,5 +325,6 @@
     <Property Name="DevBack2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="DevFront3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="DevBack3" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AppName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

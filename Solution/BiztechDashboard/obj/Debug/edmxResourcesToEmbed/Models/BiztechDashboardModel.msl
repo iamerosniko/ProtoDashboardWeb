@@ -133,6 +133,7 @@
     <EntitySetMapping Name="WDSB_VW_ApplicationsDB">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_VW_ApplicationsDB">
         <MappingFragment StoreEntitySet="WDSB_VW_ApplicationsDB">
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
           <ScalarProperty Name="DevBack3" ColumnName="DevBack3" />
           <ScalarProperty Name="DevFront3" ColumnName="DevFront3" />
           <ScalarProperty Name="DevBack2" ColumnName="DevBack2" />

@@ -23,5 +23,6 @@ namespace BiztechDashboard.Models
         public string DevBack2 { get; set; }
         public string DevFront3 { get; set; }
         public string DevBack3 { get; set; }
+        public string AppName { get; set; }
     }
 }
