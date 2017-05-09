@@ -9,17 +9,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let myList of listApps">>
-                    <td>Operations Scorecard</td>
-                    <td>Amy Misvavitch</td>
+                <tr *ngFor="let app of apps">
+                    <td>{{app.AppName}}</td>
+                    <td>{{app.BUName}}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default btn-sm" disabled>Run</button>
+                            <button class="btn btn-default btn-sm" type="button"
+                            (click)="run(app)" [disabled]="app.canProd==0">Run</button>
                             <button type="button" class="btn btn-default btn-sm" onclick="viewDetails()">View Details</button>
                         </div>
                     </td>
                 </tr>
-                
             </tbody>
         </table>
     </div>

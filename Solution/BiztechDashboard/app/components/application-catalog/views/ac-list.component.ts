@@ -8,5 +8,17 @@ import { FnMainApp } from '../../maintenance/functions/fn-main-app';
   templateUrl:`ac-list.component.html`
 })
 export class ACListComponent  { 
-  
+  apps:AppForClient[]=[];
+  constructor(
+      private fn: FnMainApp,
+  ){ }
+  ngOnInit(){
+    this.fn.getAppsClient()
+      .then(apps=>{
+          this.apps=apps;
+      });
+  }
+  run(app:AppForClient){
+    window.open(app.OpsFront);
+  }
 }
