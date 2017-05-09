@@ -12,6 +12,8 @@ namespace BiztechDashboard.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BiztechDashboardContext : DbContext
     {
@@ -36,5 +38,14 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_Applications> WDSB_Applications { get; set; }
         public virtual DbSet<WDSB_Projects> WDSB_Projects { get; set; }
         public virtual DbSet<WDSB_VW_ApplicationsDB> WDSB_VW_ApplicationsDB { get; set; }
+    
+        public virtual ObjectResult<WDSB_AppClient_VW_Result> WDSB_AppClient_VW(string myusername)
+        {
+            var myusernameParameter = myusername != null ?
+                new ObjectParameter("myusername", myusername) :
+                new ObjectParameter("myusername", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppClient_VW_Result>("WDSB_AppClient_VW", myusernameParameter);
+        }
     }
 }

@@ -146,5 +146,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="WDSB_AppClient_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppClient_VW">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="BUName" ColumnName="BUName" />
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+          <ScalarProperty Name="DevFront" ColumnName="DevFront" />
+          <ScalarProperty Name="ModFront" ColumnName="ModFront" />
+          <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="canMod" ColumnName="canMod" />
+          <ScalarProperty Name="canProd" ColumnName="canProd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

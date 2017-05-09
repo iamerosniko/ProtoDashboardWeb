@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { Application } from '../../../entities/application';
 import { AppForClient } from '../../../entities/appforclient';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';
-import { FnAppClient } from '../functions/fn-app-client';
 @Component({
   moduleId: module.id,
   selector: 'ac-grid',
@@ -13,7 +12,6 @@ export class ACGridComponent  {
   listApps:AppForClient[][]=[];
   constructor(
       private fn: FnMainApp,
-      private fnAppClient: FnAppClient
   ){ }
   ngOnInit(){
     this.fn.getAppsClient()
@@ -36,13 +34,5 @@ export class ACGridComponent  {
         tempList=[];
       }
     }
-  }
-  //isProdAuth
-  getProjectAuth(projectID:string):boolean{
-    return this.fnAppClient.getAuth(projectID);
-  }
-
-  getBUName(buID:number):string{
-    return this.fnAppClient.getBUName(buID);
   }
 }

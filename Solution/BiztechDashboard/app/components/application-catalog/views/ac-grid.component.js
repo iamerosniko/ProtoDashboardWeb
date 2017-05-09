@@ -10,11 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var fn_main_app_1 = require("../../maintenance/functions/fn-main-app");
-var fn_app_client_1 = require("../functions/fn-app-client");
 var ACGridComponent = (function () {
-    function ACGridComponent(fn, fnAppClient) {
+    function ACGridComponent(fn) {
         this.fn = fn;
-        this.fnAppClient = fnAppClient;
         this.apps = [];
         this.listApps = [];
     }
@@ -42,13 +40,6 @@ var ACGridComponent = (function () {
             }
         }
     };
-    //isProdAuth
-    ACGridComponent.prototype.getProjectAuth = function (projectID) {
-        return this.fnAppClient.getAuth(projectID);
-    };
-    ACGridComponent.prototype.getBUName = function (buID) {
-        return this.fnAppClient.getBUName(buID);
-    };
     return ACGridComponent;
 }());
 ACGridComponent = __decorate([
@@ -57,7 +48,6 @@ ACGridComponent = __decorate([
         selector: 'ac-grid',
         templateUrl: "ac-grid.component.html"
     }),
-    __metadata("design:paramtypes", [fn_main_app_1.FnMainApp,
-        fn_app_client_1.FnAppClient])
+    __metadata("design:paramtypes", [fn_main_app_1.FnMainApp])
 ], ACGridComponent);
 exports.ACGridComponent = ACGridComponent;

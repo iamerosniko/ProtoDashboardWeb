@@ -9,6 +9,8 @@ export class AppForClient {
         public OpsFront : string,
         public IsUatAvail : boolean,
         public AppIsActive : boolean,
-        public ProjectOpsID : string
+        public ProjectOpsID : string,
+        public canMod : number,
+        public canProd :number
     ){}
 }

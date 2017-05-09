@@ -22,7 +22,6 @@ var ac_grid_component_1 = require("./views/ac-grid.component");
 var ac_list_component_1 = require("./views/ac-list.component");
 var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
 /*******************Custom Function Provider**********************************/
-var fn_app_client_1 = require("./functions/fn-app-client");
 /*******************Services**********************************/
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
 var temp_project_service_1 = require("../../services/temp-project.service");
@@ -57,7 +56,6 @@ AppCatalogModule = __decorate([
             btss_wdsb_service_1.BTSSWDSBService,
             temp_project_service_1.TempProjectService,
             application_service_1.ApplicationService,
-            fn_app_client_1.FnAppClient
         ]
     })
 ], AppCatalogModule);
