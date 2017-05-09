@@ -7,11 +7,7 @@ import { AppForClient } from '../../../entities/appforclient';
 })
 export class ACThumbnailComponent  { 
   @Input() app: AppForClient;
-  constructor(
-  ){
-
-  }
-
+  
   run(){
     window.open(this.app.OpsFront);
   }

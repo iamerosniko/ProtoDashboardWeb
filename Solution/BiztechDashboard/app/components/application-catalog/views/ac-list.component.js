@@ -9,30 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var fn_main_app_1 = require("../../maintenance/functions/fn-main-app");
 var ACListComponent = (function () {
-    function ACListComponent(fn) {
-        this.fn = fn;
+    function ACListComponent() {
         this.apps = [];
     }
-    ACListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.fn.getAppsClient()
-            .then(function (apps) {
-            _this.apps = apps;
-        });
-    };
     ACListComponent.prototype.run = function (app) {
         window.open(app.OpsFront);
     };
     return ACListComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Array)
+], ACListComponent.prototype, "apps", void 0);
 ACListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'ac-list',
         templateUrl: "ac-list.component.html"
-    }),
-    __metadata("design:paramtypes", [fn_main_app_1.FnMainApp])
+    })
 ], ACListComponent);
 exports.ACListComponent = ACListComponent;

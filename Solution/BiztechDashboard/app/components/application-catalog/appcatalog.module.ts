@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
 
+/********Pgination************************************** */
+import { NgxPaginationModule } from 'ngx-pagination';
 /*******************NG-2Components/Extenders**********************************/
 // import { ProgressbarModule } from 'ng2-bootstrap';
 // import { TabsModule } from 'ng2-bootstrap';
@@ -33,6 +35,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
         CommonModule,
         FormsModule,
         HttpModule,
+        NgxPaginationModule,
         // TabsModule.forRoot(),
         // ProgressbarModule.forRoot(),
         // TooltipModule.forRoot(),

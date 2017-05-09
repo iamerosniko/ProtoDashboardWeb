@@ -20,7 +20,7 @@ namespace BiztechDashboard.Controllers
         // GET api/Projects
         public IQueryable<WDSB_Projects> GetWDSB_Projects()
         {
-            return db.WDSB_Projects;
+            return db.WDSB_Projects.OrderBy(x=>x.ProjectName);
         }
 
         //gets projects with integration with btss only
@@ -41,7 +41,7 @@ namespace BiztechDashboard.Controllers
                                ProjectUserID=i.ProjectUserID
                            };
 
-            return projects;
+            return projects.OrderBy(x=>x.ProjectName);
 
         }
 

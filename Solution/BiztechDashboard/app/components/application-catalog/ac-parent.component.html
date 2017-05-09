@@ -57,32 +57,5 @@
 </div>
 <br />
 <!--data-->
-<ac-grid *ngIf="viewtype==0"></ac-grid>
-<ac-list *ngIf="viewtype==1"></ac-list>
-<!--Pagination-->
-<div class="container">
-    <hr />
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<ac-grid *ngIf="viewtype==0" [listApps]="listApps"></ac-grid>
+<ac-list *ngIf="viewtype==1" [apps]="apps"></ac-list>

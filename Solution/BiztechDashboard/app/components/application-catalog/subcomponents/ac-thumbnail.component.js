@@ -27,7 +27,6 @@ ACThumbnailComponent = __decorate([
         moduleId: module.id,
         selector: 'ac-thumbnail',
         templateUrl: "ac-thumbnail.component.html"
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], ACThumbnailComponent);
 exports.ACThumbnailComponent = ACThumbnailComponent;
