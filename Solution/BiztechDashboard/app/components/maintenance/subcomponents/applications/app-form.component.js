@@ -9,7 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var forms_1 = require("@angular/forms");
 var router_1 = require("@angular/router");
 //entities
 var application_1 = require("../../../../entities/application");
@@ -19,8 +18,7 @@ var fn_main_app_1 = require("../../functions/fn-main-app");
 var fn_bu_1 = require("../../functions/fn-bu");
 var fn_contact_1 = require("../../functions/fn-contact");
 var AppFormComponent = (function () {
-    function AppFormComponent(formBuilder, route, router, fnMainApp, fnBU, fnContact) {
-        this.formBuilder = formBuilder;
+    function AppFormComponent(route, router, fnMainApp, fnBU, fnContact) {
         this.route = route;
         this.router = router;
         this.fnMainApp = fnMainApp;
@@ -39,6 +37,8 @@ var AppFormComponent = (function () {
         this.feTech = [];
         this.beTech = [];
         this.mode = 0;
+        this.date_implemented = null; //{ date: { year: 2018, month: 10, day: 9 } };
+        this.date_lastProd = null; //{ date: { year: 2018, month: 10, day: 9 } };
         this.clrApp();
         this.feTech = ["MS Access", ".NET"];
         this.beTech = ["MS Access", "MS SQL"];
@@ -48,12 +48,6 @@ var AppFormComponent = (function () {
     };
     AppFormComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.myForm = this.formBuilder.group({
-            // Empty string or null means no initial value. Can be also specific date for
-            // example: {date: {year: 2018, month: 10, day: 9}} which sets this date to initial
-            // value.
-            myDate: [null, forms_1.Validators.required]
-        });
         this.route.params.subscribe(function (params) {
             _this.fnMainApp.getApp(params.id)
                 .then(function (app) {
@@ -113,8 +107,14 @@ var AppFormComponent = (function () {
             _this.applicationView();
         });
     };
-    AppFormComponent.prototype.onDateChanged = function (event) {
-        console.log(event);
+    AppFormComponent.prototype.onDateChanged = function (event, ctr) {
+        //console.log(event);
+        if (ctr == 1) {
+            this.selectedApp.LastProdDate = new Date(event.epoc);
+        }
+        else if (ctr == 0) {
+            this.selectedApp.DateImplemented = new Date(event.epoc);
+        }
         // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     };
     return AppFormComponent;
@@ -125,8 +125,7 @@ AppFormComponent = __decorate([
         selector: 'app-form',
         templateUrl: 'app-form.component.html',
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder,
-        router_1.ActivatedRoute,
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router,
         fn_main_app_1.FnMainApp,
         fn_bu_1.FnBU,

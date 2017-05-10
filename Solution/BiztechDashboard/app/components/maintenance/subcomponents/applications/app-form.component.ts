@@ -24,7 +24,6 @@ export class AppFormComponent implements OnInit  {
         // other options...
         dateFormat: 'mm/dd/yyyy',
     };
-    myForm: FormGroup;
     formMode:string= 'New';
     dropDownBU:BU[]=[];
     dropDownContact1:Contact[]=[];
@@ -35,8 +34,9 @@ export class AppFormComponent implements OnInit  {
     feTech:any=[];
     beTech:any=[];
     mode:number=0;
+    private date_implemented: Object = null;//{ date: { year: 2018, month: 10, day: 9 } };
+    private date_lastProd: Object = null//{ date: { year: 2018, month: 10, day: 9 } };
     constructor(
-        private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router :Router,
         private fnMainApp : FnMainApp,
@@ -56,14 +56,6 @@ export class AppFormComponent implements OnInit  {
     }
 
     ngOnInit(){
-        this.myForm = this.formBuilder.group({
-            // Empty string or null means no initial value. Can be also specific date for
-            // example: {date: {year: 2018, month: 10, day: 9}} which sets this date to initial
-            // value.
-
-            myDate: [null, Validators.required]
-            // other controls are here...
-        });
         this.route.params.subscribe((params: {id: number}) => {
            this.fnMainApp.getApp(params.id)
             .then(app => {
@@ -131,8 +123,14 @@ export class AppFormComponent implements OnInit  {
         });
     }
 
-    onDateChanged(event: IMyDateModel) {
-        console.log(event);
+    onDateChanged(event: IMyDateModel,ctr:number) {
+        //console.log(event);
+        if(ctr==1){
+            this.selectedApp.LastProdDate=new Date(event.epoc);
+        }
+        else if(ctr==0){
+            this.selectedApp.DateImplemented=new Date(event.epoc);
+        }
         // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     }
 }
