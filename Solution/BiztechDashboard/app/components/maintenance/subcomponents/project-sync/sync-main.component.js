@@ -10,12 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var fn_main_1 = require("../../functions/fn-main");
+var project_service_1 = require("../../../../services/project.service");
 var SyncMainComponent = (function () {
-    function SyncMainComponent(fnMain) {
+    function SyncMainComponent(fnMain, projectService) {
         this.fnMain = fnMain;
+        this.projectService = projectService;
         this.appLength = 0;
         this.appDetailCompleted = 0;
         this.newApps = [];
+        this.syncApps = [];
         //     setInterval(() => {
         //         this.checkComplete();
         //  }, 1000);
@@ -40,6 +43,13 @@ var SyncMainComponent = (function () {
             return this.appLength == this.appDetailCompleted;
         }
     };
+    SyncMainComponent.prototype.getSyncProjects = function () {
+        var _this = this;
+        this.projectService.getProjects()
+            .then(function (projects) {
+            _this.syncApps = projects;
+        });
+    };
     SyncMainComponent.prototype.ngOnInit = function () {
         this.initAppSync();
     };
@@ -47,6 +57,7 @@ var SyncMainComponent = (function () {
         this.removeAppFromTemp(); // 1 and 2 
         this.getAppToTemp(); // 3 and 4    
         this.getNewAppFromTemp();
+        this.getSyncProjects();
     };
     //1
     SyncMainComponent.prototype.removeAppFromTemp = function () {
@@ -86,14 +97,13 @@ var SyncMainComponent = (function () {
         this.fnMain.postApplications(apps).then(function () {
             _this.initAppSync();
         });
-        // var result = confirm("Confirm Add?");
-        // if (result == true) {
-        //     this.fnMain.postApplications(apps);  
-        //     alert("Successfully saved!");
-        // }
-        // else {
-        // //Do nothing
-        // } 
+    };
+    SyncMainComponent.prototype.updateApplications = function (apps) {
+        var _this = this;
+        //this method is to save new applications to wdsb.applications
+        this.projectService.putProjects(apps).then(function () {
+            _this.initAppSync();
+        });
     };
     return SyncMainComponent;
 }());
@@ -107,6 +117,7 @@ SyncMainComponent = __decorate([
         //     </a>`,
         templateUrl: 'sync-main.component.html',
     }),
-    __metadata("design:paramtypes", [fn_main_1.FnMain])
+    __metadata("design:paramtypes", [fn_main_1.FnMain,
+        project_service_1.ProjectService])
 ], SyncMainComponent);
 exports.SyncMainComponent = SyncMainComponent;

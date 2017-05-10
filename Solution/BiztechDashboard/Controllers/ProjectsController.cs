@@ -92,9 +92,38 @@ namespace BiztechDashboard.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Route("api/Projects/PutWDSB_Projects2")]
+        public IHttpActionResult PutWDSB_Projects2(List<WDSB_Projects> wdsb_projects)
+        {
+            int good = 0;
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            foreach (var temp in wdsb_projects)
+            {
+                if (temp.FrontEndPath.Trim().Length > 0 && temp.BackEndPath.Trim().Length > 0)
+                {
+                    db.Entry(temp).State = EntityState.Modified;
+
+                    try
+                    {
+                        db.SaveChanges();
+                        good += 1;
+                    }
+                    catch (DbUpdateException)
+                    {
+
+                    }
+                }
+            }
+            return Ok("Good: " + good + "Error: " + (wdsb_projects.Count() - good).ToString());
+        }
+
         // POST api/Projects
         [ResponseType(typeof(string))]
-        public IHttpActionResult PostWDSB_Projects(List<WDSB_Projects> wdsb_projects )
+        public IHttpActionResult PostWDSB_Projects(List<WDSB_Projects> wdsb_projects)
         {
             int good = 0;
 

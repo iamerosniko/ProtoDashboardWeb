@@ -43,6 +43,15 @@ export class ProjectService {
             .catch(()=>{console.log(newProject.ProjectID);});
     }
 
+    putProjects(projects: Project[]): Promise<Project[]> {
+        const url = `${this.apiUrl}/PutWDSB_Projects2`;
+        return this.http
+            .put(url, JSON.stringify(projects), {headers: this.headers})
+            .toPromise()
+            .then(() => projects)
+            .catch(this.handleError);
+    }
+
     putProject(project: Project): Promise<Project> {
         const url = `${this.apiUrl}/${project.ProjectID}`;
         return this.http

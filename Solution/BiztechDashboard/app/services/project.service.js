@@ -47,6 +47,14 @@ var ProjectService = (function () {
             .then(function () { console.log(true); })
             .catch(function () { console.log(newProject.ProjectID); });
     };
+    ProjectService.prototype.putProjects = function (projects) {
+        var url = this.apiUrl + "/PutWDSB_Projects2";
+        return this.http
+            .put(url, JSON.stringify(projects), { headers: this.headers })
+            .toPromise()
+            .then(function () { return projects; })
+            .catch(this.handleError);
+    };
     ProjectService.prototype.putProject = function (project) {
         var url = this.apiUrl + "/" + project.ProjectID;
         return this.http

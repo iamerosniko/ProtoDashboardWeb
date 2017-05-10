@@ -12,10 +12,10 @@ var http_1 = require("@angular/http");
 /********Pgination************************************** */
 var ngx_pagination_1 = require("ngx-pagination");
 /*datetime*/
-var mydatepicker_1 = require("mydatepicker");
 /* ngx-bootstrap */
 var ng2_datetime_picker_1 = require("ng2-datetime-picker");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
+var ngx_bootstrap_2 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
@@ -62,8 +62,8 @@ MaintenanceModule = __decorate([
             http_1.HttpModule,
             forms_1.ReactiveFormsModule,
             ngx_bootstrap_1.ProgressbarModule.forRoot(),
+            ngx_bootstrap_2.TabsModule.forRoot(),
             ng2_datetime_picker_1.Ng2DatetimePickerModule,
-            mydatepicker_1.MyDatePickerModule,
             maintenance_routing_1.MaintenanceRouting,
         ],
         declarations: [

@@ -1,33 +1,68 @@
-<button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
-<div [hidden]="newApps.length==0">
-    # of projects found in BTSS that are not in WDSB : {{newApps.length}}
-    <button class="btn btn-default btn-sm" type="button" [disabled]="!checkComplete()" (click)="saveNewApplications(newApps);">Add to Projects</button>
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Project Name</th>
-                <th>Front End Path</th>
-                <th>Back End Path</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let app of newApps">
-                <td>{{app.ProjectName}}</td>
-                <td>
-                    <input type="text" [(ngModel)]="app.FrontEndPath"  
-                       required class="form-control input-sm" />
-                </td> 
-                <td>
-                    <input type="text" [(ngModel)]="app.BackEndPath"  
-                       required class="form-control input-sm" />
-                </td>
-                <!--<td>{{app.ProjectDatasource}}</td>-->
-                <!--<td>{{app.ProjectDatabaseName}}</td>-->
-            </tr>
-        </tbody>
-    </table>    
-</div>
-<div [hidden]="!newApps.length==0">
-    no new applications found
-</div>
-
+<tabset>
+    <tab heading='Projects From BTSS'>
+        <br />
+        <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
+        <div [hidden]="newApps.length==0">
+            # of projects found in BTSS that are not in WDSB : {{newApps.length}}
+            <button class="btn btn-default btn-sm" type="button" [disabled]="!checkComplete()" (click)="saveNewApplications(newApps);">Add to Projects</button>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Front End Path</th>
+                        <th>Back End Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let app of newApps">
+                        <td>{{app.ProjectName}}</td>
+                        <td>
+                            <input type="text" [(ngModel)]="app.FrontEndPath"  
+                            required class="form-control input-sm" />
+                        </td> 
+                        <td>
+                            <input type="text" [(ngModel)]="app.BackEndPath"  
+                            required class="form-control input-sm" />
+                        </td>
+                        <!--<td>{{app.ProjectDatasource}}</td>-->
+                        <!--<td>{{app.ProjectDatabaseName}}</td>-->
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
+        <div [hidden]="!newApps.length==0">
+            no new applications found
+        </div>
+    </tab>
+    <tab heading='Projects saved in Web Dashboard'>
+        <br />
+        <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Refresh</button>
+        <div [hidden]="newApps.length==0">
+            # of projects found in WDSB : {{syncApps.length}}
+            <button class="btn btn-default btn-sm" type="button" (click)="updateApplications(syncApps);">Update Projects</button>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Front End Path</th>
+                        <th>Back End Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let app of syncApps">
+                        <td>{{app.ProjectName}}</td>
+                        <td>
+                            <input type="text" [(ngModel)]="app.FrontEndPath"  
+                            required class="form-control input-sm" />
+                        </td> 
+                        <td>
+                            <input type="text" [(ngModel)]="app.BackEndPath"  
+                            required class="form-control input-sm" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>    
+        </div>
+    </tab>
+</tabset>    
+    

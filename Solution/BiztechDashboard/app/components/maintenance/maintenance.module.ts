@@ -7,10 +7,10 @@ import { Routes } from '@angular/router';
 /********Pgination************************************** */
 import { NgxPaginationModule } from 'ngx-pagination';
 /*datetime*/
-import { MyDatePickerModule } from 'mydatepicker';
 /* ngx-bootstrap */
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { ProgressbarModule } from 'ngx-bootstrap';
+import { TabsModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
@@ -51,8 +51,8 @@ import { MaintenanceRouting } from './maintenance.routing';
         HttpModule,
         ReactiveFormsModule,
         ProgressbarModule.forRoot(),
+        TabsModule.forRoot(),
         Ng2DatetimePickerModule,
-        MyDatePickerModule,
         MaintenanceRouting,
     ],
     declarations: [
