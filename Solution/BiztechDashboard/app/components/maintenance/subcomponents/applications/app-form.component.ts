@@ -1,8 +1,9 @@
 import { Component,OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators,ReactiveFormsModule  } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute,Router } from '@angular/router';
 //datetimecomponent
-// import { IMyOptions } from 'mydatepicker';
+import { IMyOptions, IMyDateModel } from 'mydatepicker';
 //entities
 import { Application } from '../../../../entities/application';
 import { MaintenanceComponent } from '../../maintenance.component';
@@ -19,11 +20,11 @@ import { FnContact } from '../../functions/fn-contact';
     templateUrl: 'app-form.component.html',
 })
 export class AppFormComponent implements OnInit  { 
-    // private myDatePickerOptions: IMyOptions = {
-    //     // other options...
-    //     dateFormat: 'mm/dd/yyyy',
-    // };
-    // private model: Object = { date: { year: 2018, month: 10, day: 9 } };
+    private myDatePickerOptions: IMyOptions = {
+        // other options...
+        dateFormat: 'mm/dd/yyyy',
+    };
+    myForm: FormGroup;
     formMode:string= 'New';
     dropDownBU:BU[]=[];
     dropDownContact1:Contact[]=[];
@@ -35,6 +36,7 @@ export class AppFormComponent implements OnInit  {
     beTech:any=[];
     mode:number=0;
     constructor(
+        private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router :Router,
         private fnMainApp : FnMainApp,
@@ -54,6 +56,14 @@ export class AppFormComponent implements OnInit  {
     }
 
     ngOnInit(){
+        this.myForm = this.formBuilder.group({
+            // Empty string or null means no initial value. Can be also specific date for
+            // example: {date: {year: 2018, month: 10, day: 9}} which sets this date to initial
+            // value.
+
+            myDate: [null, Validators.required]
+            // other controls are here...
+        });
         this.route.params.subscribe((params: {id: number}) => {
            this.fnMainApp.getApp(params.id)
             .then(app => {
@@ -65,6 +75,7 @@ export class AppFormComponent implements OnInit  {
         this.getDropdownBU();
         this.getDropdownContact1();
         this.getDropdownContact2();
+        
     }
 
     getDropdownBU(){
@@ -118,5 +129,10 @@ export class AppFormComponent implements OnInit  {
             alert("success");
             this.applicationView();
         });
+    }
+
+    onDateChanged(event: IMyDateModel) {
+        console.log(event);
+        // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
 
@@ -49,8 +49,10 @@ import { MaintenanceRouting } from './maintenance.routing';
         CommonModule,
         FormsModule,
         HttpModule,
+        ReactiveFormsModule,
         ProgressbarModule.forRoot(),
         Ng2DatetimePickerModule,
+        MyDatePickerModule,
         MaintenanceRouting,
     ],
     declarations: [
