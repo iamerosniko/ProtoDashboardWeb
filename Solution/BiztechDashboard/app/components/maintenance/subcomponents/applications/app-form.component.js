@@ -24,10 +24,6 @@ var AppFormComponent = (function () {
         this.fnMainApp = fnMainApp;
         this.fnBU = fnBU;
         this.fnContact = fnContact;
-        this.myDatePickerOptions = {
-            // other options...
-            dateFormat: 'mm/dd/yyyy',
-        };
         this.formMode = 'New';
         this.dropDownBU = [];
         this.dropDownContact1 = [];
@@ -37,14 +33,15 @@ var AppFormComponent = (function () {
         this.feTech = [];
         this.beTech = [];
         this.mode = 0;
-        this.date_implemented = null; //{ date: { year: 2018, month: 10, day: 9 } };
-        this.date_lastProd = null; //{ date: { year: 2018, month: 10, day: 9 } };
         this.clrApp();
         this.feTech = ["MS Access", ".NET"];
         this.beTech = ["MS Access", "MS SQL"];
     }
     AppFormComponent.prototype.clrApp = function () {
         this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false);
+    };
+    AppFormComponent.prototype.sample = function () {
+        console.log('asdfasdfasdfasdfasd');
     };
     AppFormComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -106,16 +103,6 @@ var AppFormComponent = (function () {
             alert("success");
             _this.applicationView();
         });
-    };
-    AppFormComponent.prototype.onDateChanged = function (event, ctr) {
-        //console.log(event);
-        if (ctr == 1) {
-            this.selectedApp.LastProdDate = new Date(event.epoc);
-        }
-        else if (ctr == 0) {
-            this.selectedApp.DateImplemented = new Date(event.epoc);
-        }
-        // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     };
     return AppFormComponent;
 }());

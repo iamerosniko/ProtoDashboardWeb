@@ -70,18 +70,22 @@
                                                                 ng2-datetime-picker
                                                                 date-only="true" 
                                                             />
+                                                            <!--<my-date-picker id="mdpk1" name="mdpk1" [options]="myDatePickerOptions1"
+                                                                [(ngModel)]="date_lastProd"
+                                                                (dateChanged)="onDateChanged($event,0)"></my-date-picker>-->
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label>Last Production Date</label>
-                                                            <my-date-picker [options]="myDatePickerOptions"
+                                                            <!--<my-date-picker id="mdpk2" name="mdpk2"  [options]="myDatePickerOptions2"
                                                                 [(ngModel)]="date_lastProd"
-                                                                (dateChanged)="onDateChanged($event,1)"></my-date-picker>
-                                                            <!--<input
+                                                                (dateChanged)="onDateChanged($event,1)"></my-date-picker>-->
+                                                            <input
                                                                 [(ngModel)]="selectedApp.LastProdDate"
                                                                 class="form-control input-sm"
                                                                 ng2-datetime-picker
+                                                                popupClosed="sample()"
                                                                 date-only="true" 
-                                                            />-->
+                                                            />
                                                             <!--<input type="text"  [value]="dt" class="form-control input-sm" />-->
                                                         </div>
                                                     </div>

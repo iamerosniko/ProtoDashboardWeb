@@ -2,8 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule  } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute,Router } from '@angular/router';
-//datetimecomponent
-import { IMyOptions, IMyDateModel } from 'mydatepicker';
+
 //entities
 import { Application } from '../../../../entities/application';
 import { MaintenanceComponent } from '../../maintenance.component';
@@ -20,10 +19,6 @@ import { FnContact } from '../../functions/fn-contact';
     templateUrl: 'app-form.component.html',
 })
 export class AppFormComponent implements OnInit  { 
-    private myDatePickerOptions: IMyOptions = {
-        // other options...
-        dateFormat: 'mm/dd/yyyy',
-    };
     formMode:string= 'New';
     dropDownBU:BU[]=[];
     dropDownContact1:Contact[]=[];
@@ -34,8 +29,6 @@ export class AppFormComponent implements OnInit  {
     feTech:any=[];
     beTech:any=[];
     mode:number=0;
-    private date_implemented: Object = null;//{ date: { year: 2018, month: 10, day: 9 } };
-    private date_lastProd: Object = null//{ date: { year: 2018, month: 10, day: 9 } };
     constructor(
         private route: ActivatedRoute,
         private router :Router,
@@ -55,6 +48,10 @@ export class AppFormComponent implements OnInit  {
         );
     }
 
+    sample(){
+        console.log('asdfasdfasdfasdfasd');
+    }
+
     ngOnInit(){
         this.route.params.subscribe((params: {id: number}) => {
            this.fnMainApp.getApp(params.id)
@@ -62,6 +59,7 @@ export class AppFormComponent implements OnInit  {
                 this.selectedApp=app;
                 this.formMode = this.selectedApp.AppID==0 
                     ? 'New' : 'Update'; 
+            
             });
         });
         this.getDropdownBU();
@@ -121,16 +119,5 @@ export class AppFormComponent implements OnInit  {
             alert("success");
             this.applicationView();
         });
-    }
-
-    onDateChanged(event: IMyDateModel,ctr:number) {
-        //console.log(event);
-        if(ctr==1){
-            this.selectedApp.LastProdDate=new Date(event.epoc);
-        }
-        else if(ctr==0){
-            this.selectedApp.DateImplemented=new Date(event.epoc);
-        }
-        // event properties are: event.date, event.jsdate, event.formatted and event.epoc
     }
 }
