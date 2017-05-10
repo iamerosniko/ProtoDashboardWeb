@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
+
+/********Pgination************************************** */
+import { NgxPaginationModule } from 'ngx-pagination';
 /*datetime*/
 /* ngx-bootstrap */
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
@@ -47,6 +50,7 @@ import { MaintenanceRouting } from './maintenance.routing';BUService
         AccordionModule.forRoot(), 
         ModalModule.forRoot(),
         Ng2DatetimePickerModule,
+        NgxPaginationModule,
         CommonModule,
         FormsModule,
         HttpModule,

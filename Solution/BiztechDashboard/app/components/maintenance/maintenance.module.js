@@ -9,6 +9,8 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+/********Pgination************************************** */
+var ngx_pagination_1 = require("ngx-pagination");
 /*datetime*/
 /* ngx-bootstrap */
 var ng2_datetime_picker_1 = require("ng2-datetime-picker");
@@ -60,6 +62,7 @@ MaintenanceModule = __decorate([
             ngx_bootstrap_2.AccordionModule.forRoot(),
             ngx_bootstrap_1.ModalModule.forRoot(),
             ng2_datetime_picker_1.Ng2DatetimePickerModule,
+            ngx_pagination_1.NgxPaginationModule,
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,

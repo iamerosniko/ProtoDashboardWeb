@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let bu of mainView.listBU">
+                    <tr *ngFor="let bu of mainView.listBU | paginate : { itemsPerPage: 7,currentPage: p }">
                         <td>{{bu.BUName}}</td>
                         <td><a href="#createBu" class="btn btn-default btn-sm" 
                             aria-controls="updateBu" role="tab" data-toggle="tab"
@@ -31,23 +31,7 @@
     <!--pagination-->
     <div class="row">
         <div class="col-md-12">
-            <ul class="pagination pull-right">
-                <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </div>
