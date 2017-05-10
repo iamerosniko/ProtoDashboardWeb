@@ -11,9 +11,9 @@ import { MaintenanceComponent } from '../../maintenance.component';
 })
 export class BUListComponent{ 
     @Input() mainView:MaintenanceComponent;
-    
+    @Input() listBU:BU;
     selectBU(bu:BU){
         this.mainView.selectedBU=bu;
-        this.mainView.toFormView('Update',true);
+        this.mainView.toFormView('Update',true,0);
     }
 }

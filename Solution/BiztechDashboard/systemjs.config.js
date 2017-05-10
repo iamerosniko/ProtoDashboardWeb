@@ -24,6 +24,8 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
       //moment
       'moment': 'npm:moment/min/moment.min.js',
+      //kekeh datepicker
+      'mydatepicker': 'npm:mydatepicker/bundles/mydatepicker.umd.min.js',
       //ngx-pagination
       'ngx-pagination': 'npm:ngx-pagination/dist/ngx-pagination.umd.js',
       'ng2-datetime-picker': 'npm:ng2-datetime-picker/dist',

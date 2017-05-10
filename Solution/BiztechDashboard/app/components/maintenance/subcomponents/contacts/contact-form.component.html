@@ -3,7 +3,7 @@
         <div class="panel-heading">
             <a href="#tableBuContact" class="close" 
                 aria-controls="tableBuContact" role="tab"
-                (click)="mainView.showForm=false" data-toggle="tab">&times;</a>
+                (click)="mainView.toFormView('New',false,1)"  data-toggle="tab">&times;</a>
             <h4>{{mainView.formMode}} BU Contact</h4>
         </div>
         <div class="panel-body">
@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <div class="btn-group pull-right">
                         <a class="btn btn-primary btn-md" (click)="mainView.submitContact()">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
-                        <a href="#tableBuContact" (click)="mainView.toFormView('New',false)"  class="btn btn-default btn-md" aria-controls="tableBuContact" role="tab" data-toggle="tab">Go Back</a>
+                        <a href="#tableBuContact" (click)="mainView.toFormView('New',false,1)"  class="btn btn-default btn-md" aria-controls="tableBuContact" role="tab" data-toggle="tab">Go Back</a>
                     </div>
                 </div>
             </div>

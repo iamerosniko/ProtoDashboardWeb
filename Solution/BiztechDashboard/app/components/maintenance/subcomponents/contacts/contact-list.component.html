@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let contact of mainView.listContact | paginate : { itemsPerPage: 7,currentPage: p }">
+                    <tr *ngFor="let contact of mainView.listContact | paginate : { itemsPerPage: 10 ,currentPage: p } ">
                         <td>{{contact.FirstName + ' ' +contact.LastName}}</td>
                         <td>
                             <a href="#createBuContact" class="btn btn-default btn-sm"

@@ -21,9 +21,6 @@ var MaintenanceComponent = (function () {
         this.fnBU = fnBU;
         this.fnContact = fnContact;
         this.router = router;
-        //applications
-        //features
-        //projects
         //bu
         this.listBU = [];
         this.selectedBU = new bu_1.BU(0, '');
@@ -33,13 +30,16 @@ var MaintenanceComponent = (function () {
         //main
         this.showForm = false;
         this.formMode = 'New';
+        this.selectedForm = 0;
         this.refreshLists();
     }
-    MaintenanceComponent.prototype.toFormView = function (mode, form) {
+    MaintenanceComponent.prototype.toFormView = function (mode, form, selectList) {
         this.formMode = mode;
         this.showForm = form;
         this.checkForm(mode);
         this.refreshLists();
+        this.router.navigate(['/Maintenance']);
+        this.selectedForm = selectList;
     };
     MaintenanceComponent.prototype.applicationView = function (path) {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
@@ -64,7 +64,7 @@ var MaintenanceComponent = (function () {
         this.fnBU.submitBU(this.selectedBU.BUID == 0, this.selectedBU)
             .then(function () {
             _this.refreshLists();
-            _this.toFormView('New', false);
+            _this.toFormView('New', false, 0);
             console.log('success');
         })
             .catch(function () {
@@ -77,7 +77,7 @@ var MaintenanceComponent = (function () {
         this.fnContact.submitContact(this.selectedContact.ContactID == 0, this.selectedContact)
             .then(function () {
             _this.refreshLists();
-            _this.toFormView('New', false);
+            _this.toFormView('New', false, 1);
             console.log('success');
         })
             .catch(function () {

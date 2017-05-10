@@ -11,12 +11,9 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 /********Pgination************************************** */
 var ngx_pagination_1 = require("ngx-pagination");
-/*datetime*/
 /* ngx-bootstrap */
 var ng2_datetime_picker_1 = require("ng2-datetime-picker");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
-var ngx_bootstrap_2 = require("ngx-bootstrap");
-var ngx_bootstrap_3 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
@@ -49,7 +46,6 @@ var bu_service_1 = require("../../services/bu.service");
 var contact_service_1 = require("../../services/contact.service");
 //routing
 var maintenance_routing_1 = require("./maintenance.routing");
-bu_service_1.BUService;
 var MaintenanceModule = (function () {
     function MaintenanceModule() {
     }
@@ -58,19 +54,12 @@ var MaintenanceModule = (function () {
 MaintenanceModule = __decorate([
     core_1.NgModule({
         imports: [
-            ngx_bootstrap_3.ProgressbarModule.forRoot(),
-            ngx_bootstrap_2.AccordionModule.forRoot(),
-            ngx_bootstrap_1.ModalModule.forRoot(),
-            ng2_datetime_picker_1.Ng2DatetimePickerModule,
             ngx_pagination_1.NgxPaginationModule,
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            // TabsModule.forRoot(),
-            // ProgressbarModule.forRoot(),
-            // TooltipModule.forRoot(),
-            // Ng2GoogleChartsModule,
-            // Ng2DatetimePickerModule
+            ngx_bootstrap_1.ProgressbarModule.forRoot(),
+            ng2_datetime_picker_1.Ng2DatetimePickerModule,
             maintenance_routing_1.MaintenanceRouting,
         ],
         declarations: [

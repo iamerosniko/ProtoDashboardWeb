@@ -7,10 +7,9 @@ import { Routes } from '@angular/router';
 /********Pgination************************************** */
 import { NgxPaginationModule } from 'ngx-pagination';
 /*datetime*/
+import { MyDatePickerModule } from 'mydatepicker';
 /* ngx-bootstrap */
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
-import { ModalModule } from 'ngx-bootstrap';
-import { AccordionModule } from 'ngx-bootstrap';
 import { ProgressbarModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
@@ -43,22 +42,15 @@ import { AppUserService } from '../../services/app-user.service';
 import { BUService } from '../../services/bu.service';
 import { ContactService } from '../../services/contact.service';
 //routing
-import { MaintenanceRouting } from './maintenance.routing';BUService
+import { MaintenanceRouting } from './maintenance.routing';
 @NgModule({
     imports: [
-        ProgressbarModule.forRoot(),
-        AccordionModule.forRoot(), 
-        ModalModule.forRoot(),
-        Ng2DatetimePickerModule,
         NgxPaginationModule,
         CommonModule,
         FormsModule,
         HttpModule,
-        // TabsModule.forRoot(),
-        // ProgressbarModule.forRoot(),
-        // TooltipModule.forRoot(),
-        // Ng2GoogleChartsModule,
-        // Ng2DatetimePickerModule
+        ProgressbarModule.forRoot(),
+        Ng2DatetimePickerModule,
         MaintenanceRouting,
     ],
     declarations: [

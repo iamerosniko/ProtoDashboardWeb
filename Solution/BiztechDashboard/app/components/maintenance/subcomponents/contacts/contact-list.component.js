@@ -15,7 +15,7 @@ var ContactListComponent = (function () {
     }
     ContactListComponent.prototype.selectContact = function (contact) {
         this.mainView.selectedContact = contact;
-        this.mainView.toFormView('Update', true);
+        this.mainView.toFormView('Update', true, 1);
     };
     return ContactListComponent;
 }());

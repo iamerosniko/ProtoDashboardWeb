@@ -17,21 +17,23 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" class="active">
                         <a href="#bu" aria-controls="bu"
-                            (click)="toFormView('New',false)" role="tab" data-toggle="tab">Business Units</a>
+                            (click)="toFormView('New',false,0)" role="tab" data-toggle="tab">Business Units</a>
                     </li>
                     <li role="presentation">
                         <a href="#bucontacts" aria-controls="bucontacts" 
-                            (click)="toFormView('New',false)" role="tab" data-toggle="tab">Business Unit Contacts</a>
+                            (click)="toFormView('New',false,1)" role="tab" data-toggle="tab">Business Unit Contacts</a>
                     </li>
                     <li role="presentation">
-                        <a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Project Synchronization</a>
+                        <a href="#projects" aria-controls="projects"
+                            (click)="toFormView('New',false,2)" role="tab" data-toggle="tab">Project Synchronization</a>
                     </li>
                     <li role="presentation">
-                        <a href="#users" aria-controls="users" role="tab" data-toggle="tab">Project Users</a>
+                        <a href="#users" aria-controls="users" 
+                            (click)="toFormView('New',false,3)" role="tab" data-toggle="tab">Project Users</a>
                     </li>
                     <li role="presentation">
                         <a href="#applications" aria-controls="applications"
-                           (click)="toFormView('New',false); applicationView('Lists');" role="tab" data-toggle="tab">Applications</a>
+                           (click)="toFormView('New',false,2); applicationView('Lists');" role="tab" data-toggle="tab">Applications</a>
                     </li>
                 </ul>
             </div>
@@ -45,8 +47,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <bu-list [hidden]="showForm" [mainView]="this"></bu-list>
-                                <bu-form [hidden]="!showForm" [mainView]="this"></bu-form>
+                                <bu-list [hidden]="showForm" [mainView]="this" [listBU]="listBU" *ngIf="selectedForm==0"></bu-list>
+                                <bu-form [hidden]="!showForm" [mainView]="this" ></bu-form>
                             </div>
                         </div>
                     </div>
@@ -56,7 +58,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <contact-list [hidden]="showForm" [mainView]="this"></contact-list>
+                                <contact-list [hidden]="showForm" [mainView]="this" *ngIf="selectedForm==1"></contact-list>
                                 <contact-form [hidden]="!showForm" [mainView]="this"></contact-form>
                             </div>
                         </div>
@@ -67,7 +69,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <proj-sync></proj-sync>
+                                <proj-sync *ngIf="selectedForm==2"></proj-sync>
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <user-sync></user-sync>
+                                <user-sync *ngIf="selectedForm==3"></user-sync>
                             </div>
                         </div>
                     </div>

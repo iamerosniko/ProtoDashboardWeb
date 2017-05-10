@@ -9,6 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+//entities
+var bu_1 = require("../../../../entities/bu");
 var maintenance_component_1 = require("../../maintenance.component");
 //services
 var BUListComponent = (function () {
@@ -16,7 +18,7 @@ var BUListComponent = (function () {
     }
     BUListComponent.prototype.selectBU = function (bu) {
         this.mainView.selectedBU = bu;
-        this.mainView.toFormView('Update', true);
+        this.mainView.toFormView('Update', true, 0);
     };
     return BUListComponent;
 }());
@@ -24,6 +26,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", maintenance_component_1.MaintenanceComponent)
 ], BUListComponent.prototype, "mainView", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", bu_1.BU)
+], BUListComponent.prototype, "listBU", void 0);
 BUListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

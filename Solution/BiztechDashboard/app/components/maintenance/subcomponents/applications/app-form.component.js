@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+//datetimecomponent
+// import { IMyOptions } from 'mydatepicker';
 //entities
 var application_1 = require("../../../../entities/application");
 var contact_1 = require("../../../../entities/contact");
@@ -24,6 +26,11 @@ var AppFormComponent = (function () {
         this.fnMainApp = fnMainApp;
         this.fnBU = fnBU;
         this.fnContact = fnContact;
+        // private myDatePickerOptions: IMyOptions = {
+        //     // other options...
+        //     dateFormat: 'mm/dd/yyyy',
+        // };
+        // private model: Object = { date: { year: 2018, month: 10, day: 9 } };
         this.formMode = 'New';
         this.dropDownBU = [];
         this.dropDownContact1 = [];

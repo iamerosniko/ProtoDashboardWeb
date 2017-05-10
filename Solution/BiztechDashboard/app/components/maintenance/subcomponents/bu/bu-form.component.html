@@ -3,7 +3,7 @@
         <div class="panel-heading">
             <a href="#tableBu" class="close" 
                 aria-controls="tableBu" role="tab" 
-                (click)="mainView.toFormView('New',false)" 
+                (click)="mainView.toFormView('New',false,0)" 
                 data-toggle="tab">&times;</a>
             <h4>{{mainView.formMode}} Business Unit</h4>
         </div>
@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <div class="btn-group pull-right">
                         <a class="btn btn-primary btn-md" (click)="mainView.submitBU()">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></a>
-                        <a href="#tableBu" (click)="mainView.toFormView('New',false)" class="btn btn-default btn-md" aria-controls="tableBu" role="tab" data-toggle="tab">Go Back</a>
+                        <a href="#tableBu" (click)="mainView.toFormView('New',false,0)" class="btn btn-default btn-md" aria-controls="tableBu" role="tab" data-toggle="tab">Go Back</a>
                     </div>
                 </div>
             </div>

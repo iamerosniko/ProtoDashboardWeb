@@ -13,6 +13,6 @@ export class ContactListComponent {
     
     selectContact(contact:Contact){
         this.mainView.selectedContact=contact;
-        this.mainView.toFormView('Update',true);
+        this.mainView.toFormView('Update',true,1);
     }
 }

@@ -19,10 +19,7 @@ export class MaintenanceComponent {
         private router: Router,
     ){
         this.refreshLists();
-     }
-    //applications
-    //features
-    //projects
+    }
     //bu
     listBU:BU[]=[];
     selectedBU:BU=new BU(0,'');
@@ -32,12 +29,14 @@ export class MaintenanceComponent {
     //main
     showForm:boolean=false;
     formMode:string= 'New';
-    
-    toFormView(mode:string,form:boolean){
+    selectedForm:number=0;
+    toFormView(mode:string,form:boolean,selectList:number){
         this.formMode=mode;
         this.showForm=form;
         this.checkForm(mode);
         this.refreshLists();
+        this.router.navigate(['/Maintenance']);
+        this.selectedForm=selectList;
     }
 
     applicationView(path:string){
@@ -62,7 +61,7 @@ export class MaintenanceComponent {
         this.fnBU.submitBU(this.selectedBU.BUID==0,this.selectedBU)
             .then(()=>{
                 this.refreshLists();
-                this.toFormView('New',false);
+                this.toFormView('New',false,0);
                 console.log('success');
             })
             .catch(()=>{
@@ -74,7 +73,7 @@ export class MaintenanceComponent {
         this.fnContact.submitContact(this.selectedContact.ContactID==0,this.selectedContact)
             .then(()=>{
                 this.refreshLists();
-                this.toFormView('New',false);
+                this.toFormView('New',false,1);
                 console.log('success');
             })
             .catch(()=>{
