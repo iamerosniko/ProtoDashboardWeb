@@ -79,6 +79,30 @@
             </div>
         </div>
         <div class="tab-pane fade in active" id="allapps">
+            <div class="row">
+                <div class="col-md-12"><!--Added-->
+                    <div class="col-md-6">
+                        <div class="searchbox">
+                            <input type="text" class="form-control input-sm" placeholder="Search for apps..."/>
+                            <span class = "glyphicon glyphicon-search form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><span class="glyphicon glyphicon-export"></span>&nbsp;Export App List</a></li>
+                                    <li><a (click)="viewtype=1"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List View</a></li>
+                                    <li><a (click)="viewtype=0"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid View</a></li>
+                                    <li><a routerLink="/Maintenance"><span class="glyphicon glyphicon-wrench"></span>&nbsp;Maintenance</a></li>
+                                    <!--<li role="separator" class="divider"></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--Added-->
+            </div>
             <ac-grid *ngIf="viewtype==0" [listApps]="listApps"></ac-grid>
             <ac-list *ngIf="viewtype==1" [apps]="apps"></ac-list>
         </div>
