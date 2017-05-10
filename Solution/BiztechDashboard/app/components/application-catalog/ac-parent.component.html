@@ -11,17 +11,6 @@
 </div>
 <!--View Selector and Searchbar-->
 <div class="container">
-    <!--<div class="row">
-        <div class="col-md-12">
-            <div class="text-center">
-                <div class="btn-group" role="group">
-                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Favorite Apps..."><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Available for you..."><span class="glyphicon glyphicon-bookmark"></span></a>
-                    <a href="#" class="btn btn-default btn-md" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="All BizTech Apps..."><span class="glyphicon glyphicon-list-alt"></span></a>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -44,12 +33,7 @@
         </div>
         <hr />
     </div>
-    <br />
-    
 </div>
-<br />
-<!--data-->
-
 <div class="container">
     <div class="tab-content">
         <div class="tab-pane fade" id="favorites">
@@ -103,6 +87,16 @@
                     </div>
                 </div><!--Added-->
             </div>
+            <br />
+            <div class="row">
+                <div class=col-md-12>
+                    <label>Availability Indicators</label>
+                    <div class="btn btn-circle btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div> Available&nbsp;|&nbsp;
+                    <div class="btn btn-circle btn-warning btn-xs"><span class="glyphicon glyphicon-alert"></span></div> Scheduled Maintenance&nbsp;|&nbsp;
+                    <div class="btn btn-circle btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></div> Unavailable (System Downtime/Ongoing Maintenance)
+                </div>
+            </div>
+            <br />
             <ac-grid *ngIf="viewtype==0" [listApps]="listApps"></ac-grid>
             <ac-list *ngIf="viewtype==1" [apps]="apps"></ac-list>
         </div>
