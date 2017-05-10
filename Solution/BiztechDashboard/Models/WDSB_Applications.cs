@@ -47,9 +47,6 @@ namespace BiztechDashboard.Models
         public virtual WDSB_BUContacts WDSB_BUContacts { get; set; }
         public virtual WDSB_BUContacts WDSB_BUContacts1 { get; set; }
         public virtual WDSB_BusinessUnits WDSB_BusinessUnits { get; set; }
-        public virtual WDSB_Projects WDSB_Projects { get; set; }
-        public virtual WDSB_Projects WDSB_Projects1 { get; set; }
-        public virtual WDSB_Projects WDSB_Projects2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Comments> WDSB_Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

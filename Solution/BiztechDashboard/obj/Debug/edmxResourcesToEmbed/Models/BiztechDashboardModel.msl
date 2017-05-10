@@ -88,33 +88,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_Applications">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
-        <MappingFragment StoreEntitySet="WDSB_Applications">
-          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
-          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
-          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-          <ScalarProperty Name="AppName" ColumnName="AppName" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WDSB_Projects">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Projects">
         <MappingFragment StoreEntitySet="WDSB_Projects">
@@ -164,5 +137,32 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="WDSB_Applications">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
+        <MappingFragment StoreEntitySet="WDSB_Applications">
+          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
+          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
+          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
+          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
+          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
+          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
+          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
+          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
+          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
+          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -18,7 +18,11 @@
                 <tbody>
                     <tr *ngFor="let app of applications | paginate : { itemsPerPage: 10 ,currentPage: p }">
                         <td>{{app.AppName}}</td>
-                        <td><a (click)="applicationView(app.AppID)" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td>
+                            <a (click)="applicationView(app.AppID)" class="btn btn-default btn-sm" >
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

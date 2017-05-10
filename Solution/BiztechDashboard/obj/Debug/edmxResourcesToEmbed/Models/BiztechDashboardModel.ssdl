@@ -174,42 +174,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WDSB_Applications_WDSB_Projects">
-    <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="0..1" />
-    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WDSB_Projects">
-        <PropertyRef Name="ProjectID" />
-      </Principal>
-      <Dependent Role="WDSB_Applications">
-        <PropertyRef Name="ProjectDevID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WDSB_Applications_WDSB_Projects1">
-    <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="0..1" />
-    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WDSB_Projects">
-        <PropertyRef Name="ProjectID" />
-      </Principal>
-      <Dependent Role="WDSB_Applications">
-        <PropertyRef Name="ProjectModID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_WDSB_Applications_WDSB_Projects2">
-    <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="0..1" />
-    <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WDSB_Projects">
-        <PropertyRef Name="ProjectID" />
-      </Principal>
-      <Dependent Role="WDSB_Applications">
-        <PropertyRef Name="ProjectOpsID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_WDSB_AppUsers_WDSB_Projects">
     <End Role="WDSB_Projects" Type="Self.WDSB_Projects" Multiplicity="1" />
     <End Role="WDSB_AppUsers" Type="Self.WDSB_AppUsers" Multiplicity="*" />
@@ -308,18 +272,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
     </AssociationSet>
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BusinessUnits" Association="Self.FK_WDSB_Applications_WDSB_BusinessUnits">
       <End Role="WDSB_BusinessUnits" EntitySet="WDSB_BusinessUnits" />
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WDSB_Applications_WDSB_Projects" Association="Self.FK_WDSB_Applications_WDSB_Projects">
-      <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WDSB_Applications_WDSB_Projects1" Association="Self.FK_WDSB_Applications_WDSB_Projects1">
-      <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-    </AssociationSet>
-    <AssociationSet Name="FK_WDSB_Applications_WDSB_Projects2" Association="Self.FK_WDSB_Applications_WDSB_Projects2">
-      <End Role="WDSB_Projects" EntitySet="WDSB_Projects" />
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
     </AssociationSet>
     <AssociationSet Name="FK_WDSB_AppUsers_WDSB_Projects" Association="Self.FK_WDSB_AppUsers_WDSB_Projects">

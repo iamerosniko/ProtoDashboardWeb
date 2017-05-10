@@ -13,19 +13,16 @@
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_TempProjects" Width="1.5" PointX="7" PointY="0.875" />
         <EntityTypeShape EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" Width="1.5" PointX="8.625" PointY="0.875" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_AppUsers" Width="1.5" PointX="8.75" PointY="4.5" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Applications" Width="1.5" PointX="3" PointY="0.875" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Projects" Width="1.5" PointX="7" PointY="4.5" />
+        <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_VW_ApplicationsDB" Width="1.5" PointX="10.25" PointY="0.875" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Applications" Width="1.5" PointX="3" PointY="0.75" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts1" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BusinessUnits" />
-        <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects" />
-        <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects1" />
-        <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_Projects2" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" />
-        <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_AppUsers_WDSB_Projects" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_VW_ApplicationsDB" Width="1.5" PointX="10.25" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

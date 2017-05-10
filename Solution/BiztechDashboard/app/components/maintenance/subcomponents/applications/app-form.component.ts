@@ -29,6 +29,7 @@ export class AppFormComponent implements OnInit  {
     feTech:any=[];
     beTech:any=[];
     mode:number=0;
+    saving:boolean=false;
     constructor(
         private route: ActivatedRoute,
         private router :Router,
@@ -46,10 +47,6 @@ export class AppFormComponent implements OnInit  {
             0,'',0,'','',0,0,0,false,false,'',
             null,null,'','','',false,'','','',false
         );
-    }
-
-    sample(){
-        console.log('asdfasdfasdfasdfasd');
     }
 
     ngOnInit(){
@@ -110,7 +107,7 @@ export class AppFormComponent implements OnInit  {
             || this.selectedApp.ProjectOpsID.trim().length == 0 
         );
         //console.log(myState);
-        return myState;
+        return myState || this.saving;
     }
 
     submitApp():void{
