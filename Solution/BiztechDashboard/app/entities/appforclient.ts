@@ -11,6 +11,7 @@ export class AppForClient {
         public AppIsActive : boolean,
         public ProjectOpsID : string,
         public canMod : number,
-        public canProd :number
+        public canProd :number,
+        public myFav: boolean
     ){}
 }

@@ -66,9 +66,6 @@
       <End Role="WDSB_AppUsers" EntitySet="WDSB_AppUsers" />
     </AssociationSet>
     <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="BiztechDashboardModel.WDSB_VW_ApplicationsDB" />
-    <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
-      <Parameter Name="myusername" Mode="In" Type="String" />
-    </FunctionImport>
     <EntitySet Name="WDSB_Applications" EntityType="BiztechDashboardModel.WDSB_Applications" />
     <AssociationSet Name="FK_WDSB_Applications_WDSB_BUContacts" Association="BiztechDashboardModel.FK_WDSB_Applications_WDSB_BUContacts">
       <End Role="WDSB_BUContacts" EntitySet="WDSB_BUContacts" />
@@ -94,6 +91,9 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Features" EntitySet="WDSB_Features" />
     </AssociationSet>
+    <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
+      <Parameter Name="myusername" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -172,20 +172,6 @@
     <Property Name="AppIsActive" Type="Boolean" />
     <Property Name="ProjectOpsID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <ComplexType Name="WDSB_AppClient_VW_Result">
-    <Property Type="Int32" Name="AppID" Nullable="false" />
-    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
-    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
-    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
-    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
-    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
-    <Property Type="Int32" Name="canMod" Nullable="false" />
-    <Property Type="Int32" Name="canProd" Nullable="false" />
-  </ComplexType>
   <EntityType Name="WDSB_Applications">
     <Key>
       <PropertyRef Name="AppID" />
@@ -290,4 +276,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="WDSB_AppClient_VW_Result">
+    <Property Type="Int32" Name="AppID" Nullable="false" />
+    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
+    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="Int32" Name="canProd" Nullable="false" />
+    <Property Type="Int32" Name="canMod" Nullable="false" />
+    <Property Type="Boolean" Name="myFav" Nullable="true" />
+  </ComplexType>
 </Schema>

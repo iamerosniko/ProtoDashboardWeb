@@ -1,7 +1,7 @@
 "use strict";
 var AppForClient = (function () {
     function AppForClient(AppID, //primary key
-        AppName, AppisWeb, BUName, DevFront, ModFront, OpsFront, IsUatAvail, AppIsActive, ProjectOpsID, canMod, canProd) {
+        AppName, AppisWeb, BUName, DevFront, ModFront, OpsFront, IsUatAvail, AppIsActive, ProjectOpsID, canMod, canProd, myFav) {
         this.AppID = AppID;
         this.AppName = AppName;
         this.AppisWeb = AppisWeb;
@@ -14,6 +14,7 @@ var AppForClient = (function () {
         this.ProjectOpsID = ProjectOpsID;
         this.canMod = canMod;
         this.canProd = canProd;
+        this.myFav = myFav;
     }
     return AppForClient;
 }());
