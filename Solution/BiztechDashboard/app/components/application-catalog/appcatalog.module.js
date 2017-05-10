@@ -11,6 +11,8 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 /********Pgination************************************** */
 var ngx_pagination_1 = require("ngx-pagination");
+//typeahead
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 /*******************NG-2Components/Extenders**********************************/
 // import { ProgressbarModule } from 'ng2-bootstrap';
 // import { TabsModule } from 'ng2-bootstrap';
@@ -42,6 +44,7 @@ AppCatalogModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             ngx_pagination_1.NgxPaginationModule,
+            ngx_bootstrap_1.TypeaheadModule.forRoot(),
             // TabsModule.forRoot(),
             // ProgressbarModule.forRoot(),
             // TooltipModule.forRoot(),

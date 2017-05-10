@@ -6,6 +6,8 @@ import { Routes } from '@angular/router';
 
 /********Pgination************************************** */
 import { NgxPaginationModule } from 'ngx-pagination';
+//typeahead
+import { TypeaheadModule } from 'ngx-bootstrap';
 /*******************NG-2Components/Extenders**********************************/
 // import { ProgressbarModule } from 'ng2-bootstrap';
 // import { TabsModule } from 'ng2-bootstrap';
@@ -36,6 +38,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
         FormsModule,
         HttpModule,
         NgxPaginationModule,
+        TypeaheadModule.forRoot(),
         // TabsModule.forRoot(),
         // ProgressbarModule.forRoot(),
         // TooltipModule.forRoot(),

@@ -10,6 +10,7 @@ export class ACComponent {
   viewtype:number=0;
   apps:AppForClient[]=[];
   listApps:AppForClient[][]=[];
+  public selected:string;
   constructor(
       private fn: FnMainApp,
   ){ }
