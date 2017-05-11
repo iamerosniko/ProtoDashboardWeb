@@ -9,7 +9,9 @@ import { AppForClient } from '../../entities/appforclient';
 })
 export class ACDetail implements OnInit { 
   selectedID:number=0;
-  app:AppForClient;
+  app:AppForClient=new AppForClient(0,'',0,'','',0,0,0,false,
+    false,'',null,null,null,null,null,null,null,null,null,null,null,
+    null,null,null,0,0,null);
   constructor(
         private route: ActivatedRoute,
         private fnMainApp : FnMainApp,
@@ -26,5 +28,11 @@ export class ACDetail implements OnInit {
   getDetail(){
     this.fnMainApp.getAppDetail(this.selectedID)
       .then(detail => this.app = detail[0]);
+  }
+  getStatus(status:boolean):string{
+    return status? "Active" : "Inactive";
+  }
+  isPii(pii:boolean):string{
+    return pii? "Yes" : "No";
   }
 }

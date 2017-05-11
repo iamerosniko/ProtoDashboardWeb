@@ -3,11 +3,10 @@
         <div class="col-md-12">
             <ol class="breadcrumb">
                 <li><a href="Index.html">Applications Catalog</a></li> <!--Will go to previous view. If the previous was grid view, then should be grid view. Else if list view, then list view-->
-                <li class="active">Operations Scorecard</li>
+                <li class="active">{{app.AppName}}</li>
             </ol>
         </div>
     </div>
-    <h3>Operations Scorecard</h3>
 </div>
 <div class="container">
     <div class="row">
@@ -84,11 +83,11 @@
                                                     <table class="table table-hover table-striped">
                                                         <tr>
                                                             <th class="col-md-3">Application Name</th>
-                                                            <td class="col-md-9">Operations Scorecard</td>
+                                                            <td class="col-md-9">{{app.AppName}}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="col-md-3">Description</th>
-                                                            <td class="col-md-9">This app is for ......</td>
+                                                            <td class="col-md-9">{{app.AppDesc}}</td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -110,13 +109,13 @@
                                             <div class="col-md-12">
                                                 <table class="table table-hover table-striped">
                                                     <tr>
-                                                        <th class="col-md-4">BU Owner</th><td class="col-md-8">Annuity Administration</td>
+                                                        <th class="col-md-4">BU Owner</th><td class="col-md-8">{{app.BUName}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Primary Contact</th><td class="col-md-8">Amy Miscavitch</td>
+                                                        <th class="col-md-4">Primary Contact</th><td class="col-md-8">{{app.buContact1}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Secondary Contact</th><td class="col-md-8">Peter Mead</td>
+                                                        <th class="col-md-4">Secondary Contact</th><td class="col-md-8">{{app.buContact2}}</td>
                                                     </tr>                                                            
                                                 </table>
                                             </div>
@@ -137,31 +136,31 @@
                                             <div class="col-md-12">
                                                 <table class="table table-hover table-striped">
                                                     <tr>
-                                                        <th class="col-md-4">Front-end Technology</th><td class="col-md-8">ASP.Net Web Forms<td>
+                                                        <th class="col-md-4">Front-end Technology</th><td class="col-md-8">{{app.FrontTechnology}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Back-end Technology</th><td class="col-md-8">MS SQL Server 2012<td>
+                                                        <th class="col-md-4">Back-end Technology</th><td class="col-md-8">{{app.BackTechnology}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Lifespan</th><td class="col-md-8">5 years<td>
+                                                        <th class="col-md-4">Lifespan</th><td class="col-md-8">{{app.AppLifespan}} years<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Status</th><td class="col-md-8">Active<td>
+                                                        <th class="col-md-4">Status</th><td class="col-md-8">{{getStatus(app.AppIsActive)}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">PII</th><td class="col-md-8">Yes<td>
+                                                        <th class="col-md-4">PII</th><td class="col-md-8">{{isPii(app.AppPII)}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Security</th><td class="col-md-8">BTSS<td>
+                                                        <th class="col-md-4">Security</th><td class="col-md-8">{{app.AppSecurity}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Version</th><td class="col-md-8">1.0.0.0<td>
+                                                        <th class="col-md-4">Version</th><td class="col-md-8">{{app.AppVersion}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Date Implemented</th><td class="col-md-8">January 1, 2019<td>
+                                                        <th class="col-md-4">Date Implemented</th><td class="col-md-8">{{app.DateImplemented}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Last Production Date</th><td class="col-md-8">January 1, 2019<td>
+                                                        <th class="col-md-4">Last Production Date</th><td class="col-md-8">{{app.LastProdDate}}<td>
                                                     </tr>
                                                 </table>
                                             </div>
