@@ -41,4 +41,8 @@ export class FnMainApp  {
     getAvailAppsClient():Promise<AppForClient[]>{
         return this.appService.getAvailAppClient();
     }
+    getAppDetail(id:number):Promise<AppForClient>
+    {
+        return this.appService.getAppDetail(id);
+    }
 }

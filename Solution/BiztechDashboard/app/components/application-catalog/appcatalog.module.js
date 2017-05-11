@@ -15,6 +15,7 @@ var ngx_pagination_1 = require("ngx-pagination");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 /*******************Components**********************************/
 var ac_parent_component_1 = require("./ac-parent.component");
+var ac_viewdetail_component_1 = require("./ac-viewdetail.component");
 var ac_grid_component_1 = require("./views/ac-grid.component");
 var ac_nofav_component_1 = require("./views/ac-nofav.component");
 var ac_noavail_component_1 = require("./views/ac-noavail.component");
@@ -45,6 +46,7 @@ AppCatalogModule = __decorate([
         ],
         declarations: [
             ac_parent_component_1.ACComponent,
+            ac_viewdetail_component_1.ACDetail,
             ac_list_component_1.ACListComponent,
             ac_grid_component_1.ACGridComponent,
             ac_thumbnail_component_1.ACThumbnailComponent,

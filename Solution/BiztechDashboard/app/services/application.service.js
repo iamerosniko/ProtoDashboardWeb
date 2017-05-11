@@ -66,6 +66,14 @@ var ApplicationService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    ApplicationService.prototype.getAppDetail = function (id) {
+        var url = this.apiUrl + "/GetWDSB_AppDetail/?appID=" + id;
+        return this.http
+            .get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     ApplicationService.prototype.postApplication = function (newApp) {
         return this.http
             .post(this.apiUrl, JSON.stringify(newApp), { headers: this.headers })

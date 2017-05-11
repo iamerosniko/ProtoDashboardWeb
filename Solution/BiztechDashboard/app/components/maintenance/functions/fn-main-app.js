@@ -43,6 +43,9 @@ var FnMainApp = (function () {
     FnMainApp.prototype.getAvailAppsClient = function () {
         return this.appService.getAvailAppClient();
     };
+    FnMainApp.prototype.getAppDetail = function (id) {
+        return this.appService.getAppDetail(id);
+    };
     return FnMainApp;
 }());
 FnMainApp = __decorate([

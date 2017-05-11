@@ -66,6 +66,15 @@ export class ApplicationService {
                 .catch(this.handleError);
     }
     
+    getAppDetail(id:number): Promise<AppForClient> {
+        const url = `${this.apiUrl}/GetWDSB_AppDetail/?appID=${id}`;
+        return this.http
+                .get(url, {headers: this.headers})
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+
     postApplication(newApp: Application): Promise<Application> {
         return this.http
             .post(this.apiUrl, JSON.stringify(newApp), {headers: this.headers})

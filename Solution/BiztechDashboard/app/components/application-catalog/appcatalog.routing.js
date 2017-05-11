@@ -8,9 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var ac_parent_component_1 = require("./ac-parent.component");
+var ac_viewdetail_component_1 = require("./ac-viewdetail.component");
 //import { SyncMainComponent } from './sync-main.component';
 var syncRoutes = [
-    { path: 'Applications', component: ac_parent_component_1.ACComponent }
+    { path: 'Applications', component: ac_parent_component_1.ACComponent },
+    { path: 'Applications/:id', component: ac_viewdetail_component_1.ACDetail },
 ];
 var AppCatalogRouting = (function () {
     function AppCatalogRouting() {

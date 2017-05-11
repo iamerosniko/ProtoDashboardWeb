@@ -176,8 +176,14 @@ namespace BiztechDashboard.Controllers
 
             return a.OrderBy(x => x.AppName);
         }
-
-
+        //gets your available apps only
+        [Route("api/Applications/GetWDSB_AppDetail")]
+        public IEnumerable<WDSB_AppDetails_VW_Result> GetWDSB_AppDetail(int appID)
+        {
+            var a = from i in db.WDSB_AppDetails_VW(getMyuserName(), appID)
+                    select i;
+            return a;
+        }
         //gets the current user's username
         private string getMyuserName()
         {

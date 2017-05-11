@@ -10,6 +10,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TypeaheadModule } from 'ngx-bootstrap';
 /*******************Components**********************************/
 import { ACComponent } from './ac-parent.component';
+import { ACDetail } from './ac-viewdetail.component';
+
 import { ACGridComponent } from './views/ac-grid.component';
 import { ACNoFavComponent } from './views/ac-nofav.component';
 import { ACNoAvailComponent } from './views/ac-noavail.component';
@@ -38,6 +40,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
     ],
     declarations: [
         ACComponent,
+        ACDetail,
         ACListComponent,
         ACGridComponent,
         ACThumbnailComponent,
