@@ -92,6 +92,8 @@ namespace BiztechDashboard.Controllers
             }
             else
             {
+                wDSB_Favorites.UserName = getMyuserName();
+                wDSB_Favorites.IsActive = true;
                 db.WDSB_Favorites.Add(wDSB_Favorites);
                 db.SaveChanges();
             }
