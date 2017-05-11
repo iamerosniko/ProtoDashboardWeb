@@ -13,7 +13,7 @@
                     </div> 
                     <div class="col-md-6">
                         <!--stars-->
-                        <div class="pull-right">
+                        <div class="pull-right" *ngIf="app.canProd==1">
                             <fieldset class="favorite">
                                 <input [(ngModel)]="app.myFav" (change)="myFav(app)" type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
                             </fieldset>
