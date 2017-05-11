@@ -12,13 +12,10 @@ export class FnMainApp  {
     constructor(
         private appService : ApplicationService
     ){ }
+    //ADMIN INTERFACE
     //get all (admin)
     getApps():Promise<Application[]>{
         return this.appService.getApplications();
-    }
-    //get all (for client side only)
-    getAppsClient():Promise<AppForClient[]>{
-        return this.appService.getApplicationsForClient();
     }
     //getone
     getApp(id:number):Promise<Application>{
@@ -29,5 +26,19 @@ export class FnMainApp  {
         return isNew 
             ? this.appService.postApplication(app) 
             : this.appService.putApplication(app);
+    }
+
+    //CLIENT INTERFACE
+    //get all (for client side only)
+    getAppsClient():Promise<AppForClient[]>{
+        return this.appService.getAllAppClient();
+    }
+    //get fav app
+    getFavAppsClient():Promise<AppForClient[]>{
+        return this.appService.getFavAppClient();
+    }
+    //get avail app
+    getAvailAppsClient():Promise<AppForClient[]>{
+        return this.appService.getAvailAppClient();
     }
 }

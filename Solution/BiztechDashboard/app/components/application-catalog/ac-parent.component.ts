@@ -15,13 +15,38 @@ export class ACComponent {
   constructor(
       private fn: FnMainApp,
   ){ }
+
   ngOnInit(){
+    this.getAllApps();
+  }
+  //all biztech apps
+  getAllApps(){
     this.fn.getAppsClient()
       .then(apps=>{
           this.apps=apps;
           this.sliceToFour();
       });
+      this.tabselected=0;
   }
+  //my available app
+  getMyAvailApps(){
+    this.fn.getAvailAppsClient()
+      .then(apps=>{
+          this.apps=apps;
+          this.sliceToFour();
+      });
+      this.tabselected=1
+  }
+  //favorites
+  getMyFavApps(){
+    this.fn.getFavAppsClient()
+      .then(apps=>{
+          this.apps=apps;
+          this.sliceToFour();
+      });
+      this.tabselected=2;
+  }
+
   sliceToFour(){
     var ctr=0,listCtr=0;
     var tempList:AppForClient[]=[];

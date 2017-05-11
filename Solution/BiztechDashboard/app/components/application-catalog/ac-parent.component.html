@@ -18,13 +18,13 @@
                     <div class="col-md-offset-3 col-md-6 col-md-offset-3">
                         <ul class="nav nav-pills nav-justified">
                             <li role="presentation">
-                                <a href="#favorites" (click)="tabselected=2" aria-controls="favorites" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Favorites</a>
+                                <a href="#favorites" (click)="getMyFavApps()" aria-controls="favorites" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Favorites</a>
                             </li>
                             <li role="presentation">
-                                <a href="#available" (click)="tabselected=1" aria-controls="available" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark"></span> Available Apps</a>
+                                <a href="#available" (click)="getMyAvailApps()" aria-controls="available" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark"></span> Available Apps</a>
                             </li>
                             <li role="presentation" class="active">
-                                <a href="#allapps" (click)="tabselected=0" aria-controls="allapps" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> All BizTech Apps</a>
+                                <a href="#allapps" (click)="getAllApps()" aria-controls="allapps" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> All BizTech Apps</a>
                             </li>
                         </ul>
                     </div>
@@ -97,8 +97,9 @@
             </div>
         </div>
         <div class="tab-pane fade in active" id="allapps">
-            <ac-grid *ngIf="viewtype==0 && tabselected==0" [listApps]="listApps"></ac-grid>
-            <ac-list *ngIf="viewtype==1 && tabselected==0" [apps]="apps"></ac-list>
+            
         </div>
+        <ac-grid *ngIf="viewtype==0" [listApps]="listApps"></ac-grid>
+        <ac-list *ngIf="viewtype==1" [apps]="apps"></ac-list>
     </div>
 </div>

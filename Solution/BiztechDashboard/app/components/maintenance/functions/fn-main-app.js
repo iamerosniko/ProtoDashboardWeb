@@ -15,13 +15,10 @@ var FnMainApp = (function () {
     function FnMainApp(appService) {
         this.appService = appService;
     }
+    //ADMIN INTERFACE
     //get all (admin)
     FnMainApp.prototype.getApps = function () {
         return this.appService.getApplications();
-    };
-    //get all (for client side only)
-    FnMainApp.prototype.getAppsClient = function () {
-        return this.appService.getApplicationsForClient();
     };
     //getone
     FnMainApp.prototype.getApp = function (id) {
@@ -32,6 +29,19 @@ var FnMainApp = (function () {
         return isNew
             ? this.appService.postApplication(app)
             : this.appService.putApplication(app);
+    };
+    //CLIENT INTERFACE
+    //get all (for client side only)
+    FnMainApp.prototype.getAppsClient = function () {
+        return this.appService.getAllAppClient();
+    };
+    //get fav app
+    FnMainApp.prototype.getFavAppsClient = function () {
+        return this.appService.getFavAppClient();
+    };
+    //get avail app
+    FnMainApp.prototype.getAvailAppsClient = function () {
+        return this.appService.getAvailAppClient();
     };
     return FnMainApp;
 }());

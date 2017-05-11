@@ -28,15 +28,6 @@ export class ApplicationService {
                 .catch(this.handleError);
     }
 
-    getApplicationsForClient(): Promise<AppForClient[]> {
-        const url = `${this.apiUrl}/GetWDSB_ApplicationsClient`;
-        return this.http
-                .get(url, {headers: this.headers})
-                .toPromise()
-                .then(response => response.json())
-                .catch(this.handleError);
-    }
-
     getApplication(id: number): Promise<Application> {
         const url = `${this.apiUrl}/${id}`;
         return this.http
@@ -46,6 +37,35 @@ export class ApplicationService {
                 .catch(this.handleError);      
     }
 
+    //client interface
+    //get all app
+    getAllAppClient(): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_ApplicationsClient`;
+        return this.http
+                .get(url, {headers: this.headers})
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+    
+    getFavAppClient(): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_FavApp`;
+        return this.http
+                .get(url, {headers: this.headers})
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+
+    getAvailAppClient(): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_AvailApp`;
+        return this.http
+                .get(url, {headers: this.headers})
+                .toPromise()
+                .then(response => response.json())
+                .catch(this.handleError);
+    }
+    
     postApplication(newApp: Application): Promise<Application> {
         return this.http
             .post(this.apiUrl, JSON.stringify(newApp), {headers: this.headers})

@@ -32,7 +32,17 @@ var ApplicationService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ApplicationService.prototype.getApplicationsForClient = function () {
+    ApplicationService.prototype.getApplication = function (id) {
+        var url = this.apiUrl + "/" + id;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    //client interface
+    //get all app
+    ApplicationService.prototype.getAllAppClient = function () {
         var url = this.apiUrl + "/GetWDSB_ApplicationsClient";
         return this.http
             .get(url, { headers: this.headers })
@@ -40,10 +50,18 @@ var ApplicationService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ApplicationService.prototype.getApplication = function (id) {
-        var url = this.apiUrl + "/" + id;
+    ApplicationService.prototype.getFavAppClient = function () {
+        var url = this.apiUrl + "/GetWDSB_FavApp";
         return this.http
-            .get(url)
+            .get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
+    ApplicationService.prototype.getAvailAppClient = function () {
+        var url = this.apiUrl + "/GetWDSB_AvailApp";
+        return this.http
+            .get(url, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);

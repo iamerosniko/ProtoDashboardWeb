@@ -19,12 +19,37 @@ var ACComponent = (function () {
         this.listApps = [];
     }
     ACComponent.prototype.ngOnInit = function () {
+        this.getAllApps();
+    };
+    //all biztech apps
+    ACComponent.prototype.getAllApps = function () {
         var _this = this;
         this.fn.getAppsClient()
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
         });
+        this.tabselected = 0;
+    };
+    //my available app
+    ACComponent.prototype.getMyAvailApps = function () {
+        var _this = this;
+        this.fn.getAvailAppsClient()
+            .then(function (apps) {
+            _this.apps = apps;
+            _this.sliceToFour();
+        });
+        this.tabselected = 1;
+    };
+    //favorites
+    ACComponent.prototype.getMyFavApps = function () {
+        var _this = this;
+        this.fn.getFavAppsClient()
+            .then(function (apps) {
+            _this.apps = apps;
+            _this.sliceToFour();
+        });
+        this.tabselected = 2;
     };
     ACComponent.prototype.sliceToFour = function () {
         var ctr = 0, listCtr = 0;
