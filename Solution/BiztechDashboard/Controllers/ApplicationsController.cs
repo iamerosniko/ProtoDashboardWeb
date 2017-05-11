@@ -59,21 +59,23 @@ namespace BiztechDashboard.Controllers
         [Route("api/Applications/GetWDSB_ApplicationsClient")]
         public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient()
         {
-            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
-            //username only
-            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
-            int index = currentDomainUser.IndexOf("\\" + currentUsername);
-            //Domain Name only
-            string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
-            var a = from i in db.WDSB_AppClient_VW(currentUsername)
+            var a = from i in db.WDSB_AppClient_VW(getMyuserName())
                     select i;
 
             return a.OrderBy(x => x.AppName);
         }
-        //public IQueryable<WDSB_VW_ApplicationsDB> GetWDSB_ApplicationsClient()
-        //{
-        //    return db.WDSB_VW_ApplicationsDB.OrderBy(x => x.AppName);
-        //}
+
+        //gets the current user's username
+        private string getMyuserName()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //Domain Name only
+            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
+            return currentUsername;
+        }
 
         // GET: api/Applications/5
         [ResponseType(typeof(WDSB_Applications_DTO))]
