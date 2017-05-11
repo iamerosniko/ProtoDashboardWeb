@@ -166,40 +166,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="WDSB_AppDetails_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppDetails_VW">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppDetails_VW_Result">
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="AppName" ColumnName="AppName" />
-          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
-          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
-          <ScalarProperty Name="BUName" ColumnName="BUName" />
-          <ScalarProperty Name="DevFront" ColumnName="DevFront" />
-          <ScalarProperty Name="ModFront" ColumnName="ModFront" />
-          <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
-          <ScalarProperty Name="canProd" ColumnName="canProd" />
-          <ScalarProperty Name="canMod" ColumnName="canMod" />
-          <ScalarProperty Name="myFav" ColumnName="myFav" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="WDSB_AvailApp_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AvailApp_VW">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AvailApp_VW_Result">
@@ -232,6 +198,42 @@
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="canProd" ColumnName="canProd" />
+          <ScalarProperty Name="canMod" ColumnName="canMod" />
+          <ScalarProperty Name="myFav" ColumnName="myFav" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="WDSB_AppDetails_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppDetails_VW">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppDetails_VW_Result">
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppBU" ColumnName="AppBU" />
+          <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
+          <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
+          <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
+          <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
+          <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="AppPII" ColumnName="AppPII" />
+          <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
+          <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
+          <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
+          <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
+          <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
+          <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
+          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+          <ScalarProperty Name="BUName" ColumnName="BUName" />
+          <ScalarProperty Name="buContact1" ColumnName="buContact1" />
+          <ScalarProperty Name="buContact2" ColumnName="buContact2" />
+          <ScalarProperty Name="DevFront" ColumnName="DevFront" />
+          <ScalarProperty Name="ModFront" ColumnName="ModFront" />
+          <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
           <ScalarProperty Name="canProd" ColumnName="canProd" />
           <ScalarProperty Name="canMod" ColumnName="canMod" />
           <ScalarProperty Name="myFav" ColumnName="myFav" />

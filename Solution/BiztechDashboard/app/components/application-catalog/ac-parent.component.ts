@@ -6,7 +6,7 @@ import { FnMainApp } from '../maintenance/functions/fn-main-app';
   selector: 'my-app',
   templateUrl:`ac-parent.component.html`
 })
-export class ACComponent { 
+export class ACComponent implements OnInit { 
   viewtype:number=0;
   tabselected:number=0;
   apps:AppForClient[]=[];

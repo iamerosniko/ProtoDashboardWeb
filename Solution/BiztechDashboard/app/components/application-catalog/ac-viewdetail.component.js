@@ -10,17 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var ACDetail = (function () {
-    function ACDetail(route, router) {
+    function ACDetail(route, fnMainApp, router) {
         this.route = route;
+        this.fnMainApp = fnMainApp;
         this.router = router;
         this.selectedID = 0;
     }
-    ACDetail.prototype.getselectedDetailID = function () {
+    ACDetail.prototype.ngOnInit = function () {
+        this.getselectedID();
+        this.getDetail();
+    };
+    ACDetail.prototype.getselectedID = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
             _this.selectedID = params['id'];
         });
+    };
+    ACDetail.prototype.getDetail = function () {
+        var _this = this;
+        this.fnMainApp.getAppDetail(this.selectedID)
+            .then(function (detail) { return _this.app = detail[0]; });
     };
     return ACDetail;
 }());
@@ -31,6 +42,7 @@ ACDetail = __decorate([
         templateUrl: "ac-viewdetail.component.html"
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        fn_main_app_1.FnMainApp,
         router_1.Router])
 ], ACDetail);
 exports.ACDetail = ACDetail;

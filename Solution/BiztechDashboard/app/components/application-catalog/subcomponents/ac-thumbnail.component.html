@@ -31,7 +31,7 @@
                     <div class="btn-group pull-right" role="group">
                         <button class="btn btn-default btn-sm" type="button"
                             (click)="run()" [disabled]="app.canProd==0">Run</button>
-                        <button type="button" class="btn btn-default btn-sm" onclick="viewDetails()">View Details</button>
+                        <button type="button" class="btn btn-default btn-sm" (click)="gotoDetail(app)">View Details</button>
                     </div>
                 </div>
             </div>

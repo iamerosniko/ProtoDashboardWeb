@@ -35,6 +35,8 @@ namespace BiztechDashboard.Models
         public string AppIconPath { get; set; }
         public Nullable<bool> IsUatAvail { get; set; }
         public string BUName { get; set; }
+        public string buContact1 { get; set; }
+        public string buContact2 { get; set; }
         public string DevFront { get; set; }
         public string ModFront { get; set; }
         public string OpsFront { get; set; }

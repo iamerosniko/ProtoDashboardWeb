@@ -95,15 +95,15 @@
     <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
       <Parameter Name="myusername" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="WDSB_AppDetails_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppDetails_VW_Result)">
-      <Parameter Name="myusername" Mode="In" Type="String" />
-      <Parameter Name="appID" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="WDSB_AvailApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AvailApp_VW_Result)">
       <Parameter Name="myname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="WDSB_FavApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_FavApp_VW_Result)">
       <Parameter Name="myname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WDSB_AppDetails_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppDetails_VW_Result)">
+      <Parameter Name="myusername" Mode="In" Type="String" />
+      <Parameter Name="appID" Mode="In" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
@@ -302,36 +302,6 @@
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="WDSB_AppDetails_VW_Result">
-    <Property Type="Int32" Name="AppID" Nullable="false" />
-    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
-    <Property Type="Int32" Name="AppBU" Nullable="false" />
-    <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="AppLifespan" Nullable="true" />
-    <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
-    <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
-    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
-    <Property Type="Boolean" Name="AppPII" Nullable="true" />
-    <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
-    <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
-    <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
-    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
-    <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
-    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
-    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
-    <Property Type="Int32" Name="canProd" Nullable="false" />
-    <Property Type="Int32" Name="canMod" Nullable="false" />
-    <Property Type="Boolean" Name="myFav" Nullable="true" />
-  </ComplexType>
   <ComplexType Name="WDSB_AvailApp_VW_Result">
     <Property Type="Int32" Name="AppID" Nullable="false" />
     <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -358,6 +328,38 @@
     <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
     <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="Int32" Name="canProd" Nullable="false" />
+    <Property Type="Int32" Name="canMod" Nullable="false" />
+    <Property Type="Boolean" Name="myFav" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WDSB_AppDetails_VW_Result">
+    <Property Type="Int32" Name="AppID" Nullable="false" />
+    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="AppBU" Nullable="false" />
+    <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AppLifespan" Nullable="true" />
+    <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
+    <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
+    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="Boolean" Name="AppPII" Nullable="true" />
+    <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
+    <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
+    <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
+    <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="buContact1" Nullable="true" MaxLength="151" />
+    <Property Type="String" Name="buContact2" Nullable="true" MaxLength="151" />
+    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Int32" Name="canProd" Nullable="false" />
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
