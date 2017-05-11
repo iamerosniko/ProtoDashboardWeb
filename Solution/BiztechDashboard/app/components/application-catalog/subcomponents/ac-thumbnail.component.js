@@ -10,11 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var appforclient_1 = require("../../../entities/appforclient");
+var favorite_1 = require("../../../entities/favorite");
+var favorite_service_1 = require("../../../services/favorite.service");
 var ACThumbnailComponent = (function () {
-    function ACThumbnailComponent() {
+    function ACThumbnailComponent(favService) {
+        this.favService = favService;
     }
     ACThumbnailComponent.prototype.run = function () {
         window.open(this.app.OpsFront);
+    };
+    ACThumbnailComponent.prototype.myFav = function (app) {
+        var fav = new favorite_1.Favorite(0, app.AppID, '');
+        this.favService.postFavorite(fav);
+        //pass to service
     };
     return ACThumbnailComponent;
 }());
@@ -27,6 +35,7 @@ ACThumbnailComponent = __decorate([
         moduleId: module.id,
         selector: 'ac-thumbnail',
         templateUrl: "ac-thumbnail.component.html"
-    })
+    }),
+    __metadata("design:paramtypes", [favorite_service_1.FavoriteService])
 ], ACThumbnailComponent);
 exports.ACThumbnailComponent = ACThumbnailComponent;

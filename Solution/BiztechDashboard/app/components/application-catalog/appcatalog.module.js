@@ -25,6 +25,7 @@ var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component")
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
 var temp_project_service_1 = require("../../services/temp-project.service");
 var application_service_1 = require("../../services/application.service");
+var favorite_service_1 = require("../../services/favorite.service");
 /*******************Routing**********************************/
 var appcatalog_routing_1 = require("./appcatalog.routing");
 var AppCatalogModule = (function () {
@@ -54,6 +55,7 @@ AppCatalogModule = __decorate([
             btss_wdsb_service_1.BTSSWDSBService,
             temp_project_service_1.TempProjectService,
             application_service_1.ApplicationService,
+            favorite_service_1.FavoriteService
         ]
     })
 ], AppCatalogModule);

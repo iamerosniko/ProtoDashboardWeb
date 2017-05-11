@@ -23,6 +23,7 @@ import { BTSSWDSBService } from '../../services/btss-wdsb.service';
 import { TempProjectService } from '../../services/temp-project.service';
 import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
+import { FavoriteService } from '../../services/favorite.service';
 
 /*******************Routing**********************************/
 import { AppCatalogRouting } from './appcatalog.routing';
@@ -47,6 +48,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
         BTSSWDSBService,
         TempProjectService,
         ApplicationService,
+        FavoriteService
     ]
 })
 

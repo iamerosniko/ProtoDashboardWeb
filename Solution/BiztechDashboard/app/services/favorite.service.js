@@ -17,9 +17,9 @@ var FavoriteService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.apiUrl = 'api/Favorites';
     }
-    FavoriteService.prototype.postFavorite = function (bu) {
+    FavoriteService.prototype.postFavorite = function (fav) {
         return this.http
-            .post(this.apiUrl, JSON.stringify(bu), { headers: this.headers })
+            .post(this.apiUrl, JSON.stringify(fav), { headers: this.headers })
             .toPromise()
             .then(function () { return JSON.stringify(true); })
             .catch(function () { return JSON.stringify(false); });
