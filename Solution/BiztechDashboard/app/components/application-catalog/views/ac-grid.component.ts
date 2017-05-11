@@ -9,4 +9,8 @@ import { FnMainApp } from '../../maintenance/functions/fn-main-app';
 })
 export class ACGridComponent  { 
   @Input() listApps:AppForClient[][]=[];
+  @Output() refreshFav = new EventEmitter();
+  refresh(){
+    this.refreshFav.emit();
+  }
 }

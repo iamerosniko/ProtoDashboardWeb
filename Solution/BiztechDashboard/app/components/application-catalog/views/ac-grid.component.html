@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row" *ngFor="let myList of listApps | paginate : { itemsPerPage: 3,currentPage: p }">
         <ac-thumbnail *ngFor="let app of myList" 
-            [app]="app">
+            [app]="app" (refreshFav)="refresh()">
         </ac-thumbnail>
     </div>
 </div>

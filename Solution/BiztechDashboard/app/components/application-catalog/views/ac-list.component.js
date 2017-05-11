@@ -21,9 +21,9 @@ var ACListComponent = (function () {
         window.open(app.OpsFront);
     };
     ACListComponent.prototype.myFav = function (app) {
+        var _this = this;
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
-        this.favService.postFavorite(fav);
-        this.refreshFav.emit();
+        this.favService.postFavorite(fav).then(function () { _this.refreshFav.emit(); });
     };
     return ACListComponent;
 }());

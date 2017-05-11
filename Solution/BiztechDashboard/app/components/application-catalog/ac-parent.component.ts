@@ -50,6 +50,15 @@ export class ACComponent {
       this.tabselected=2;
   }
 
+  refresh(){
+    if(this.tabselected==0)
+      this.getAllApps();
+    else if(this.tabselected==1)
+      this.getMyAvailApps();
+    else 
+      this.getMyFavApps();
+  }
+
   sliceToFour(){
     this.listApps=[];
     var ctr=0,listCtr=0;

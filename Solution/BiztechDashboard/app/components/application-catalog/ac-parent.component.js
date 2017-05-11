@@ -54,6 +54,14 @@ var ACComponent = (function () {
         });
         this.tabselected = 2;
     };
+    ACComponent.prototype.refresh = function () {
+        if (this.tabselected == 0)
+            this.getAllApps();
+        else if (this.tabselected == 1)
+            this.getMyAvailApps();
+        else
+            this.getMyFavApps();
+    };
     ACComponent.prototype.sliceToFour = function () {
         this.listApps = [];
         var ctr = 0, listCtr = 0;

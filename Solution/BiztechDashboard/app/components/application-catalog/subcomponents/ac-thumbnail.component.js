@@ -15,14 +15,15 @@ var favorite_service_1 = require("../../../services/favorite.service");
 var ACThumbnailComponent = (function () {
     function ACThumbnailComponent(favService) {
         this.favService = favService;
+        this.refreshFav = new core_1.EventEmitter();
     }
     ACThumbnailComponent.prototype.run = function () {
         window.open(this.app.OpsFront);
     };
     ACThumbnailComponent.prototype.myFav = function (app) {
+        var _this = this;
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
-        this.favService.postFavorite(fav);
-        //pass to service
+        this.favService.postFavorite(fav).then(function () { _this.refreshFav.emit(); });
     };
     return ACThumbnailComponent;
 }());
@@ -30,6 +31,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", appforclient_1.AppForClient)
 ], ACThumbnailComponent.prototype, "app", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ACThumbnailComponent.prototype, "refreshFav", void 0);
 ACThumbnailComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
