@@ -16,8 +16,7 @@ namespace BiztechDashboard.Controllers
     public class ApplicationsController : ApiController
     {
         private BiztechDashboardContext db = new BiztechDashboardContext();
-
-        // GET: api/Applications
+        #region Admin Side
         public List<WDSB_Applications_DTO> GetWDSB_Applications()
         {
             //return db.WDSB_Applications;
@@ -29,52 +28,30 @@ namespace BiztechDashboard.Controllers
             {
                 apps.Add(new WDSB_Applications_DTO
                 {
-                    AppBU=app.AppBU,
-                    AppDesc=app.AppDesc,
-                    AppIconPath=app.AppIconPath,
-                    AppID=app.AppID,
-                    AppIsActive=app.AppIsActive,
-                    AppIsWeb=(bool) app.AppIsWeb,
-                    AppLifespan=(int) app.AppLifespan,
-                    AppName=app.AppName,
-                    AppPII=(bool)app.AppPII,
-                    AppSecurity=app.AppSecurity,
-                    AppVersion=app.AppVersion,
-                    BackTechnology=app.BackTechnology,
-                    DateImplemented=app.DateImplemented,
-                    FrontTechnology=app.FrontTechnology,
-                    IsUatAvail=(bool)app.IsUatAvail,
-                    LastProdDate=app.LastProdDate,
-                    PrimaryBUContact=app.PrimaryBUContact,
-                    ProjectDevID=app.ProjectDevID,
-                    ProjectModID=app.ProjectModID,
-                    ProjectOpsID=app.ProjectOpsID,
-                    SecondaryBUContact=app.SecondaryBUContact
+                    AppBU = app.AppBU,
+                    AppDesc = app.AppDesc,
+                    AppIconPath = app.AppIconPath,
+                    AppID = app.AppID,
+                    AppIsActive = app.AppIsActive,
+                    AppIsWeb = (bool)app.AppIsWeb,
+                    AppLifespan = (int)app.AppLifespan,
+                    AppName = app.AppName,
+                    AppPII = (bool)app.AppPII,
+                    AppSecurity = app.AppSecurity,
+                    AppVersion = app.AppVersion,
+                    BackTechnology = app.BackTechnology,
+                    DateImplemented = app.DateImplemented,
+                    FrontTechnology = app.FrontTechnology,
+                    IsUatAvail = (bool)app.IsUatAvail,
+                    LastProdDate = app.LastProdDate,
+                    PrimaryBUContact = app.PrimaryBUContact,
+                    ProjectDevID = app.ProjectDevID,
+                    ProjectModID = app.ProjectModID,
+                    ProjectOpsID = app.ProjectOpsID,
+                    SecondaryBUContact = app.SecondaryBUContact
                 });
             }
             return apps;
-        }
-
-
-        [Route("api/Applications/GetWDSB_ApplicationsClient")]
-        public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient()
-        {
-            var a = from i in db.WDSB_AppClient_VW(getMyuserName())
-                    select i;
-
-            return a.OrderBy(x => x.AppName);
-        }
-
-        //gets the current user's username
-        private string getMyuserName()
-        {
-            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
-            //username only
-            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
-            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
-            //Domain Name only
-            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
-            return currentUsername;
         }
 
         // GET: api/Applications/5
@@ -84,19 +61,20 @@ namespace BiztechDashboard.Controllers
             WDSB_Applications wDSB_Applications = db.WDSB_Applications.Find(id);
             if (wDSB_Applications == null)
             {
-                return Ok(new WDSB_Applications_DTO{
-                    AppName="",
-                    FrontTechnology="",
-                    BackTechnology="",
-                    AppSecurity="",
-                    AppVersion="",
-                    AppDesc="",
-                    ProjectDevID="",
-                    ProjectModID="",
-                    ProjectOpsID="",
-                    AppIconPath="",
-                    AppIsActive=true,
-                    SecondaryBUContact=null
+                return Ok(new WDSB_Applications_DTO
+                {
+                    AppName = "",
+                    FrontTechnology = "",
+                    BackTechnology = "",
+                    AppSecurity = "",
+                    AppVersion = "",
+                    AppDesc = "",
+                    ProjectDevID = "",
+                    ProjectModID = "",
+                    ProjectOpsID = "",
+                    AppIconPath = "",
+                    AppIsActive = true,
+                    SecondaryBUContact = null
                 });
             }
 
@@ -168,6 +146,53 @@ namespace BiztechDashboard.Controllers
 
             return Ok(wDSB_Applications);
         }
+        #endregion
+       
+        #region Client interface
+        //gets all applications
+        [Route("api/Applications/GetWDSB_ApplicationsClient")]
+        public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient()
+        {
+            var a = from i in db.WDSB_AppClient_VW(getMyuserName())
+                    select i;
+
+            return a.OrderBy(x => x.AppName);
+        }
+        //gets your favorite app
+        [Route("api/Applications/GetWDSB_FavApp")]
+        public IOrderedEnumerable<WDSB_FavApp_VW_Result> GetWDSB_FavApp()
+        {
+            var a = from i in db.WDSB_FavApp_VW(getMyuserName())
+                    select i;
+
+            return a.OrderBy(x => x.AppName);
+        }
+        //gets your available apps only
+        [Route("api/Applications/GetWDSB_AvailApp")]
+        public IOrderedEnumerable<WDSB_AvailApp_VW_Result> GetWDSB_AvailApp()
+        {
+            var a = from i in db.WDSB_AvailApp_VW(getMyuserName())
+                    select i;
+
+            return a.OrderBy(x => x.AppName);
+        }
+
+
+        //gets the current user's username
+        private string getMyuserName()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //Domain Name only
+            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
+            return currentUsername;
+        }
+        #endregion
+
+
+
 
         protected override void Dispose(bool disposing)
         {
