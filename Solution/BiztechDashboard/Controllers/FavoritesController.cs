@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BiztechDashboard.Models;
+using System.Web;
 
 namespace BiztechDashboard.Controllers
 {
@@ -39,6 +40,7 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutWDSB_Favorites(int id, WDSB_Favorites wDSB_Favorites)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -48,6 +50,9 @@ namespace BiztechDashboard.Controllers
             {
                 return BadRequest();
             }
+
+            //reverse the value of active / inactive 
+            wDSB_Favorites.IsActive = !wDSB_Favorites.IsActive;
 
             db.Entry(wDSB_Favorites).State = EntityState.Modified;
 
@@ -78,9 +83,19 @@ namespace BiztechDashboard.Controllers
             {
                 return BadRequest(ModelState);
             }
+            //check if exists
+            var a =db.WDSB_Favorites.Where(e => e.AppID == wDSB_Favorites.AppID && e.UserName==getMyuserName());
 
-            db.WDSB_Favorites.Add(wDSB_Favorites);
-            db.SaveChanges();
+            if(a.Count()>0)
+            {
+                PutWDSB_Favorites(a.First().FavID, a.First());
+            }
+            else
+            {
+                db.WDSB_Favorites.Add(wDSB_Favorites);
+                db.SaveChanges();
+            }
+
 
             return CreatedAtRoute("DefaultApi", new { id = wDSB_Favorites.FavID }, wDSB_Favorites);
         }
@@ -113,6 +128,18 @@ namespace BiztechDashboard.Controllers
         private bool WDSB_FavoritesExists(int id)
         {
             return db.WDSB_Favorites.Count(e => e.FavID == id) > 0;
+        }
+
+        //gets the current user's username
+        private string getMyuserName()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //Domain Name only
+            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
+            return currentUsername;
         }
     }
 }

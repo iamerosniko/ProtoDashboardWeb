@@ -17,6 +17,7 @@ namespace BiztechDashboard.Models
         public int FavID { get; set; }
         public int AppID { get; set; }
         public string UserName { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual WDSB_Applications WDSB_Applications { get; set; }
     }

@@ -68,6 +68,7 @@
     <Property Name="FavID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AppID" Type="int" Nullable="false" />
     <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="WDSB_Features">
     <Key>

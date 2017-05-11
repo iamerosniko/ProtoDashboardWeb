@@ -73,6 +73,7 @@
           <Property Name="FavID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AppID" Type="int" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="WDSB_Features">
           <Key>
@@ -345,6 +346,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Name="AppID" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Favorites" ToRole="WDSB_Applications" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="WDSB_Features">
           <Key>
@@ -401,10 +403,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Parameter Name="myusername" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="WDSB_AvailApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AvailApp_VW_Result)">
-            <Parameter Name="myname" Mode="In" Type="String" />
+          <Parameter Name="myname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="WDSB_FavApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_FavApp_VW_Result)">
-            <Parameter Name="myname" Mode="In" Type="String" />
+          <Parameter Name="myname" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
@@ -672,6 +674,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <EntitySetMapping Name="WDSB_Favorites">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Favorites">
               <MappingFragment StoreEntitySet="WDSB_Favorites">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="FavID" ColumnName="FavID" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />

@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_BusinessUnits" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Comments" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Favorites" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Features" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Features" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_TempProjects" Width="1.5" PointX="7" PointY="0.875" />
         <EntityTypeShape EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" Width="1.5" PointX="8.625" PointY="0.875" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_AppUsers" Width="1.5" PointX="8.75" PointY="4.5" />

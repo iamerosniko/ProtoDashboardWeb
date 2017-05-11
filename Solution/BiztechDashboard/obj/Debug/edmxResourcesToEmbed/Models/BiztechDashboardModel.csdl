@@ -39,6 +39,7 @@
     <Property Name="AppID" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Favorites" ToRole="WDSB_Applications" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="WDSB_Features">
     <Key>
