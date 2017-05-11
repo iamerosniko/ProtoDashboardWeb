@@ -71,30 +71,10 @@
 <div class="container">
     <div class="tab-content">
         <div class="tab-pane fade" id="favorites">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img src="images/About-96.png">
-                    </div>
-                    <div class="col-md-10">
-                        <h2>You haven't marked any app to your favorites list.</h2>
-                        <p><small>You can add your apps to your favorites, just go to the Available Apps tab then click the star button.</small></p>
-                    </div>
-                </div>
-            </div>
+            <ac-nofav *ngIf="tabselected==2 && apps.length==0"></ac-nofav>
         </div>
         <div class="tab-pane fade" id="available">
-            <div class="jumbotron">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img src="images/About-96.png">
-                    </div>
-                    <div class="col-md-10">
-                        <h2>There are no available apps for you.</h2>
-                        <p><small>If you think there is an issue retrieving your apps, please contact Site Administrator. Thank you.</small></p>
-                    </div>
-                </div>
-            </div>
+            <ac-noavail *ngIf="tabselected==1 && apps.length==0"></ac-noavail>
         </div>
         <div class="tab-pane fade in active" id="allapps">
             

@@ -8,17 +8,11 @@ import { Routes } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 //typeahead
 import { TypeaheadModule } from 'ngx-bootstrap';
-/*******************NG-2Components/Extenders**********************************/
-// import { ProgressbarModule } from 'ng2-bootstrap';
-// import { TabsModule } from 'ng2-bootstrap';
-// import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
-// import { TooltipModule } from 'ng2-bootstrap';
-// import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-
 /*******************Components**********************************/
-//import { SyncMainComponent } from './sync-main.component';
 import { ACComponent } from './ac-parent.component';
 import { ACGridComponent } from './views/ac-grid.component';
+import { ACNoFavComponent } from './views/ac-nofav.component';
+import { ACNoAvailComponent } from './views/ac-noavail.component';
 import { ACListComponent } from './views/ac-list.component';
 import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
 
@@ -39,18 +33,15 @@ import { AppCatalogRouting } from './appcatalog.routing';
         HttpModule,
         NgxPaginationModule,
         TypeaheadModule.forRoot(),
-        // TabsModule.forRoot(),
-        // ProgressbarModule.forRoot(),
-        // TooltipModule.forRoot(),
-        // Ng2GoogleChartsModule,
-        // Ng2DatetimePickerModule
         AppCatalogRouting,
     ],
     declarations: [
         ACComponent,
         ACListComponent,
         ACGridComponent,
-        ACThumbnailComponent
+        ACThumbnailComponent,
+        ACNoFavComponent,
+        ACNoAvailComponent
     ],
     providers: [
         BTSSWDSBService,

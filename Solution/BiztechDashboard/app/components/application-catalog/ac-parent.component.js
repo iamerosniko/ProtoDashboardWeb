@@ -24,6 +24,7 @@ var ACComponent = (function () {
     //all biztech apps
     ACComponent.prototype.getAllApps = function () {
         var _this = this;
+        this.apps = [];
         this.fn.getAppsClient()
             .then(function (apps) {
             _this.apps = apps;
@@ -34,6 +35,7 @@ var ACComponent = (function () {
     //my available app
     ACComponent.prototype.getMyAvailApps = function () {
         var _this = this;
+        this.apps = [];
         this.fn.getAvailAppsClient()
             .then(function (apps) {
             _this.apps = apps;
@@ -44,6 +46,7 @@ var ACComponent = (function () {
     //favorites
     ACComponent.prototype.getMyFavApps = function () {
         var _this = this;
+        this.apps = [];
         this.fn.getFavAppsClient()
             .then(function (apps) {
             _this.apps = apps;
@@ -52,6 +55,7 @@ var ACComponent = (function () {
         this.tabselected = 2;
     };
     ACComponent.prototype.sliceToFour = function () {
+        this.listApps = [];
         var ctr = 0, listCtr = 0;
         var tempList = [];
         for (var _i = 0, _a = this.apps; _i < _a.length; _i++) {

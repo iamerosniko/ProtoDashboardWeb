@@ -21,6 +21,7 @@ export class ACComponent {
   }
   //all biztech apps
   getAllApps(){
+    this.apps=[];
     this.fn.getAppsClient()
       .then(apps=>{
           this.apps=apps;
@@ -30,6 +31,7 @@ export class ACComponent {
   }
   //my available app
   getMyAvailApps(){
+    this.apps=[];
     this.fn.getAvailAppsClient()
       .then(apps=>{
           this.apps=apps;
@@ -39,6 +41,7 @@ export class ACComponent {
   }
   //favorites
   getMyFavApps(){
+    this.apps=[];
     this.fn.getFavAppsClient()
       .then(apps=>{
           this.apps=apps;
@@ -48,6 +51,7 @@ export class ACComponent {
   }
 
   sliceToFour(){
+    this.listApps=[];
     var ctr=0,listCtr=0;
     var tempList:AppForClient[]=[];
     for (let app of this.apps) {

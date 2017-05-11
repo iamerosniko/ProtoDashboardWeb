@@ -13,16 +13,11 @@ var http_1 = require("@angular/http");
 var ngx_pagination_1 = require("ngx-pagination");
 //typeahead
 var ngx_bootstrap_1 = require("ngx-bootstrap");
-/*******************NG-2Components/Extenders**********************************/
-// import { ProgressbarModule } from 'ng2-bootstrap';
-// import { TabsModule } from 'ng2-bootstrap';
-// import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
-// import { TooltipModule } from 'ng2-bootstrap';
-// import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 /*******************Components**********************************/
-//import { SyncMainComponent } from './sync-main.component';
 var ac_parent_component_1 = require("./ac-parent.component");
 var ac_grid_component_1 = require("./views/ac-grid.component");
+var ac_nofav_component_1 = require("./views/ac-nofav.component");
+var ac_noavail_component_1 = require("./views/ac-noavail.component");
 var ac_list_component_1 = require("./views/ac-list.component");
 var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
 /*******************Custom Function Provider**********************************/
@@ -45,18 +40,15 @@ AppCatalogModule = __decorate([
             http_1.HttpModule,
             ngx_pagination_1.NgxPaginationModule,
             ngx_bootstrap_1.TypeaheadModule.forRoot(),
-            // TabsModule.forRoot(),
-            // ProgressbarModule.forRoot(),
-            // TooltipModule.forRoot(),
-            // Ng2GoogleChartsModule,
-            // Ng2DatetimePickerModule
             appcatalog_routing_1.AppCatalogRouting,
         ],
         declarations: [
             ac_parent_component_1.ACComponent,
             ac_list_component_1.ACListComponent,
             ac_grid_component_1.ACGridComponent,
-            ac_thumbnail_component_1.ACThumbnailComponent
+            ac_thumbnail_component_1.ACThumbnailComponent,
+            ac_nofav_component_1.ACNoFavComponent,
+            ac_noavail_component_1.ACNoAvailComponent
         ],
         providers: [
             btss_wdsb_service_1.BTSSWDSBService,
