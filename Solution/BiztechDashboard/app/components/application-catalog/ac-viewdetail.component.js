@@ -9,14 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var favorite_service_1 = require("../../services/favorite.service");
+var favorite_1 = require("../../entities/favorite");
 var router_1 = require("@angular/router");
 var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var appforclient_1 = require("../../entities/appforclient");
 var ACDetail = (function () {
-    function ACDetail(route, fnMainApp, router) {
+    function ACDetail(route, fnMainApp, router, favService) {
         this.route = route;
         this.fnMainApp = fnMainApp;
         this.router = router;
+        this.favService = favService;
         this.selectedID = 0;
         this.app = new appforclient_1.AppForClient(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null);
     }
@@ -41,6 +44,13 @@ var ACDetail = (function () {
     ACDetail.prototype.isPii = function (pii) {
         return pii ? "Yes" : "No";
     };
+    ACDetail.prototype.run = function (path) {
+        window.open(path);
+    };
+    ACDetail.prototype.myFav = function (app) {
+        var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
+        this.favService.postFavorite(fav);
+    };
     return ACDetail;
 }());
 ACDetail = __decorate([
@@ -51,6 +61,7 @@ ACDetail = __decorate([
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         fn_main_app_1.FnMainApp,
-        router_1.Router])
+        router_1.Router,
+        favorite_service_1.FavoriteService])
 ], ACDetail);
 exports.ACDetail = ACDetail;
