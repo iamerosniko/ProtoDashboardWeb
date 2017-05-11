@@ -53,7 +53,6 @@ namespace BiztechDashboard.Controllers
 
             //reverse the value of active / inactive 
             wDSB_Favorites.IsActive = !wDSB_Favorites.IsActive;
-
             db.Entry(wDSB_Favorites).State = EntityState.Modified;
 
             try
@@ -88,6 +87,7 @@ namespace BiztechDashboard.Controllers
 
             if(a.Count()>0)
             {
+                a.First().UserName = getMyuserName();
                 PutWDSB_Favorites(a.First().FavID, a.First());
             }
             else

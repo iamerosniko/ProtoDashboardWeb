@@ -4,6 +4,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-6">
+                        <!--indicator-->
                         <div hidden class="pull-left">
                             <div class="btn btn-circle btn-success btn-xs">
                                 <span class="glyphicon glyphicon-ok"></span>
@@ -11,9 +12,10 @@
                         </div>
                     </div> 
                     <div class="col-md-6">
+                        <!--stars-->
                         <div class="pull-right">
                             <fieldset class="favorite">
-                                <input type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
+                                <input [(ngModel)]="app.myFav" type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
                             </fieldset>
                         </div>
                     </div>
