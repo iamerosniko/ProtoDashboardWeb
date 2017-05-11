@@ -50,7 +50,7 @@ namespace BiztechDashboard.Controllers
             {
                 return BadRequest();
             }
-
+            wDSB_Favorites.IsActive = !wDSB_Favorites.IsActive;
             db.Entry(wDSB_Favorites).State = EntityState.Modified;
 
             try
