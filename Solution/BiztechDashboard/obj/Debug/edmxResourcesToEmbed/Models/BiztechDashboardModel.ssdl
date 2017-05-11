@@ -226,6 +226,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
   <Function Name="WDSB_AppClient_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myusername" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="WDSB_AppDetails_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="myusername" Type="nvarchar" Mode="In" />
+    <Parameter Name="appID" Type="int" Mode="In" />
+  </Function>
   <Function Name="WDSB_AvailApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myname" Type="nvarchar" Mode="In" />
   </Function>

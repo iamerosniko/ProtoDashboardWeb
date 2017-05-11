@@ -15,29 +15,14 @@ namespace BiztechDashboard.Models
     {
         public int AppID { get; set; }
         public string AppName { get; set; }
-        public int AppBU { get; set; }
-        public string FrontTechnology { get; set; }
-        public string BackTechnology { get; set; }
-        public Nullable<int> AppLifespan { get; set; }
-        public int PrimaryBUContact { get; set; }
-        public Nullable<int> SecondaryBUContact { get; set; }
-        public Nullable<bool> AppIsActive { get; set; }
-        public Nullable<bool> AppPII { get; set; }
-        public string AppSecurity { get; set; }
-        public Nullable<System.DateTime> DateImplemented { get; set; }
-        public Nullable<System.DateTime> LastProdDate { get; set; }
-        public string AppVersion { get; set; }
-        public string AppDesc { get; set; }
         public Nullable<bool> AppIsWeb { get; set; }
-        public string ProjectDevID { get; set; }
-        public string ProjectModID { get; set; }
-        public string ProjectOpsID { get; set; }
-        public string AppIconPath { get; set; }
-        public Nullable<bool> IsUatAvail { get; set; }
         public string BUName { get; set; }
+        public string ProjectOpsID { get; set; }
         public string DevFront { get; set; }
         public string ModFront { get; set; }
         public string OpsFront { get; set; }
+        public Nullable<bool> IsUatAvail { get; set; }
+        public Nullable<bool> AppIsActive { get; set; }
         public int canProd { get; set; }
         public int canMod { get; set; }
         public Nullable<bool> myFav { get; set; }

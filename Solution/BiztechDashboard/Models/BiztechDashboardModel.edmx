@@ -231,6 +231,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
         <Function Name="WDSB_AppClient_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="myusername" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="WDSB_AppDetails_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="myusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="appID" Type="int" Mode="In" />
+        </Function>
         <Function Name="WDSB_AvailApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="myname" Type="nvarchar" Mode="In" />
         </Function>
@@ -401,6 +405,10 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           </AssociationSet>
           <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
             <Parameter Name="myusername" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WDSB_AppDetails_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppDetails_VW_Result)">
+            <Parameter Name="myusername" Mode="In" Type="String" />
+            <Parameter Name="appID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="WDSB_AvailApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AvailApp_VW_Result)">
             <Parameter Name="myname" Mode="In" Type="String" />
@@ -593,6 +601,21 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
         <ComplexType Name="WDSB_AppClient_VW_Result">
           <Property Type="Int32" Name="AppID" Nullable="false" />
           <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
+          <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+          <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+          <Property Type="Int32" Name="canProd" Nullable="false" />
+          <Property Type="Int32" Name="canMod" Nullable="false" />
+          <Property Type="Boolean" Name="myFav" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WDSB_AppDetails_VW_Result">
+          <Property Type="Int32" Name="AppID" Nullable="false" />
+          <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
           <Property Type="Int32" Name="AppBU" Nullable="false" />
           <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
@@ -623,29 +646,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
         <ComplexType Name="WDSB_AvailApp_VW_Result">
           <Property Type="Int32" Name="AppID" Nullable="false" />
           <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
-          <Property Type="Int32" Name="AppBU" Nullable="false" />
-          <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="AppLifespan" Nullable="true" />
-          <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
-          <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
-          <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
-          <Property Type="Boolean" Name="AppPII" Nullable="true" />
-          <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
-          <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
-          <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
-          <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
-          <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
           <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+          <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
           <Property Type="Int32" Name="canProd" Nullable="false" />
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -653,29 +661,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
         <ComplexType Name="WDSB_FavApp_VW_Result">
           <Property Type="Int32" Name="AppID" Nullable="false" />
           <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
-          <Property Type="Int32" Name="AppBU" Nullable="false" />
-          <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="AppLifespan" Nullable="true" />
-          <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
-          <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
-          <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
-          <Property Type="Boolean" Name="AppPII" Nullable="true" />
-          <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
-          <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
-          <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
           <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
-          <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
-          <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
           <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
+          <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+          <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
           <Property Type="Int32" Name="canProd" Nullable="false" />
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -837,6 +830,25 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
               <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="AppName" ColumnName="AppName" />
+                <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+                <ScalarProperty Name="BUName" ColumnName="BUName" />
+                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+                <ScalarProperty Name="DevFront" ColumnName="DevFront" />
+                <ScalarProperty Name="ModFront" ColumnName="ModFront" />
+                <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="canProd" ColumnName="canProd" />
+                <ScalarProperty Name="canMod" ColumnName="canMod" />
+                <ScalarProperty Name="myFav" ColumnName="myFav" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WDSB_AppDetails_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppDetails_VW">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppDetails_VW_Result">
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="AppName" ColumnName="AppName" />
                 <ScalarProperty Name="AppBU" ColumnName="AppBU" />
                 <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
                 <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
@@ -871,29 +883,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
               <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AvailApp_VW_Result">
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="AppName" ColumnName="AppName" />
-                <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-                <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-                <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-                <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-                <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-                <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-                <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-                <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-                <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-                <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-                <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-                <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
                 <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-                <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-                <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="BUName" ColumnName="BUName" />
+                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
                 <ScalarProperty Name="DevFront" ColumnName="DevFront" />
                 <ScalarProperty Name="ModFront" ColumnName="ModFront" />
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
                 <ScalarProperty Name="canProd" ColumnName="canProd" />
                 <ScalarProperty Name="canMod" ColumnName="canMod" />
                 <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -905,29 +902,14 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
               <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_FavApp_VW_Result">
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="AppName" ColumnName="AppName" />
-                <ScalarProperty Name="AppBU" ColumnName="AppBU" />
-                <ScalarProperty Name="FrontTechnology" ColumnName="FrontTechnology" />
-                <ScalarProperty Name="BackTechnology" ColumnName="BackTechnology" />
-                <ScalarProperty Name="AppLifespan" ColumnName="AppLifespan" />
-                <ScalarProperty Name="PrimaryBUContact" ColumnName="PrimaryBUContact" />
-                <ScalarProperty Name="SecondaryBUContact" ColumnName="SecondaryBUContact" />
-                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
-                <ScalarProperty Name="AppPII" ColumnName="AppPII" />
-                <ScalarProperty Name="AppSecurity" ColumnName="AppSecurity" />
-                <ScalarProperty Name="DateImplemented" ColumnName="DateImplemented" />
-                <ScalarProperty Name="LastProdDate" ColumnName="LastProdDate" />
-                <ScalarProperty Name="AppVersion" ColumnName="AppVersion" />
-                <ScalarProperty Name="AppDesc" ColumnName="AppDesc" />
                 <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-                <ScalarProperty Name="ProjectDevID" ColumnName="ProjectDevID" />
-                <ScalarProperty Name="ProjectModID" ColumnName="ProjectModID" />
-                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
-                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="BUName" ColumnName="BUName" />
+                <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
                 <ScalarProperty Name="DevFront" ColumnName="DevFront" />
                 <ScalarProperty Name="ModFront" ColumnName="ModFront" />
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+                <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+                <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
                 <ScalarProperty Name="canProd" ColumnName="canProd" />
                 <ScalarProperty Name="canMod" ColumnName="canMod" />
                 <ScalarProperty Name="myFav" ColumnName="myFav" />
