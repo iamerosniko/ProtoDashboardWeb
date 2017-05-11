@@ -14,6 +14,7 @@ var ACComponent = (function () {
     function ACComponent(fn) {
         this.fn = fn;
         this.viewtype = 0;
+        this.tabselected = 0;
         this.apps = [];
         this.listApps = [];
     }

@@ -8,6 +8,7 @@ import { FnMainApp } from '../maintenance/functions/fn-main-app';
 })
 export class ACComponent { 
   viewtype:number=0;
+  tabselected:number=0;
   apps:AppForClient[]=[];
   listApps:AppForClient[][]=[];
   public selected:string;
