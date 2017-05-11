@@ -15,7 +15,7 @@
                         <!--stars-->
                         <div class="pull-right">
                             <fieldset class="favorite">
-                                <input [(ngModel)]="app.myFav" type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
+                                <input [(ngModel)]="app.myFav" (change)="myFav(app)" type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
                             </fieldset>
                         </div>
                     </div>

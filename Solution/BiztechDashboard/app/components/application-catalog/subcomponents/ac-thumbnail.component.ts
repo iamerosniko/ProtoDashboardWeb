@@ -18,7 +18,7 @@ export class ACThumbnailComponent  {
   }
 
   myFav(app:AppForClient){
-    var fav:Favorite = new Favorite(0,app.AppID,'');
+    var fav:Favorite = new Favorite(0,app.AppID,'',app.myFav);
     this.favService.postFavorite(fav);
     //pass to service
   }

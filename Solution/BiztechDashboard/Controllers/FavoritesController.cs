@@ -51,8 +51,6 @@ namespace BiztechDashboard.Controllers
                 return BadRequest();
             }
 
-            //reverse the value of active / inactive 
-            wDSB_Favorites.IsActive = !wDSB_Favorites.IsActive;
             db.Entry(wDSB_Favorites).State = EntityState.Modified;
 
             try
@@ -83,7 +81,8 @@ namespace BiztechDashboard.Controllers
                 return BadRequest(ModelState);
             }
             //check if exists
-            var a =db.WDSB_Favorites.Where(e => e.AppID == wDSB_Favorites.AppID && e.UserName==getMyuserName());
+            var username = getMyuserName();
+            var a =db.WDSB_Favorites.Where(e => e.AppID == wDSB_Favorites.AppID && e.UserName==username);
 
             if(a.Count()>0)
             {

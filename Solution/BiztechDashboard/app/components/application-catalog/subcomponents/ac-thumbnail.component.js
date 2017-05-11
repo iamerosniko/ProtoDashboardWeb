@@ -20,7 +20,7 @@ var ACThumbnailComponent = (function () {
         window.open(this.app.OpsFront);
     };
     ACThumbnailComponent.prototype.myFav = function (app) {
-        var fav = new favorite_1.Favorite(0, app.AppID, '');
+        var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
         this.favService.postFavorite(fav);
         //pass to service
     };
