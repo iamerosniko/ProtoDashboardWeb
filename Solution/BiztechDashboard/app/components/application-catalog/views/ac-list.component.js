@@ -9,12 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var favorite_1 = require("../../../entities/favorite");
+var favorite_service_1 = require("../../../services/favorite.service");
 var ACListComponent = (function () {
-    function ACListComponent() {
+    function ACListComponent(favService) {
+        this.favService = favService;
         this.apps = [];
     }
     ACListComponent.prototype.run = function (app) {
         window.open(app.OpsFront);
+    };
+    ACListComponent.prototype.myFav = function (app) {
+        var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
+        this.favService.postFavorite(fav);
+        //pass to service
     };
     return ACListComponent;
 }());
@@ -27,6 +35,7 @@ ACListComponent = __decorate([
         moduleId: module.id,
         selector: 'ac-list',
         templateUrl: "ac-list.component.html"
-    })
+    }),
+    __metadata("design:paramtypes", [favorite_service_1.FavoriteService])
 ], ACListComponent);
 exports.ACListComponent = ACListComponent;
