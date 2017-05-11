@@ -1,4 +1,4 @@
-import { Component,OnInit,Input } from '@angular/core';
+import { Component,OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Application } from '../../../entities/application';
 import { AppForClient } from '../../../entities/appforclient';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';
@@ -11,6 +11,7 @@ import { FavoriteService } from '../../../services/favorite.service';
 })
 export class ACListComponent  { 
   @Input() apps:AppForClient[]=[];
+  @Output() refreshFav = new EventEmitter();
    constructor(
     private favService:FavoriteService
   ){}
@@ -20,6 +21,6 @@ export class ACListComponent  {
   myFav(app:AppForClient){
     var fav:Favorite = new Favorite(0,app.AppID,'',app.myFav);
     this.favService.postFavorite(fav);
-    //pass to service
+    this.refreshFav.emit();
   }
 }

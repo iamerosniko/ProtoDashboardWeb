@@ -1,4 +1,4 @@
-import { Component,OnInit,Input } from '@angular/core';
+import { Component,OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Application } from '../../../entities/application';
 import { AppForClient } from '../../../entities/appforclient';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';

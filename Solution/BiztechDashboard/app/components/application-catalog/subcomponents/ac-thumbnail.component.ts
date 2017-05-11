@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { AppForClient } from '../../../entities/appforclient';
 import { Favorite } from '../../../entities/favorite';
 import { FavoriteService } from '../../../services/favorite.service';

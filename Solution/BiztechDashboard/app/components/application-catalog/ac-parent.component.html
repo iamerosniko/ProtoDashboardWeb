@@ -80,6 +80,6 @@
             
         </div>
         <ac-grid *ngIf="viewtype==0 && apps.length>0" [listApps]="listApps"></ac-grid>
-        <ac-list *ngIf="viewtype==1 && apps.length>0" [apps]="apps"></ac-list>
+        <ac-list *ngIf="viewtype==1 && apps.length>0" [apps]="apps" (refreshFav)="getMyFavApps()"></ac-list>
     </div>
 </div>

@@ -15,6 +15,7 @@ var ACListComponent = (function () {
     function ACListComponent(favService) {
         this.favService = favService;
         this.apps = [];
+        this.refreshFav = new core_1.EventEmitter();
     }
     ACListComponent.prototype.run = function (app) {
         window.open(app.OpsFront);
@@ -22,7 +23,7 @@ var ACListComponent = (function () {
     ACListComponent.prototype.myFav = function (app) {
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
         this.favService.postFavorite(fav);
-        //pass to service
+        this.refreshFav.emit();
     };
     return ACListComponent;
 }());
@@ -30,6 +31,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Array)
 ], ACListComponent.prototype, "apps", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ACListComponent.prototype, "refreshFav", void 0);
 ACListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
