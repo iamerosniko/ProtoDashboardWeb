@@ -46,8 +46,8 @@
                         <td>{{app.BUName}}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-default btn-sm" disabled>Run</button>
-                                <button type="button" class="btn btn-default btn-sm" onclick="viewDetails()">View Details</button>
+                                <button (click)="run(app)" [disabled]="app.canProd==0" type="button" class="btn btn-default btn-sm" >Run</button>
+                                <button type="button" class="btn btn-default btn-sm" (click)="gotoDetail(app)">View Details</button>
                             </div>
                         </td>
                     </tr>

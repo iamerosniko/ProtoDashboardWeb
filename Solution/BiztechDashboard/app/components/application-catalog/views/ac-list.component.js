@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var favorite_1 = require("../../../entities/favorite");
 var favorite_service_1 = require("../../../services/favorite.service");
+var router_1 = require("@angular/router");
 var ACListComponent = (function () {
-    function ACListComponent(favService) {
+    function ACListComponent(router, favService) {
+        this.router = router;
         this.favService = favService;
         this.apps = [];
         this.refreshFav = new core_1.EventEmitter();
@@ -24,6 +26,9 @@ var ACListComponent = (function () {
         var _this = this;
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
         this.favService.postFavorite(fav).then(function () { _this.refreshFav.emit(); });
+    };
+    ACListComponent.prototype.gotoDetail = function (app) {
+        this.router.navigate(['/Applications', app.AppID]);
     };
     return ACListComponent;
 }());
@@ -41,6 +46,7 @@ ACListComponent = __decorate([
         selector: 'ac-list',
         templateUrl: "ac-list.component.html"
     }),
-    __metadata("design:paramtypes", [favorite_service_1.FavoriteService])
+    __metadata("design:paramtypes", [router_1.Router,
+        favorite_service_1.FavoriteService])
 ], ACListComponent);
 exports.ACListComponent = ACListComponent;
