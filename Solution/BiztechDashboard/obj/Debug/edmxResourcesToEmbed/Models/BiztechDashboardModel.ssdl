@@ -225,6 +225,12 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
   <Function Name="WDSB_AppClient_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myusername" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="WDSB_AvailApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="myname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="WDSB_FavApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="myname" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="BiztechDashboardModelStoreContainer">
     <EntitySet Name="WDSB_Applications" EntityType="Self.WDSB_Applications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_AppUsers" EntityType="Self.WDSB_AppUsers" Schema="dbo" store:Type="Tables" />

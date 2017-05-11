@@ -241,6 +241,9 @@
     </Compile>
     <Compile Include="Models\WDSB_AppUsers_DTO.cs" />
     <Compile Include="Models\WDSB_Auth.cs" />
+    <Compile Include="Models\WDSB_AvailApp_VW_Result.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_BUContacts.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
@@ -248,6 +251,9 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_Comments.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WDSB_FavApp_VW_Result.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_Favorites.cs">
