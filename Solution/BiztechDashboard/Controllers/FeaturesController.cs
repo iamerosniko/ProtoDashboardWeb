@@ -69,17 +69,26 @@ namespace BiztechDashboard.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        [ResponseType(typeof(WDSB_Features))]
-        [Route("api/Features/BulkPostWDSB_Features")]
-        public void BulkPostWDSB_Features(List<WDSB_Features> wDSB_Features)
+        [Route("api/Features/PostWDSB_Features2")]
+        public IHttpActionResult PostWDSB_Features2(List<WDSB_Features> wDSB_Features)
         {
-            foreach (var feat in wDSB_Features)
+            if (!ModelState.IsValid)
             {
-                if (feat.FeatureID == 0)
-                    PostWDSB_Features(feat);
-                else
-                    PutWDSB_Features(feat.FeatureID,feat);
+                return BadRequest(ModelState);
             }
+            if (wDSB_Features != null)
+            {
+                foreach (var feat in wDSB_Features)
+                {
+                    if (feat.FeatureID == 0)
+                        PostWDSB_Features(feat);
+                    else
+                        PutWDSB_Features(feat.FeatureID, feat);
+                }
+            }
+            return Ok();
+
+
         }
 
         // POST: api/Features

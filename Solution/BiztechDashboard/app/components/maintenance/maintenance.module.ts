@@ -41,6 +41,7 @@ import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
 import { BUService } from '../../services/bu.service';
 import { ContactService } from '../../services/contact.service';
+import { FeatureService } from '../../services/feature.service';
 //routing
 import { MaintenanceRouting } from './maintenance.routing';
 @NgModule({
@@ -75,6 +76,7 @@ import { MaintenanceRouting } from './maintenance.routing';
         AppUserService,
         BUService,
         ContactService,
+        FeatureService,
         FnMainApp,
         FnMain,
         FnUser,

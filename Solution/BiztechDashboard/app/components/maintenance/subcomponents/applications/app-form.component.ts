@@ -25,7 +25,8 @@ export class AppFormComponent implements OnInit  {
     dropDownContact1:Contact[]=[];
     dropDownContact2:Contact[]=[];
     dt:Date= new Date();
-    selectedApp:Application
+    selectedApp:Application;
+    features:Feature[]=[];
     showDate:number=0;
     feTech:any=[];
     beTech:any=[];
@@ -46,7 +47,7 @@ export class AppFormComponent implements OnInit  {
     clrApp(){
         this.selectedApp= new Application(
             0,'',0,'','',0,0,0,false,false,'',
-            null,null,'','','',false,'','','',false,[]
+            null,null,'','','',false,'','','',false,
         );
     }
 
@@ -57,8 +58,11 @@ export class AppFormComponent implements OnInit  {
                 this.selectedApp=app;
                 this.formMode = this.selectedApp.AppID==0 
                     ? 'New' : 'Update'; 
-            
             });
+            
+            this.fnMainApp.getFeatures(params.id).then(
+               features => this.features = features 
+            );
         });
         this.getDropdownBU();
         this.getDropdownContact1();
@@ -114,12 +118,22 @@ export class AppFormComponent implements OnInit  {
     submitApp():void{
         this.fnMainApp.submitApp(this.selectedApp.AppID==0,this.selectedApp)
         .then(()=>{
-            alert("success");
-            this.applicationView();
+            if(this.features.length>0)
+                this.fnMainApp.submitFeatures(this.features)
+                .then(()=>{
+                    alert("success");
+                    this.applicationView();
+                })
+                .catch(()=>{
+                    console.log('problem in adding features');
+                });
+        })
+        .catch(()=>{
+            console.log('problem in applications');
         });
     }
 
     addFeature(){
-        this.selectedApp.WDSB_Features.push(new Feature(0,this.selectedApp.AppID,'','',''));
+        this.features.push(new Feature(0,this.selectedApp.AppID,'','',''));
     }
 }

@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 //services
 var application_service_1 = require("../../../services/application.service");
+var feature_service_1 = require("../../../services/feature.service");
 var FnMainApp = (function () {
-    function FnMainApp(appService) {
+    function FnMainApp(appService, featService) {
         this.appService = appService;
+        this.featService = featService;
     }
     //ADMIN INTERFACE
     //get all (admin)
@@ -24,11 +26,18 @@ var FnMainApp = (function () {
     FnMainApp.prototype.getApp = function (id) {
         return this.appService.getApplication(id);
     };
+    //get features where appID == id
+    FnMainApp.prototype.getFeatures = function (id) {
+        return this.featService.getFeatures(id);
+    };
     //submit
     FnMainApp.prototype.submitApp = function (isNew, app) {
         return isNew
             ? this.appService.postApplication(app)
             : this.appService.putApplication(app);
+    };
+    FnMainApp.prototype.submitFeatures = function (features) {
+        return this.featService.postFeatures(features);
     };
     //CLIENT INTERFACE
     //get all (for client side only)
@@ -50,6 +59,7 @@ var FnMainApp = (function () {
 }());
 FnMainApp = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [application_service_1.ApplicationService])
+    __metadata("design:paramtypes", [application_service_1.ApplicationService,
+        feature_service_1.FeatureService])
 ], FnMainApp);
 exports.FnMainApp = FnMainApp;

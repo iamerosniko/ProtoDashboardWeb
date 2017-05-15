@@ -30,6 +30,7 @@ var AppFormComponent = (function () {
         this.dropDownContact1 = [];
         this.dropDownContact2 = [];
         this.dt = new Date();
+        this.features = [];
         this.showDate = 0;
         this.feTech = [];
         this.beTech = [];
@@ -40,7 +41,7 @@ var AppFormComponent = (function () {
         this.beTech = ["MS Access", "MS SQL"];
     }
     AppFormComponent.prototype.clrApp = function () {
-        this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false, []);
+        this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false);
     };
     AppFormComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -51,6 +52,7 @@ var AppFormComponent = (function () {
                 _this.formMode = _this.selectedApp.AppID == 0
                     ? 'New' : 'Update';
             });
+            _this.fnMainApp.getFeatures(params.id).then(function (features) { return _this.features = features; });
         });
         this.getDropdownBU();
         this.getDropdownContact1();
@@ -99,12 +101,22 @@ var AppFormComponent = (function () {
         var _this = this;
         this.fnMainApp.submitApp(this.selectedApp.AppID == 0, this.selectedApp)
             .then(function () {
-            alert("success");
-            _this.applicationView();
+            if (_this.features.length > 0)
+                _this.fnMainApp.submitFeatures(_this.features)
+                    .then(function () {
+                    alert("success");
+                    _this.applicationView();
+                })
+                    .catch(function () {
+                    console.log('problem in adding features');
+                });
+        })
+            .catch(function () {
+            console.log('problem in applications');
         });
     };
     AppFormComponent.prototype.addFeature = function () {
-        this.selectedApp.WDSB_Features.push(new feature_1.Feature(0, this.selectedApp.AppID, '', '', ''));
+        this.features.push(new feature_1.Feature(0, this.selectedApp.AppID, '', '', ''));
     };
     return AppFormComponent;
 }());

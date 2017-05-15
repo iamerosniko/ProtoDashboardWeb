@@ -2,7 +2,7 @@
 var Application = (function () {
     function Application(AppID, //primary key
         AppName, //foreign key
-        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsUatAvail, WDSB_Features) {
+        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsUatAvail) {
         this.AppID = AppID;
         this.AppName = AppName;
         this.AppBU = AppBU;
@@ -24,7 +24,6 @@ var Application = (function () {
         this.ProjectModID = ProjectModID;
         this.ProjectOpsID = ProjectOpsID;
         this.IsUatAvail = IsUatAvail;
-        this.WDSB_Features = WDSB_Features;
     }
     return Application;
 }());
