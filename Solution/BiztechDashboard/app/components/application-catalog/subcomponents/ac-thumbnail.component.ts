@@ -17,7 +17,9 @@ export class ACThumbnailComponent  {
   ){}
   
   run(){
-    window.open(this.app.OpsFront);
+    //window.open(this.app.OpsFront,'_blank');
+    //window.location.replace();
+    window.location.href =this.app.OpsFront;
   }
 
   myFav(app:AppForClient){

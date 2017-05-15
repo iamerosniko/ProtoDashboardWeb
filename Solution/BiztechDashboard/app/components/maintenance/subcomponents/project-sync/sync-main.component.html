@@ -37,7 +37,7 @@
     <tab heading='Projects saved in Web Dashboard'>
         <br />
         <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Refresh</button>
-        <div [hidden]="newApps.length==0">
+        <div [hidden]="syncApps.length==0">
             # of projects found in WDSB : {{syncApps.length}}
             <button class="btn btn-default btn-sm" type="button" (click)="updateApplications(syncApps);">Update Projects</button>
             <table class="table table-hover table-striped">

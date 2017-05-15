@@ -20,7 +20,9 @@ var ACThumbnailComponent = (function () {
         this.refreshFav = new core_1.EventEmitter();
     }
     ACThumbnailComponent.prototype.run = function () {
-        window.open(this.app.OpsFront);
+        //window.open(this.app.OpsFront,'_blank');
+        //window.location.replace();
+        window.location.href = this.app.OpsFront;
     };
     ACThumbnailComponent.prototype.myFav = function (app) {
         var _this = this;
