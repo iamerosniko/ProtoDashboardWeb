@@ -104,7 +104,7 @@ var AppFormComponent = (function () {
         });
     };
     AppFormComponent.prototype.addFeature = function () {
-        this.selectedApp.WDSB_Features.push(new feature_1.Feature(0, 0, '', '', ''));
+        this.selectedApp.WDSB_Features.push(new feature_1.Feature(0, this.selectedApp.AppID, '', '', ''));
     };
     return AppFormComponent;
 }());

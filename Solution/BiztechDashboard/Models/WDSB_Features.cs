@@ -17,7 +17,7 @@ namespace BiztechDashboard.Models
         public int FeatureID { get; set; }
         public int AppID { get; set; }
         public string Description { get; set; }
-        public string Function { get; set; }
+        public string FeatFunction { get; set; }
         public string ScreenshotPath { get; set; }
     
         public virtual WDSB_Applications WDSB_Applications { get; set; }

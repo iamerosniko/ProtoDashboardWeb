@@ -77,7 +77,7 @@
     <Property Name="FeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AppID" Type="int" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="300" Nullable="false" />
-    <Property Name="Function" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="FeatFunction" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="ScreenshotPath" Type="varchar" MaxLength="300" Nullable="false" />
   </EntityType>
   <EntityType Name="WDSB_Projects">
@@ -107,7 +107,7 @@
     <Property Name="ProjectIsActive" Type="bit" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'dbbtWEBD.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="VW_WDSB_GetNewApp">
     <Key>
       <PropertyRef Name="ProjectID" />
@@ -123,7 +123,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
     <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="WDSB_VW_ApplicationsDB">
     <Key>
       <PropertyRef Name="AppID" />

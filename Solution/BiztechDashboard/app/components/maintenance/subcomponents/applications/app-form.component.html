@@ -283,16 +283,16 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <label>Function</label>
-                                                                <input type="text" class="form-control input-sm" />
+                                                                <input [(ngModel)]="feat.FeatFunction" type="text" class="form-control input-sm" />
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <label>Description</label>
-                                                                <textarea class="form-control input-sm" style="height: 50px;"></textarea>
+                                                                <textarea  [(ngModel)]="feat.Description"  class="form-control input-sm" style="height: 50px;"></textarea>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <label>Screenshot</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control input-sm" id="txtFilePath"/>
+                                                                    <input type="text"  [(ngModel)]="feat.ScreenshotPath"  class="form-control input-sm" id="txtFilePath"/>
                                                                     <span class="input-group-btn">
                                                                         <a href="#" class="btn btn-default btn-sm" id="btnOpenFile">
                                                                             <span class="glyphicon glyphicon-folder-open"></span>

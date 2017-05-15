@@ -41,23 +41,11 @@
     <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Favorites" ToRole="WDSB_Applications" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="WDSB_Features">
-    <Key>
-      <PropertyRef Name="FeatureID" />
-    </Key>
-    <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AppID" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Function" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ScreenshotPath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Features" ToRole="WDSB_Applications" />
-  </EntityType>
   <EntityContainer Name="BiztechDashboardContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="WDSB_BUContacts" EntityType="Self.WDSB_BUContacts" />
     <EntitySet Name="WDSB_BusinessUnits" EntityType="Self.WDSB_BusinessUnits" />
     <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" />
     <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" />
-    <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" />
     <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
     <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
     <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
@@ -88,10 +76,6 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Favorites" EntitySet="WDSB_Favorites" />
     </AssociationSet>
-    <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications">
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-      <End Role="WDSB_Features" EntitySet="WDSB_Features" />
-    </AssociationSet>
     <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
       <Parameter Name="myusername" Mode="In" Type="String" />
     </FunctionImport>
@@ -105,6 +89,11 @@
       <Parameter Name="myusername" Mode="In" Type="String" />
       <Parameter Name="appID" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="WDSB_Features" EntityType="BiztechDashboardModel.WDSB_Features" />
+    <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Features" EntitySet="WDSB_Features" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -275,18 +264,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_WDSB_Features_WDSB_Applications">
-    <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
-    <End Type="BiztechDashboardModel.WDSB_Features" Role="WDSB_Features" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WDSB_Applications">
-        <PropertyRef Name="AppID" />
-      </Principal>
-      <Dependent Role="WDSB_Features">
-        <PropertyRef Name="AppID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <ComplexType Name="WDSB_AppClient_VW_Result">
     <Property Type="Int32" Name="AppID" Nullable="false" />
     <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -364,4 +341,27 @@
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
+  <EntityType Name="WDSB_Features">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="FeatFunction" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ScreenshotPath" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Features" ToRole="WDSB_Applications" />
+  </EntityType>
+  <Association Name="FK_WDSB_Features_WDSB_Applications">
+    <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
+    <End Type="BiztechDashboardModel.WDSB_Features" Role="WDSB_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Features">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

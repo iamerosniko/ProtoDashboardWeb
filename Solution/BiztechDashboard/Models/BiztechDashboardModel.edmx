@@ -82,7 +82,7 @@
           <Property Name="FeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AppID" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="300" Nullable="false" />
-          <Property Name="Function" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="FeatFunction" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="ScreenshotPath" Type="varchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <EntityType Name="WDSB_Projects">
@@ -112,7 +112,7 @@
           <Property Name="ProjectIsActive" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'dbbtWEBD.dbo.VW_WDSB_GetNewApp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VW_WDSB_GetNewApp">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -128,7 +128,7 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.VW_WDSB_GetNewApp' does not have 
           <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="WDSB_VW_ApplicationsDB">
           <Key>
             <PropertyRef Name="AppID" />
@@ -352,23 +352,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Favorites" ToRole="WDSB_Applications" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="WDSB_Features">
-          <Key>
-            <PropertyRef Name="FeatureID" />
-          </Key>
-          <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AppID" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Function" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ScreenshotPath" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Features" ToRole="WDSB_Applications" />
-        </EntityType>
         <EntityContainer Name="BiztechDashboardContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="WDSB_BUContacts" EntityType="Self.WDSB_BUContacts" />
           <EntitySet Name="WDSB_BusinessUnits" EntityType="Self.WDSB_BusinessUnits" />
           <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" />
           <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" />
-          <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" />
           <EntitySet Name="WDSB_TempProjects" EntityType="BiztechDashboardModel.WDSB_TempProjects" />
           <EntitySet Name="VW_WDSB_GetNewApp" EntityType="BiztechDashboardModel.VW_WDSB_GetNewApp" />
           <EntitySet Name="WDSB_AppUsers" EntityType="BiztechDashboardModel.WDSB_AppUsers" />
@@ -399,10 +387,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
             <End Role="WDSB_Favorites" EntitySet="WDSB_Favorites" />
           </AssociationSet>
-          <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications">
-            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-            <End Role="WDSB_Features" EntitySet="WDSB_Features" />
-          </AssociationSet>
           <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
           <Parameter Name="myusername" Mode="In" Type="String" />
           </FunctionImport>
@@ -416,6 +400,11 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
             <Parameter Name="myusername" Mode="In" Type="String" />
             <Parameter Name="appID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="WDSB_Features" EntityType="BiztechDashboardModel.WDSB_Features" />
+          <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications">
+            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+            <End Role="WDSB_Features" EntitySet="WDSB_Features" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -586,18 +575,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WDSB_Features_WDSB_Applications">
-          <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
-          <End Type="BiztechDashboardModel.WDSB_Features" Role="WDSB_Features" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="WDSB_Applications">
-              <PropertyRef Name="AppID" />
-            </Principal>
-            <Dependent Role="WDSB_Features">
-              <PropertyRef Name="AppID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="WDSB_AppClient_VW_Result">
           <Property Type="Int32" Name="AppID" Nullable="false" />
           <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -675,6 +652,29 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
         </ComplexType>
+        <EntityType Name="WDSB_Features">
+          <Key>
+            <PropertyRef Name="FeatureID" />
+          </Key>
+          <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="FeatFunction" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ScreenshotPath" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Features" ToRole="WDSB_Applications" />
+        </EntityType>
+        <Association Name="FK_WDSB_Features_WDSB_Applications">
+          <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
+          <End Type="BiztechDashboardModel.WDSB_Features" Role="WDSB_Features" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WDSB_Applications">
+              <PropertyRef Name="AppID" />
+            </Principal>
+            <Dependent Role="WDSB_Features">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -718,17 +718,6 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
                 <ScalarProperty Name="FavID" ColumnName="FavID" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WDSB_Features">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
-              <MappingFragment StoreEntitySet="WDSB_Features">
-                <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
-                <ScalarProperty Name="AppID" ColumnName="AppID" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Function" ColumnName="Function" />
-                <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -920,6 +909,17 @@ warning 6002: The table/view 'dbbtVulTstp1.dbo.WDSB_VW_ApplicationsDB' does not 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="WDSB_Features">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
+              <MappingFragment StoreEntitySet="WDSB_Features">
+                <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
+                <ScalarProperty Name="FeatFunction" ColumnName="FeatFunction" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

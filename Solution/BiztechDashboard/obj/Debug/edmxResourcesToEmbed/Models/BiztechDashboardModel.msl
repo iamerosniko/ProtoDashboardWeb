@@ -41,17 +41,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_Features">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
-        <MappingFragment StoreEntitySet="WDSB_Features">
-          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Function" ColumnName="Function" />
-          <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="WDSB_TempProjects">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_TempProjects">
         <MappingFragment StoreEntitySet="WDSB_TempProjects">
@@ -240,5 +229,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="WDSB_Features">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
+        <MappingFragment StoreEntitySet="WDSB_Features">
+          <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
+          <ScalarProperty Name="FeatFunction" ColumnName="FeatFunction" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

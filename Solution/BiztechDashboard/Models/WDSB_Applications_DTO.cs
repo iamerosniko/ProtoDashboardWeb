@@ -28,7 +28,5 @@ namespace BiztechDashboard.Models
         public string ProjectOpsID { get; set; }
         public string AppIconPath { get; set; }
         public bool IsUatAvail { get; set; }
-
-        public virtual ICollection<WDSB_Features> WDSB_Features { get; set; }
     }
 }

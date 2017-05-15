@@ -120,6 +120,6 @@ export class AppFormComponent implements OnInit  {
     }
 
     addFeature(){
-        this.selectedApp.WDSB_Features.push(new Feature(0,0,'','',''));
+        this.selectedApp.WDSB_Features.push(new Feature(0,this.selectedApp.AppID,'','',''));
     }
 }

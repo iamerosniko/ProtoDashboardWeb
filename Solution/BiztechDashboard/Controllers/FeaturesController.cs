@@ -26,12 +26,12 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(WDSB_Features))]
         public IHttpActionResult GetWDSB_Features(int id)
         {
-            WDSB_Features wDSB_Features = db.WDSB_Features.Find(id);
+            //WDSB_Features wDSB_Features = db.WDSB_Features.Find(id);
+            IQueryable<WDSB_Features> wDSB_Features = db.WDSB_Features.Where(x => x.AppID == id);
             if (wDSB_Features == null)
             {
-                return NotFound();
+                return Ok(new List<WDSB_Features>());
             }
-
             return Ok(wDSB_Features);
         }
 
@@ -66,8 +66,20 @@ namespace BiztechDashboard.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [ResponseType(typeof(WDSB_Features))]
+        [Route("api/Features/BulkPostWDSB_Features")]
+        public void BulkPostWDSB_Features(List<WDSB_Features> wDSB_Features)
+        {
+            foreach (var feat in wDSB_Features)
+            {
+                if (feat.FeatureID == 0)
+                    PostWDSB_Features(feat);
+                else
+                    PutWDSB_Features(feat.FeatureID,feat);
+            }
         }
 
         // POST: api/Features
