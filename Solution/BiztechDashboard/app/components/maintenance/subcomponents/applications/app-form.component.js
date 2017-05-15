@@ -13,6 +13,7 @@ var router_1 = require("@angular/router");
 //entities
 var application_1 = require("../../../../entities/application");
 var contact_1 = require("../../../../entities/contact");
+var feature_1 = require("../../../../entities/feature");
 //functions
 var fn_main_app_1 = require("../../functions/fn-main-app");
 var fn_bu_1 = require("../../functions/fn-bu");
@@ -39,7 +40,7 @@ var AppFormComponent = (function () {
         this.beTech = ["MS Access", "MS SQL"];
     }
     AppFormComponent.prototype.clrApp = function () {
-        this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false);
+        this.selectedApp = new application_1.Application(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, '', '', '', false, '', '', '', false, []);
     };
     AppFormComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -101,6 +102,9 @@ var AppFormComponent = (function () {
             alert("success");
             _this.applicationView();
         });
+    };
+    AppFormComponent.prototype.addFeature = function () {
+        this.selectedApp.WDSB_Features.push(new feature_1.Feature(0, 0, '', '', ''));
     };
     return AppFormComponent;
 }());

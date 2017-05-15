@@ -267,15 +267,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="appFeatures"  >
+                        <div class="tab-pane fade" id="appFeatures">
                             <div class="row">
-                                <a href="#" class="btn btn-default btn-md">New Item <span class="glyphicon glyphicon-plus-sign"></span></a>
+                                <a (click)="addFeature()" class="btn btn-default btn-md">New Item <span class="glyphicon glyphicon-plus-sign"></span></a>
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table table-striped">
-                                        <tr>
+                                        <tr *ngFor="let feat of selectedApp.WDSB_Features">
                                             <td>
                                                 <a href="#" class="accordion-toggle" data-toggle="collapse" data-target="#feature"><span class="glyphicon glyphicon-list-alt"></span> Feature 1</a>
                                                 <div class="collapse in" id="feature">

@@ -9,6 +9,7 @@ import { MaintenanceComponent } from '../../maintenance.component';
 import { Project } from '../../../../entities/project';
 import { BU } from '../../../../entities/bu';
 import { Contact } from '../../../../entities/contact';
+import { Feature } from '../../../../entities/feature';
 //functions
 import { FnMainApp } from '../../functions/fn-main-app';
 import { FnBU } from '../../functions/fn-bu';
@@ -45,7 +46,7 @@ export class AppFormComponent implements OnInit  {
     clrApp(){
         this.selectedApp= new Application(
             0,'',0,'','',0,0,0,false,false,'',
-            null,null,'','','',false,'','','',false
+            null,null,'','','',false,'','','',false,[]
         );
     }
 
@@ -116,5 +117,9 @@ export class AppFormComponent implements OnInit  {
             alert("success");
             this.applicationView();
         });
+    }
+
+    addFeature(){
+        this.selectedApp.WDSB_Features.push(new Feature(0,0,'','',''));
     }
 }

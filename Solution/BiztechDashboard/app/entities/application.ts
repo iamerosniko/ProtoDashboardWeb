@@ -1,3 +1,4 @@
+import {Feature } from './feature';
 export class Application {
     constructor (
         public AppID: number,//primary key
@@ -20,6 +21,7 @@ export class Application {
         public ProjectDevID : string,
         public ProjectModID : string,
         public ProjectOpsID : string,
-        public IsUatAvail : boolean
+        public IsUatAvail : boolean,
+        public WDSB_Features : Feature[]
     ){}
 }
