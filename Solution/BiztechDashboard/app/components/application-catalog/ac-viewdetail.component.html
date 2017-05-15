@@ -58,7 +58,7 @@
                                                     </div> 
                                                     <div class="col-md-6">
                                                         <div class="pull-right">
-                                                            <fieldset class="favorite">
+                                                            <fieldset class="favorite" *ngIf="app.canProd==1">
                                                                 <input [(ngModel)]="app.myFav" (change)="myFav(app)" type="checkbox" id="star" name="rating"/><label for="star" title="Mark as Favorite">1 star</label>
                                                             </fieldset>
                                                         </div>
@@ -144,7 +144,7 @@
                                                         <th class="col-md-4">Back-end Technology</th><td class="col-md-8">{{app.BackTechnology}}<td>
                                                     </tr>
                                                     <tr>
-                                                        <th class="col-md-4">Lifespan</th><td class="col-md-8">{{app.AppLifespan}} years<td>
+                                                        <th class="col-md-4">Lifespan</th><td class="col-md-8">{{app.AppLifespan}} year(s)<td>
                                                     </tr>
                                                     <tr>
                                                         <th class="col-md-4">Status</th><td class="col-md-8">{{getStatus(app.AppIsActive)}}<td>
