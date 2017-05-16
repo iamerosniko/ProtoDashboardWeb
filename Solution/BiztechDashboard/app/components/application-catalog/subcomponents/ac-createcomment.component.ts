@@ -1,8 +1,8 @@
 import { Component,OnInit} from '@angular/core';
 @Component({
   moduleId: module.id,
-  selector: 'ac-creeatecomment',
-  templateUrl:`ac-creeatecomment.component.html`
+  selector: 'ac-createcomment',
+  templateUrl:`ac-createcomment.component.html`
 })
 export class ACCreateCommentComponent  { 
   

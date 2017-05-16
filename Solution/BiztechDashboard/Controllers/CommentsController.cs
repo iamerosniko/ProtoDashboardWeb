@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BiztechDashboard.Models;
+using System.Web;
 
 namespace BiztechDashboard.Controllers
 {
@@ -79,6 +80,9 @@ namespace BiztechDashboard.Controllers
                 return BadRequest(ModelState);
             }
 
+            wDSB_Comments.DatePosted = DateTime.Now;
+            wDSB_Comments.UserName = getMyuserName();
+
             db.WDSB_Comments.Add(wDSB_Comments);
             db.SaveChanges();
 
@@ -99,6 +103,17 @@ namespace BiztechDashboard.Controllers
             db.SaveChanges();
 
             return Ok(wDSB_Comments);
+        }
+
+        private string getMyuserName()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //username only
+            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //Domain Name only
+            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
+            return currentUsername;
         }
 
         protected override void Dispose(bool disposing)

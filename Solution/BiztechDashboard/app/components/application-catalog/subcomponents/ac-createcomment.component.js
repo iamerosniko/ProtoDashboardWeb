@@ -14,8 +14,8 @@ var ACCreateCommentComponent = (function () {
 ACCreateCommentComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'ac-creeatecomment',
-        templateUrl: "ac-creeatecomment.component.html"
+        selector: 'ac-createcomment',
+        templateUrl: "ac-createcomment.component.html"
     })
 ], ACCreateCommentComponent);
 exports.ACCreateCommentComponent = ACCreateCommentComponent;
