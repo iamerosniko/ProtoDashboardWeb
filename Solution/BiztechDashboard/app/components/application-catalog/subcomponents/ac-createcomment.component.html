@@ -9,20 +9,20 @@
             <div class="row">
                 <div class="col-md-12">
                     <label>Subject</label>
-                    <input type="text" class="form-control input-sm" maxlength="50"/>
+                    <input type="text" [(ngModel)]="comment.Subject" class="form-control input-sm" maxlength="50"/>
                 </div>
             </div>
             <br />
             <div class="row">
                 <div class="col-md-12">
                     <label>Content</label>
-                    <textarea class="form-control input-sm" style="height:100px;" maxlength="300"></textarea>
+                    <textarea [(ngModel)]="comment.Comment" class="form-control input-sm" style="height:100px;" maxlength="300"></textarea>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <div class="btn-group">
-                <a href="#" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Submit</a>
+                <a (click)="submitComment()" data-dismiss="modal" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Submit</a>
                 <a href="#" class="btn btn-default btn-md" data-dismiss="modal">Close</a>
             </div>
         </div>
