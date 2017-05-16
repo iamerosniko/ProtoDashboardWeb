@@ -17,12 +17,17 @@ var ngx_bootstrap_2 = require("ngx-bootstrap");
 /*******************Components**********************************/
 var ac_parent_component_1 = require("./ac-parent.component");
 var ac_viewdetail_component_1 = require("./ac-viewdetail.component");
+var ac_reviews_component_1 = require("./ac-reviews.component");
+//views
 var ac_grid_component_1 = require("./views/ac-grid.component");
 var ac_nofav_component_1 = require("./views/ac-nofav.component");
 var ac_noavail_component_1 = require("./views/ac-noavail.component");
 var ac_list_component_1 = require("./views/ac-list.component");
+//subcomponent
 var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
 var ac_feature_component_1 = require("./subcomponents/ac-feature.component");
+var ac_createcomment_component_1 = require("./subcomponents/ac-createcomment.component");
+// import { ACFeatureComponent } from './subcomponents/ac-feature.component';
 /*******************Custom Function Provider**********************************/
 /*******************Services**********************************/
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
@@ -55,7 +60,9 @@ AppCatalogModule = __decorate([
             ac_thumbnail_component_1.ACThumbnailComponent,
             ac_nofav_component_1.ACNoFavComponent,
             ac_noavail_component_1.ACNoAvailComponent,
-            ac_feature_component_1.ACFeatureComponent
+            ac_feature_component_1.ACFeatureComponent,
+            ac_createcomment_component_1.ACCreateCommentComponent,
+            ac_reviews_component_1.ACReviewsComponent,
         ],
         providers: [
             btss_wdsb_service_1.BTSSWDSBService,

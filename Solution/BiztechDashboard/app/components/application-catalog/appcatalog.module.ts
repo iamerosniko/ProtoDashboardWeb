@@ -11,13 +11,17 @@ import { TypeaheadModule } from 'ngx-bootstrap';
 /*******************Components**********************************/
 import { ACComponent } from './ac-parent.component';
 import { ACDetail } from './ac-viewdetail.component';
-
+import { ACReviewsComponent } from './ac-reviews.component';
+//views
 import { ACGridComponent } from './views/ac-grid.component';
 import { ACNoFavComponent } from './views/ac-nofav.component';
 import { ACNoAvailComponent } from './views/ac-noavail.component';
 import { ACListComponent } from './views/ac-list.component';
+//subcomponent
 import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
 import { ACFeatureComponent } from './subcomponents/ac-feature.component';
+import { ACCreateCommentComponent } from './subcomponents/ac-createcomment.component';
+// import { ACFeatureComponent } from './subcomponents/ac-feature.component';
 
 /*******************Custom Function Provider**********************************/
 
@@ -49,8 +53,10 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ACThumbnailComponent,
         ACNoFavComponent,
         ACNoAvailComponent,
-        ACFeatureComponent
-
+        ACFeatureComponent,
+        ACCreateCommentComponent,
+        ACReviewsComponent,
+        
     ],
     providers: [
         BTSSWDSBService,
