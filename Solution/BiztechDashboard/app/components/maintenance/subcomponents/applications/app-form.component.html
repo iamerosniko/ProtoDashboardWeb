@@ -294,10 +294,11 @@
                                                                 <div class="input-group">
                                                                     <input type="text"  [(ngModel)]="feat.ScreenshotPath"  class="form-control input-sm" id="txtFilePath"/>
                                                                     <span class="input-group-btn">
-                                                                        <a href="#" class="btn btn-default btn-sm" id="btnOpenFile">
+                                                                        <a (click)="feat.ScreenshotPath=browseFile('screenshot')" class="btn btn-default btn-sm" id="btnOpenFile">
                                                                             <span class="glyphicon glyphicon-folder-open"></span>
                                                                         </a>
-                                                                        <input type="file" style="display:none" id="screenshot" name="postFile"/>
+                                                                        <input type="file" style="display:none" id="screenshot">
+                                                                        <!--<input type="file" id="fileInput" />-->
                                                                     </span>
                                                                 </div>
                                                             </div>

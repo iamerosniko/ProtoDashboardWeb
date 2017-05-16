@@ -118,6 +118,10 @@ var AppFormComponent = (function () {
     AppFormComponent.prototype.addFeature = function () {
         this.features.push(new feature_1.Feature(0, this.selectedApp.AppID, '', '', ''));
     };
+    AppFormComponent.prototype.browseFile = function (name) {
+        document.getElementById(name).click();
+        return document.getElementById(name).value;
+    };
     return AppFormComponent;
 }());
 AppFormComponent = __decorate([

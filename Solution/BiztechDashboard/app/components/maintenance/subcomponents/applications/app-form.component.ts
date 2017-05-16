@@ -136,4 +136,9 @@ export class AppFormComponent implements OnInit  {
     addFeature(){
         this.features.push(new Feature(0,this.selectedApp.AppID,'','',''));
     }
+    
+    browseFile(name:string):string {
+        document.getElementById(name).click();
+        return (<HTMLInputElement> document.getElementById(name)).value;
+    }
 }
