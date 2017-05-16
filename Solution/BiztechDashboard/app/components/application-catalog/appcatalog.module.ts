@@ -31,6 +31,7 @@ import { TempProjectService } from '../../services/temp-project.service';
 import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
 import { FavoriteService } from '../../services/favorite.service';
+import { CommentService } from '../../services/comment.service';
 
 /*******************Routing**********************************/
 import { AppCatalogRouting } from './appcatalog.routing';
@@ -56,13 +57,14 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ACFeatureComponent,
         ACCreateCommentComponent,
         ACReviewsComponent,
-        
+
     ],
     providers: [
         BTSSWDSBService,
         TempProjectService,
         ApplicationService,
-        FavoriteService
+        FavoriteService,
+        CommentService
     ]
 })
 
