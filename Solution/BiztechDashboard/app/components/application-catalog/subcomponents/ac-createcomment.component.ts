@@ -14,10 +14,11 @@ export class ACCreateCommentComponent  {
   constructor(
     private commentService:CommentService
   ){
-
+    
   }
 
   submitComment(){
+    this.comment.AppID=this.appid;
     this.commentService.postComment(this.comment)
     .then(()=>{
       alert('success');

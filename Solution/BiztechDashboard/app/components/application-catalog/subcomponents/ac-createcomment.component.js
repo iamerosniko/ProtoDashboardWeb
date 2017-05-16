@@ -17,6 +17,7 @@ var ACCreateCommentComponent = (function () {
         this.comment = new comment_1.Comment(0, this.appid, '', '', null, '');
     }
     ACCreateCommentComponent.prototype.submitComment = function () {
+        this.comment.AppID = this.appid;
         this.commentService.postComment(this.comment)
             .then(function () {
             alert('success');
