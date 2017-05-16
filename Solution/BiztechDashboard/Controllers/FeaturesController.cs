@@ -32,7 +32,22 @@ namespace BiztechDashboard.Controllers
             {
                 return Ok(new List<WDSB_Features>());
             }
-            return Ok(wDSB_Features);
+            else
+            {
+                List<WDSB_Features_DTO> feat = new List<WDSB_Features_DTO>();
+                foreach (var f in wDSB_Features)
+                {
+                    feat.Add(new WDSB_Features_DTO
+                    {
+                        AppID = f.AppID,
+                        Description = f.Description,
+                        FeatFunction = f.FeatFunction,
+                        FeatureID = f.FeatureID,
+                        ScreenshotPath = f.ScreenshotPath
+                    });
+                }
+                return Ok(feat);
+            }
         }
 
         // PUT: api/Features/5

@@ -1,0 +1,125 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><span class="glyphicon glyphicon-comment"></span>&nbsp;Reviews</h4>
+        <p>View latest comments, feedbacks and suggestion from our users.</p>
+    </div>
+    <div class="panel-body">
+        <!--Star Rating, for future development-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bs-callout bs-callout-success">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="tab1">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset class="rating">
+                                                <input type="radio" id="star5" name="rating" value="5" checked="checked" disabled/><label for="star5" title="Rocks!">5 stars</label>
+                                                <input type="radio" id="star4" name="rating" value="4" disabled/><label for="star4" title="Pretty good">4 stars</label>
+                                                <input type="radio" id="star3" name="rating" value="3" disabled/><label for="star3" title="Meh">3 stars</label>
+                                                <input type="radio" id="star2" name="rating" value="2" disabled/><label for="star2" title="Kinda bad">2 stars</label>
+                                                <input type="radio" id="star1" name="rating" value="1" disabled/><label for="star1" title="Sucks big time">1 star</label>
+                                            </fieldset>    
+                                            &nbsp; Wow, this app got perfect score from our users!
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-success btn-md pull-right" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Rate this app &raquo;</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <fieldset class="rating">
+                                                <input type="radio" id="rate5" name="rate" value="5" /><label for="rate5" title="Rocks!">5 stars</label>
+                                                <input type="radio" id="rate4" name="rate" value="4" /><label for="rate4" title="Pretty good">4 stars</label>
+                                                <input type="radio" id="rate3" name="rate" value="3" /><label for="rate3" title="Meh">3 stars</label>
+                                                <input type="radio" id="rate2" name="rate" value="2" /><label for="rate2" title="Kinda bad">2 stars</label>
+                                                <input type="radio" id="rate1" name="rate" value="1" /><label for="rate1" title="Sucks big time">1 star</label>
+                                            </fieldset>    
+                                            &nbsp; How much would you rate this app?
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a class="btn btn-default btn-md pull-right" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">&laquo; Go back</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#modalWriteComment">Write your review&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
+                <div id="modalWriteComment" class="modal fade" role="dialog">
+                    <ac-createcomment></ac-createcomment>
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--Review section-->
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="panel-group">
+                        <div class="row"><div class="col-md-7">
+                            <div class="bs-callout bs-callout-primary">
+                                <h4>Amazing!!!</h4>
+                                <blockquote>
+                                    <p>
+                                        "This application is really awesome..."
+                                    </p>
+                                    <small>
+                                        Peter Mead, March 1, 2017 11:00 P.M.
+                                    </small>
+                                </blockquote>
+                            </div>
+                        </div></div><br />
+                        <div class="row"><div class="col-md-7 pull-right">
+                            <div class="bs-callout bs-callout-default">
+                                    <h4>Nice</h4>
+                                    <blockquote>
+                                        <p>
+                                            "I love it..."
+                                        </p>
+                                        <small>
+                                            Amy Miscavitch, February 1, 2017 10:00 P.M.
+                                        </small>
+                                    </blockquote>
+                            </div>
+                        </div></div><br />
+                        <div class="row"><div class="col-md-7">
+                            <div class="bs-callout bs-callout-primary">
+                                <h4>Very nice UI</h4>
+                                <blockquote>
+                                    <p>
+                                        "Very user-friendly"
+                                    </p>
+                                    <small>
+                                        Peter Mead, January 10, 2017 9:00 P.M.
+                                    </small>
+                                </blockquote>
+                            </div>
+                        </div></div>
+                    </div>
+                </div>
+        </div>
+        <!--Pagination-->
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                        <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

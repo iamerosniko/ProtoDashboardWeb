@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes } from '@angular/router';
-
+import { CarouselModule } from 'ngx-bootstrap';
 /********Pgination************************************** */
 import { NgxPaginationModule } from 'ngx-pagination';
 //typeahead
@@ -17,6 +17,7 @@ import { ACNoFavComponent } from './views/ac-nofav.component';
 import { ACNoAvailComponent } from './views/ac-noavail.component';
 import { ACListComponent } from './views/ac-list.component';
 import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
+import { ACFeatureComponent } from './subcomponents/ac-feature.component';
 
 /*******************Custom Function Provider**********************************/
 
@@ -31,12 +32,14 @@ import { FavoriteService } from '../../services/favorite.service';
 import { AppCatalogRouting } from './appcatalog.routing';
 @NgModule({
     imports: [
+        CarouselModule.forRoot(),
+        TypeaheadModule.forRoot(),
         CommonModule,
         FormsModule,
         HttpModule,
         NgxPaginationModule,
-        TypeaheadModule.forRoot(),
         AppCatalogRouting,
+        
     ],
     declarations: [
         ACComponent,
@@ -45,7 +48,9 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ACGridComponent,
         ACThumbnailComponent,
         ACNoFavComponent,
-        ACNoAvailComponent
+        ACNoAvailComponent,
+        ACFeatureComponent
+
     ],
     providers: [
         BTSSWDSBService,

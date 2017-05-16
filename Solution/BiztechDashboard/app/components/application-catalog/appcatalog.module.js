@@ -9,10 +9,11 @@ var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 /********Pgination************************************** */
 var ngx_pagination_1 = require("ngx-pagination");
 //typeahead
-var ngx_bootstrap_1 = require("ngx-bootstrap");
+var ngx_bootstrap_2 = require("ngx-bootstrap");
 /*******************Components**********************************/
 var ac_parent_component_1 = require("./ac-parent.component");
 var ac_viewdetail_component_1 = require("./ac-viewdetail.component");
@@ -21,6 +22,7 @@ var ac_nofav_component_1 = require("./views/ac-nofav.component");
 var ac_noavail_component_1 = require("./views/ac-noavail.component");
 var ac_list_component_1 = require("./views/ac-list.component");
 var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
+var ac_feature_component_1 = require("./subcomponents/ac-feature.component");
 /*******************Custom Function Provider**********************************/
 /*******************Services**********************************/
 var btss_wdsb_service_1 = require("../../services/btss-wdsb.service");
@@ -37,11 +39,12 @@ var AppCatalogModule = (function () {
 AppCatalogModule = __decorate([
     core_1.NgModule({
         imports: [
+            ngx_bootstrap_1.CarouselModule.forRoot(),
+            ngx_bootstrap_2.TypeaheadModule.forRoot(),
             common_1.CommonModule,
             forms_1.FormsModule,
             http_1.HttpModule,
             ngx_pagination_1.NgxPaginationModule,
-            ngx_bootstrap_1.TypeaheadModule.forRoot(),
             appcatalog_routing_1.AppCatalogRouting,
         ],
         declarations: [
@@ -51,7 +54,8 @@ AppCatalogModule = __decorate([
             ac_grid_component_1.ACGridComponent,
             ac_thumbnail_component_1.ACThumbnailComponent,
             ac_nofav_component_1.ACNoFavComponent,
-            ac_noavail_component_1.ACNoAvailComponent
+            ac_noavail_component_1.ACNoAvailComponent,
+            ac_feature_component_1.ACFeatureComponent
         ],
         providers: [
             btss_wdsb_service_1.BTSSWDSBService,

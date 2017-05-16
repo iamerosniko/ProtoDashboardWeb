@@ -1,0 +1,54 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Features</h4>
+        <p>What this app can do?</p>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bs-callout bs-callout-info">
+                  
+                    
+                    <carousel [interval]="2000" [noWrap]="false" [(activeSlide)]="activeSlideIndex">
+                        <slide *ngFor="let slide of slides">
+                            <img [src]="sanitize(slide.image)">
+                            
+                            <div [hidden]="slides.length == 1" class="carousel-caption" style="background-color:grey">            
+                                {{activeSlideIndex+1}} of {{slides.length}}
+                            </div>
+                        </slide>
+                    </carousel>  
+
+                </div>
+                <div id="modalFeatureView" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4>Feature</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Function</label>
+                                        <p>Some text here...</p>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Description</label>
+                                        <p>Some text here...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn btn-default btn-md" data-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
