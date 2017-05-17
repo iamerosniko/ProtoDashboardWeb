@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Feature = (function () {
     function Feature(FeatureID, AppID, Description, FeatFunction, ScreenshotPath) {
         this.FeatureID = FeatureID;

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Application = (function () {
     function Application(AppID, //primary key
         AppName, //foreign key

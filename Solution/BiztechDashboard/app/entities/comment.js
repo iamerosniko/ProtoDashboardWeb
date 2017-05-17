@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Comment = (function () {
     function Comment(CommentID, AppID, Comment, UserName, DatePosted, Subject) {
         this.CommentID = CommentID;

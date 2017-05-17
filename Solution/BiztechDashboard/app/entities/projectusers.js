@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ProjectUsers = (function () {
     function ProjectUsers(ProjectID, ProjectName, ProjectDatasource, ProjectDb, ProjectUserID, ProjectPassword, ProjectIsActive, ProjectSyncStatus) {
         this.ProjectID = ProjectID;

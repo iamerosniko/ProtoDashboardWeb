@@ -1,4 +1,4 @@
-import { Component,OnInit,Input } from '@angular/core';
+import { Component,OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { Comment } from '../../../entities/comment';
 import { CommentService } from '../../../services/comment.service';
 
@@ -9,6 +9,8 @@ import { CommentService } from '../../../services/comment.service';
 })
 export class ACCreateCommentComponent  { 
   @Input() appid:number;
+  @Output() refreshComment = new EventEmitter();
+
   comment=new Comment(0,this.appid,'','',new Date(),'');
 
   constructor(
@@ -22,7 +24,8 @@ export class ACCreateCommentComponent  {
     this.commentService.postComment(this.comment)
     .then(()=>{
       alert('success');
-      //refresh comment from parent
+      this.refreshComment.emit();
+      this.closeComment();
     })
   }
 

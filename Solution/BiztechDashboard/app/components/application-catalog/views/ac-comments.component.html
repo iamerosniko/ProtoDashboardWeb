@@ -1,21 +1,20 @@
-<div class="row">  
-    <div class="panel-group" *ngFor="let comment of comments | paginate: config">
-        <div class="row">
-            <div class="col-md-7">
-                <div class="bs-callout bs-callout-primary">
-                    <h4>{{comment.Subject}}</h4>
-                    <blockquote>
-                        <p>
-                            {{comment.Comment}}
-                        </p>
-                        <small>
-                            {{comment.UserName}}, {{comment.DatePosted | date:'medium'}}
-                            <!--Peter Mead, March 1, 2017 11:00 P.M.-->
-                        </small>
-                    </blockquote>
-                </div>
-            </div>
+
+<div class="row">
+    <div [ngClass]="thisIndex%2==0?'col-md-7':'col-md-7 pull-right'">
+        <div [ngClass]="thisIndex%2==0?'bs-callout bs-callout-primary':'bs-callout bs-callout-default'">
+            <h4>{{thiscomment.Subject}}</h4>
+            <blockquote>
+                <p>
+                    {{thiscomment.Comment}}
+                </p>
+                <small>
+                    {{thiscomment.UserName}}, {{thiscomment.DatePosted | date:'medium'}}
+                    <!--Peter Mead, March 1, 2017 11:00 P.M.-->
+                </small>
+            </blockquote>
         </div>
+    </div>
+</div>
 
 
         <!--<div class="row">
@@ -68,19 +67,3 @@
                 </div>
             </div>
         </div>-->
-        
-    </div>
-</div>
-       
-    
-<!--Pagination-->
-<div class="row">
-    <div class="col-md-12">
-        <nav aria-label="...">
-            <ul class="pager">
-                <li class="previous"><a (click)="gotoPage(-1)"><span aria-hidden="true">&larr;</span> Newer</a></li>
-                <li class="next"><a (click)="gotoPage(1)">Older <span aria-hidden="true">&rarr;</span></a></li>
-            </ul>
-        </nav>
-    </div>
-</div><div class="col-md-12">

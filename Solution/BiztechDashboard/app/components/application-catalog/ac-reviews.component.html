@@ -59,12 +59,29 @@
             <div class="col-md-12">
                 <a href="#" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#modalWriteComment">Write your review&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
                 <div id="modalWriteComment" class="modal fade" role="dialog">
-                    <ac-createcomment [appid]="appID"></ac-createcomment>
+                    <ac-createcomment [appid]="appID" (refreshComment)="refreshMe()"></ac-createcomment>
                 </div>
             </div>
         </div>
         <br />
         <!--Review section-->
-        <ac-comments [comments]="comments"></ac-comments> 
+        <div class="row">  
+            <div class="panel-group" *ngFor="let mycomment of comments | paginate: config; let i = index; ">  
+                <ac-comments [thiscomment]="mycomment" [thisIndex]="i"></ac-comments>      
+            </div>
+        </div>
+            
+            
+        <!--Pagination-->
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li class="previous"><a (click)="gotoPage(-1)"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                        <li class="next"><a (click)="gotoPage(1)">Older <span aria-hidden="true">&rarr;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
 </div>

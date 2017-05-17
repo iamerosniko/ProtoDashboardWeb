@@ -8,20 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var comment_1 = require("../../../entities/comment");
 var comment_service_1 = require("../../../services/comment.service");
 var ACCreateCommentComponent = (function () {
     function ACCreateCommentComponent(commentService) {
         this.commentService = commentService;
+        this.refreshComment = new core_1.EventEmitter();
         this.comment = new comment_1.Comment(0, this.appid, '', '', new Date(), '');
     }
     ACCreateCommentComponent.prototype.submitComment = function () {
+        var _this = this;
         this.comment.AppID = this.appid;
         this.commentService.postComment(this.comment)
             .then(function () {
             alert('success');
-            //refresh comment from parent
+            _this.refreshComment.emit();
+            _this.closeComment();
         });
     };
     ACCreateCommentComponent.prototype.closeComment = function () {
@@ -33,6 +37,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", Number)
 ], ACCreateCommentComponent.prototype, "appid", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], ACCreateCommentComponent.prototype, "refreshComment", void 0);
 ACCreateCommentComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

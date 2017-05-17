@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var AppUsers = (function () {
     function AppUsers(AppUserID, //foreign key
         UserName, AppID) {

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Favorite = (function () {
     function Favorite(FavID, AppID, UserName, IsActive) {
         this.FavID = FavID;
