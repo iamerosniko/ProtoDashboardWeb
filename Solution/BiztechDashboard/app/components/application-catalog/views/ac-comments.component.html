@@ -1,20 +1,42 @@
-<div class="col-md-12">
-    <div class="panel-group">
-        <div class="row"><div class="col-md-7">
-            <div class="bs-callout bs-callout-primary">
-                <h4>Amazing!!!</h4>
-                <blockquote>
-                    <p>
-                        "This application is really awesome..."
-                    </p>
-                    <small>
-                        Peter Mead, March 1, 2017 11:00 P.M.
-                    </small>
-                </blockquote>
+<div class="row">  
+    <div class="panel-group" *ngFor="let comment of comments | paginate: config">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="bs-callout bs-callout-primary">
+                    <h4>Amazing!!!</h4>
+                    <blockquote>
+                        <p>
+                            "This application is really awesome..."
+                        </p>
+                        <small>
+                            Peter Mead, March 1, 2017 11:00 P.M.
+                        </small>
+                    </blockquote>
+                </div>
             </div>
-        </div></div><br />
-        <div class="row"><div class="col-md-7 pull-right">
-            <div class="bs-callout bs-callout-default">
+        </div>
+
+
+        <!--<div class="row">
+            <div class="col-md-7">
+                <div class="bs-callout bs-callout-primary">
+                    <h4>Amazing!!!</h4>
+                    <blockquote>
+                        <p>
+                            "This application is really awesome..."
+                        </p>
+                        <small>
+                            Peter Mead, March 1, 2017 11:00 P.M.
+                        </small>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-7 pull-right">
+                <div class="bs-callout bs-callout-default">
                     <h4>Nice</h4>
                     <blockquote>
                         <p>
@@ -24,20 +46,40 @@
                             Amy Miscavitch, February 1, 2017 10:00 P.M.
                         </small>
                     </blockquote>
+                </div>
             </div>
-        </div></div><br />
-        <div class="row"><div class="col-md-7">
-            <div class="bs-callout bs-callout-primary">
-                <h4>Very nice UI</h4>
-                <blockquote>
-                    <p>
-                        "Very user-friendly"
-                    </p>
-                    <small>
-                        Peter Mead, January 10, 2017 9:00 P.M.
-                    </small>
-                </blockquote>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-7">
+                <div class="bs-callout bs-callout-primary">
+                    <h4>Very nice UI</h4>
+                    <blockquote>
+                        <p>
+                            "Very user-friendly"
+                        </p>
+                        <small>
+                            Peter Mead, January 10, 2017 9:00 P.M.
+                        </small>
+                    </blockquote>
+                </div>
             </div>
-        </div></div>
+        </div>-->
+        
     </div>
 </div>
+       
+    
+<!--Pagination-->
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="...">
+            <ul class="pager">
+                <li class="previous"><a (click)="gotoPage(-1)"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                <li class="next"><a (click)="gotoPage(1)">Older <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div><div class="col-md-12">

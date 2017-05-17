@@ -9,9 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var comment_service_1 = require("../../services/comment.service");
 var ACReviewsComponent = (function () {
-    function ACReviewsComponent() {
+    function ACReviewsComponent(commentService) {
+        this.commentService = commentService;
+        this.comments = [];
+        this.getComments();
     }
+    ACReviewsComponent.prototype.getComments = function () {
+        var _this = this;
+        this.commentService.getComment(this.appID)
+            .then(function (comments) { return _this.comments = comments; });
+    };
     return ACReviewsComponent;
 }());
 __decorate([
@@ -23,6 +32,7 @@ ACReviewsComponent = __decorate([
         moduleId: module.id,
         selector: 'ac-reviews',
         templateUrl: "ac-reviews.component.html"
-    })
+    }),
+    __metadata("design:paramtypes", [comment_service_1.CommentService])
 ], ACReviewsComponent);
 exports.ACReviewsComponent = ACReviewsComponent;
