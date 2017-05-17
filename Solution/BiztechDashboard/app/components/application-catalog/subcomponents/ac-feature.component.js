@@ -19,6 +19,11 @@ var ACFeatureComponent = (function () {
         this.fnMainApp = fnMainApp;
         this.router = router;
         this.sanitizer = sanitizer;
+        this.selectedSlide = {
+            image: '',
+            FeatFunction: '',
+            Description: ''
+        };
         this.slides = [];
         this.myInterval = 4500;
         this.getselectedID();
@@ -48,6 +53,9 @@ var ACFeatureComponent = (function () {
                 });
             }
         });
+    };
+    ACFeatureComponent.prototype.seeMore = function (selSlide) {
+        this.selectedSlide = selSlide;
     };
     return ACFeatureComponent;
 }());

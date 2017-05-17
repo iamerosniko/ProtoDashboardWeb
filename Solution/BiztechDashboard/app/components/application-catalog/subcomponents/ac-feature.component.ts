@@ -18,6 +18,11 @@ export class ACFeatureComponent implements OnInit {
         this.getselectedID(); 
     }
     selectedID:number;
+    selectedSlide:any={
+                        image: '',
+                        FeatFunction :'',
+                        Description : ''
+                    };
     slides:any=[];
     public myInterval: number = 4500;
     public activeSlideIndex: number;
@@ -47,5 +52,9 @@ export class ACFeatureComponent implements OnInit {
                 }
                 
             });
+    }
+
+    seeMore(selSlide:any){
+        this.selectedSlide=selSlide;
     }
 }

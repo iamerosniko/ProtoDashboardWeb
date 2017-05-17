@@ -9,12 +9,12 @@
                 <div class="bs-callout bs-callout-info">
                   
                     
-                    <carousel [interval]="2000" [noWrap]="false" [(activeSlide)]="activeSlideIndex">
+                    <carousel [interval]="10000" [noWrap]="false" [(activeSlide)]="activeSlideIndex">
                         <slide *ngFor="let slide of slides">
                             <img [src]="sanitize(slide.image)">
-                            
-                            <div [hidden]="slides.length == 1" class="carousel-caption" style="background-color:grey">            
-                                {{activeSlideIndex+1}} of {{slides.length}}
+                            <div class="carousel-caption">
+                                <p>{{slide.FeatFunction}}</p>
+                                <a data-toggle="modal" data-target="#modalFeatureView" (click)="seeMore(slide)">See More</a>
                             </div>
                         </slide>
                     </carousel>  
@@ -31,14 +31,14 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>Function</label>
-                                        <p>Some text here...</p>
+                                        <p>{{selectedSlide.FeatFunction}}</p>
                                     </div>
                                 </div>
                                 <br />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>Description</label>
-                                        <p>Some text here...</p>
+                                        <p>{{selectedSlide.Description}}</p>
                                     </div>
                                 </div>
                             </div>
