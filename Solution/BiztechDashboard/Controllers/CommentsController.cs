@@ -27,7 +27,20 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(WDSB_Comments))]
         public IHttpActionResult GetWDSB_Comments(int id)
         {
-            var comments = db.WDSB_Comments.Where(x => x.AppID == id).OrderByDescending(x => x.DatePosted);
+            var tempComments = db.WDSB_Comments.Where(x => x.AppID == id).OrderByDescending(x => x.DatePosted);
+            List<WDSB_Comments_DTO> comments = new List<WDSB_Comments_DTO>();
+            foreach (var a in tempComments)
+            {
+                comments.Add(new WDSB_Comments_DTO
+                {
+                    AppID = a.AppID,
+                    Comment = a.Comment,
+                    CommentID = a.CommentID,
+                    DatePosted = a.DatePosted,
+                    Subject = a.Subject,
+                    UserName = a.UserName
+                });
+            }
             //WDSB_Comments wDSB_Comments = db.WDSB_Comments.Find(id);
             //if (wDSB_Comments == null)
             //{
