@@ -1,3 +1,38 @@
+<hr />
+<div class="row">
+    <div class="col-md-12"><!--Added-->
+        <div class="col-md-6">
+            <div class="searchbox">
+                <input type="text" class="form-control input-sm" placeholder="Search for apps..."/>
+                <span class = "glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
+                <div class="btn-group">
+                    <a href="#" class="btn btn-default btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options&nbsp;<span class="glyphicon glyphicon-chevron-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><span class="glyphicon glyphicon-export"></span>&nbsp;Export App List</a></li>
+                        <li><a (click)="changeMyView(1)"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List View</a></li>
+                        <li><a (click)="changeMyView(0)"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid View</a></li>
+                        <li><a routerLink="/Maintenance"><span class="glyphicon glyphicon-wrench"></span>&nbsp;Maintenance</a></li>
+                        <!--<li role="separator" class="divider"></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!--Added-->
+</div>
+<br />
+<div class="row" hidden>
+    <div class=col-md-12>
+        <label>Availability Indicators</label>
+        <div class="btn btn-circle btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span></div> Available&nbsp;|&nbsp;
+        <div class="btn btn-circle btn-warning btn-xs"><span class="glyphicon glyphicon-alert"></span></div> Scheduled Maintenance&nbsp;|&nbsp;
+        <div class="btn btn-circle btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></div> Unavailable (System Downtime/Ongoing Maintenance)
+    </div>
+</div>
+<br />
 <div class="container">
     <div class="row">
        

@@ -5,6 +5,7 @@ import { FnMainApp } from '../../maintenance/functions/fn-main-app';
 import { Favorite } from '../../../entities/favorite';
 import { FavoriteService } from '../../../services/favorite.service';
 import { Router } from '@angular/router';
+import { ACComponent } from '../ac-parent.component';
 @Component({
   moduleId: module.id,
   selector: 'ac-list',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ACListComponent  { 
   @Input() apps:AppForClient[]=[];
+  @Input() thisParent:ACComponent;
   @Output() refreshFav = new EventEmitter();
    constructor(
     private router: Router,
@@ -27,5 +29,9 @@ export class ACListComponent  {
   
   gotoDetail(app:AppForClient){
       this.router.navigate(['/Applications', app.AppID]);
+  }
+  
+  changeMyView(val:number){
+    this.thisParent.viewtype=val;
   }
 }

@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var ac_parent_component_1 = require("../ac-parent.component");
 var ACGridComponent = (function () {
     function ACGridComponent() {
         this.listApps = [];
@@ -18,12 +19,19 @@ var ACGridComponent = (function () {
     ACGridComponent.prototype.refresh = function () {
         this.refreshFav.emit();
     };
+    ACGridComponent.prototype.changeMyView = function (val) {
+        this.thisParent.viewtype = val;
+    };
     return ACGridComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Array)
 ], ACGridComponent.prototype, "listApps", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", ac_parent_component_1.ACComponent)
+], ACGridComponent.prototype, "thisParent", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)

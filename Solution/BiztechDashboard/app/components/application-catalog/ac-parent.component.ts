@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { AppForClient } from '../../entities/appforclient';
 import { FnMainApp } from '../maintenance/functions/fn-main-app';
+import { PaginationInstance } from 'ngx-pagination';
 @Component({
   moduleId: module.id,
   selector: 'my-app',

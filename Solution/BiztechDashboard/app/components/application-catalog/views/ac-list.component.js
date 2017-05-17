@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var favorite_1 = require("../../../entities/favorite");
 var favorite_service_1 = require("../../../services/favorite.service");
 var router_1 = require("@angular/router");
+var ac_parent_component_1 = require("../ac-parent.component");
 var ACListComponent = (function () {
     function ACListComponent(router, favService) {
         this.router = router;
@@ -31,12 +32,19 @@ var ACListComponent = (function () {
     ACListComponent.prototype.gotoDetail = function (app) {
         this.router.navigate(['/Applications', app.AppID]);
     };
+    ACListComponent.prototype.changeMyView = function (val) {
+        this.thisParent.viewtype = val;
+    };
     return ACListComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Array)
 ], ACListComponent.prototype, "apps", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", ac_parent_component_1.ACComponent)
+], ACListComponent.prototype, "thisParent", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
