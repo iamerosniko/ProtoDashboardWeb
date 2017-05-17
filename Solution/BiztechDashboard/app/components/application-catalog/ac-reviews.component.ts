@@ -25,5 +25,16 @@ export class ACReviewsComponent implements OnInit {
   ngOnInit(){
     this.refreshMe();
   }
-
+  goToPage(pg:number){
+    this.config.currentPage=this.config.currentPage+pg;
+  }
+  getLastPage():number{
+    var lastpage = 1;
+    var len = this.comments.length;
+    while(len-3>0){
+      lastpage+=1;
+      len-=3;
+    }
+    return lastpage;
+  }
 }

@@ -77,8 +77,8 @@
             <div class="col-md-12">
                 <nav aria-label="...">
                     <ul class="pager">
-                        <li class="previous"><a (click)="gotoPage(-1)"><span aria-hidden="true">&larr;</span> Newer</a></li>
-                        <li class="next"><a (click)="gotoPage(1)">Older <span aria-hidden="true">&rarr;</span></a></li>
+                        <li class="previous"><a *ngIf="config.currentPage>1" (click)="goToPage(-1)"><span aria-hidden="true">&larr;</span> Newer</a></li>
+                        <li class="next"><a *ngIf="config.currentPage<getLastPage()" (click)="goToPage(1)">Older <span aria-hidden="true">&rarr;</span></a></li>
                     </ul>
                 </nav>
             </div>

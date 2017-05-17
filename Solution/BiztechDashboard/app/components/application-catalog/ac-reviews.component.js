@@ -29,6 +29,18 @@ var ACReviewsComponent = (function () {
     ACReviewsComponent.prototype.ngOnInit = function () {
         this.refreshMe();
     };
+    ACReviewsComponent.prototype.goToPage = function (pg) {
+        this.config.currentPage = this.config.currentPage + pg;
+    };
+    ACReviewsComponent.prototype.getLastPage = function () {
+        var lastpage = 1;
+        var len = this.comments.length;
+        while (len - 3 > 0) {
+            lastpage += 1;
+            len -= 3;
+        }
+        return lastpage;
+    };
     return ACReviewsComponent;
 }());
 __decorate([
