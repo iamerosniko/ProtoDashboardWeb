@@ -14,18 +14,22 @@ var favorite_1 = require("../../entities/favorite");
 var router_1 = require("@angular/router");
 var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var appforclient_1 = require("../../entities/appforclient");
+var comment_service_1 = require("../../services/comment.service");
 var ACDetail = (function () {
-    function ACDetail(route, fnMainApp, router, favService) {
+    function ACDetail(route, fnMainApp, router, commentService, favService) {
         this.route = route;
         this.fnMainApp = fnMainApp;
         this.router = router;
+        this.commentService = commentService;
         this.favService = favService;
         this.selectedID = 0;
+        this.comments = [];
         this.app = new appforclient_1.AppForClient(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null);
     }
     ACDetail.prototype.ngOnInit = function () {
         this.getselectedID();
         this.getDetail();
+        this.getComments();
     };
     ACDetail.prototype.getselectedID = function () {
         var _this = this;
@@ -51,6 +55,11 @@ var ACDetail = (function () {
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
         this.favService.postFavorite(fav);
     };
+    ACDetail.prototype.getComments = function () {
+        var _this = this;
+        this.commentService.getComment(this.selectedID)
+            .then(function (comments) { return _this.comments = comments; });
+    };
     return ACDetail;
 }());
 ACDetail = __decorate([
@@ -62,6 +71,7 @@ ACDetail = __decorate([
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         fn_main_app_1.FnMainApp,
         router_1.Router,
+        comment_service_1.CommentService,
         favorite_service_1.FavoriteService])
 ], ACDetail);
 exports.ACDetail = ACDetail;

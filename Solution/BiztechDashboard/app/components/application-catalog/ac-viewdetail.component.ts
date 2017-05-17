@@ -4,6 +4,8 @@ import { Favorite } from '../../entities/favorite';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FnMainApp } from '../maintenance/functions/fn-main-app';
 import { AppForClient } from '../../entities/appforclient';
+import { CommentService } from '../../services/comment.service';
+import { Comment } from '../../entities/comment';
 @Component({
   moduleId: module.id,
   selector: 'ac-viewdetail',
@@ -11,6 +13,7 @@ import { AppForClient } from '../../entities/appforclient';
 })
 export class ACDetail implements OnInit { 
   selectedID:number=0;
+  comments:Comment[]=[];
   app:AppForClient=new AppForClient(0,'',0,'','',0,0,0,false,
     false,'',null,null,null,null,null,null,null,null,null,null,null,
     null,null,null,0,0,null);
@@ -18,12 +21,13 @@ export class ACDetail implements OnInit {
     private route: ActivatedRoute,
     private fnMainApp : FnMainApp,
     private router: Router,
-
+    private commentService:CommentService,
     private favService:FavoriteService
   ){ }
   ngOnInit(){
     this.getselectedID();
     this.getDetail();
+    this.getComments();
   }
   getselectedID(){
     this.route.params.subscribe(params => {
@@ -46,5 +50,8 @@ export class ACDetail implements OnInit {
     var fav:Favorite = new Favorite(0,app.AppID,'',app.myFav);
     this.favService.postFavorite(fav);
   }
-
+  getComments(){
+    this.commentService.getComment(this.selectedID)
+      .then(comments=>this.comments=comments);
+  }
 }
