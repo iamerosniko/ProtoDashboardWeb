@@ -27,13 +27,15 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(WDSB_Comments))]
         public IHttpActionResult GetWDSB_Comments(int id)
         {
-            WDSB_Comments wDSB_Comments = db.WDSB_Comments.Find(id);
-            if (wDSB_Comments == null)
-            {
-                return NotFound();
-            }
+            var comments = db.WDSB_Comments.Where(x => x.AppID == id).OrderByDescending(x => x.DatePosted);
+            //WDSB_Comments wDSB_Comments = db.WDSB_Comments.Find(id);
+            //if (wDSB_Comments == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return Ok(wDSB_Comments);
+            //return Ok(wDSB_Comments);
+            return Ok(comments);
         }
 
         // PUT: api/Comments/5
