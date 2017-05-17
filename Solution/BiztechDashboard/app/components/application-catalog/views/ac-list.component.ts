@@ -6,6 +6,7 @@ import { Favorite } from '../../../entities/favorite';
 import { FavoriteService } from '../../../services/favorite.service';
 import { Router } from '@angular/router';
 import { ACComponent } from '../ac-parent.component';
+import { PaginationInstance } from 'ngx-pagination';
 @Component({
   moduleId: module.id,
   selector: 'ac-list',
@@ -19,6 +20,17 @@ export class ACListComponent  {
     private router: Router,
     private favService:FavoriteService
   ){}
+  public config: PaginationInstance = {
+        id: 'advanced',
+        itemsPerPage: 10,
+        currentPage: 1
+  };
+  public filter: string = '';
+  //pagination
+  onPageChange(number: number) {
+        console.log('change to page', number);
+        this.config.currentPage = number;
+    }
   run(app:AppForClient){
     window.open(app.OpsFront);
   }

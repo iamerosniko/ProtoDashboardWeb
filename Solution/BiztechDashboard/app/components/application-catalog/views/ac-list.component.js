@@ -20,7 +20,18 @@ var ACListComponent = (function () {
         this.favService = favService;
         this.apps = [];
         this.refreshFav = new core_1.EventEmitter();
+        this.config = {
+            id: 'advanced',
+            itemsPerPage: 10,
+            currentPage: 1
+        };
+        this.filter = '';
     }
+    //pagination
+    ACListComponent.prototype.onPageChange = function (number) {
+        console.log('change to page', number);
+        this.config.currentPage = number;
+    };
     ACListComponent.prototype.run = function (app) {
         window.open(app.OpsFront);
     };

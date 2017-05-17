@@ -16,7 +16,7 @@ ACNoAvailComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'ac-noavail',
-        template: "\n    <div class=\"jumbotron\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <img src=\"images/About-96.png\">\n            </div>\n            <div class=\"col-md-10\">\n                <h2>There are no available apps for you.</h2>\n                <p><small>If you think there is an issue retrieving your apps, please contact Site Administrator. Thank you.</small></p>\n            </div>\n        </div>\n    </div>\n  "
+        template: "\n    <hr />\n    <br />\n    <div class=\"jumbotron\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <img src=\"images/About-96.png\">\n            </div>\n            <div class=\"col-md-10\">\n                <h2>There are no available apps for you.</h2>\n                <p><small>If you think there is an issue retrieving your apps, please contact Site Administrator. Thank you.</small></p>\n            </div>\n        </div>\n    </div>\n  "
     })
 ], ACNoAvailComponent);
 exports.ACNoAvailComponent = ACNoAvailComponent;

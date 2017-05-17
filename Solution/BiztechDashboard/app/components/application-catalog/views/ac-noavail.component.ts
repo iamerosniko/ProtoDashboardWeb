@@ -6,6 +6,8 @@ import { FnMainApp } from '../../maintenance/functions/fn-main-app';
   moduleId: module.id,
   selector: 'ac-noavail',
   template: `
+    <hr />
+    <br />
     <div class="jumbotron">
         <div class="row">
             <div class="col-md-2">

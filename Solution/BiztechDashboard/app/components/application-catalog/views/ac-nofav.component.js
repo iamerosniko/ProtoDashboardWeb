@@ -16,7 +16,7 @@ ACNoFavComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'ac-nofav',
-        template: "\n    <div class=\"jumbotron\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <img src=\"images/About-96.png\">\n            </div>\n            <div class=\"col-md-10\">\n                <h2>You haven't marked any app to your favorites list.</h2>\n                <p><small>You can add your apps to your favorites, just go to the Available Apps tab then click the star button.</small></p>\n            </div>\n        </div>\n    </div>\n  "
+        template: "\n    <hr />\n    <br />\n    <div class=\"jumbotron\">\n        <div class=\"row\">\n            <div class=\"col-md-2\">\n                <img src=\"images/About-96.png\">\n            </div>\n            <div class=\"col-md-10\">\n                <h2>You haven't marked any app to your favorites list.</h2>\n                <p><small>You can add your apps to your favorites, just go to the Available Apps tab then click the star button.</small></p>\n            </div>\n        </div>\n    </div>\n  "
     })
 ], ACNoFavComponent);
 exports.ACNoFavComponent = ACNoFavComponent;
