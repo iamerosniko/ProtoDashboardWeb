@@ -14,7 +14,7 @@ var comment_service_1 = require("../../../services/comment.service");
 var ACCreateCommentComponent = (function () {
     function ACCreateCommentComponent(commentService) {
         this.commentService = commentService;
-        this.comment = new comment_1.Comment(0, this.appid, '', '', null, '');
+        this.comment = new comment_1.Comment(0, this.appid, '', '', new Date(), '');
     }
     ACCreateCommentComponent.prototype.submitComment = function () {
         this.comment.AppID = this.appid;
@@ -23,6 +23,9 @@ var ACCreateCommentComponent = (function () {
             alert('success');
             //refresh comment from parent
         });
+    };
+    ACCreateCommentComponent.prototype.closeComment = function () {
+        this.comment = new comment_1.Comment(0, this.appid, '', '', new Date(), '');
     };
     return ACCreateCommentComponent;
 }());

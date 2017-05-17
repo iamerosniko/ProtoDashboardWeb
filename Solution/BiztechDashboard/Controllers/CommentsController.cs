@@ -75,13 +75,13 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(WDSB_Comments))]
         public IHttpActionResult PostWDSB_Comments(WDSB_Comments wDSB_Comments)
         {
+            wDSB_Comments.DatePosted = DateTime.Now;
+            wDSB_Comments.UserName = getMyuserName();
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            wDSB_Comments.DatePosted = DateTime.Now;
-            wDSB_Comments.UserName = getMyuserName();
 
             db.WDSB_Comments.Add(wDSB_Comments);
             db.SaveChanges();

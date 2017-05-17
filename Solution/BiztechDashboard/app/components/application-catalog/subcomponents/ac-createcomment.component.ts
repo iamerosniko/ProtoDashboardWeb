@@ -9,7 +9,7 @@ import { CommentService } from '../../../services/comment.service';
 })
 export class ACCreateCommentComponent  { 
   @Input() appid:number;
-  comment=new Comment(0,this.appid,'','',null,'');
+  comment=new Comment(0,this.appid,'','',new Date(),'');
 
   constructor(
     private commentService:CommentService
@@ -24,5 +24,9 @@ export class ACCreateCommentComponent  {
       alert('success');
       //refresh comment from parent
     })
+  }
+
+  closeComment(){
+    this.comment=new Comment(0,this.appid,'','',new Date(),'');
   }
 }
