@@ -13,6 +13,7 @@ import { ACComponent } from './ac-parent.component';
 import { ACDetail } from './ac-viewdetail.component';
 import { ACReviewsComponent } from './ac-reviews.component';
 //views
+import { ACCommentsComponent } from './views/ac-comments.component';
 import { ACGridComponent } from './views/ac-grid.component';
 import { ACNoFavComponent } from './views/ac-nofav.component';
 import { ACNoAvailComponent } from './views/ac-noavail.component';
@@ -57,6 +58,7 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ACFeatureComponent,
         ACCreateCommentComponent,
         ACReviewsComponent,
+        ACCommentsComponent
 
     ],
     providers: [
