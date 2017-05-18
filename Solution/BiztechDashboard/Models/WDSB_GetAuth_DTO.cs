@@ -9,6 +9,7 @@ namespace BiztechDashboard.Models
     {
         public string UserName { get; set; }
         public string FullName { get; set; }
+        public string Module { get; set; }
         public Nullable<bool> CanAdd { get; set; }
         public Nullable<bool> CanDelete { get; set; }
         public Nullable<bool> CanEdit { get; set; }

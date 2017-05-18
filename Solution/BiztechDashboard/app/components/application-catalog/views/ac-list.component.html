@@ -15,7 +15,7 @@
                         <li><a href="#"><span class="glyphicon glyphicon-export"></span>&nbsp;Export App List</a></li>
                         <li><a (click)="changeMyView(1)"><span class="glyphicon glyphicon-th-list"></span>&nbsp;List View</a></li>
                         <li><a (click)="changeMyView(0)"><span class="glyphicon glyphicon-th"></span>&nbsp;Grid View</a></li>
-                        <li><a routerLink="/Maintenance"><span class="glyphicon glyphicon-wrench"></span>&nbsp;Maintenance</a></li>
+                        <li><a *ngIf="auth.Module==Maintenance" routerLink="/Maintenance"><span class="glyphicon glyphicon-wrench"></span>&nbsp;Maintenance</a></li>
                         <!--<li role="separator" class="divider"></li>-->
                     </ul>
                 </div>

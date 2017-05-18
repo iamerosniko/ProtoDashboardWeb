@@ -29,7 +29,8 @@ namespace BiztechDashboard.Controllers
                     CanEdit = false,
                     CanView = false,
                     FullName = fullname,
-                    UserName=getMyuserName()
+                    UserName=getMyuserName(),
+                    Module=""
                 };
             var temp = tempList[0];
             return new WDSB_GetAuth_DTO
@@ -39,7 +40,8 @@ namespace BiztechDashboard.Controllers
                 CanEdit = temp.CanEdit,
                 CanView = temp.CanView,
                 FullName = fullname,
-                UserName = temp.UserName
+                UserName = temp.UserName,
+                Module = temp.Module
             };
         }
 
