@@ -39,8 +39,8 @@ export class ApplicationService {
 
     //client interface
     //get all app
-    getAllAppClient(): Promise<AppForClient[]> {
-        const url = `${this.apiUrl}/GetWDSB_ApplicationsClient`;
+    getAllAppClient(appName:string): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_ApplicationsClient/?appName=%`+appName;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()
@@ -48,8 +48,8 @@ export class ApplicationService {
                 .catch(this.handleError);
     }
     
-    getFavAppClient(): Promise<AppForClient[]> {
-        const url = `${this.apiUrl}/GetWDSB_FavApp`;
+    getFavAppClient(appName:string): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_FavApp/?appName=%`+appName;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()
@@ -57,8 +57,8 @@ export class ApplicationService {
                 .catch(this.handleError);
     }
 
-    getAvailAppClient(): Promise<AppForClient[]> {
-        const url = `${this.apiUrl}/GetWDSB_AvailApp`;
+    getAvailAppClient(appName:string): Promise<AppForClient[]> {
+        const url = `${this.apiUrl}/GetWDSB_AvailApp/?appName=%`+appName;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()

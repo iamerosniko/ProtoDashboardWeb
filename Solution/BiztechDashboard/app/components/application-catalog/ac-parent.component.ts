@@ -11,26 +11,28 @@ import { GetAuth } from '../../entities/getauth';
   templateUrl:`ac-parent.component.html`
 })
 export class ACComponent implements OnInit { 
+  public searchApp='';
   viewtype:number=0;
   tabselected:number=0;
   apps:AppForClient[]=[];
   listApps:AppForClient[][]=[];
   myAuth:GetAuth=new GetAuth('','',false,false,false,false)
   
-  public selected:string;
   constructor(
       private fn: FnMainApp,
       private getAuthService:GetAuthService
-  ){ }
+  ){
+  }
 
   ngOnInit(){
-    this.getAllApps();
+    this.getAllApps(this.searchApp);
     this.getAuthService.getAuth().then(auth => this.myAuth=auth);
   }
   //all biztech apps
-  getAllApps(){
+  getAllApps(appName:string){
+    console.log('val:'+appName);
     this.apps=[];
-    this.fn.getAppsClient()
+    this.fn.getAppsClient(appName)
       .then(apps=>{
           this.apps=apps;
           this.sliceToFour();
@@ -38,9 +40,10 @@ export class ACComponent implements OnInit {
       this.tabselected=0;
   }
   //my available app
-  getMyAvailApps(){
+  getMyAvailApps(appName:string){
+    console.log('val:'+appName);
     this.apps=[];
-    this.fn.getAvailAppsClient()
+    this.fn.getAvailAppsClient(appName)
       .then(apps=>{
           this.apps=apps;
           this.sliceToFour();
@@ -48,9 +51,10 @@ export class ACComponent implements OnInit {
       this.tabselected=1
   }
   //favorites
-  getMyFavApps(){
+  getMyFavApps(appName:string){
+    console.log('val:'+appName);
     this.apps=[];
-    this.fn.getFavAppsClient()
+    this.fn.getFavAppsClient(appName)
       .then(apps=>{
           this.apps=apps;
           this.sliceToFour();
@@ -59,12 +63,13 @@ export class ACComponent implements OnInit {
   }
 
   refresh(){
+     console.log('refresh val:'+this.searchApp);
     if(this.tabselected==0)
-      this.getAllApps();
+      this.getAllApps(this.searchApp);
     else if(this.tabselected==1)
-      this.getMyAvailApps();
+      this.getMyAvailApps(this.searchApp);
     else 
-      this.getMyFavApps();
+      this.getMyFavApps(this.searchApp);
   }
 
   sliceToFour(){

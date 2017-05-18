@@ -53,44 +53,7 @@ namespace BiztechDashboard.Controllers
             }
             return apps;
         }
-        //custom search
-
-        [Route("api/Applications/GetWDSB_Applications2")]
-        public List<WDSB_Applications_DTO> GetWDSB_Applications2(string name)
-        {
-            //return db.WDSB_Applications;
-            var a = db.WDSB_Applications.Where(x => x.AppName.StartsWith(name)).OrderBy(x =>x.AppName);
-            List<WDSB_Applications_DTO> apps = new List<WDSB_Applications_DTO>();
-
-            foreach (var app in a)
-            {
-                apps.Add(new WDSB_Applications_DTO
-                {
-                    AppBU = app.AppBU,
-                    AppDesc = app.AppDesc,
-                    AppIconPath = app.AppIconPath,
-                    AppID = app.AppID,
-                    AppIsActive = app.AppIsActive,
-                    AppIsWeb = (bool)app.AppIsWeb,
-                    AppLifespan = (int)app.AppLifespan,
-                    AppName = app.AppName,
-                    AppPII = (bool)app.AppPII,
-                    AppSecurity = app.AppSecurity,
-                    AppVersion = app.AppVersion,
-                    BackTechnology = app.BackTechnology,
-                    DateImplemented = app.DateImplemented,
-                    FrontTechnology = app.FrontTechnology,
-                    IsUatAvail = (bool)app.IsUatAvail,
-                    LastProdDate = app.LastProdDate,
-                    PrimaryBUContact = app.PrimaryBUContact,
-                    ProjectDevID = app.ProjectDevID,
-                    ProjectModID = app.ProjectModID,
-                    ProjectOpsID = app.ProjectOpsID,
-                    SecondaryBUContact = app.SecondaryBUContact
-                });
-            }
-            return apps;
-        }
+        
         // GET: api/Applications/5
         [ResponseType(typeof(WDSB_Applications_DTO))]
         public IHttpActionResult GetWDSB_Applications(int id)
@@ -186,29 +149,33 @@ namespace BiztechDashboard.Controllers
         #endregion
        
         #region Client interface
+
         //gets all applications
         [Route("api/Applications/GetWDSB_ApplicationsClient")]
-        public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient()
+        public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient(string appName)
         {
-            var a = from i in db.WDSB_AppClient_VW(getMyuserName())
+            appName = (appName == null) ? "" : appName;
+            var a = from i in db.WDSB_AppClient_VW(getMyuserName(), appName)
                     select i;
 
             return a.OrderBy(x => x.AppName);
         }
         //gets your favorite app
         [Route("api/Applications/GetWDSB_FavApp")]
-        public IOrderedEnumerable<WDSB_FavApp_VW_Result> GetWDSB_FavApp()
+        public IOrderedEnumerable<WDSB_FavApp_VW_Result> GetWDSB_FavApp(string appName)
         {
-            var a = from i in db.WDSB_FavApp_VW(getMyuserName())
+            appName = (appName == null) ? "" : appName;
+            var a = from i in db.WDSB_FavApp_VW(getMyuserName(), appName)
                     select i;
 
             return a.OrderBy(x => x.AppName);
         }
         //gets your available apps only
         [Route("api/Applications/GetWDSB_AvailApp")]
-        public IOrderedEnumerable<WDSB_AvailApp_VW_Result> GetWDSB_AvailApp()
+        public IOrderedEnumerable<WDSB_AvailApp_VW_Result> GetWDSB_AvailApp(string appName)
         {
-            var a = from i in db.WDSB_AvailApp_VW(getMyuserName())
+            appName = (appName == null) ? "" : appName;
+            var a = from i in db.WDSB_AvailApp_VW(getMyuserName(), appName)
                     select i;
 
             return a.OrderBy(x => x.AppName);

@@ -43,24 +43,24 @@ var ApplicationService = (function () {
     };
     //client interface
     //get all app
-    ApplicationService.prototype.getAllAppClient = function () {
-        var url = this.apiUrl + "/GetWDSB_ApplicationsClient";
+    ApplicationService.prototype.getAllAppClient = function (appName) {
+        var url = this.apiUrl + "/GetWDSB_ApplicationsClient/?appName=%" + appName;
         return this.http
             .get(url, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ApplicationService.prototype.getFavAppClient = function () {
-        var url = this.apiUrl + "/GetWDSB_FavApp";
+    ApplicationService.prototype.getFavAppClient = function (appName) {
+        var url = this.apiUrl + "/GetWDSB_FavApp/?appName=%" + appName;
         return this.http
             .get(url, { headers: this.headers })
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ApplicationService.prototype.getAvailAppClient = function () {
-        var url = this.apiUrl + "/GetWDSB_AvailApp";
+    ApplicationService.prototype.getAvailAppClient = function (appName) {
+        var url = this.apiUrl + "/GetWDSB_AvailApp/?appName=%" + appName;
         return this.http
             .get(url, { headers: this.headers })
             .toPromise()

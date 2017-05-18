@@ -42,16 +42,16 @@ var FnMainApp = (function () {
     };
     //CLIENT INTERFACE
     //get all (for client side only)
-    FnMainApp.prototype.getAppsClient = function () {
-        return this.appService.getAllAppClient();
+    FnMainApp.prototype.getAppsClient = function (appName) {
+        return this.appService.getAllAppClient(appName);
     };
     //get fav app
-    FnMainApp.prototype.getFavAppsClient = function () {
-        return this.appService.getFavAppClient();
+    FnMainApp.prototype.getFavAppsClient = function (appName) {
+        return this.appService.getFavAppClient(appName);
     };
     //get avail app
-    FnMainApp.prototype.getAvailAppsClient = function () {
-        return this.appService.getAvailAppClient();
+    FnMainApp.prototype.getAvailAppsClient = function (appName) {
+        return this.appService.getAvailAppClient(appName);
     };
     FnMainApp.prototype.getAppDetail = function (id) {
         return this.appService.getAppDetail(id);

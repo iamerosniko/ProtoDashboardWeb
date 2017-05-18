@@ -39,33 +39,6 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_Applications> WDSB_Applications { get; set; }
         public virtual DbSet<WDSB_Features> WDSB_Features { get; set; }
     
-        public virtual ObjectResult<WDSB_AppClient_VW_Result> WDSB_AppClient_VW(string myusername)
-        {
-            var myusernameParameter = myusername != null ?
-                new ObjectParameter("myusername", myusername) :
-                new ObjectParameter("myusername", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppClient_VW_Result>("WDSB_AppClient_VW", myusernameParameter);
-        }
-    
-        public virtual ObjectResult<WDSB_AvailApp_VW_Result> WDSB_AvailApp_VW(string myname)
-        {
-            var mynameParameter = myname != null ?
-                new ObjectParameter("myname", myname) :
-                new ObjectParameter("myname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AvailApp_VW_Result>("WDSB_AvailApp_VW", mynameParameter);
-        }
-    
-        public virtual ObjectResult<WDSB_FavApp_VW_Result> WDSB_FavApp_VW(string myname)
-        {
-            var mynameParameter = myname != null ?
-                new ObjectParameter("myname", myname) :
-                new ObjectParameter("myname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_FavApp_VW_Result>("WDSB_FavApp_VW", mynameParameter);
-        }
-    
         public virtual ObjectResult<WDSB_AppDetails_VW_Result> WDSB_AppDetails_VW(string myusername, Nullable<int> appID)
         {
             var myusernameParameter = myusername != null ?
@@ -90,6 +63,45 @@ namespace BiztechDashboard.Models
                 new ObjectParameter("moduleName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_GetAuth_Result>("WDSB_GetAuth", usernameParameter, moduleNameParameter);
+        }
+    
+        public virtual ObjectResult<WDSB_AppClient_VW_Result> WDSB_AppClient_VW(string myusername, string appName)
+        {
+            var myusernameParameter = myusername != null ?
+                new ObjectParameter("myusername", myusername) :
+                new ObjectParameter("myusername", typeof(string));
+    
+            var appNameParameter = appName != null ?
+                new ObjectParameter("appName", appName) :
+                new ObjectParameter("appName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppClient_VW_Result>("WDSB_AppClient_VW", myusernameParameter, appNameParameter);
+        }
+    
+        public virtual ObjectResult<WDSB_AvailApp_VW_Result> WDSB_AvailApp_VW(string myname, string appName)
+        {
+            var mynameParameter = myname != null ?
+                new ObjectParameter("myname", myname) :
+                new ObjectParameter("myname", typeof(string));
+    
+            var appNameParameter = appName != null ?
+                new ObjectParameter("appName", appName) :
+                new ObjectParameter("appName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AvailApp_VW_Result>("WDSB_AvailApp_VW", mynameParameter, appNameParameter);
+        }
+    
+        public virtual ObjectResult<WDSB_FavApp_VW_Result> WDSB_FavApp_VW(string myname, string appName)
+        {
+            var mynameParameter = myname != null ?
+                new ObjectParameter("myname", myname) :
+                new ObjectParameter("myname", typeof(string));
+    
+            var appNameParameter = appName != null ?
+                new ObjectParameter("appName", appName) :
+                new ObjectParameter("appName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_FavApp_VW_Result>("WDSB_FavApp_VW", mynameParameter, appNameParameter);
         }
     }
 }

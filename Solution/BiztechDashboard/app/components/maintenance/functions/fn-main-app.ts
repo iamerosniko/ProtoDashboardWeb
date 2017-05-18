@@ -39,16 +39,16 @@ export class FnMainApp  {
 
     //CLIENT INTERFACE
     //get all (for client side only)
-    getAppsClient():Promise<AppForClient[]>{
-        return this.appService.getAllAppClient();
+    getAppsClient(appName:string):Promise<AppForClient[]>{
+        return this.appService.getAllAppClient(appName);
     }
     //get fav app
-    getFavAppsClient():Promise<AppForClient[]>{
-        return this.appService.getFavAppClient();
+    getFavAppsClient(appName:string):Promise<AppForClient[]>{
+        return this.appService.getFavAppClient(appName);
     }
     //get avail app
-    getAvailAppsClient():Promise<AppForClient[]>{
-        return this.appService.getAvailAppClient();
+    getAvailAppsClient(appName:string):Promise<AppForClient[]>{
+        return this.appService.getAvailAppClient(appName);
     }
     getAppDetail(id:number):Promise<AppForClient>
     {

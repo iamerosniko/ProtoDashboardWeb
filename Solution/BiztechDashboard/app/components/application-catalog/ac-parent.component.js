@@ -17,6 +17,7 @@ var ACComponent = (function () {
     function ACComponent(fn, getAuthService) {
         this.fn = fn;
         this.getAuthService = getAuthService;
+        this.searchApp = '';
         this.viewtype = 0;
         this.tabselected = 0;
         this.apps = [];
@@ -25,14 +26,15 @@ var ACComponent = (function () {
     }
     ACComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getAllApps();
+        this.getAllApps(this.searchApp);
         this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
     };
     //all biztech apps
-    ACComponent.prototype.getAllApps = function () {
+    ACComponent.prototype.getAllApps = function (appName) {
         var _this = this;
+        console.log('val:' + appName);
         this.apps = [];
-        this.fn.getAppsClient()
+        this.fn.getAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
@@ -40,10 +42,11 @@ var ACComponent = (function () {
         this.tabselected = 0;
     };
     //my available app
-    ACComponent.prototype.getMyAvailApps = function () {
+    ACComponent.prototype.getMyAvailApps = function (appName) {
         var _this = this;
+        console.log('val:' + appName);
         this.apps = [];
-        this.fn.getAvailAppsClient()
+        this.fn.getAvailAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
@@ -51,10 +54,11 @@ var ACComponent = (function () {
         this.tabselected = 1;
     };
     //favorites
-    ACComponent.prototype.getMyFavApps = function () {
+    ACComponent.prototype.getMyFavApps = function (appName) {
         var _this = this;
+        console.log('val:' + appName);
         this.apps = [];
-        this.fn.getFavAppsClient()
+        this.fn.getFavAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
@@ -62,12 +66,13 @@ var ACComponent = (function () {
         this.tabselected = 2;
     };
     ACComponent.prototype.refresh = function () {
+        console.log('refresh val:' + this.searchApp);
         if (this.tabselected == 0)
-            this.getAllApps();
+            this.getAllApps(this.searchApp);
         else if (this.tabselected == 1)
-            this.getMyAvailApps();
+            this.getMyAvailApps(this.searchApp);
         else
-            this.getMyFavApps();
+            this.getMyFavApps(this.searchApp);
     };
     ACComponent.prototype.sliceToFour = function () {
         this.listApps = [];

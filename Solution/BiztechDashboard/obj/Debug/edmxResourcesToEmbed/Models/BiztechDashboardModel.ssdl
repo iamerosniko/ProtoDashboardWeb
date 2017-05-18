@@ -225,6 +225,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
   </Association>
   <Function Name="WDSB_AppClient_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myusername" Type="nvarchar" Mode="In" />
+    <Parameter Name="appName" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="WDSB_AppDetails_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myusername" Type="nvarchar" Mode="In" />
@@ -232,9 +233,11 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
   </Function>
   <Function Name="WDSB_AvailApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myname" Type="nvarchar" Mode="In" />
+    <Parameter Name="appName" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="WDSB_FavApp_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="myname" Type="nvarchar" Mode="In" />
+    <Parameter Name="appName" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="WDSB_GetAuth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="username" Type="varchar" Mode="In" />
