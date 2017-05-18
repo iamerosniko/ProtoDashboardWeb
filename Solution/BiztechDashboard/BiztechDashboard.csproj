@@ -50,6 +50,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
@@ -268,6 +270,7 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_Features_DTO.cs" />
+    <Compile Include="Models\WDSB_GetAuth_DTO.cs" />
     <Compile Include="Models\WDSB_GetAuth_Result.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
