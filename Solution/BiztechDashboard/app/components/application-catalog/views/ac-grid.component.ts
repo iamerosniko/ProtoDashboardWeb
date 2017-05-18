@@ -4,6 +4,7 @@ import { AppForClient } from '../../../entities/appforclient';
 import { FnMainApp } from '../../maintenance/functions/fn-main-app';
 import { PaginationInstance } from 'ngx-pagination';
 import { ACComponent } from '../ac-parent.component';
+import { GetAuth } from '../../../entities/getauth';
 @Component({
   moduleId: module.id,
   selector: 'ac-grid',

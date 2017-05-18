@@ -33,6 +33,7 @@ import { ApplicationService } from '../../services/application.service';
 import { AppUserService } from '../../services/app-user.service';
 import { FavoriteService } from '../../services/favorite.service';
 import { CommentService } from '../../services/comment.service';
+import { GetAuthService } from '../../services/getauth.service';
 
 /*******************Routing**********************************/
 import { AppCatalogRouting } from './appcatalog.routing';
@@ -66,7 +67,8 @@ import { AppCatalogRouting } from './appcatalog.routing';
         TempProjectService,
         ApplicationService,
         FavoriteService,
-        CommentService
+        CommentService,
+        GetAuthService
     ]
 })
 

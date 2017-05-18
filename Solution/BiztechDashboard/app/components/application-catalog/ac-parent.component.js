@@ -11,16 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
+var getauth_service_1 = require("../../services/getauth.service");
+var getauth_1 = require("../../entities/getauth");
 var ACComponent = (function () {
-    function ACComponent(fn) {
+    function ACComponent(fn, getAuthService) {
         this.fn = fn;
+        this.getAuthService = getAuthService;
         this.viewtype = 0;
         this.tabselected = 0;
         this.apps = [];
         this.listApps = [];
+        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false);
     }
     ACComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.getAllApps();
+        this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
     };
     //all biztech apps
     ACComponent.prototype.getAllApps = function () {
@@ -87,6 +93,7 @@ ACComponent = __decorate([
         selector: 'my-app',
         templateUrl: "ac-parent.component.html"
     }),
-    __metadata("design:paramtypes", [fn_main_app_1.FnMainApp])
+    __metadata("design:paramtypes", [fn_main_app_1.FnMainApp,
+        getauth_service_1.GetAuthService])
 ], ACComponent);
 exports.ACComponent = ACComponent;

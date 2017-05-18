@@ -44,7 +44,7 @@
         <div class="tab-pane fade in active" id="allapps">
             
         </div>
-        <ac-grid *ngIf="viewtype==0 && apps.length>0" [thisParent]="this" [listApps]="listApps" (refreshFav)="refresh()"></ac-grid>
-        <ac-list *ngIf="viewtype==1 && apps.length>0" [thisParent]="this" [apps]="apps" (refreshFav)="refresh()"></ac-list>
+        <ac-grid *ngIf="viewtype==0 && apps.length>0" [auth]="myAuth" [thisParent]="this" [listApps]="listApps" (refreshFav)="refresh()"></ac-grid>
+        <ac-list *ngIf="viewtype==1 && apps.length>0" [auth]="myAuth" [thisParent]="this" [apps]="apps" (refreshFav)="refresh()"></ac-list>
     </div>
 </div>

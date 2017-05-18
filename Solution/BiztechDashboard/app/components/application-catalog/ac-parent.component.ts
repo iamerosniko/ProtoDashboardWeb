@@ -2,6 +2,9 @@ import { Component,OnInit } from '@angular/core';
 import { AppForClient } from '../../entities/appforclient';
 import { FnMainApp } from '../maintenance/functions/fn-main-app';
 import { PaginationInstance } from 'ngx-pagination';
+import { GetAuthService } from '../../services/getauth.service';
+import { GetAuth } from '../../entities/getauth';
+
 @Component({
   moduleId: module.id,
   selector: 'my-app',
@@ -12,13 +15,17 @@ export class ACComponent implements OnInit {
   tabselected:number=0;
   apps:AppForClient[]=[];
   listApps:AppForClient[][]=[];
+  myAuth:GetAuth=new GetAuth('','',false,false,false,false)
+  
   public selected:string;
   constructor(
       private fn: FnMainApp,
+      private getAuthService:GetAuthService
   ){ }
 
   ngOnInit(){
     this.getAllApps();
+    this.getAuthService.getAuth().then(auth => this.myAuth=auth);
   }
   //all biztech apps
   getAllApps(){

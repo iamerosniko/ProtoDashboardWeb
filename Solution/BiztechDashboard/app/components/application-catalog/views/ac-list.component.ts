@@ -7,6 +7,7 @@ import { FavoriteService } from '../../../services/favorite.service';
 import { Router } from '@angular/router';
 import { ACComponent } from '../ac-parent.component';
 import { PaginationInstance } from 'ngx-pagination';
+import { GetAuth } from '../../../entities/getauth';
 @Component({
   moduleId: module.id,
   selector: 'ac-list',
@@ -15,6 +16,7 @@ import { PaginationInstance } from 'ngx-pagination';
 export class ACListComponent  { 
   @Input() apps:AppForClient[]=[];
   @Input() thisParent:ACComponent;
+  @Input() auth:GetAuth;
   @Output() refreshFav = new EventEmitter();
    constructor(
     private router: Router,

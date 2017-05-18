@@ -14,6 +14,7 @@ var favorite_1 = require("../../../entities/favorite");
 var favorite_service_1 = require("../../../services/favorite.service");
 var router_1 = require("@angular/router");
 var ac_parent_component_1 = require("../ac-parent.component");
+var getauth_1 = require("../../../entities/getauth");
 var ACListComponent = (function () {
     function ACListComponent(router, favService) {
         this.router = router;
@@ -56,6 +57,10 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", ac_parent_component_1.ACComponent)
 ], ACListComponent.prototype, "thisParent", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", getauth_1.GetAuth)
+], ACListComponent.prototype, "auth", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
