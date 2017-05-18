@@ -14,6 +14,8 @@ var maintenance_module_1 = require("./components/maintenance/maintenance.module"
 var appcatalog_module_1 = require("./components/application-catalog/appcatalog.module");
 //routing
 var app_routing_1 = require("./app.routing");
+//services
+var getauth_service_1 = require("./services/getauth.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,7 +27,8 @@ AppModule = __decorate([
             appcatalog_module_1.AppCatalogModule, app_routing_1.AppRouting
         ],
         declarations: [app_component_1.AppComponent],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
+        providers: [getauth_service_1.GetAuthService]
     })
 ], AppModule);
 exports.AppModule = AppModule;
