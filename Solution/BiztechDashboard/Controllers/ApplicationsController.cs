@@ -154,7 +154,7 @@ namespace BiztechDashboard.Controllers
         [Route("api/Applications/GetWDSB_ApplicationsClient")]
         public IOrderedEnumerable<WDSB_AppClient_VW_Result> GetWDSB_ApplicationsClient(string appName)
         {
-            appName = (appName == null) ? "" : appName;
+            appName = (appName == null ) ? "" : appName;
             var a = from i in db.WDSB_AppClient_VW(getMyuserName(), appName)
                     select i;
 
