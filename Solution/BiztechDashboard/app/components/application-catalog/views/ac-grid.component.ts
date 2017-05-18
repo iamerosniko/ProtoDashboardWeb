@@ -13,6 +13,7 @@ import { GetAuth } from '../../../entities/getauth';
 export class ACGridComponent  { 
   @Input() listApps:AppForClient[][]=[];
   @Input() thisParent:ACComponent;
+  @Input() auth:GetAuth;
   @Output() refreshFav = new EventEmitter();
  
   refresh(){
