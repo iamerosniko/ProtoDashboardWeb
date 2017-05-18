@@ -246,10 +246,10 @@
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Group" ColumnName="Group" />
           <ScalarProperty Name="Module" ColumnName="Module" />
-          <ScalarProperty Name="can_add" ColumnName="can_add" />
-          <ScalarProperty Name="can_delete" ColumnName="can_delete" />
-          <ScalarProperty Name="can_edit" ColumnName="can_edit" />
-          <ScalarProperty Name="can_view" ColumnName="can_view" />
+          <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
+          <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+          <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
+          <ScalarProperty Name="CanView" ColumnName="CanView" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

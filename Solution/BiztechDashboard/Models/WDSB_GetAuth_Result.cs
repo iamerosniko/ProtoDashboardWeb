@@ -16,9 +16,9 @@ namespace BiztechDashboard.Models
         public string UserName { get; set; }
         public string Group { get; set; }
         public string Module { get; set; }
-        public Nullable<bool> can_add { get; set; }
-        public Nullable<bool> can_delete { get; set; }
-        public Nullable<bool> can_edit { get; set; }
-        public Nullable<bool> can_view { get; set; }
+        public Nullable<bool> CanAdd { get; set; }
+        public Nullable<bool> CanDelete { get; set; }
+        public Nullable<bool> CanEdit { get; set; }
+        public Nullable<bool> CanView { get; set; }
     }
 }

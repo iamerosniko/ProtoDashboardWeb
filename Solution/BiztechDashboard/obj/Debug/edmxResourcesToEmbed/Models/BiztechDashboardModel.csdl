@@ -372,9 +372,9 @@
     <Property Type="String" Name="UserName" Nullable="true" MaxLength="25" />
     <Property Type="String" Name="Group" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Module" Nullable="true" MaxLength="50" />
-    <Property Type="Boolean" Name="can_add" Nullable="true" />
-    <Property Type="Boolean" Name="can_delete" Nullable="true" />
-    <Property Type="Boolean" Name="can_edit" Nullable="true" />
-    <Property Type="Boolean" Name="can_view" Nullable="true" />
+    <Property Type="Boolean" Name="CanAdd" Nullable="true" />
+    <Property Type="Boolean" Name="CanDelete" Nullable="true" />
+    <Property Type="Boolean" Name="CanEdit" Nullable="true" />
+    <Property Type="Boolean" Name="CanView" Nullable="true" />
   </ComplexType>
 </Schema>
