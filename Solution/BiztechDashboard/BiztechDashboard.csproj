@@ -267,6 +267,9 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_Features_DTO.cs" />
+    <Compile Include="Models\WDSB_GetAuth_Result.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_Projects.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

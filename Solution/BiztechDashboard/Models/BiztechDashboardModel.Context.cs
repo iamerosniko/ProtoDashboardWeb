@@ -78,5 +78,18 @@ namespace BiztechDashboard.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppDetails_VW_Result>("WDSB_AppDetails_VW", myusernameParameter, appIDParameter);
         }
+    
+        public virtual ObjectResult<WDSB_GetAuth_Result> WDSB_GetAuth(string username, string moduleName)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var moduleNameParameter = moduleName != null ?
+                new ObjectParameter("moduleName", moduleName) :
+                new ObjectParameter("moduleName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_GetAuth_Result>("WDSB_GetAuth", usernameParameter, moduleNameParameter);
+        }
     }
 }

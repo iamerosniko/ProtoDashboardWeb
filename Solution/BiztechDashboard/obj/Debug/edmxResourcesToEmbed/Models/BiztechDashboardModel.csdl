@@ -94,6 +94,10 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Features" EntitySet="WDSB_Features" />
     </AssociationSet>
+    <FunctionImport Name="WDSB_GetAuth" ReturnType="Collection(BiztechDashboardModel.WDSB_GetAuth_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="moduleName" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -364,4 +368,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="WDSB_GetAuth_Result">
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="25" />
+    <Property Type="String" Name="Group" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Module" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="can_add" Nullable="true" />
+    <Property Type="Boolean" Name="can_delete" Nullable="true" />
+    <Property Type="Boolean" Name="can_edit" Nullable="true" />
+    <Property Type="Boolean" Name="can_view" Nullable="true" />
+  </ComplexType>
 </Schema>
