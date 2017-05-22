@@ -278,6 +278,9 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_ProjectUsers.cs" />
+    <Compile Include="Models\WDSB_Ratings.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_TempProjects.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

@@ -105,12 +105,12 @@ var AppFormComponent = (function () {
             if (_this.features.length > 0)
                 _this.fnMainApp.submitFeatures(_this.features)
                     .then(function () {
-                    alert("success");
-                    _this.applicationView();
                 })
                     .catch(function () {
                     console.log('problem in adding features');
                 });
+            alert("success");
+            _this.applicationView();
         })
             .catch(function () {
             console.log('problem in applications');

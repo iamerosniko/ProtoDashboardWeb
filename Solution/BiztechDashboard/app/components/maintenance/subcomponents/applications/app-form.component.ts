@@ -121,12 +121,13 @@ export class AppFormComponent implements OnInit  {
             if(this.features.length>0)
                 this.fnMainApp.submitFeatures(this.features)
                 .then(()=>{
-                    alert("success");
-                    this.applicationView();
+                   
                 })
                 .catch(()=>{
                     console.log('problem in adding features');
                 });
+            alert("success");
+            this.applicationView();
         })
         .catch(()=>{
             console.log('problem in applications');

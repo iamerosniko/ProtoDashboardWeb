@@ -253,5 +253,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="WDSB_Ratings">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Ratings">
+        <MappingFragment StoreEntitySet="WDSB_Ratings">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

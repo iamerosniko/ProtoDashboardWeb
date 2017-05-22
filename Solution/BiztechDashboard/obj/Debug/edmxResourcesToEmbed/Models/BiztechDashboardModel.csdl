@@ -101,6 +101,11 @@
       <Parameter Name="myname" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="WDSB_Ratings" EntityType="BiztechDashboardModel.WDSB_Ratings" />
+    <AssociationSet Name="FK_WDSB_Ratings_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -210,6 +215,7 @@
     <NavigationProperty Name="WDSB_Comments" Relationship="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Comments" />
     <NavigationProperty Name="WDSB_Favorites" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Favorites" />
     <NavigationProperty Name="WDSB_Features" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Features" />
+    <NavigationProperty Name="WDSB_Ratings" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Ratings" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />
@@ -380,4 +386,26 @@
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
+  <EntityType Name="WDSB_Ratings">
+    <Key>
+      <PropertyRef Name="RatingID" />
+    </Key>
+    <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Ratings" ToRole="WDSB_Applications" />
+  </EntityType>
+  <Association Name="FK_WDSB_Ratings_WDSB_Applications">
+    <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
+    <End Type="BiztechDashboardModel.WDSB_Ratings" Role="WDSB_Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Ratings">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
