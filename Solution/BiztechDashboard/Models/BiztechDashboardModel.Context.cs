@@ -38,6 +38,7 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_VW_ApplicationsDB> WDSB_VW_ApplicationsDB { get; set; }
         public virtual DbSet<WDSB_Applications> WDSB_Applications { get; set; }
         public virtual DbSet<WDSB_Features> WDSB_Features { get; set; }
+        public virtual DbSet<WDSB_Ratings> WDSB_Ratings { get; set; }
     
         public virtual ObjectResult<WDSB_AppDetails_VW_Result> WDSB_AppDetails_VW(string myusername, Nullable<int> appID)
         {

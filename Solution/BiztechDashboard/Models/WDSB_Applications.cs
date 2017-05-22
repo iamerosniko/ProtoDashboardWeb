@@ -20,6 +20,7 @@ namespace BiztechDashboard.Models
             this.WDSB_Comments = new HashSet<WDSB_Comments>();
             this.WDSB_Favorites = new HashSet<WDSB_Favorites>();
             this.WDSB_Features = new HashSet<WDSB_Features>();
+            this.WDSB_Ratings = new HashSet<WDSB_Ratings>();
         }
     
         public int AppID { get; set; }
@@ -53,5 +54,7 @@ namespace BiztechDashboard.Models
         public virtual ICollection<WDSB_Favorites> WDSB_Favorites { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WDSB_Features> WDSB_Features { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WDSB_Ratings> WDSB_Ratings { get; set; }
     }
 }

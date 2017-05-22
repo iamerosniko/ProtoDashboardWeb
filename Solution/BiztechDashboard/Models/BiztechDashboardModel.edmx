@@ -99,6 +99,15 @@
           <Property Name="FrontEndPath" Type="varchar" MaxLength="250" />
           <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="WDSB_Ratings">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="WDSB_TempProjects">
           <Key>
             <PropertyRef Name="ProjectID" />
@@ -228,6 +237,18 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WDSB_Ratings_WDSB_Applications">
+          <End Role="WDSB_Applications" Type="Self.WDSB_Applications" Multiplicity="1" />
+          <End Role="WDSB_Ratings" Type="Self.WDSB_Ratings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WDSB_Applications">
+              <PropertyRef Name="AppID" />
+            </Principal>
+            <Dependent Role="WDSB_Ratings">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="WDSB_AppClient_VW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="myusername" Type="nvarchar" Mode="In" />
           <Parameter Name="appName" Type="nvarchar" Mode="In" />
@@ -257,6 +278,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Projects" EntityType="Self.WDSB_Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WDSB_Ratings" EntityType="Self.WDSB_Ratings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_TempProjects" EntityType="Self.WDSB_TempProjects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VW_WDSB_GetNewApp" EntityType="Self.VW_WDSB_GetNewApp" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -312,6 +334,10 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="Self.FK_WDSB_Features_WDSB_Applications">
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
             <End Role="WDSB_Features" EntitySet="WDSB_Features" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WDSB_Ratings_WDSB_Applications" Association="Self.FK_WDSB_Ratings_WDSB_Applications">
+            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+            <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -419,6 +445,11 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             <Parameter Name="myname" Mode="In" Type="String" />
             <Parameter Name="appName" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="WDSB_Ratings" EntityType="BiztechDashboardModel.WDSB_Ratings" />
+          <AssociationSet Name="FK_WDSB_Ratings_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications">
+            <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+            <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -528,6 +559,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <NavigationProperty Name="WDSB_Comments" Relationship="BiztechDashboardModel.FK_WDSB_Comments_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Comments" />
           <NavigationProperty Name="WDSB_Favorites" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Favorites" />
           <NavigationProperty Name="WDSB_Features" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Features" />
+          <NavigationProperty Name="WDSB_Ratings" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Ratings" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />
@@ -698,6 +730,28 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
         </ComplexType>
+        <EntityType Name="WDSB_Ratings">
+          <Key>
+            <PropertyRef Name="RatingID" />
+          </Key>
+          <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Ratings" ToRole="WDSB_Applications" />
+        </EntityType>
+        <Association Name="FK_WDSB_Ratings_WDSB_Applications">
+          <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
+          <End Type="BiztechDashboardModel.WDSB_Ratings" Role="WDSB_Ratings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WDSB_Applications">
+              <PropertyRef Name="AppID" />
+            </Principal>
+            <Dependent Role="WDSB_Ratings">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -956,6 +1010,16 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="WDSB_Ratings">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Ratings">
+              <MappingFragment StoreEntitySet="WDSB_Ratings">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+                <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
