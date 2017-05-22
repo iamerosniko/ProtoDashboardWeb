@@ -5,6 +5,7 @@
             <div class="searchbox">
                 <input type="text" class="form-control input-sm"
                      [(ngModel)]="thisParent.searchApp" (change)="thisParent.refresh()"
+                     (keyup.enter)="thisParent.refresh()"
                      placeholder="Search for apps..."/>
                 <span class = "glyphicon glyphicon-search form-control-feedback"></span>
             </div>

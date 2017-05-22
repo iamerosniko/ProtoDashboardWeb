@@ -39,6 +39,7 @@ var ACListComponent = (function () {
     ACListComponent.prototype.myFav = function (app) {
         var _this = this;
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
+        console.log(app.AppID);
         this.favService.postFavorite(fav).then(function () { _this.refreshFav.emit(); });
     };
     ACListComponent.prototype.gotoDetail = function (app) {

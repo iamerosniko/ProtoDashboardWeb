@@ -30,7 +30,6 @@ export class ACComponent implements OnInit {
   }
   //all biztech apps
   getAllApps(appName:string){
-    console.log('val:'+appName);
     this.apps=[];
     this.fn.getAppsClient(appName)
       .then(apps=>{
@@ -41,7 +40,6 @@ export class ACComponent implements OnInit {
   }
   //my available app
   getMyAvailApps(appName:string){
-    console.log('val:'+appName);
     this.apps=[];
     this.fn.getAvailAppsClient(appName)
       .then(apps=>{
@@ -52,7 +50,6 @@ export class ACComponent implements OnInit {
   }
   //favorites
   getMyFavApps(appName:string){
-    console.log('val:'+appName);
     this.apps=[];
     this.fn.getFavAppsClient(appName)
       .then(apps=>{
@@ -63,7 +60,6 @@ export class ACComponent implements OnInit {
   }
 
   refresh(){
-     console.log('refresh val:'+this.searchApp);
     if(this.tabselected==0)
       this.getAllApps(this.searchApp);
     else if(this.tabselected==1)

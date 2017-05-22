@@ -5,6 +5,7 @@
             <div class="searchbox">
                 <input type="text" class="form-control input-sm"
                      [(ngModel)]="thisParent.searchApp" (change)="thisParent.refresh()"
+                     (keyup.enter)="thisParent.refresh()"
                      placeholder="Search for apps..."/>
                 <span class = "glyphicon glyphicon-search form-control-feedback"></span>
             </div>
@@ -54,8 +55,8 @@
                             <div *ngIf="false" class="btn btn-circle btn-success btn-xs">
                                 <span class="glyphicon glyphicon-ok"></span>
                             </div>
-                            <fieldset class="favorite" *ngIf="app.canProd==1">
-                                <input [(ngModel)]="app.myFav" (change)="myFav(app)" type="checkbox" id="star1" name="rating1"/><label for="star1" title="Mark as Favorite">1 star</label>
+                            <fieldset class="favorite" >
+                                <input (change)="myFav(app)" [(ngModel)]="app.myFav" [id]="app.AppID" type="checkbox" /><label [for]="app.AppID" title="Mark as Favorite">1 star</label>
                             </fieldset>
                         </td>
                         <td>{{app.AppName}}</td>

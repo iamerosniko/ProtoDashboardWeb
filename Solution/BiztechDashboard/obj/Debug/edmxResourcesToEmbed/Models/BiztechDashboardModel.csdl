@@ -76,10 +76,6 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Favorites" EntitySet="WDSB_Favorites" />
     </AssociationSet>
-    <FunctionImport Name="WDSB_AppDetails_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppDetails_VW_Result)">
-      <Parameter Name="myusername" Mode="In" Type="String" />
-      <Parameter Name="appID" Mode="In" Type="Int32" />
-    </FunctionImport>
     <EntitySet Name="WDSB_Features" EntityType="BiztechDashboardModel.WDSB_Features" />
     <AssociationSet Name="FK_WDSB_Features_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications">
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
@@ -89,9 +85,18 @@
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="moduleName" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="WDSB_Ratings" EntityType="BiztechDashboardModel.WDSB_Ratings" />
+    <AssociationSet Name="FK_WDSB_Ratings_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications">
+      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
+      <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
+    </AssociationSet>
     <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
       <Parameter Name="myusername" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WDSB_AppDetails_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppDetails_VW_Result)">
+      <Parameter Name="myusername" Mode="In" Type="String" />
+      <Parameter Name="appID" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="WDSB_AvailApp_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AvailApp_VW_Result)">
       <Parameter Name="myname" Mode="In" Type="String" />
@@ -101,11 +106,6 @@
       <Parameter Name="myname" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="WDSB_Ratings" EntityType="BiztechDashboardModel.WDSB_Ratings" />
-    <AssociationSet Name="FK_WDSB_Ratings_WDSB_Applications" Association="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications">
-      <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
-      <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -277,38 +277,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <ComplexType Name="WDSB_AppDetails_VW_Result">
-    <Property Type="Int32" Name="AppID" Nullable="false" />
-    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
-    <Property Type="Int32" Name="AppBU" Nullable="false" />
-    <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
-    <Property Type="Int32" Name="AppLifespan" Nullable="true" />
-    <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
-    <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
-    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
-    <Property Type="Boolean" Name="AppPII" Nullable="true" />
-    <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
-    <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
-    <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
-    <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
-    <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
-    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
-    <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
-    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
-    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
-    <Property Type="String" Name="buContact1" Nullable="true" MaxLength="151" />
-    <Property Type="String" Name="buContact2" Nullable="true" MaxLength="151" />
-    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
-    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
-    <Property Type="Int32" Name="canProd" Nullable="false" />
-    <Property Type="Int32" Name="canMod" Nullable="false" />
-    <Property Type="Boolean" Name="myFav" Nullable="true" />
-  </ComplexType>
   <EntityType Name="WDSB_Features">
     <Key>
       <PropertyRef Name="FeatureID" />
@@ -341,6 +309,28 @@
     <Property Type="Boolean" Name="CanEdit" Nullable="true" />
     <Property Type="Boolean" Name="CanView" Nullable="true" />
   </ComplexType>
+  <EntityType Name="WDSB_Ratings">
+    <Key>
+      <PropertyRef Name="RatingID" />
+    </Key>
+    <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Ratings" ToRole="WDSB_Applications" />
+  </EntityType>
+  <Association Name="FK_WDSB_Ratings_WDSB_Applications">
+    <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
+    <End Type="BiztechDashboardModel.WDSB_Ratings" Role="WDSB_Ratings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WDSB_Applications">
+        <PropertyRef Name="AppID" />
+      </Principal>
+      <Dependent Role="WDSB_Ratings">
+        <PropertyRef Name="AppID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <ComplexType Name="WDSB_AppClient_VW_Result">
     <Property Type="Int32" Name="AppID" Nullable="false" />
     <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -352,6 +342,38 @@
     <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
     <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="Int32" Name="canProd" Nullable="false" />
+    <Property Type="Int32" Name="canMod" Nullable="false" />
+    <Property Type="Boolean" Name="myFav" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WDSB_AppDetails_VW_Result">
+    <Property Type="Int32" Name="AppID" Nullable="false" />
+    <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="AppBU" Nullable="false" />
+    <Property Type="String" Name="FrontTechnology" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BackTechnology" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AppLifespan" Nullable="true" />
+    <Property Type="Int32" Name="PrimaryBUContact" Nullable="false" />
+    <Property Type="Int32" Name="SecondaryBUContact" Nullable="true" />
+    <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="Boolean" Name="AppPII" Nullable="true" />
+    <Property Type="String" Name="AppSecurity" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateImplemented" Nullable="true" />
+    <Property Type="DateTime" Name="LastProdDate" Nullable="true" />
+    <Property Type="String" Name="AppVersion" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="AppDesc" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="AppIsWeb" Nullable="true" />
+    <Property Type="String" Name="ProjectDevID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProjectModID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProjectOpsID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
+    <Property Type="String" Name="BUName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="buContact1" Nullable="true" MaxLength="151" />
+    <Property Type="String" Name="buContact2" Nullable="true" MaxLength="151" />
+    <Property Type="String" Name="DevFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ModFront" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Int32" Name="canProd" Nullable="false" />
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -386,26 +408,4 @@
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
-  <EntityType Name="WDSB_Ratings">
-    <Key>
-      <PropertyRef Name="RatingID" />
-    </Key>
-    <Property Name="RatingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AppID" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="Rating" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="WDSB_Applications" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Ratings" ToRole="WDSB_Applications" />
-  </EntityType>
-  <Association Name="FK_WDSB_Ratings_WDSB_Applications">
-    <End Type="BiztechDashboardModel.WDSB_Applications" Role="WDSB_Applications" Multiplicity="1" />
-    <End Type="BiztechDashboardModel.WDSB_Ratings" Role="WDSB_Ratings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="WDSB_Applications">
-        <PropertyRef Name="AppID" />
-      </Principal>
-      <Dependent Role="WDSB_Ratings">
-        <PropertyRef Name="AppID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

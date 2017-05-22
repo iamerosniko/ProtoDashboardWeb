@@ -136,6 +136,59 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_Features">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
+        <MappingFragment StoreEntitySet="WDSB_Features">
+          <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
+          <ScalarProperty Name="FeatFunction" ColumnName="FeatFunction" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="WDSB_GetAuth" FunctionName="BiztechDashboardModel.Store.WDSB_GetAuth">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_GetAuth_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
+          <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+          <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
+          <ScalarProperty Name="CanView" ColumnName="CanView" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="WDSB_Ratings">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Ratings">
+        <MappingFragment StoreEntitySet="WDSB_Ratings">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="WDSB_AppClient_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppClient_VW">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
+          <ScalarProperty Name="BUName" ColumnName="BUName" />
+          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
+          <ScalarProperty Name="DevFront" ColumnName="DevFront" />
+          <ScalarProperty Name="ModFront" ColumnName="ModFront" />
+          <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
+          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
+          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="canProd" ColumnName="canProd" />
+          <ScalarProperty Name="canMod" ColumnName="canMod" />
+          <ScalarProperty Name="myFav" ColumnName="myFav" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="WDSB_AppDetails_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppDetails_VW">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppDetails_VW_Result">
@@ -166,49 +219,6 @@
           <ScalarProperty Name="DevFront" ColumnName="DevFront" />
           <ScalarProperty Name="ModFront" ColumnName="ModFront" />
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
-          <ScalarProperty Name="canProd" ColumnName="canProd" />
-          <ScalarProperty Name="canMod" ColumnName="canMod" />
-          <ScalarProperty Name="myFav" ColumnName="myFav" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <EntitySetMapping Name="WDSB_Features">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Features">
-        <MappingFragment StoreEntitySet="WDSB_Features">
-          <ScalarProperty Name="ScreenshotPath" ColumnName="ScreenshotPath" />
-          <ScalarProperty Name="FeatFunction" ColumnName="FeatFunction" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="WDSB_GetAuth" FunctionName="BiztechDashboardModel.Store.WDSB_GetAuth">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_GetAuth_Result">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Group" ColumnName="Group" />
-          <ScalarProperty Name="Module" ColumnName="Module" />
-          <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
-          <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
-          <ScalarProperty Name="CanEdit" ColumnName="CanEdit" />
-          <ScalarProperty Name="CanView" ColumnName="CanView" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="WDSB_AppClient_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppClient_VW">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="AppName" ColumnName="AppName" />
-          <ScalarProperty Name="AppIsWeb" ColumnName="AppIsWeb" />
-          <ScalarProperty Name="BUName" ColumnName="BUName" />
-          <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />
-          <ScalarProperty Name="DevFront" ColumnName="DevFront" />
-          <ScalarProperty Name="ModFront" ColumnName="ModFront" />
-          <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
-          <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
-          <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
           <ScalarProperty Name="canProd" ColumnName="canProd" />
           <ScalarProperty Name="canMod" ColumnName="canMod" />
           <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -253,15 +263,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="WDSB_Ratings">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Ratings">
-        <MappingFragment StoreEntitySet="WDSB_Ratings">
-          <ScalarProperty Name="Rating" ColumnName="Rating" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-          <ScalarProperty Name="RatingID" ColumnName="RatingID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

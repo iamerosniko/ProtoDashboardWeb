@@ -89,6 +89,10 @@ namespace BiztechDashboard.Controllers
                 a.First().UserName = getMyuserName();
                 PutWDSB_Favorites(a.First().FavID, a.First());
             }
+            else if (wDSB_Favorites.AppID == 0)
+            {
+                return Ok();
+            }
             else
             {
                 wDSB_Favorites.UserName = getMyuserName();

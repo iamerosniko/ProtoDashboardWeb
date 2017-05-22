@@ -40,19 +40,6 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_Features> WDSB_Features { get; set; }
         public virtual DbSet<WDSB_Ratings> WDSB_Ratings { get; set; }
     
-        public virtual ObjectResult<WDSB_AppDetails_VW_Result> WDSB_AppDetails_VW(string myusername, Nullable<int> appID)
-        {
-            var myusernameParameter = myusername != null ?
-                new ObjectParameter("myusername", myusername) :
-                new ObjectParameter("myusername", typeof(string));
-    
-            var appIDParameter = appID.HasValue ?
-                new ObjectParameter("appID", appID) :
-                new ObjectParameter("appID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppDetails_VW_Result>("WDSB_AppDetails_VW", myusernameParameter, appIDParameter);
-        }
-    
         public virtual ObjectResult<WDSB_GetAuth_Result> WDSB_GetAuth(string username, string moduleName)
         {
             var usernameParameter = username != null ?
@@ -77,6 +64,19 @@ namespace BiztechDashboard.Models
                 new ObjectParameter("appName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppClient_VW_Result>("WDSB_AppClient_VW", myusernameParameter, appNameParameter);
+        }
+    
+        public virtual ObjectResult<WDSB_AppDetails_VW_Result> WDSB_AppDetails_VW(string myusername, Nullable<int> appID)
+        {
+            var myusernameParameter = myusername != null ?
+                new ObjectParameter("myusername", myusername) :
+                new ObjectParameter("myusername", typeof(string));
+    
+            var appIDParameter = appID.HasValue ?
+                new ObjectParameter("appID", appID) :
+                new ObjectParameter("appID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<WDSB_AppDetails_VW_Result>("WDSB_AppDetails_VW", myusernameParameter, appIDParameter);
         }
     
         public virtual ObjectResult<WDSB_AvailApp_VW_Result> WDSB_AvailApp_VW(string myname, string appName)
