@@ -49,16 +49,16 @@
                                         <div class="thumbnail">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div hidden class="col-md-6">
+                                                    <div class="col-md-6">
                                                         <div class="pull-left">
-                                                            <div class="btn btn-circle btn-success btn-xs">
+                                                            <div *ngIf="false" class="btn btn-circle btn-success btn-xs">
                                                                 <span class="glyphicon glyphicon-ok"></span>
                                                             </div>
                                                         </div>
                                                     </div> 
                                                     <div class="col-md-6">
                                                         <div class="pull-right">
-                                                            <fieldset class="favorite" *ngIf="app.canProd==1">
+                                                            <fieldset class="favorite">
                                                                 <input [(ngModel)]="app.myFav" (change)="myFav(app)" type="checkbox" id="star" name="rating"/><label for="star" title="Mark as Favorite">1 star</label>
                                                             </fieldset>
                                                         </div>
