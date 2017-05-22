@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
-  selector: 'ac-nofav',
+  selector: 'ac-ratings',
   templateUrl: 'ac-ratings.component.html'
 })
 export class ACRatingsComponent  { 

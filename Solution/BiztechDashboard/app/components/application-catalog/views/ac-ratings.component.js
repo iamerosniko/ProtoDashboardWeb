@@ -15,7 +15,7 @@ var ACRatingsComponent = (function () {
 ACRatingsComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'ac-nofav',
+        selector: 'ac-ratings',
         templateUrl: 'ac-ratings.component.html'
     })
 ], ACRatingsComponent);

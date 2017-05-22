@@ -18,6 +18,7 @@ import { ACGridComponent } from './views/ac-grid.component';
 import { ACNoFavComponent } from './views/ac-nofav.component';
 import { ACNoAvailComponent } from './views/ac-noavail.component';
 import { ACListComponent } from './views/ac-list.component';
+import { ACRatingsComponent } from './views/ac-ratings.component';
 //subcomponent
 import { ACThumbnailComponent } from './subcomponents/ac-thumbnail.component';
 import { ACFeatureComponent } from './subcomponents/ac-feature.component';
@@ -59,8 +60,8 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ACFeatureComponent,
         ACCreateCommentComponent,
         ACReviewsComponent,
-        ACCommentsComponent
-
+        ACCommentsComponent,
+        ACRatingsComponent  
     ],
     providers: [
         BTSSWDSBService,

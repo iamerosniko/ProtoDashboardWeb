@@ -25,6 +25,7 @@ var ac_grid_component_1 = require("./views/ac-grid.component");
 var ac_nofav_component_1 = require("./views/ac-nofav.component");
 var ac_noavail_component_1 = require("./views/ac-noavail.component");
 var ac_list_component_1 = require("./views/ac-list.component");
+var ac_ratings_component_1 = require("./views/ac-ratings.component");
 //subcomponent
 var ac_thumbnail_component_1 = require("./subcomponents/ac-thumbnail.component");
 var ac_feature_component_1 = require("./subcomponents/ac-feature.component");
@@ -67,7 +68,8 @@ AppCatalogModule = __decorate([
             ac_feature_component_1.ACFeatureComponent,
             ac_createcomment_component_1.ACCreateCommentComponent,
             ac_reviews_component_1.ACReviewsComponent,
-            ac_comments_component_1.ACCommentsComponent
+            ac_comments_component_1.ACCommentsComponent,
+            ac_ratings_component_1.ACRatingsComponent
         ],
         providers: [
             btss_wdsb_service_1.BTSSWDSBService,

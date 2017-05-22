@@ -5,56 +5,7 @@
     </div>
     <div class="panel-body">
         <!--Star Rating, for future development-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="bs-callout bs-callout-success">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="tab1">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset class="rating">
-                                                <input type="radio" id="star5" name="rating" value="5" checked="checked" disabled/><label for="star5" title="Rocks!">5 stars</label>
-                                                <input type="radio" id="star4" name="rating" value="4" disabled/><label for="star4" title="Pretty good">4 stars</label>
-                                                <input type="radio" id="star3" name="rating" value="3" disabled/><label for="star3" title="Meh">3 stars</label>
-                                                <input type="radio" id="star2" name="rating" value="2" disabled/><label for="star2" title="Kinda bad">2 stars</label>
-                                                <input type="radio" id="star1" name="rating" value="1" disabled/><label for="star1" title="Sucks big time">1 star</label>
-                                            </fieldset>    
-                                            &nbsp; Wow, this app got perfect score from our users!
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <a class="btn btn-success btn-md pull-right" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Rate this app &raquo;</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="tab2">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset class="rating">
-                                                <input type="radio" id="rate5" name="rate" value="5" /><label for="rate5" title="Rocks!">5 stars</label>
-                                                <input type="radio" id="rate4" name="rate" value="4" /><label for="rate4" title="Pretty good">4 stars</label>
-                                                <input type="radio" id="rate3" name="rate" value="3" /><label for="rate3" title="Meh">3 stars</label>
-                                                <input type="radio" id="rate2" name="rate" value="2" /><label for="rate2" title="Kinda bad">2 stars</label>
-                                                <input type="radio" id="rate1" name="rate" value="1" /><label for="rate1" title="Sucks big time">1 star</label>
-                                            </fieldset>    
-                                            &nbsp; How much would you rate this app?
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <a class="btn btn-default btn-md pull-right" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">&laquo; Go back</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ac-ratings></ac-ratings>
         <div class="row">
             <div class="col-md-12">
                 <a href="#" class="btn btn-default btn-md pull-right" data-toggle="modal" data-target="#modalWriteComment">Write your review&nbsp;<span class="glyphicon glyphicon-edit"></span></a>
