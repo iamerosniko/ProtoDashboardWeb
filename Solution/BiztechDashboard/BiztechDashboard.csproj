@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\AppusersController.cs" />
     <Compile Include="Controllers\GetAuthController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Controllers\Test.cs" />
     <Compile Include="Controllers\BTSSProjectsController.cs" />
     <Compile Include="Controllers\BUContactsController.cs" />

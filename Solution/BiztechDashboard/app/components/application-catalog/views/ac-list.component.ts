@@ -17,7 +17,6 @@ export class ACListComponent  {
   @Input() apps:AppForClient[]=[];
   @Input() thisParent:ACComponent;
   @Input() auth:GetAuth;
-  @Output() refreshFav = new EventEmitter();
    constructor(
     private router: Router,
     private favService:FavoriteService
@@ -38,14 +37,11 @@ export class ACListComponent  {
   }
   myFav(app:AppForClient){
     var fav:Favorite = new Favorite(0,app.AppID,'',app.myFav);
-     this.favService.postFavorite(fav).then(()=>{this.refreshFav.emit();});
+     this.favService.postFavorite(fav).then(()=>{this.thisParent.refresh;});
   }
   
   gotoDetail(app:AppForClient){
       this.router.navigate(['/Applications', app.AppID]);
   }
   
-  changeMyView(val:number){
-    this.thisParent.viewtype=val;
-  }
 }

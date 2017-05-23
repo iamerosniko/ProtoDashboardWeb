@@ -15,13 +15,9 @@ var getauth_1 = require("../../../entities/getauth");
 var ACGridComponent = (function () {
     function ACGridComponent() {
         this.listApps = [];
-        this.refreshFav = new core_1.EventEmitter();
     }
     ACGridComponent.prototype.refresh = function () {
-        this.refreshFav.emit();
-    };
-    ACGridComponent.prototype.changeMyView = function (val) {
-        this.thisParent.viewtype = val;
+        this.thisParent.refresh();
     };
     return ACGridComponent;
 }());
@@ -37,10 +33,6 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", getauth_1.GetAuth)
 ], ACGridComponent.prototype, "auth", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ACGridComponent.prototype, "refreshFav", void 0);
 ACGridComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

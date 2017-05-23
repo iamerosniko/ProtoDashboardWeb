@@ -20,7 +20,6 @@ var ACListComponent = (function () {
         this.router = router;
         this.favService = favService;
         this.apps = [];
-        this.refreshFav = new core_1.EventEmitter();
         this.config = {
             id: 'advanced',
             itemsPerPage: 10,
@@ -39,13 +38,10 @@ var ACListComponent = (function () {
     ACListComponent.prototype.myFav = function (app) {
         var _this = this;
         var fav = new favorite_1.Favorite(0, app.AppID, '', app.myFav);
-        this.favService.postFavorite(fav).then(function () { _this.refreshFav.emit(); });
+        this.favService.postFavorite(fav).then(function () { _this.thisParent.refresh; });
     };
     ACListComponent.prototype.gotoDetail = function (app) {
         this.router.navigate(['/Applications', app.AppID]);
-    };
-    ACListComponent.prototype.changeMyView = function (val) {
-        this.thisParent.viewtype = val;
     };
     return ACListComponent;
 }());
@@ -61,10 +57,6 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", getauth_1.GetAuth)
 ], ACListComponent.prototype, "auth", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ACListComponent.prototype, "refreshFav", void 0);
 ACListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
