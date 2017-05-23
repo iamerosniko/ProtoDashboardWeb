@@ -233,6 +233,9 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_AffectedUsers.cs" />
+    <Compile Include="Models\WDSB_AppAvgRating_VW.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_AppClient_VW_Result.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

@@ -263,5 +263,13 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="WDSB_AppAvgRating_VW">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
+        <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
+          <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

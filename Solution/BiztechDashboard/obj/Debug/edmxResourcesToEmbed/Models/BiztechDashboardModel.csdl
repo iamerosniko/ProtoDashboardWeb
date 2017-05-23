@@ -106,6 +106,7 @@
       <Parameter Name="myname" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -408,4 +409,11 @@
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
+  <EntityType Name="WDSB_AppAvgRating_VW">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="AvgRating" Type="Int32" />
+  </EntityType>
 </Schema>

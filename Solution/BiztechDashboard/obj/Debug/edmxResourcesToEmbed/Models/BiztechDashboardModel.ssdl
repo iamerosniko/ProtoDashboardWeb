@@ -132,6 +132,15 @@ warning 6002: The table/view 'dbbtWEBD.dbo.VW_WDSB_GetNewApp' does not have a pr
     <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_AppAvgRating_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WDSB_AppAvgRating_VW">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="int" Nullable="false" />
+    <Property Name="AvgRating" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="WDSB_VW_ApplicationsDB">
     <Key>
@@ -287,6 +296,12 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
     [VW_WDSB_GetNewApp].[FrontEndPath] AS [FrontEndPath], 
     [VW_WDSB_GetNewApp].[BackEndPath] AS [BackEndPath]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="Self.WDSB_AppAvgRating_VW" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [WDSB_AppAvgRating_VW].[AppID] AS [AppID], 
+    [WDSB_AppAvgRating_VW].[AvgRating] AS [AvgRating]
+    FROM [dbo].[WDSB_AppAvgRating_VW] AS [WDSB_AppAvgRating_VW]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="Self.WDSB_VW_ApplicationsDB" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

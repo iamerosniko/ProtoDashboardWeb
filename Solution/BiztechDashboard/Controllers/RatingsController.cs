@@ -20,9 +20,16 @@ namespace BiztechDashboard.Controllers
         [Route("api/Ratings/Get_RatingAverage")]
         public WDSB_AverageRating Get_RatingAverage(int id)
         {
-            return new WDSB_AverageRating
+            var a = db.WDSB_AppAvgRating_VW.Where(i => i.AppID == id).ToList();
+            if (a.Count() > 0)
             {
-                Rating = db.WDSB_Ratings.Where(r => r.AppID == id).Average(r => r.Rating)
+                return new WDSB_AverageRating
+                {
+                    Rating =(double) a[0].AvgRating
+                };
+            }
+            return new WDSB_AverageRating{
+                Rating=(double)0
             };
         }
 

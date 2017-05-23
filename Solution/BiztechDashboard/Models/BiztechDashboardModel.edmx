@@ -137,6 +137,15 @@ warning 6002: The table/view 'dbbtWEBD.dbo.VW_WDSB_GetNewApp' does not have a pr
           <Property Name="BackEndPath" Type="varchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_AppAvgRating_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WDSB_AppAvgRating_VW">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="int" Nullable="false" />
+          <Property Name="AvgRating" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="WDSB_VW_ApplicationsDB">
           <Key>
@@ -292,6 +301,12 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
     [VW_WDSB_GetNewApp].[FrontEndPath] AS [FrontEndPath], 
     [VW_WDSB_GetNewApp].[BackEndPath] AS [BackEndPath]
     FROM [dbo].[VW_WDSB_GetNewApp] AS [VW_WDSB_GetNewApp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="Self.WDSB_AppAvgRating_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WDSB_AppAvgRating_VW].[AppID] AS [AppID], 
+    [WDSB_AppAvgRating_VW].[AvgRating] AS [AvgRating]
+    FROM [dbo].[WDSB_AppAvgRating_VW] AS [WDSB_AppAvgRating_VW]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="WDSB_VW_ApplicationsDB" EntityType="Self.WDSB_VW_ApplicationsDB" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -450,6 +465,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             <Parameter Name="myname" Mode="In" Type="String" />
             <Parameter Name="appName" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
           </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -752,6 +768,13 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
         </ComplexType>
+        <EntityType Name="WDSB_AppAvgRating_VW">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="AvgRating" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1020,6 +1043,14 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="WDSB_AppAvgRating_VW">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
+              <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
+                <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
