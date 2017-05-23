@@ -46,10 +46,9 @@ namespace BiztechDashboard.Controllers
         }
 
         [Route("api/GetAuth/getFullName")]
-        public ACLEntities getFullName(string username)
+        public WDSB_GetAuth_DTO getFullName(string username)
         {
             ACLQuery acl = new ACLQuery();
-            ACLEntities aclEntity = new ACLEntities();
             var a = db.WDSB_Domains;
             string fullname = "";
             foreach (var x in a)
@@ -57,16 +56,14 @@ namespace BiztechDashboard.Controllers
                 acl.GetConnectToDomain(x.DomainName);
                 fullname = acl.getUsers(username);
                 if (fullname.Trim().Length > 0)
-                    return new ACLEntities
+                    return new WDSB_GetAuth_DTO
                     {
-                        ACL_DisplayName = fullname,
-                        ACL_UserName = username
+                        FullName = username
                     };
             }
-            return new ACLEntities
+            return new WDSB_GetAuth_DTO
             {
-                ACL_DisplayName = username,
-                ACL_UserName = username
+               FullName=username
             };
         }
 

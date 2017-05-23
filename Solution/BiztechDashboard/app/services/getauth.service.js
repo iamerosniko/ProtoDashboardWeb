@@ -25,6 +25,14 @@ var GetAuthService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    GetAuthService.prototype.getFullName = function (username) {
+        var url = this.apiUrl + "/getFullName/?username=" + username;
+        return this.http
+            .get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     GetAuthService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
