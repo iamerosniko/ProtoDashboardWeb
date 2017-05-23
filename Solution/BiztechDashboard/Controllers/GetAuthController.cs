@@ -58,7 +58,7 @@ namespace BiztechDashboard.Controllers
                 if (fullname.Trim().Length > 0)
                     return new WDSB_GetAuth_DTO
                     {
-                        FullName = username
+                        FullName = fullname
                     };
             }
             return new WDSB_GetAuth_DTO

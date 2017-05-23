@@ -18,7 +18,7 @@ export class GetAuthService {
     }
 
     getFullName(username:string): Promise<GetAuth> {
-        const url = `${this.apiUrl}/getFullName/?username=${username}`;
+        const url = `${this.apiUrl}/getFullName/?username=`+username;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()
