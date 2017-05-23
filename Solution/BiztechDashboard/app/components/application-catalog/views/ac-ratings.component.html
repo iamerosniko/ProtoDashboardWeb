@@ -7,12 +7,12 @@
                         <div class="tab-pane fade in active" id="tab1">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <fieldset class="rating">
-                                        <input type="radio" [(ngModel)]="avgRatings.Rating"  id="star5" name="rating" value="5" [checked]="avgRatings.Rating==5" disabled/><label for="star5" title="Rocks!">5 stars</label>
-                                        <input type="radio" [(ngModel)]="avgRatings.Rating"  id="star4" name="rating" value="4" [checked]="avgRatings.Rating==4" disabled/><label for="star4" title="Pretty good">4 stars</label>
-                                        <input type="radio" [(ngModel)]="avgRatings.Rating"  id="star3" name="rating" value="3" [checked]="avgRatings.Rating==3" disabled/><label for="star3" title="Meh">3 stars</label>
-                                        <input type="radio" [(ngModel)]="avgRatings.Rating"  id="star2" name="rating" value="2" [checked]="avgRatings.Rating==2" disabled/><label for="star2" title="Kinda bad">2 stars</label>
-                                        <input type="radio" [(ngModel)]="avgRatings.Rating"  id="star1" name="rating" value="1" [checked]="avgRatings.Rating==1" disabled/><label for="star1" title="Sucks big time">1 star</label>
+                                    <fieldset id="x2" class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" [checked]="avgRatings.Rating==5" disabled/><label for="star5" title="Rocks!">5 stars</label>
+                                        <input type="radio" id="star4" name="rating" value="4" [checked]="avgRatings.Rating==4" disabled/><label for="star4" title="Pretty good">4 stars</label>
+                                        <input type="radio" id="star3" name="rating" value="3" [checked]="avgRatings.Rating==3" disabled/><label for="star3" title="Meh">3 stars</label>
+                                        <input type="radio" id="star2" name="rating" value="2" [checked]="avgRatings.Rating==2" disabled/><label for="star2" title="Kinda bad">2 stars</label>
+                                        <input type="radio" id="star1" name="rating" value="1" [checked]="avgRatings.Rating==1" disabled/><label for="star1" title="Sucks big time">1 star</label>
                                     </fieldset>    
                                     &nbsp; {{getFeed()}}
                                 </div>
@@ -26,12 +26,12 @@
                         <div class="tab-pane fade" id="tab2">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <fieldset class="rating">
-                                        <input type="radio" [(ngModel)]="ratings.Rating"  id="rate5" name="rate" value="5" [checked]="ratings.Rating==5" /><label for="rate5" title="Rocks!">5 stars</label>
-                                        <input type="radio" [(ngModel)]="ratings.Rating"  id="rate4" name="rate" value="4" [checked]="ratings.Rating==4"/><label for="rate4" title="Pretty good">4 stars</label>
-                                        <input type="radio" [(ngModel)]="ratings.Rating"  id="rate3" name="rate" value="3" [checked]="ratings.Rating==3"/><label for="rate3" title="Meh">3 stars</label>
-                                        <input type="radio" [(ngModel)]="ratings.Rating"  id="rate2" name="rate" value="2" [checked]="ratings.Rating==2"/><label for="rate2" title="Kinda bad">2 stars</label>
-                                        <input type="radio" [(ngModel)]="ratings.Rating"  id="rate1" name="rate" value="1" [checked]="ratings.Rating==1"/><label for="rate1" title="Sucks big time">1 star</label>
+                                    <fieldset id="x1" class="rating">
+                                        <input type="radio" (change)="ratings.Rating=5" id="rate5" name="rate" value="5" [checked]="ratings.Rating==5"/><label for="rate5" title="Rocks!">5 stars</label>
+                                        <input type="radio" (change)="ratings.Rating=4" id="rate4" name="rate" value="4" [checked]="ratings.Rating==4"/><label for="rate4" title="Pretty good">4 stars</label>
+                                        <input type="radio" (change)="ratings.Rating=3" id="rate3" name="rate" value="3" [checked]="ratings.Rating==3"/><label for="rate3" title="Meh">3 stars</label>
+                                        <input type="radio" (change)="ratings.Rating=2" id="rate2" name="rate" value="2" [checked]="ratings.Rating==2"/><label for="rate2" title="Kinda bad">2 stars</label>
+                                        <input type="radio" (change)="ratings.Rating=1" id="rate1" name="rate" value="1" [checked]="ratings.Rating==1"/><label for="rate1" title="Sucks big time">1 star</label>
                                     </fieldset>    
                                     &nbsp; How much would you rate this app?
                                 </div>

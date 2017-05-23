@@ -95,24 +95,15 @@ namespace BiztechDashboard.Controllers
             {
                 return BadRequest(ModelState);
             }
-            //check if exists
-            var username = getMyuserName();
-            var a = db.WDSB_Ratings.Where(e => e.AppID == wdsb_ratings.AppID && e.UserName == username);
-
-            if (a.Count() > 0)
+            //var a = db.WDSB_Ratings.Where(e => e.AppID == wdsb_ratings.AppID && e.UserName == username);
+            if (wdsb_ratings.RatingID==0) // means new entry
             {
-                a.First().UserName = getMyuserName();
-                PutWDSB_Ratings(a.First().RatingID, a.First());
-            }
-            else if (wdsb_ratings.AppID == 0)
-            {
-                return Ok();
+                db.WDSB_Ratings.Add(wdsb_ratings);
+                db.SaveChanges();
             }
             else
             {
-                wdsb_ratings.UserName = getMyuserName();
-                db.WDSB_Ratings.Add(wdsb_ratings);
-                db.SaveChanges();
+                PutWDSB_Ratings(wdsb_ratings.RatingID, wdsb_ratings);
             }
 
             return CreatedAtRoute("DefaultApi", new { id = wdsb_ratings.RatingID }, wdsb_ratings);

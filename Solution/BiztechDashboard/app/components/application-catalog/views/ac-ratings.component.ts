@@ -40,16 +40,22 @@ export class ACRatingsComponent implements OnInit {
       ));
   }
   postRating(){
+
     this.ratingService.postRating(this.ratings)
       .then(()=>{
         this.getRating();
         this.getAverage();
+
+      }).catch(()=>{
+        console.log("update");
       });
   }
   getFeed():string{
-    if(this.avgRatings.Rating==5)
+    if(this.avgRatings.Rating==0)
+      return "This app has no ratings yet. Be the first to rate.";
+    else if(this.avgRatings.Rating==5)
       return "Wow, this app got perfect score from our users!";
-    else if(this.avgRatings.Rating==0)
-      return "How much would you rate this app?";
+    else 
+      return "This app got score of " + this.avgRatings.Rating.toString() + " from our users!";
   }
 }
