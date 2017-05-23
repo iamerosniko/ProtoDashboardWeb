@@ -27,13 +27,20 @@ namespace BiztechDashboard.Controllers
         [ResponseType(typeof(WDSB_Ratings))]
         public IHttpActionResult GetWDSB_Ratings(int id)
         {
-            WDSB_Ratings wdsb_ratings = db.WDSB_Ratings.Find(id);
+            var un = getMyuserName();
+            //WDSB_Ratings wdsb_ratings = db.WDSB_Ratings.Find(id);
+            var wdsb_ratings = db.WDSB_Ratings.Where(x => x.AppID == id && x.UserName == un);
             if (wdsb_ratings == null)
             {
-                return NotFound();
+                return Ok(new WDSB_Ratings{
+                    AppID=id,
+                    Rating=0,
+                    UserName = un,
+                    RatingID=0
+                });
             }
 
-            return Ok(wdsb_ratings);
+            return Ok(wdsb_ratings.First());
         }
 
         // PUT api/Ratings/5
