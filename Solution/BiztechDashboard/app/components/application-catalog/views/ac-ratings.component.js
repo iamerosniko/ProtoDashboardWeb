@@ -18,7 +18,7 @@ var ACRatingsComponent = (function () {
         this.route = route;
         this.router = router;
         this.ratingService = ratingService;
-        this.rating = new ratings_1.Ratings(0, 0, '', 0);
+        this.ratings = new ratings_1.Ratings(0, 0, '', 0);
     }
     ACRatingsComponent.prototype.ngOnInit = function () {
         this.getselectedID();
@@ -33,10 +33,10 @@ var ACRatingsComponent = (function () {
     ACRatingsComponent.prototype.getRating = function () {
         var _this = this;
         this.ratingService.getRating(this.selectedID)
-            .then(function (rat) { return _this.rating = new ratings_1.Ratings(rat.AppID, rat.Rating, rat.UserName, rat.Rating); });
+            .then(function (rat) { return _this.ratings = new ratings_1.Ratings(rat.AppID, rat.Rating, rat.UserName, rat.Rating); });
     };
     ACRatingsComponent.prototype.postRating = function () {
-        this.ratingService.postRating(this.rating);
+        this.ratingService.postRating(this.ratings);
     };
     return ACRatingsComponent;
 }());

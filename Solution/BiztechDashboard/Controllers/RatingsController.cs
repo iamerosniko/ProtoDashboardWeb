@@ -30,7 +30,7 @@ namespace BiztechDashboard.Controllers
             var un = getMyuserName();
             //WDSB_Ratings wdsb_ratings = db.WDSB_Ratings.Find(id);
             var wdsb_ratings = db.WDSB_Ratings.Where(x => x.AppID == id && x.UserName == un);
-            if (wdsb_ratings == null)
+            if (wdsb_ratings.Count()==0)
             {
                 return Ok(new WDSB_Ratings{
                     AppID=id,

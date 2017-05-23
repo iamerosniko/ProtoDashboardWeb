@@ -35,6 +35,7 @@ import { AppUserService } from '../../services/app-user.service';
 import { FavoriteService } from '../../services/favorite.service';
 import { CommentService } from '../../services/comment.service';
 import { GetAuthService } from '../../services/getauth.service';
+import { RatingService } from '../../services/rating.service';
 
 /*******************Routing**********************************/
 import { AppCatalogRouting } from './appcatalog.routing';
@@ -69,7 +70,8 @@ import { AppCatalogRouting } from './appcatalog.routing';
         ApplicationService,
         FavoriteService,
         CommentService,
-        GetAuthService
+        GetAuthService,
+        RatingService
     ]
 })
 

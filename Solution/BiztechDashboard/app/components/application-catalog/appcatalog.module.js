@@ -39,6 +39,7 @@ var application_service_1 = require("../../services/application.service");
 var favorite_service_1 = require("../../services/favorite.service");
 var comment_service_1 = require("../../services/comment.service");
 var getauth_service_1 = require("../../services/getauth.service");
+var rating_service_1 = require("../../services/rating.service");
 /*******************Routing**********************************/
 var appcatalog_routing_1 = require("./appcatalog.routing");
 var AppCatalogModule = (function () {
@@ -77,7 +78,8 @@ AppCatalogModule = __decorate([
             application_service_1.ApplicationService,
             favorite_service_1.FavoriteService,
             comment_service_1.CommentService,
-            getauth_service_1.GetAuthService
+            getauth_service_1.GetAuthService,
+            rating_service_1.RatingService
         ]
     })
 ], AppCatalogModule);
