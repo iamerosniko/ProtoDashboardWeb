@@ -13,9 +13,9 @@ export class ACRatingsComponent implements OnInit {
     private router: Router,
     private ratingService:RatingService
   ){}
-  
+
   selectedID:number;
-  rating:Ratings=new Ratings(0,0,'',0);
+  ratings:Ratings=new Ratings(0,0,'',0);
 
   ngOnInit(){
     this.getselectedID();
@@ -26,6 +26,12 @@ export class ACRatingsComponent implements OnInit {
         this.selectedID = params['id'];});    
   }
   getRating(){
-    this.ratingService.getRating(this.selectedID).then(rat=>this.rating=rat);
+    this.ratingService.getRating(this.selectedID)
+      .then(rat=>this.ratings=new Ratings(
+        rat.AppID,rat.Rating,rat.UserName,rat.Rating
+      ));
+  }
+  postRating(){
+    this.ratingService.postRating(this.ratings);
   }
 }

@@ -32,7 +32,11 @@ var ACRatingsComponent = (function () {
     };
     ACRatingsComponent.prototype.getRating = function () {
         var _this = this;
-        this.ratingService.getRating(this.selectedID).then(function (rat) { return _this.rating = rat; });
+        this.ratingService.getRating(this.selectedID)
+            .then(function (rat) { return _this.rating = new ratings_1.Ratings(rat.AppID, rat.Rating, rat.UserName, rat.Rating); });
+    };
+    ACRatingsComponent.prototype.postRating = function () {
+        this.ratingService.postRating(this.rating);
     };
     return ACRatingsComponent;
 }());
