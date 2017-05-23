@@ -16,10 +16,12 @@ export class ACRatingsComponent implements OnInit {
 
   selectedID:number;
   ratings:Ratings=new Ratings(0,0,'',0);
+  avgRatings:Ratings=new Ratings(0,0,'',0);
 
   ngOnInit(){
     this.getselectedID();
     this.getRating();
+    this.getAverage();
   }
   getselectedID(){
     this.route.params.subscribe(params => {
@@ -31,13 +33,19 @@ export class ACRatingsComponent implements OnInit {
         rat.RatingID,rat.AppID,rat.UserName,rat.Rating
       ));
   }
+  getAverage(){
+    this.ratingService.getAverageRating(this.selectedID)
+      .then(rat=>this.avgRatings=new Ratings(
+        rat.RatingID,rat.AppID,rat.UserName,rat.Rating
+      ));
+  }
   postRating(){
     this.ratingService.postRating(this.ratings);
   }
   getFeed():string{
-    if(this.ratings.Rating==5)
+    if(this.avgRatings.Rating==5)
       return "Wow, this app got perfect score from our users!";
-    else if(this.ratings.Rating==0)
+    else if(this.avgRatings.Rating==0)
       return "How much would you rate this app?";
   }
 }

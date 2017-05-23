@@ -8,6 +8,14 @@ export class RatingService {
     private headers = new Headers({'Content-Type': 'application/json'});
     private apiUrl = 'api/Ratings';
     constructor(private http: Http){}
+    getAverageRating(id:number):Promise<Ratings>{
+        const url = `${this.apiUrl}/Get_RatingAverage/?id=${id}`;
+        return this.http
+                .get(url)
+                .toPromise()
+                .then(response => response.json())  
+                .catch(this.handleError);
+    }
 
     getRating(id: number): Promise<Ratings> {
         const url = `${this.apiUrl}/${id}`;

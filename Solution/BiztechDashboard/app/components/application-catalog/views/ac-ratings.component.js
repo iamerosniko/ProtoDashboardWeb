@@ -19,10 +19,12 @@ var ACRatingsComponent = (function () {
         this.router = router;
         this.ratingService = ratingService;
         this.ratings = new ratings_1.Ratings(0, 0, '', 0);
+        this.avgRatings = new ratings_1.Ratings(0, 0, '', 0);
     }
     ACRatingsComponent.prototype.ngOnInit = function () {
         this.getselectedID();
         this.getRating();
+        this.getAverage();
     };
     ACRatingsComponent.prototype.getselectedID = function () {
         var _this = this;
@@ -35,13 +37,18 @@ var ACRatingsComponent = (function () {
         this.ratingService.getRating(this.selectedID)
             .then(function (rat) { return _this.ratings = new ratings_1.Ratings(rat.RatingID, rat.AppID, rat.UserName, rat.Rating); });
     };
+    ACRatingsComponent.prototype.getAverage = function () {
+        var _this = this;
+        this.ratingService.getAverageRating(this.selectedID)
+            .then(function (rat) { return _this.avgRatings = new ratings_1.Ratings(rat.RatingID, rat.AppID, rat.UserName, rat.Rating); });
+    };
     ACRatingsComponent.prototype.postRating = function () {
         this.ratingService.postRating(this.ratings);
     };
     ACRatingsComponent.prototype.getFeed = function () {
-        if (this.ratings.Rating == 5)
+        if (this.avgRatings.Rating == 5)
             return "Wow, this app got perfect score from our users!";
-        else if (this.ratings.Rating == 0)
+        else if (this.avgRatings.Rating == 0)
             return "How much would you rate this app?";
     };
     return ACRatingsComponent;

@@ -18,6 +18,14 @@ var RatingService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         this.apiUrl = 'api/Ratings';
     }
+    RatingService.prototype.getAverageRating = function (id) {
+        var url = this.apiUrl + "/Get_RatingAverage/?id=" + id;
+        return this.http
+            .get(url)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     RatingService.prototype.getRating = function (id) {
         var url = this.apiUrl + "/" + id;
         return this.http
