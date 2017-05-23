@@ -28,10 +28,16 @@ export class ACRatingsComponent implements OnInit {
   getRating(){
     this.ratingService.getRating(this.selectedID)
       .then(rat=>this.ratings=new Ratings(
-        rat.AppID,rat.Rating,rat.UserName,rat.Rating
+        rat.RatingID,rat.AppID,rat.UserName,rat.Rating
       ));
   }
   postRating(){
     this.ratingService.postRating(this.ratings);
+  }
+  getFeed():string{
+    if(this.ratings.Rating==5)
+      return "Wow, this app got perfect score from our users!";
+    else if(this.ratings.Rating==0)
+      return "How much would you rate this app?";
   }
 }

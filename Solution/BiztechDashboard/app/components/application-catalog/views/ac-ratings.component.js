@@ -33,10 +33,16 @@ var ACRatingsComponent = (function () {
     ACRatingsComponent.prototype.getRating = function () {
         var _this = this;
         this.ratingService.getRating(this.selectedID)
-            .then(function (rat) { return _this.ratings = new ratings_1.Ratings(rat.AppID, rat.Rating, rat.UserName, rat.Rating); });
+            .then(function (rat) { return _this.ratings = new ratings_1.Ratings(rat.RatingID, rat.AppID, rat.UserName, rat.Rating); });
     };
     ACRatingsComponent.prototype.postRating = function () {
         this.ratingService.postRating(this.ratings);
+    };
+    ACRatingsComponent.prototype.getFeed = function () {
+        if (this.ratings.Rating == 5)
+            return "Wow, this app got perfect score from our users!";
+        else if (this.ratings.Rating == 0)
+            return "How much would you rate this app?";
     };
     return ACRatingsComponent;
 }());
