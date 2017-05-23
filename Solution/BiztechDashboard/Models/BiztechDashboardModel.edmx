@@ -66,6 +66,13 @@
           <Property Name="DatePosted" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Subject" Type="varchar" MaxLength="25" />
         </EntityType>
+        <EntityType Name="WDSB_Domains">
+          <Key>
+            <PropertyRef Name="DomainID" />
+          </Key>
+          <Property Name="DomainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DomainName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="WDSB_Favorites">
           <Key>
             <PropertyRef Name="FavID" />
@@ -284,6 +291,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <EntitySet Name="WDSB_BUContacts" EntityType="Self.WDSB_BUContacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_BusinessUnits" EntityType="Self.WDSB_BusinessUnits" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WDSB_Domains" EntityType="Self.WDSB_Domains" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WDSB_Projects" EntityType="Self.WDSB_Projects" Schema="dbo" store:Type="Tables" />
@@ -466,6 +474,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             <Parameter Name="appName" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
+          <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
           </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -775,6 +784,13 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Name="AppID" Type="Int32" Nullable="false" />
           <Property Name="AvgRating" Type="Int32" />
         </EntityType>
+        <EntityType Name="WDSB_Domains">
+          <Key>
+            <PropertyRef Name="DomainID" />
+          </Key>
+          <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1048,6 +1064,14 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
               <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
                 <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_Domains">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
+              <MappingFragment StoreEntitySet="WDSB_Domains">
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="DomainID" ColumnName="DomainID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

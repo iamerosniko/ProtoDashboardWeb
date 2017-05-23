@@ -271,5 +271,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_Domains">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
+        <MappingFragment StoreEntitySet="WDSB_Domains">
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="DomainID" ColumnName="DomainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

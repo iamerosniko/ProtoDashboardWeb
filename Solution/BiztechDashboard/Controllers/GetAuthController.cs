@@ -45,16 +45,36 @@ namespace BiztechDashboard.Controllers
             };
         }
 
+        [Route("api/GetAuth/getFullName")]
+        public ACLEntities getFullName(string username)
+        {
+            ACLQuery acl = new ACLQuery();
+            ACLEntities aclEntity = new ACLEntities();
+            var a = db.WDSB_Domains;
+            string fullname = "";
+            foreach (var x in a)
+            {
+                acl.GetConnectToDomain(x.DomainName);
+                fullname = acl.getUsers(username);
+                if (fullname.Trim().Length > 0)
+                    return new ACLEntities
+                    {
+                        ACL_DisplayName = fullname,
+                        ACL_UserName = username
+                    };
+            }
+            return new ACLEntities
+            {
+                ACL_DisplayName = username,
+                ACL_UserName = username
+            };
+        }
+
         private string getMyuserName()
         {
             string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
             //username only
             string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
-                //WindowsIdentity.GetCurrent().Name;
-            //Console.WriteLine(WindowsIdentity.GetCurrent().Name);
-            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
-            //Domain Name only
-            //string currentDomainname = (index < 0) ? currentDomainUser : currentDomainUser.Remove(index, currentUsername.Length + 1);
             return currentUsername;
         }
     }

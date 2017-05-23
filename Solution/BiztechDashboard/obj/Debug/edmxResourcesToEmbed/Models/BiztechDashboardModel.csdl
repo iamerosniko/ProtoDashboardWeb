@@ -107,6 +107,7 @@
       <Parameter Name="appName" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
+    <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -415,5 +416,12 @@
     </Key>
     <Property Name="AppID" Type="Int32" Nullable="false" />
     <Property Name="AvgRating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WDSB_Domains">
+    <Key>
+      <PropertyRef Name="DomainID" />
+    </Key>
+    <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

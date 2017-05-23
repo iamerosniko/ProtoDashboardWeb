@@ -61,6 +61,13 @@
     <Property Name="DatePosted" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="Subject" Type="varchar" MaxLength="25" />
   </EntityType>
+  <EntityType Name="WDSB_Domains">
+    <Key>
+      <PropertyRef Name="DomainID" />
+    </Key>
+    <Property Name="DomainID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DomainName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
   <EntityType Name="WDSB_Favorites">
     <Key>
       <PropertyRef Name="FavID" />
@@ -279,6 +286,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
     <EntitySet Name="WDSB_BUContacts" EntityType="Self.WDSB_BUContacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_BusinessUnits" EntityType="Self.WDSB_BusinessUnits" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_Comments" EntityType="Self.WDSB_Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WDSB_Domains" EntityType="Self.WDSB_Domains" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_Favorites" EntityType="Self.WDSB_Favorites" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_Features" EntityType="Self.WDSB_Features" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WDSB_Projects" EntityType="Self.WDSB_Projects" Schema="dbo" store:Type="Tables" />

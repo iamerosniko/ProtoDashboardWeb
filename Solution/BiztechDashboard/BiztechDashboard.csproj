@@ -159,6 +159,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ACLQuery.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\AppusersController.cs" />
     <Compile Include="Controllers\GetAuthController.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ACLEntities.cs" />
     <Compile Include="Models\BiztechBTSSModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -265,6 +267,9 @@
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WDSB_Comments_DTO.cs" />
+    <Compile Include="Models\WDSB_Domains.cs">
+      <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WDSB_FavApp_VW_Result.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

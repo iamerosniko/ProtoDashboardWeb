@@ -26,6 +26,7 @@
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Ratings" Width="1.5" PointX="0.75" PointY="4.5" />
         <AssociationConnector Association="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" />
         <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" Width="1.5" PointX="10.5" PointY="4" />
+        <EntityTypeShape EntityType="BiztechDashboardModel.WDSB_Domains" Width="1.5" PointX="10.5" PointY="5.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

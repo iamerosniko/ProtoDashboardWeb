@@ -40,6 +40,7 @@ namespace BiztechDashboard.Models
         public virtual DbSet<WDSB_Features> WDSB_Features { get; set; }
         public virtual DbSet<WDSB_Ratings> WDSB_Ratings { get; set; }
         public virtual DbSet<WDSB_AppAvgRating_VW> WDSB_AppAvgRating_VW { get; set; }
+        public virtual DbSet<WDSB_Domains> WDSB_Domains { get; set; }
     
         public virtual ObjectResult<WDSB_GetAuth_Result> WDSB_GetAuth(string username, string moduleName)
         {
