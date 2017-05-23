@@ -43,7 +43,12 @@ var ACRatingsComponent = (function () {
             .then(function (rat) { return _this.avgRatings = new ratings_1.Ratings(rat.RatingID, rat.AppID, rat.UserName, rat.Rating); });
     };
     ACRatingsComponent.prototype.postRating = function () {
-        this.ratingService.postRating(this.ratings);
+        var _this = this;
+        this.ratingService.postRating(this.ratings)
+            .then(function () {
+            _this.getRating();
+            _this.getAverage();
+        });
     };
     ACRatingsComponent.prototype.getFeed = function () {
         if (this.avgRatings.Rating == 5)

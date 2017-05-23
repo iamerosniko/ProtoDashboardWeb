@@ -40,7 +40,11 @@ export class ACRatingsComponent implements OnInit {
       ));
   }
   postRating(){
-    this.ratingService.postRating(this.ratings);
+    this.ratingService.postRating(this.ratings)
+      .then(()=>{
+        this.getRating();
+        this.getAverage();
+      });
   }
   getFeed():string{
     if(this.avgRatings.Rating==5)
