@@ -251,6 +251,7 @@
     <Compile Include="Models\WDSB_AvailApp_VW_Result.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\WDSB_AverageRating.cs" />
     <Compile Include="Models\WDSB_BUContacts.cs">
       <DependentUpon>BiztechDashboardModel.tt</DependentUpon>
     </Compile>

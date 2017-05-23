@@ -17,10 +17,13 @@ namespace BiztechDashboard.Controllers
     {
         private BiztechDashboardContext db = new BiztechDashboardContext();
 
-        // GET api/Ratings
-        public IQueryable<WDSB_Ratings> GetWDSB_Ratings()
+        [Route("api/Ratings/Get_RatingAverage")]
+        public WDSB_AverageRating Get_RatingAverage(int id)
         {
-            return db.WDSB_Ratings;
+            return new WDSB_AverageRating
+            {
+                Rating = db.WDSB_Ratings.Where(r => r.AppID == id).Average(r => r.Rating)
+            };
         }
 
         // GET api/Ratings/5
