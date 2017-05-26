@@ -7,6 +7,8 @@ import { Contact } from '../../entities/contact';
 //services
 import { FnBU } from './functions/fn-bu';
 import { FnContact } from './functions/fn-contact';
+import { GetAuthService } from '../../services/getauth.service';
+import { GetAuth } from '../../entities/getauth';
 @Component({
     moduleId: module.id,
     selector: 'maintenance-parent',
@@ -17,9 +19,13 @@ export class MaintenanceComponent {
         public fnBU:FnBU,
         public fnContact:FnContact,
         private router: Router,
+        private getAuthService:GetAuthService,
     ){
+        this.isUserAdmin();
         this.refreshLists();
     }
+    
+    myAuth:GetAuth=new GetAuth('','',false,false,false,false,'');
     //bu
     listBU:BU[]=[];
     selectedBU:BU=new BU(0,'');
@@ -42,6 +48,17 @@ export class MaintenanceComponent {
     applicationView(path:string){
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', {outlets: {'apps': [path]}}]);
+    }
+
+    isUserAdmin(){
+        this.getAuthService.getAuth()
+            .then(auth => {
+                this.myAuth=auth;
+                 if(this.myAuth.Module==""){
+                    this.router.navigateByUrl('/Applications');
+                 }
+        });
+       
     }
 
     private checkForm(mode:string){

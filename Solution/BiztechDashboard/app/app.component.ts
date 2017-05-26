@@ -7,7 +7,7 @@ import { GetAuth } from './entities/getauth';
   templateUrl:`app.component.html`
 })
 export class AppComponent  { 
-  myAuth:GetAuth=new GetAuth('','',false,false,false,false)
+  myAuth:GetAuth=new GetAuth('','',false,false,false,false,'');
   constructor(private getAuthService:GetAuthService){
     this.getAuthService.getAuth().then(auth => this.myAuth=auth);
   }

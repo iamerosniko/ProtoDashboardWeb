@@ -17,11 +17,15 @@ var contact_1 = require("../../entities/contact");
 //services
 var fn_bu_1 = require("./functions/fn-bu");
 var fn_contact_1 = require("./functions/fn-contact");
+var getauth_service_1 = require("../../services/getauth.service");
+var getauth_1 = require("../../entities/getauth");
 var MaintenanceComponent = (function () {
-    function MaintenanceComponent(fnBU, fnContact, router) {
+    function MaintenanceComponent(fnBU, fnContact, router, getAuthService) {
         this.fnBU = fnBU;
         this.fnContact = fnContact;
         this.router = router;
+        this.getAuthService = getAuthService;
+        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false, '');
         //bu
         this.listBU = [];
         this.selectedBU = new bu_1.BU(0, '');
@@ -32,6 +36,7 @@ var MaintenanceComponent = (function () {
         this.showForm = false;
         this.formMode = 'New';
         this.selectedForm = 0;
+        this.isUserAdmin();
         this.refreshLists();
     }
     MaintenanceComponent.prototype.toFormView = function (mode, form, selectList) {
@@ -45,6 +50,16 @@ var MaintenanceComponent = (function () {
     MaintenanceComponent.prototype.applicationView = function (path) {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', { outlets: { 'apps': [path] } }]);
+    };
+    MaintenanceComponent.prototype.isUserAdmin = function () {
+        var _this = this;
+        this.getAuthService.getAuth()
+            .then(function (auth) {
+            _this.myAuth = auth;
+            if (_this.myAuth.Module == "") {
+                _this.router.navigateByUrl('/Applications');
+            }
+        });
     };
     MaintenanceComponent.prototype.checkForm = function (mode) {
         if (mode == 'New') {
@@ -95,6 +110,7 @@ MaintenanceComponent = __decorate([
     }),
     __metadata("design:paramtypes", [fn_bu_1.FnBU,
         fn_contact_1.FnContact,
-        router_1.Router])
+        router_1.Router,
+        getauth_service_1.GetAuthService])
 ], MaintenanceComponent);
 exports.MaintenanceComponent = MaintenanceComponent;

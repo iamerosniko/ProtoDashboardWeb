@@ -22,7 +22,7 @@ var ACComponent = (function () {
         this.tabselected = 0;
         this.apps = [];
         this.listApps = [];
-        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false);
+        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false, '');
     }
     ACComponent.prototype.ngOnInit = function () {
         var _this = this;

@@ -16,7 +16,7 @@ export class ACComponent implements OnInit {
   tabselected:number=0;
   apps:AppForClient[]=[];
   listApps:AppForClient[][]=[];
-  myAuth:GetAuth=new GetAuth('','',false,false,false,false)
+  myAuth:GetAuth=new GetAuth('','',false,false,false,false,'');
   
   constructor(
       private fn: FnMainApp,

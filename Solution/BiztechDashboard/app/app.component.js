@@ -16,7 +16,7 @@ var AppComponent = (function () {
     function AppComponent(getAuthService) {
         var _this = this;
         this.getAuthService = getAuthService;
-        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false);
+        this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false, '');
         this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
     }
     return AppComponent;

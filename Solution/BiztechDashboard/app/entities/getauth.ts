@@ -6,5 +6,6 @@ export class GetAuth {
         public CanDelete : boolean,
         public CanEdit : boolean,
         public CanView : boolean,
+        public Module : string
     ){}
 }
