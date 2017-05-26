@@ -103,6 +103,8 @@ namespace BiztechDashboard.Controllers
 
             foreach (var temp in wdsb_projects)
             {
+                temp.BackEndPath = (temp.BackEndPath == null) ? "" : temp.BackEndPath;
+                temp.FrontEndPath = (temp.FrontEndPath == null) ? "" : temp.FrontEndPath;
                 if (temp.FrontEndPath.Trim().Length > 0 && temp.BackEndPath.Trim().Length > 0)
                 {
                     db.Entry(temp).State = EntityState.Modified;
@@ -134,6 +136,8 @@ namespace BiztechDashboard.Controllers
 
             foreach (var temp in wdsb_projects)
             {
+                temp.BackEndPath = (temp.BackEndPath == null) ? "" : temp.BackEndPath;
+                temp.FrontEndPath = (temp.FrontEndPath == null) ? "" : temp.FrontEndPath;
                 if (temp.FrontEndPath.Trim().Length > 0 && temp.BackEndPath.Trim().Length > 0)
                 {
                     db.WDSB_Projects.Add(temp);
@@ -148,6 +152,7 @@ namespace BiztechDashboard.Controllers
 
                     }
                 }
+                
             }
             return Ok("Good: " + good + "Error: " + (wdsb_projects.Count() - good).ToString());
         }

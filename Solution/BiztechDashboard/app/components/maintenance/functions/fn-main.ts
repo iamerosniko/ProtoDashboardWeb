@@ -59,8 +59,8 @@ export class FnMain  {
         return this.applicationService.getNewApplications();
         
     }
-    //6.add to wdsb.Applications
-    postApplications(app:Project[]):Promise<any>{
+    //6.add to wdsb.Projects
+    postProjects(app:Project[]):Promise<any>{
         // (app).forEach(element => {
         //     this.applicationService.postApplication(element);
         // });

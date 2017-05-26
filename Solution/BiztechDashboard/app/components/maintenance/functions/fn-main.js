@@ -62,8 +62,8 @@ var FnMain = (function () {
     FnMain.prototype.getNewApplications = function () {
         return this.applicationService.getNewApplications();
     };
-    //6.add to wdsb.Applications
-    FnMain.prototype.postApplications = function (app) {
+    //6.add to wdsb.Projects
+    FnMain.prototype.postProjects = function (app) {
         // (app).forEach(element => {
         //     this.applicationService.postApplication(element);
         // });

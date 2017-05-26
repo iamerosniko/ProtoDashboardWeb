@@ -61,7 +61,7 @@ export class SyncMainComponent implements OnInit  {
         this.initAppSync();
     }
     initAppSync(){
-    
+        
         this.removeAppFromTemp(); // 1 and 2 
         this.getAppToTemp(); // 3 and 4    
         this.getNewAppFromTemp();
@@ -101,18 +101,18 @@ export class SyncMainComponent implements OnInit  {
         document.getElementById('pathfinder').click();
         var field:string= (<HTMLInputElement> document.getElementById('pathfinder')).value;
         (<HTMLInputElement> document.getElementById('pathfinder')).value='';
-        return field;
+        return (field==null) ? '' : field;
     }
+
     saveNewApplications(apps:Project[]){
-        //this method is to save new applications to wdsb.applications
-        this.fnMain.postApplications(apps).then(()=>{
+        //this method is to save new applications to wdsb.projects
+        this.fnMain.postProjects(apps).then(()=>{
             this.initAppSync();
         });
         
     }
-      
     updateApplications(apps:Project[]){
-        //this method is to save new applications to wdsb.applications
+        //this method is to save new applications to wdsb.projects
         this.projectService.putProjects(apps).then(()=>{
             this.initAppSync();
         });

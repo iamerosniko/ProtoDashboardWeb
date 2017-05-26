@@ -4,13 +4,14 @@
         <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
         <div [hidden]="newApps.length==0">
             # of projects found in BTSS that are not in WDSB : {{newApps.length}}
-            <button class="btn btn-default btn-sm" type="button" [disabled]="!checkComplete()" (click)="saveNewApplications(newApps);">Add to Projects</button>
+            <!--[disabled]="!checkComplete()"-->
+            <button class="btn btn-default btn-sm" type="button"  (click)="saveNewApplications(newApps);">Add to Projects</button>
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th>Project Name</th>
-                        <th>Front End Path</th>
-                        <th>Back End Path</th>
+                        <th colspan="2">Front End Path</th>
+                        <th colspan="2">Back End Path</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,11 +20,26 @@
                         <td>
                             <input type="text" [(ngModel)]="app.FrontEndPath"  
                             required class="form-control input-sm" />
+        
+                        </td> 
+                        <td>
+                            <span class="input-group-btn">
+                                <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                </a>
+                            </span>
                         </td> 
                         <td>
                             <input type="text" [(ngModel)]="app.BackEndPath"  
                             required class="form-control input-sm" />
                         </td>
+                        <td>
+                            <span class="input-group-btn">
+                                <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                </a>
+                            </span>
+                        </td> 
                         <!--<td>{{app.ProjectDatasource}}</td>-->
                         <!--<td>{{app.ProjectDatabaseName}}</td>-->
                     </tr>
@@ -44,32 +60,35 @@
                 <thead>
                     <tr>
                         <th>Project Name</th>
-                        <th>Front End Path</th>
-                        <th>Back End Path</th>
+                        <th colspan="2">Front End Path</th>
+                        <th colspan="2">Back End Path</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let app of syncApps">
                         <td>{{app.ProjectName}}</td>
-                        <td colspan="2">
+                        <td>
                             <input type="text" [(ngModel)]="app.FrontEndPath"  
                             required class="form-control input-sm" />
+                        </td>
+                        <td>
                             <span class="input-group-btn">
                                 <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                 </a>
                             </span>
                         </td> 
-                        <td colspan="2">
+                        <td>
                             <input type="text" [(ngModel)]="app.BackEndPath"  
                             required class="form-control input-sm" />
+                        </td>
+                        <td>
                             <span class="input-group-btn">
                                 <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                 </a>
                             </span>
                         </td>
-                        <input type="file" style="display:none" id="pathfinder">
                     </tr>
                 </tbody>
             </table>    
@@ -77,3 +96,4 @@
     </tab>
 </tabset>    
     
+<input type="file" style="display:none" id="pathfinder">

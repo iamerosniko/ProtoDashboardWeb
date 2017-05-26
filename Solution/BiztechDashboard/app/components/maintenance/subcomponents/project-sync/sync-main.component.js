@@ -96,18 +96,18 @@ var SyncMainComponent = (function () {
         document.getElementById('pathfinder').click();
         var field = document.getElementById('pathfinder').value;
         document.getElementById('pathfinder').value = '';
-        return field;
+        return (field == null) ? '' : field;
     };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
         var _this = this;
-        //this method is to save new applications to wdsb.applications
-        this.fnMain.postApplications(apps).then(function () {
+        //this method is to save new applications to wdsb.projects
+        this.fnMain.postProjects(apps).then(function () {
             _this.initAppSync();
         });
     };
     SyncMainComponent.prototype.updateApplications = function (apps) {
         var _this = this;
-        //this method is to save new applications to wdsb.applications
+        //this method is to save new applications to wdsb.projects
         this.projectService.putProjects(apps).then(function () {
             _this.initAppSync();
         });
