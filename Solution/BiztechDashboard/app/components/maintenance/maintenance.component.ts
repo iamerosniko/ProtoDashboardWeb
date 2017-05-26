@@ -55,7 +55,8 @@ export class MaintenanceComponent {
             .then(auth => {
                 this.myAuth=auth;
                  if(this.myAuth.Module==""){
-                    this.router.navigateByUrl('/Applications');
+                     alert('You do not have permission to use Maintenance Module');
+                     this.router.navigateByUrl('/Applications');
                  }
         });
        

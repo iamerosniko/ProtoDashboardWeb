@@ -57,6 +57,7 @@ var MaintenanceComponent = (function () {
             .then(function (auth) {
             _this.myAuth = auth;
             if (_this.myAuth.Module == "") {
+                alert('You do not have permission to use Maintenance Module');
                 _this.router.navigateByUrl('/Applications');
             }
         });
