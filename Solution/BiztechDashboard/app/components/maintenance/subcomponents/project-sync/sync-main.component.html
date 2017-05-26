@@ -51,14 +51,25 @@
                 <tbody>
                     <tr *ngFor="let app of syncApps">
                         <td>{{app.ProjectName}}</td>
-                        <td>
+                        <td colspan="2">
                             <input type="text" [(ngModel)]="app.FrontEndPath"  
                             required class="form-control input-sm" />
+                            <span class="input-group-btn">
+                                <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                </a>
+                            </span>
                         </td> 
-                        <td>
+                        <td colspan="2">
                             <input type="text" [(ngModel)]="app.BackEndPath"  
                             required class="form-control input-sm" />
+                            <span class="input-group-btn">
+                                <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                </a>
+                            </span>
                         </td>
+                        <input type="file" style="display:none" id="pathfinder">
                     </tr>
                 </tbody>
             </table>    

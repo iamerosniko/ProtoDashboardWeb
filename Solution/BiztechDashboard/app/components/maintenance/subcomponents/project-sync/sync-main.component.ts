@@ -97,7 +97,12 @@ export class SyncMainComponent implements OnInit  {
                 // console.log('done-getNewAppFromTemp');
             });
     }
-
+    browseFile():string {
+        document.getElementById('pathfinder').click();
+        var field:string= (<HTMLInputElement> document.getElementById('pathfinder')).value;
+        (<HTMLInputElement> document.getElementById('pathfinder')).value='';
+        return field;
+    }
     saveNewApplications(apps:Project[]){
         //this method is to save new applications to wdsb.applications
         this.fnMain.postApplications(apps).then(()=>{

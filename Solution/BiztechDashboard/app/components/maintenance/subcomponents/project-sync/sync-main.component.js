@@ -92,6 +92,12 @@ var SyncMainComponent = (function () {
             // console.log('done-getNewAppFromTemp');
         });
     };
+    SyncMainComponent.prototype.browseFile = function () {
+        document.getElementById('pathfinder').click();
+        var field = document.getElementById('pathfinder').value;
+        document.getElementById('pathfinder').value = '';
+        return field;
+    };
     SyncMainComponent.prototype.saveNewApplications = function (apps) {
         var _this = this;
         //this method is to save new applications to wdsb.applications

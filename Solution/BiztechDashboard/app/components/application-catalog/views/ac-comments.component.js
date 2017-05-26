@@ -19,6 +19,7 @@ var ACCommentsComponent = (function () {
         this.fullname = '';
     }
     ACCommentsComponent.prototype.ngOnInit = function () {
+        console.log(this.thiscomment);
         this.getFullName(this.thiscomment.UserName);
     };
     ACCommentsComponent.prototype.getFullName = function (username) {
