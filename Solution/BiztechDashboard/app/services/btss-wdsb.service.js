@@ -35,7 +35,10 @@ var BTSSWDSBService = (function () {
             .catch(this.handleError);
     };
     BTSSWDSBService.prototype.getUsers = function (myproject) {
-        var url = this.userURL + "/Getset_User/?ds=" + myproject.ProjectDatasource + "&dbase=" + myproject.ProjectDb + "&projectID=" + myproject.ProjectID + "&userID=" + myproject.ProjectUserID + "&password=" + myproject.ProjectPassword;
+        var url = "";
+        url = (myproject.ProjectDatasource != "")
+            ? this.userURL + "/Getset_User/?ds=" + myproject.ProjectDatasource + "&dbase=" + myproject.ProjectDb + "&projectID=" + myproject.ProjectID + "&userID=" + myproject.ProjectUserID + "&password=" + myproject.ProjectPassword
+            : this.userURL + "/GetUserFromMSAccess/?filename=" + myproject.ProjectBackEnd;
         //const url = `${this.userURL}/Getset_User`;
         return this.http
             .get(url, { headers: this.headers })

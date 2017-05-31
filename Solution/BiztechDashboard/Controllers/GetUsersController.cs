@@ -56,10 +56,13 @@ namespace BiztechDashboard.Controllers
             return esb.ToString();
         }
 
+
+        /*MSSQL DB*/
         [ResponseType(typeof(WDSB_AffectedUsers))]
         //public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
         public IHttpActionResult Getset_user(string ds, string dbase, string projectID, string userID, string password)
         {
+            
             TempDatabaseEntities myDb = (userID==null||userID=="") 
                 ? new TempDatabaseEntities(BuildConnectionString(ds, dbase))
                 : new TempDatabaseEntities(BuildConnectionString(ds,dbase,userID,password));
@@ -95,6 +98,14 @@ namespace BiztechDashboard.Controllers
             }
         }
 
+        /*MSACCSS DB*/
+        [Route("api/GetUsers/GetUserFromMSAccess")]
+        [ResponseType(typeof(WDSB_AffectedUsers))]
+        //public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
+        public IHttpActionResult GetUserFromMSAccess(string filename)
+        {
+            return Ok(new WDSB_AffectedUsers { AffectedUsers = -2 }); //unable to connect to ms access
+        }
 
         protected override void Dispose(bool disposing)
         {

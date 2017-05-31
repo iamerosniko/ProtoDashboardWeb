@@ -29,7 +29,7 @@ namespace BiztechDashboard.Controllers
         public IQueryable<WDSB_ProjectUsers> GetWDSB_Projects2()
         {
             var projects = from i in db.WDSB_Projects
-                           where i.ProjectDatasource != ""
+                          // where i.ProjectDatasource != ""
                            select new WDSB_ProjectUsers
                            {
                                ProjectDb=i.ProjectDatabaseName,
@@ -38,7 +38,9 @@ namespace BiztechDashboard.Controllers
                                ProjectIsActive=i.ProjectIsActive,
                                ProjectName=i.ProjectName,
                                ProjectPassword=i.ProjectPassword,
-                               ProjectUserID=i.ProjectUserID
+                               ProjectUserID=i.ProjectUserID,
+                               ProjectFrontEnd=i.FrontEndPath,
+                               ProjectBackEnd=i.BackEndPath
                            };
 
             return projects.OrderBy(x=>x.ProjectName);

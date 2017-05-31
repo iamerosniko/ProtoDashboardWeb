@@ -7,6 +7,8 @@ export class ProjectUsers {
         public ProjectUserID : string,
         public ProjectPassword : string,
         public ProjectIsActive: Boolean,
-        public ProjectSyncStatus : number
+        public ProjectSyncStatus : number,
+        public ProjectFrontEnd: string,
+        public ProjectBackEnd : string
     ){}
 }

@@ -15,5 +15,7 @@ namespace BiztechDashboard.Models
         public string ProjectPassword { get; set; }
         public Nullable<bool> ProjectIsActive { get; set; }
         public int ProjectSyncStatus { get; set; }
+        public string ProjectFrontEnd { get; set; }
+        public string ProjectBackEnd { get; set; }
     }
 }
