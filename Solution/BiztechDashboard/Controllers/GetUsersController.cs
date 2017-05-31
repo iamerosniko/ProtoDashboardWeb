@@ -57,7 +57,8 @@ namespace BiztechDashboard.Controllers
         }
 
         [ResponseType(typeof(WDSB_AffectedUsers))]
-        public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
+        //public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
+        public IHttpActionResult Getset_user(string ds, string dbase, string projectID, string userID, string password)
         {
             TempDatabaseEntities myDb = (userID==null||userID=="") 
                 ? new TempDatabaseEntities(BuildConnectionString(ds, dbase))
@@ -108,6 +109,15 @@ namespace BiztechDashboard.Controllers
         {
             return db.set_user.Count(e => e.user_id == id) > 0;
         }
+
+    }
+    public class DatabaseInfo
+    {
+        public string ds { get; set; }
+        public string dbase { get; set; }
+        public string projectID { get; set; }
+        public string userID { get; set; }
+        public string password { get; set; }
 
     }
 }

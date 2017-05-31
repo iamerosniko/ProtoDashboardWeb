@@ -31,9 +31,11 @@ export class BTSSWDSBService {
     }
 
     getUsers(myproject : ProjectUsers): Promise<any> {
-        const url = `${this.userURL}/Getset_User/?ds=${myproject.ProjectDatasource}&dbase=${myproject.ProjectDb}&projectID=${myproject.ProjectID}&userID=%`+myproject.ProjectUserID+`&password=%`+myproject.ProjectPassword;
+        const url = `${this.userURL}/Getset_User/?ds=${myproject.ProjectDatasource}&dbase=${myproject.ProjectDb}&projectID=${myproject.ProjectID}&userID=${myproject.ProjectUserID}&password=${myproject.ProjectPassword}`;
+        //const url = `${this.userURL}/Getset_User`;
         return this.http
                 .get(url, {headers: this.headers})
+                //.get(url,JSON.stringify(myproject))
                 .toPromise()
                 .then(response=>response.json()) //testing
                 .catch(this.handleError);
