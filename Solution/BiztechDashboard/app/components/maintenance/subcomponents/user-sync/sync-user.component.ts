@@ -12,7 +12,7 @@ import { ProjectUsers } from '../../../../entities/projectusers';
     //     </a>`,
     templateUrl: 'sync-user.component.html',
 })
-export class SyncUserComponent implements OnInit  { 
+export class SyncUserComponent implements OnInit  {
     name = 'Sync page';
     progress:number=0;
     checkProgress:number=0;
@@ -24,7 +24,7 @@ export class SyncUserComponent implements OnInit  {
     ngOnInit(){
         this.getProjects();
     }
-    
+
     getProjects():void{
         this.fnUser.getProjectsWithBTSSAuthentication()
         .then(projs => {this.projects = projs;})
@@ -40,7 +40,6 @@ export class SyncUserComponent implements OnInit  {
         }
     }
 
-
     initUserSync():void{
         this.progress=0;
         this.fnUser.deleteAllUsers();
@@ -54,4 +53,13 @@ export class SyncUserComponent implements OnInit  {
         }
     }
 
+    getUser(userCount:number){
+        if(userCount==-1){
+          return "Can't connect to sql database";
+        }
+        else if(userCount==-2){
+          return "Can't connect to MSACCESS database";
+        }
+        else return userCount;
+    }
 }

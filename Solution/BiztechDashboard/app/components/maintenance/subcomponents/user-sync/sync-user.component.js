@@ -54,6 +54,16 @@ var SyncUserComponent = (function () {
             _loop_1(proj);
         }
     };
+    SyncUserComponent.prototype.getUser = function (userCount) {
+        if (userCount == -1) {
+            return "Can't connect to sql database";
+        }
+        else if (userCount == -2) {
+            return "Can't connect to MSACCESS database";
+        }
+        else
+            return userCount;
+    };
     return SyncUserComponent;
 }());
 SyncUserComponent = __decorate([
