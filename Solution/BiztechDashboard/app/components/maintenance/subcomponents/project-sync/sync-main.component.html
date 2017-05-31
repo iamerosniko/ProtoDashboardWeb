@@ -5,7 +5,7 @@
         <div [hidden]="newApps.length==0">
             # of projects found in BTSS that are not in WDSB : {{newApps.length}}
             <!--[disabled]="!checkComplete()"-->
-            <button class="btn btn-default btn-sm" type="button"  (click)="saveNewApplications(newApps);">Add to Projects</button>
+            <button class="btn btn-default btn-sm" type="button"  (click)="saveNewApplications(newApps); initAppSync();">Add to Projects</button>
             <table class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -18,19 +18,19 @@
                     <tr *ngFor="let app of newApps">
                         <td>{{app.ProjectName}}</td>
                         <td>
-                            <input type="text" [(ngModel)]="app.FrontEndPath"  
+                            <input type="text" [(ngModel)]="app.FrontEndPath"
                             required class="form-control input-sm" />
-        
-                        </td> 
+
+                        </td>
                         <td>
                             <span class="input-group-btn">
                                 <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                 </a>
                             </span>
-                        </td> 
+                        </td>
                         <td>
-                            <input type="text" [(ngModel)]="app.BackEndPath"  
+                            <input type="text" [(ngModel)]="app.BackEndPath"
                             required class="form-control input-sm" />
                         </td>
                         <td>
@@ -39,12 +39,12 @@
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                 </a>
                             </span>
-                        </td> 
+                        </td>
                         <!--<td>{{app.ProjectDatasource}}</td>-->
                         <!--<td>{{app.ProjectDatabaseName}}</td>-->
                     </tr>
                 </tbody>
-            </table>    
+            </table>
         </div>
         <div [hidden]="!newApps.length==0">
             no new applications found
@@ -68,7 +68,7 @@
                     <tr *ngFor="let app of syncApps">
                         <td>{{app.ProjectName}}</td>
                         <td>
-                            <input type="text" [(ngModel)]="app.FrontEndPath"  
+                            <input type="text" [(ngModel)]="app.FrontEndPath"
                             required class="form-control input-sm" />
                         </td>
                         <td>
@@ -77,9 +77,9 @@
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                 </a>
                             </span>
-                        </td> 
+                        </td>
                         <td>
-                            <input type="text" [(ngModel)]="app.BackEndPath"  
+                            <input type="text" [(ngModel)]="app.BackEndPath"
                             required class="form-control input-sm" />
                         </td>
                         <td>
@@ -91,9 +91,9 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>    
+            </table>
         </div>
     </tab>
-</tabset>    
-    
+</tabset>
+
 <input type="file" style="display:none" id="pathfinder">
