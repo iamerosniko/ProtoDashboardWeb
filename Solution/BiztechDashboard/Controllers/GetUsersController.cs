@@ -26,7 +26,24 @@ namespace BiztechDashboard.Controllers
         {
             // Build the connection string from the provided datasource and database
             String connString = @"data source=" + dataSource + ";initial catalog=" + database + ";integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;multipleactiveresultsets=True;application name=EntityFramework;";
+           
 
+            // Build the MetaData... feel free to copy/paste it from the connection string in the config file.
+            EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
+            //esb.Metadata = "res://*/AW_Model.csdl|res://*/AW_Model.ssdl|res://*/AW_Model.msl";
+            //esb.Metadata = "res://*/";
+            esb.Metadata = "res://*/Models.TempDatabaseModel.csdl|res://*/Models.TempDatabaseModel.ssdl|res://*/Models.TempDatabaseModel.msl";
+            esb.Provider = "System.Data.SqlClient";
+            esb.ProviderConnectionString = connString;
+
+            // Generate the full string and return it
+            return esb.ToString();
+        }
+        private String BuildConnectionString(String dataSource, String database, String userId, String Password)
+        {
+            // Build the connection string from the provided datasource and database
+            String connString = @"data source=" + dataSource + ";initial catalog=" + database + ";Persist Security Info=True;User ID=" + userId + ";Password=" + Password + ";MultipleActiveResultSets=True;application name=EntityFramework;";
+    
             // Build the MetaData... feel free to copy/paste it from the connection string in the config file.
             EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
             //esb.Metadata = "res://*/AW_Model.csdl|res://*/AW_Model.ssdl|res://*/AW_Model.msl";
@@ -40,9 +57,11 @@ namespace BiztechDashboard.Controllers
         }
 
         [ResponseType(typeof(WDSB_AffectedUsers))]
-        public IHttpActionResult Getset_user(string ds,string dbase,string projectID)
+        public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
         {
-            TempDatabaseEntities myDb = new TempDatabaseEntities(BuildConnectionString(ds, dbase));
+            TempDatabaseEntities myDb = (userID==null||userID=="") 
+                ? new TempDatabaseEntities(BuildConnectionString(ds, dbase))
+                : new TempDatabaseEntities(BuildConnectionString(ds,dbase,userID,password));
             int ctr = 0;
             try
             {

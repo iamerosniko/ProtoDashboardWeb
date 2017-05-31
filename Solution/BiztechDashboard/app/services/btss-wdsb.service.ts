@@ -9,7 +9,7 @@ import { Application } from '../entities/application';
 @Injectable()
 export class BTSSWDSBService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private BTSSUrl = 'api/BTSSProjects';  
+    private BTSSUrl = 'api/BTSSProjects';
     private userURL = 'api/GetUsers';
     constructor(private http: Http){}
 
@@ -29,9 +29,9 @@ export class BTSSWDSBService {
                 .then(response => response.json())  // testing
                 .catch(this.handleError);
     }
-    
+
     getUsers(myproject : ProjectUsers): Promise<any> {
-        const url = `${this.userURL}/Getset_User/?ds=${myproject.ProjectDatasource}&dbase=${myproject.ProjectDb}&projectID=${myproject.ProjectID}`;
+        const url = `${this.userURL}/Getset_User/?ds=${myproject.ProjectDatasource}&dbase=${myproject.ProjectDb}&projectID=${myproject.ProjectID}&userID=%`+myproject.ProjectUserID+`&password=%`+myproject.ProjectPassword;
         return this.http
                 .get(url, {headers: this.headers})
                 .toPromise()

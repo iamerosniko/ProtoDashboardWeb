@@ -35,7 +35,7 @@ var BTSSWDSBService = (function () {
             .catch(this.handleError);
     };
     BTSSWDSBService.prototype.getUsers = function (myproject) {
-        var url = this.userURL + "/Getset_User/?ds=" + myproject.ProjectDatasource + "&dbase=" + myproject.ProjectDb + "&projectID=" + myproject.ProjectID;
+        var url = this.userURL + "/Getset_User/?ds=" + myproject.ProjectDatasource + "&dbase=" + myproject.ProjectDb + "&projectID=" + myproject.ProjectID + "&userID=%" + myproject.ProjectUserID + "&password=%" + myproject.ProjectPassword;
         return this.http
             .get(url, { headers: this.headers })
             .toPromise()
