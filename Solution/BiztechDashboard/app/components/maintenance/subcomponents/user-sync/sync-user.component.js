@@ -61,6 +61,9 @@ var SyncUserComponent = (function () {
         else if (userCount == -2) {
             return "Can't connect to MSACCESS database";
         }
+        else if (userCount == -3) {
+            return "Invalid Filename";
+        }
         else
             return userCount;
     };
