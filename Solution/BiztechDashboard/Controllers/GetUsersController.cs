@@ -119,10 +119,26 @@ namespace BiztechDashboard.Controllers
                 odbcConnection = new OdbcConnection();
                 odbcConnection.ConnectionString = connStr;
                 DataSet ds = ExecuteQuery(sql);
+                int rows= ds.Tables[0].Rows.Count;
                 //query here
                 try
                 {
-                    return Ok(new WDSB_AffectedUsers { AffectedUsers = ds.Tables[0].Rows.Count }); //unable to connect to ms access
+                    //extracting usernames in datasource (ds)
+                    for (int i = 0; i < rows; i++)
+                    {
+                        //creating a WDSB_AppUsers to add a new user of specific database
+                        WDSB_AppUsers users = new WDSB_AppUsers
+                        {
+                            AppUserID = Guid.NewGuid(),
+                            UserName = ds.Tables[0].Rows[i]["user_name"].ToString(),
+                            ProjectID = projectID
+                        };
+                        //adding to table
+                        db2.Entry(users).State = EntityState.Added;
+                        db2.SaveChanges();
+                    }
+
+                    return Ok(new WDSB_AffectedUsers { AffectedUsers = rows }); //unable to connect to ms access
                 }
                 catch
                 {
