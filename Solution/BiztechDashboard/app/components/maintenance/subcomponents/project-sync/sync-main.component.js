@@ -55,8 +55,8 @@ var SyncMainComponent = (function () {
         this.initAppSync();
     };
     SyncMainComponent.prototype.initAppSync = function () {
-        this.removeAppFromTemp(); // 1 and 2 
-        this.getAppToTemp(); // 3 and 4    
+        this.removeAppFromTemp(); // 1 and 2
+        this.getAppToTemp(); // 3 and 4
         this.getNewAppFromTemp();
         this.getSyncProjects();
     };
@@ -103,6 +103,7 @@ var SyncMainComponent = (function () {
         //this method is to save new applications to wdsb.projects
         this.fnMain.postProjects(apps).then(function () {
             _this.initAppSync();
+            alert("New Projects are successfully added");
         });
     };
     SyncMainComponent.prototype.updateApplications = function (apps) {
@@ -110,6 +111,7 @@ var SyncMainComponent = (function () {
         //this method is to save new applications to wdsb.projects
         this.projectService.putProjects(apps).then(function () {
             _this.initAppSync();
+            alert("Project details are successfully updated");
         });
     };
     return SyncMainComponent;

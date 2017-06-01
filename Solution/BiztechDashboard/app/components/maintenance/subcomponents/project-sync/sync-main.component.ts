@@ -15,7 +15,7 @@ import { Project } from '../../../../entities/project';
     //     </a>`,
     templateUrl: 'sync-main.component.html',
 })
-export class SyncMainComponent implements OnInit  { 
+export class SyncMainComponent implements OnInit  {
     appLength:number=0;
     appDetailCompleted:number=0;
     newApps:Project[]=[];
@@ -23,7 +23,7 @@ export class SyncMainComponent implements OnInit  {
     constructor(
         private fnMain : FnMain,
         private projectService : ProjectService
-    ){ 
+    ){
     //     setInterval(() => {
     //         this.checkComplete();
     //  }, 1000);
@@ -61,15 +61,15 @@ export class SyncMainComponent implements OnInit  {
         this.initAppSync();
     }
     initAppSync(){
-        
-        this.removeAppFromTemp(); // 1 and 2 
-        this.getAppToTemp(); // 3 and 4    
+
+        this.removeAppFromTemp(); // 1 and 2
+        this.getAppToTemp(); // 3 and 4
         this.getNewAppFromTemp();
         this.getSyncProjects();
     }
     //1
     removeAppFromTemp():void{
-        /* this method is to delete temporary data in wdsb.tempProjects */       
+        /* this method is to delete temporary data in wdsb.tempProjects */
         this.fnMain.getTempProjects()
         .then(tp=>{
             this.fnMain.deleteProjectsToTempProject(tp);
@@ -108,13 +108,15 @@ export class SyncMainComponent implements OnInit  {
         //this method is to save new applications to wdsb.projects
         this.fnMain.postProjects(apps).then(()=>{
             this.initAppSync();
+            alert("New Projects are successfully added");
         });
-        
+
     }
     updateApplications(apps:Project[]){
         //this method is to save new applications to wdsb.projects
         this.projectService.putProjects(apps).then(()=>{
             this.initAppSync();
+            alert("Project details are successfully updated");
         });
     }
 }
