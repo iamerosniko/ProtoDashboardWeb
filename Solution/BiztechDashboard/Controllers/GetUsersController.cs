@@ -108,6 +108,7 @@ namespace BiztechDashboard.Controllers
         //public IHttpActionResult Getset_user(string ds,string dbase,string projectID,string userID,string password)
         public IHttpActionResult GetUserFromMSAccess(string filename, string projectID, string userID, string password)
         {
+            
             string connStr = GetMSAccessConnectionString(filename, userID, password);
             string sql = "select user_name from set_user";
 
@@ -121,7 +122,7 @@ namespace BiztechDashboard.Controllers
                 //query here
                 try
                 {
-                    return Ok(new WDSB_AffectedUsers { AffectedUsers = -2 }); //unable to connect to ms access
+                    return Ok(new WDSB_AffectedUsers { AffectedUsers = ds.Tables[0].Rows.Count }); //unable to connect to ms access
                 }
                 catch
                 {
@@ -132,20 +133,27 @@ namespace BiztechDashboard.Controllers
         //msaccess getting connection string
         private string GetMSAccessConnectionString(string filename, string userID, string password)
         {
-            if (filename.Substring(filename.LastIndexOf(".")) == ".accdb")
+            if (filename.Contains("."))
             {
-                //return "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + mdbFilePath + ";Persist Security Info=False;";
-                return @"Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=" + filename + ";";
-            }
-            else if (filename.Substring(filename.LastIndexOf(".")) == ".mdb")
-            {
-                return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filename +
-                    ";Persist Security Info=False;" +
-                    ((userID.Trim().Length > 0 || userID != null) ? "User ID = " + userID + ";Password = " + password + ";" : "") +
-                    "Jet OLEDB:System database= " + filename + "";
+                if (filename.Substring(filename.LastIndexOf(".")) == ".accdb")
+                {
+                    //return "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + mdbFilePath + ";Persist Security Info=False;";
+                    return @"Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=" + filename + ";";
+                }
+                else if (filename.Substring(filename.LastIndexOf(".")) == ".mdb")
+                {
+                    return "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filename +
+                        ";Persist Security Info=False;" +
+                        ((userID.Trim().Length > 0 || userID != null) ? "User ID = " + userID + ";Password = " + password + ";" : "") +
+                        "Jet OLEDB:System database= " + filename + "";
+                }
+                else
+                    return "";
             }
             else
+            {
                 return "";
+            }
         }
 
         protected internal DataSet ExecuteQuery(string sql)
