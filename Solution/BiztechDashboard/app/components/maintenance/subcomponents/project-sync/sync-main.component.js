@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var fn_main_1 = require("../../functions/fn-main");
 var project_service_1 = require("../../../../services/project.service");
+var maintenance_component_1 = require("../../maintenance.component");
 var SyncMainComponent = (function () {
     function SyncMainComponent(fnMain, projectService) {
         this.fnMain = fnMain;
@@ -20,10 +21,29 @@ var SyncMainComponent = (function () {
         this.appDetailCompleted = 0;
         this.newApps = [];
         this.syncApps = [];
+        //pagination
+        this.config1 = {
+            id: 'advanced1',
+            itemsPerPage: 10,
+            currentPage: 1
+        };
+        this.config2 = {
+            id: 'advanced2',
+            itemsPerPage: 10,
+            currentPage: 1
+        };
         //     setInterval(() => {
         //         this.checkComplete();
         //  }, 1000);
     }
+    //wait page
+    SyncMainComponent.prototype.viewLoading = function () {
+        this.mainView.showLoad = !this.mainView.showLoad;
+    };
+    SyncMainComponent.prototype.onPageChange = function (number, config) {
+        config.currentPage = number;
+    };
+    //end of pagination
     SyncMainComponent.prototype.checkComplete = function () {
         this.appLength = this.newApps.length;
         if (this.appLength == 0) {
@@ -46,9 +66,11 @@ var SyncMainComponent = (function () {
     };
     SyncMainComponent.prototype.getSyncProjects = function () {
         var _this = this;
+        this.viewLoading();
         this.projectService.getProjects()
             .then(function (projects) {
             _this.syncApps = projects;
+            _this.viewLoading();
         });
     };
     SyncMainComponent.prototype.ngOnInit = function () {
@@ -84,11 +106,13 @@ var SyncMainComponent = (function () {
     //3
     SyncMainComponent.prototype.getNewAppFromTemp = function () {
         var _this = this;
+        this.viewLoading();
         /*this method is to check if there's a new applications found in btss*/
         this.fnMain.getNewApplications()
             .then(function (apps) {
             _this.newApps = apps;
             _this.checkComplete();
+            _this.viewLoading();
             // console.log('done-getNewAppFromTemp');
         });
     };
@@ -116,6 +140,10 @@ var SyncMainComponent = (function () {
     };
     return SyncMainComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
+], SyncMainComponent.prototype, "mainView", void 0);
 SyncMainComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

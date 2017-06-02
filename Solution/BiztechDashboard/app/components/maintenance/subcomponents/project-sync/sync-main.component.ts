@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { FnMain } from '../../functions/fn-main';
 import { Observable } from 'rxjs/Observable';
 
@@ -6,6 +6,9 @@ import { ProjectService } from '../../../../services/project.service';
 //entities
 import { Application } from '../../../../entities/application';
 import { Project } from '../../../../entities/project';
+
+import { MaintenanceComponent } from '../../maintenance.component';
+import { PaginationInstance } from 'ngx-pagination';
 @Component({
     moduleId: module.id,
     selector: 'proj-sync',
@@ -16,6 +19,7 @@ import { Project } from '../../../../entities/project';
     templateUrl: 'sync-main.component.html',
 })
 export class SyncMainComponent implements OnInit  {
+    @Input() mainView:MaintenanceComponent;
     appLength:number=0;
     appDetailCompleted:number=0;
     newApps:Project[]=[];
@@ -28,7 +32,25 @@ export class SyncMainComponent implements OnInit  {
     //         this.checkComplete();
     //  }, 1000);
     }
-
+    //wait page
+    viewLoading(){
+      this.mainView.showLoad=!this.mainView.showLoad;
+    }
+    //pagination
+    public config1: PaginationInstance = {
+          id: 'advanced1',
+          itemsPerPage: 10,
+          currentPage: 1
+    };
+    public config2: PaginationInstance = {
+          id: 'advanced2',
+          itemsPerPage: 10,
+          currentPage: 1
+    };
+    onPageChange(number: number,config:PaginationInstance) {
+          config.currentPage = number;
+    }
+    //end of pagination
     checkComplete():boolean{
         this.appLength=this.newApps.length;
         if(this.appLength==0){
@@ -51,9 +73,11 @@ export class SyncMainComponent implements OnInit  {
     }
 
     getSyncProjects(){
+        this.viewLoading();
         this.projectService.getProjects()
             .then(projects=>{
-                this.syncApps=projects;
+                this.syncApps=projects
+                this.viewLoading();
             });
     }
 
@@ -89,11 +113,15 @@ export class SyncMainComponent implements OnInit  {
     }
     //3
     getNewAppFromTemp():void{
+
+        this.viewLoading();
         /*this method is to check if there's a new applications found in btss*/
         this.fnMain.getNewApplications()
             .then(apps =>{
                 this.newApps=apps;
                 this.checkComplete();
+
+                this.viewLoading();
                 // console.log('done-getNewAppFromTemp');
             });
     }

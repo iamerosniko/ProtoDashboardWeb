@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let app of newApps">
+                    <tr *ngFor="let app of newApps | paginate: config1">
                         <td>{{app.ProjectName}}</td>
                         <td>
                             <input type="text" [(ngModel)]="app.FrontEndPath"
@@ -45,6 +45,8 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls [id]="config1.id"
+                (pageChange)="onPageChange($event,config1)"></pagination-controls>
         </div>
         <div [hidden]="!newApps.length==0">
             no new applications found
@@ -65,7 +67,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let app of syncApps">
+                    <tr *ngFor="let app of syncApps | paginate: config2">
                         <td>{{app.ProjectName}}</td>
                         <td>
                             <input type="text" [(ngModel)]="app.FrontEndPath"
@@ -92,6 +94,9 @@
                     </tr>
                 </tbody>
             </table>
+
+            <pagination-controls [id]="config2.id"
+                (pageChange)="onPageChange($event,config2)"></pagination-controls>
         </div>
     </tab>
 </tabset>
