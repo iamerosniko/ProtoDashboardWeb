@@ -25,6 +25,7 @@ var MaintenanceComponent = (function () {
         this.fnContact = fnContact;
         this.router = router;
         this.getAuthService = getAuthService;
+        this.showLoad = false;
         this.myAuth = new getauth_1.GetAuth('', '', false, false, false, false, '');
         //bu
         this.listBU = [];

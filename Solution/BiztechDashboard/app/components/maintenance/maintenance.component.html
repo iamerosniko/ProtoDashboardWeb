@@ -1,3 +1,4 @@
+<spinner-component [spinnerShow]="showLoad"></spinner-component>
 <!--HEADER-->
 <div class="container-fluid">
     <div class="row">
@@ -20,7 +21,7 @@
                             (click)="toFormView('New',false,0)" role="tab" data-toggle="tab">Business Units</a>
                     </li>
                     <li role="presentation">
-                        <a href="#bucontacts" aria-controls="bucontacts" 
+                        <a href="#bucontacts" aria-controls="bucontacts"
                             (click)="toFormView('New',false,1)" role="tab" data-toggle="tab">Business Unit Contacts</a>
                     </li>
                     <li role="presentation">
@@ -28,7 +29,7 @@
                             (click)="toFormView('New',false,2)" role="tab" data-toggle="tab">Projects from BTSS</a>
                     </li>
                     <li role="presentation">
-                        <a href="#users" aria-controls="users" 
+                        <a href="#users" aria-controls="users"
                             (click)="toFormView('New',false,3)" role="tab" data-toggle="tab">App Users</a>
                     </li>
                     <li role="presentation">
@@ -79,7 +80,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
-                                <user-sync *ngIf="selectedForm==3"></user-sync>
+                                <user-sync *ngIf="selectedForm==3" [mainView]="this"></user-sync>
                             </div>
                         </div>
                     </div>

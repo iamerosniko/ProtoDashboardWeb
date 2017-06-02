@@ -1,7 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,Input } from '@angular/core';
 import { FnUser } from '../../functions/fn-user';
 import { Observable } from 'rxjs/Observable';
 //entities
+import { MaintenanceComponent } from '../../maintenance.component';
 import { ProjectUsers } from '../../../../entities/projectusers';
 @Component({
     moduleId: module.id,
@@ -13,6 +14,7 @@ import { ProjectUsers } from '../../../../entities/projectusers';
     templateUrl: 'sync-user.component.html',
 })
 export class SyncUserComponent implements OnInit  {
+    @Input() mainView:MaintenanceComponent;
     name = 'Sync page';
     progress:number=0;
     checkProgress:number=0;
@@ -22,12 +24,20 @@ export class SyncUserComponent implements OnInit  {
     ){ }
 
     ngOnInit(){
+        this.viewLoading();
         this.getProjects();
     }
 
     getProjects():void{
         this.fnUser.getProjectsWithBTSSAuthentication()
-        .then(projs => {this.projects = projs;})
+        .then(projs => {
+          this.projects = projs;
+          this.viewLoading();
+        })
+    }
+
+    viewLoading(){
+      this.mainView.showLoad=!this.mainView.showLoad;
     }
 
     checkifComplete():void{
@@ -37,10 +47,12 @@ export class SyncUserComponent implements OnInit  {
         if (this.progress == projectCount){
             console.log("done");
             this.progress=0;
+            this.viewLoading();
         }
     }
 
     initUserSync():void{
+        this.viewLoading();
         this.progress=0;
         this.fnUser.deleteAllUsers();
         for (let proj of this.projects) {

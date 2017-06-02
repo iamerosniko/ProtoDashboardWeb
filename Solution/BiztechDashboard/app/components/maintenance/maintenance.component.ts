@@ -14,7 +14,7 @@ import { GetAuth } from '../../entities/getauth';
     selector: 'maintenance-parent',
     templateUrl: 'maintenance.component.html',
 })
-export class MaintenanceComponent { 
+export class MaintenanceComponent {
     constructor(
         public fnBU:FnBU,
         public fnContact:FnContact,
@@ -24,7 +24,7 @@ export class MaintenanceComponent {
         this.isUserAdmin();
         this.refreshLists();
     }
-    
+    showLoad:boolean=false;
     myAuth:GetAuth=new GetAuth('','',false,false,false,false,'');
     //bu
     listBU:BU[]=[];
@@ -59,7 +59,7 @@ export class MaintenanceComponent {
                      this.router.navigateByUrl('/Applications');
                  }
         });
-       
+
     }
 
     private checkForm(mode:string){

@@ -34,7 +34,9 @@
         //material
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',
-
+        
+        //spinner
+      'ng2-component-spinner': 'node_modules/ng2-component-spinner/dist',
       // other libraries
       'rxjs':                      'npm:rxjs',
       //'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
@@ -55,6 +57,10 @@
       'ng2-datetime-picker': {
           main: 'ng2-datetime-picker.umd.js',
           defaultExtension: 'js'
+      },
+      'ng2-component-spinner': {
+          defaultExtension: 'js',
+          main: 'index.js'
       }
     }
   });

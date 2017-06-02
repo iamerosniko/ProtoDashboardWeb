@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var fn_user_1 = require("../../functions/fn-user");
+//entities
+var maintenance_component_1 = require("../../maintenance.component");
 var SyncUserComponent = (function () {
     function SyncUserComponent(fnUser) {
         this.fnUser = fnUser;
@@ -20,12 +22,19 @@ var SyncUserComponent = (function () {
         this.projects = [];
     }
     SyncUserComponent.prototype.ngOnInit = function () {
+        this.viewLoading();
         this.getProjects();
     };
     SyncUserComponent.prototype.getProjects = function () {
         var _this = this;
         this.fnUser.getProjectsWithBTSSAuthentication()
-            .then(function (projs) { _this.projects = projs; });
+            .then(function (projs) {
+            _this.projects = projs;
+            _this.viewLoading();
+        });
+    };
+    SyncUserComponent.prototype.viewLoading = function () {
+        this.mainView.showLoad = !this.mainView.showLoad;
     };
     SyncUserComponent.prototype.checkifComplete = function () {
         var projectCount = this.projects.length;
@@ -34,10 +43,12 @@ var SyncUserComponent = (function () {
         if (this.progress == projectCount) {
             console.log("done");
             this.progress = 0;
+            this.viewLoading();
         }
     };
     SyncUserComponent.prototype.initUserSync = function () {
         var _this = this;
+        this.viewLoading();
         this.progress = 0;
         this.fnUser.deleteAllUsers();
         var _loop_1 = function (proj) {
@@ -69,6 +80,10 @@ var SyncUserComponent = (function () {
     };
     return SyncUserComponent;
 }());
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", maintenance_component_1.MaintenanceComponent)
+], SyncUserComponent.prototype, "mainView", void 0);
 SyncUserComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

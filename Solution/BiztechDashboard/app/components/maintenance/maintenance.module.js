@@ -12,6 +12,8 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 /********Pgination************************************** */
 var ngx_pagination_1 = require("ngx-pagination");
+/*spinner*/
+var ng2_component_spinner_1 = require("ng2-component-spinner");
 /*datetime*/
 /* ngx-bootstrap */
 var ng2_datetime_picker_1 = require("ng2-datetime-picker");
@@ -65,6 +67,7 @@ MaintenanceModule = __decorate([
             forms_1.ReactiveFormsModule,
             ngx_bootstrap_1.ProgressbarModule.forRoot(),
             ngx_bootstrap_2.TabsModule.forRoot(),
+            ng2_component_spinner_1.SpinnerComponentModule,
             ng2_datetime_picker_1.Ng2DatetimePickerModule,
             maintenance_routing_1.MaintenanceRouting,
         ],
