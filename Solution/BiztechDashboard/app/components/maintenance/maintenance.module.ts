@@ -7,7 +7,7 @@ import { Routes } from '@angular/router';
 /********Pgination************************************** */
 import { NgxPaginationModule } from 'ngx-pagination';
 /*spinner*/
-import { SpinnerComponentModule } from 'ng2-component-spinner';
+// import { SpinnerComponentModule } from 'ng2-component-spinner';
 /*datetime*/
 /* ngx-bootstrap */
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
@@ -55,7 +55,7 @@ import { MaintenanceRouting } from './maintenance.routing';
         ReactiveFormsModule,
         ProgressbarModule.forRoot(),
         TabsModule.forRoot(),
-        SpinnerComponentModule,
+        // SpinnerComponentModule,
         Ng2DatetimePickerModule,
         MaintenanceRouting,
     ],
