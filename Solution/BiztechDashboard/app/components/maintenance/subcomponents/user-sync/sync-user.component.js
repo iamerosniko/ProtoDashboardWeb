@@ -34,7 +34,7 @@ var SyncUserComponent = (function () {
         });
     };
     SyncUserComponent.prototype.viewLoading = function () {
-        this.mainView.showLoad = !this.mainView.showLoad;
+        this.mainView.viewLoading();
     };
     SyncUserComponent.prototype.checkifComplete = function () {
         var projectCount = this.projects.length;

@@ -50,13 +50,14 @@ var MaintenanceComponent = (function () {
         this.selectedForm = selectList;
     };
     MaintenanceComponent.prototype.viewLoading = function () {
-        if (this.showLoad) {
+        this.showLoad = !this.showLoad;
+        if (this.showLoad == true) {
             this.childModal.show();
+            console.log('ok');
         }
         else {
             this.childModal.hide();
         }
-        this.showLoad = !this.showLoad;
     };
     MaintenanceComponent.prototype.applicationView = function (path) {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
@@ -115,7 +116,7 @@ var MaintenanceComponent = (function () {
     return MaintenanceComponent;
 }());
 __decorate([
-    core_1.ViewChild('staticModal'),
+    core_1.ViewChild('childModal'),
     __metadata("design:type", ngx_bootstrap_1.ModalDirective)
 ], MaintenanceComponent.prototype, "childModal", void 0);
 MaintenanceComponent = __decorate([

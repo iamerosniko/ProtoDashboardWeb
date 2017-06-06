@@ -1,14 +1,13 @@
 <!-- s<spinner-component [spinnerShow]="showLoad"></spinner-component> -->
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+<div class="modal fade" bsModal #childModal="bs-modal" [config]="{backdrop: 'static'}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Static modal</h4>
+        <h4 class="modal-title pull-left">Loading</h4>
       </div>
       <div class="modal-body">
-        This is static modal, backdrop click will not close it.
-        Click <b>&times;</b> to close modal.
+          Please Wait
       </div>
     </div>
   </div>

@@ -38,7 +38,7 @@ var SyncMainComponent = (function () {
     }
     //wait page
     SyncMainComponent.prototype.viewLoading = function () {
-        this.mainView.showLoad = !this.mainView.showLoad;
+        this.mainView.viewLoading();
     };
     SyncMainComponent.prototype.onPageChange = function (number, config) {
         config.currentPage = number;
