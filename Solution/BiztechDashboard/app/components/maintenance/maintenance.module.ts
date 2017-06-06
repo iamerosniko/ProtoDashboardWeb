@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2DatetimePickerModule } from 'ng2-datetime-picker';
 import { ProgressbarModule } from 'ngx-bootstrap';
 import { TabsModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
 //Components
 import { MaintenanceComponent } from './maintenance.component';
 /*Applications */
@@ -55,6 +56,7 @@ import { MaintenanceRouting } from './maintenance.routing';
         ReactiveFormsModule,
         ProgressbarModule.forRoot(),
         TabsModule.forRoot(),
+        ModalModule.forRoot(),
         // SpinnerComponentModule,
         Ng2DatetimePickerModule,
         MaintenanceRouting,

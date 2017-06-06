@@ -31,6 +31,7 @@
       'ng2-datetime-picker': 'npm:ng2-datetime-picker/dist',
         //ngx-bootstrap 
       'ngx-bootstrap':'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.min.js',
+      //'ngx-bootstrap': 'npm:ngx-bootstrap',
         //material
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
       'hammerjs': 'npm:hammerjs/hammer.min.js',

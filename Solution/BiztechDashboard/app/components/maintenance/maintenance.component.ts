@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ViewChild } from '@angular/core';
 import { Router }  from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 //entities
@@ -9,6 +9,7 @@ import { FnBU } from './functions/fn-bu';
 import { FnContact } from './functions/fn-contact';
 import { GetAuthService } from '../../services/getauth.service';
 import { GetAuth } from '../../entities/getauth';
+import { ModalDirective } from 'ngx-bootstrap';
 @Component({
     moduleId: module.id,
     selector: 'maintenance-parent',
@@ -24,6 +25,8 @@ export class MaintenanceComponent {
         this.isUserAdmin();
         this.refreshLists();
     }
+    @ViewChild('staticModal') public childModal:ModalDirective;
+
     showLoad:boolean=false;
     myAuth:GetAuth=new GetAuth('','',false,false,false,false,'');
     //bu
@@ -44,7 +47,15 @@ export class MaintenanceComponent {
         this.router.navigate(['/Maintenance']);
         this.selectedForm=selectList;
     }
-
+    viewLoading(){
+      if(this.showLoad){
+        this.childModal.show();
+      }
+      else{
+        this.childModal.hide();
+      }
+      this.showLoad=!this.showLoad;
+    }
     applicationView(path:string){
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
         this.router.navigate(['/Maintenance', {outlets: {'apps': [path]}}]);

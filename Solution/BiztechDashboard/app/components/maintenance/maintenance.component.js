@@ -19,6 +19,7 @@ var fn_bu_1 = require("./functions/fn-bu");
 var fn_contact_1 = require("./functions/fn-contact");
 var getauth_service_1 = require("../../services/getauth.service");
 var getauth_1 = require("../../entities/getauth");
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 var MaintenanceComponent = (function () {
     function MaintenanceComponent(fnBU, fnContact, router, getAuthService) {
         this.fnBU = fnBU;
@@ -47,6 +48,15 @@ var MaintenanceComponent = (function () {
         this.refreshLists();
         this.router.navigate(['/Maintenance']);
         this.selectedForm = selectList;
+    };
+    MaintenanceComponent.prototype.viewLoading = function () {
+        if (this.showLoad) {
+            this.childModal.show();
+        }
+        else {
+            this.childModal.hide();
+        }
+        this.showLoad = !this.showLoad;
     };
     MaintenanceComponent.prototype.applicationView = function (path) {
         //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
@@ -104,6 +114,10 @@ var MaintenanceComponent = (function () {
     };
     return MaintenanceComponent;
 }());
+__decorate([
+    core_1.ViewChild('staticModal'),
+    __metadata("design:type", ngx_bootstrap_1.ModalDirective)
+], MaintenanceComponent.prototype, "childModal", void 0);
 MaintenanceComponent = __decorate([
     core_1.Component({
         moduleId: module.id,

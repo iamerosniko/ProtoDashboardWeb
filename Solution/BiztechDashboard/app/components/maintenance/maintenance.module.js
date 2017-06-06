@@ -19,6 +19,7 @@ var ngx_pagination_1 = require("ngx-pagination");
 var ng2_datetime_picker_1 = require("ng2-datetime-picker");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var ngx_bootstrap_2 = require("ngx-bootstrap");
+var ngx_bootstrap_3 = require("ngx-bootstrap");
 //Components
 var maintenance_component_1 = require("./maintenance.component");
 /*Applications */
@@ -67,6 +68,7 @@ MaintenanceModule = __decorate([
             forms_1.ReactiveFormsModule,
             ngx_bootstrap_1.ProgressbarModule.forRoot(),
             ngx_bootstrap_2.TabsModule.forRoot(),
+            ngx_bootstrap_3.ModalModule.forRoot(),
             // SpinnerComponentModule,
             ng2_datetime_picker_1.Ng2DatetimePickerModule,
             maintenance_routing_1.MaintenanceRouting,
