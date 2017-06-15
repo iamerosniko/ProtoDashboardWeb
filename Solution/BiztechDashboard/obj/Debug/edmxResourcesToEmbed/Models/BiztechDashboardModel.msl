@@ -112,6 +112,7 @@
     <EntitySetMapping Name="WDSB_Applications">
       <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
         <MappingFragment StoreEntitySet="WDSB_Applications">
+          <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
           <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />

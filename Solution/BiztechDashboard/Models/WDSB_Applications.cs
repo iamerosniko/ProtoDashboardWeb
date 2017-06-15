@@ -44,6 +44,7 @@ namespace BiztechDashboard.Models
         public string ProjectOpsID { get; set; }
         public string AppIconPath { get; set; }
         public Nullable<bool> IsUatAvail { get; set; }
+        public string IconUrl { get; set; }
     
         public virtual WDSB_BUContacts WDSB_BUContacts { get; set; }
         public virtual WDSB_BUContacts WDSB_BUContacts1 { get; set; }
