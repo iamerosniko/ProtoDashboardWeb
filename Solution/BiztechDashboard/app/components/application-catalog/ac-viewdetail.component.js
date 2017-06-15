@@ -61,6 +61,9 @@ var ACDetail = (function () {
         this.commentService.getComment(this.selectedID)
             .then(function (comments) { return _this.comments = comments; });
     };
+    ACDetail.prototype.getFile = function () {
+        return this.app.AppIconPath.length == 0 || this.app.AppIconPath == null ? "images/AppLogo.png " : this.app.AppIconPath;
+    };
     return ACDetail;
 }());
 ACDetail = __decorate([

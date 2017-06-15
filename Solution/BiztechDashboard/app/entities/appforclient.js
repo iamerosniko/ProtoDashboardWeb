@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var AppForClient = (function () {
     function AppForClient(AppID, //primary key
         AppName, //foreign key
-        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, BUName, DevFront, ModFront, OpsFront, IsUatAvail, canMod, canProd, myFav) {
+        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, BUName, DevFront, ModFront, OpsFront, IsUatAvail, canMod, canProd, myFav, AppIconPath) {
         this.AppID = AppID;
         this.AppName = AppName;
         this.AppBU = AppBU;
@@ -32,6 +32,7 @@ var AppForClient = (function () {
         this.canMod = canMod;
         this.canProd = canProd;
         this.myFav = myFav;
+        this.AppIconPath = AppIconPath;
     }
     return AppForClient;
 }());

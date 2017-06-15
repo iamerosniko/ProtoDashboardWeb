@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-                <li><a routerLink="/Applications">Applications Catalog</a></li> 
+                <li><a routerLink="/Applications">Applications Catalog</a></li>
                 <li class="active">{{app.AppName}}</li>
             </ol>
         </div>
@@ -55,7 +55,7 @@
                                                                 <span class="glyphicon glyphicon-ok"></span>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-6">
                                                         <div class="pull-right">
                                                             <fieldset class="favorite">
@@ -65,13 +65,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="images/AppLogo.png" class="thumbnail-display-img">
+                                            <img [src]="getFile()" class="thumbnail-display-img">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="btn-group pull-right" role="group">
                                                         <button [disabled]="app.canMod==0 || app.IsUatAvail==false"
                                                             (click)="run(app.ModFront)" type="button" class="btn btn-default btn-sm" disabled>Run Test</button>
-                                                        <button [disabled]="app.canProd==0" 
+                                                        <button [disabled]="app.canProd==0"
                                                             (click)="run(app.OpsFront)" type="button" class="btn btn-default btn-sm">Run Production</button>
                                                     </div>
                                                 </div>
@@ -118,7 +118,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th class="col-md-4">Secondary Contact</th><td class="col-md-8">{{app.buContact2}}</td>
-                                                    </tr>                                                            
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>
