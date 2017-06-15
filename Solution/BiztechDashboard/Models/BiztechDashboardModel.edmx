@@ -30,7 +30,6 @@
           <Property Name="ProjectOpsID" Type="varchar" MaxLength="50" />
           <Property Name="AppIconPath" Type="varchar" MaxLength="250" />
           <Property Name="IsUatAvail" Type="bit" />
-          <Property Name="IconUrl" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="WDSB_AppUsers">
           <Key>
@@ -586,7 +585,6 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <NavigationProperty Name="WDSB_Favorites" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Favorites" />
           <NavigationProperty Name="WDSB_Features" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Features" />
           <NavigationProperty Name="WDSB_Ratings" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Ratings" />
-          <Property Name="IconUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
           <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />
@@ -910,7 +908,6 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <EntitySetMapping Name="WDSB_Applications">
             <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Applications">
               <MappingFragment StoreEntitySet="WDSB_Applications">
-                <ScalarProperty Name="IconUrl" ColumnName="IconUrl" />
                 <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
                 <ScalarProperty Name="ProjectOpsID" ColumnName="ProjectOpsID" />

@@ -218,7 +218,6 @@
     <NavigationProperty Name="WDSB_Favorites" Relationship="BiztechDashboardModel.FK_WDSB_Favorites_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Favorites" />
     <NavigationProperty Name="WDSB_Features" Relationship="BiztechDashboardModel.FK_WDSB_Features_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Features" />
     <NavigationProperty Name="WDSB_Ratings" Relationship="BiztechDashboardModel.FK_WDSB_Ratings_WDSB_Applications" FromRole="WDSB_Applications" ToRole="WDSB_Ratings" />
-    <Property Name="IconUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_WDSB_Applications_WDSB_BUContacts">
     <End Type="BiztechDashboardModel.WDSB_BUContacts" Role="WDSB_BUContacts" Multiplicity="1" />

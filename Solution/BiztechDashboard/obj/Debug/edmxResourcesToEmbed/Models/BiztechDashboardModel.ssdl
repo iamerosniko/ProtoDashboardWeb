@@ -25,7 +25,6 @@
     <Property Name="ProjectOpsID" Type="varchar" MaxLength="50" />
     <Property Name="AppIconPath" Type="varchar" MaxLength="250" />
     <Property Name="IsUatAvail" Type="bit" />
-    <Property Name="IconUrl" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="WDSB_AppUsers">
     <Key>
