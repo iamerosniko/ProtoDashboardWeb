@@ -17,14 +17,14 @@
                 <div class="text-center">
                     <div class="col-md-offset-3 col-md-6 col-md-offset-3">
                         <ul class="nav nav-pills nav-justified">
-                            <li role="presentation">
-                                <a href="#favorites" (click)="getMyFavApps(searchApp)" aria-controls="favorites" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Favorites</a>
+                            <li role="presentation"  [ngClass]="{'active' : tabselected==2}">
+                                <a href="#favorites" (click)="refresh(2)" aria-controls="favorites" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-star"></span> Favorites</a>
                             </li>
-                            <li role="presentation">
-                                <a href="#available" (click)="getMyAvailApps(searchApp)" aria-controls="available" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark"></span> Available Apps</a>
+                            <li role="presentation" [ngClass]="{'active' : tabselected==1}">
+                                <a href="#available" (click)="refresh(1)" aria-controls="available" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark"></span> Available Apps</a>
                             </li>
-                            <li role="presentation" class="active">
-                                <a href="#allapps" (click)="getAllApps(searchApp)" aria-controls="allapps" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> All BizTech Apps</a>
+                            <li role="presentation" [ngClass]="{'active' : tabselected==0}">
+                                <a href="#allapps" (click)="refresh(0)" aria-controls="allapps" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> All BizTech Apps</a>
                             </li>
                         </ul>
                     </div>
@@ -65,18 +65,11 @@
     </div>
     <br />
     <div class="tab-content">
-        
+
         <ac-grid *ngIf="viewtype==0 && apps.length>0 " [auth]="myAuth" [thisParent]="this" [listApps]="listApps" ></ac-grid>
         <ac-list *ngIf="viewtype==1 && apps.length>0"  [auth]="myAuth" [thisParent]="this" [apps]="apps" ></ac-list>
-        
-        <div class="tab-pane fade" id="favorites">
-            <ac-nofav *ngIf="tabselected==2 && apps.length==0"></ac-nofav>
-        </div>
-        <div class="tab-pane fade" id="available">
-            <ac-noavail *ngIf="tabselected==1 && apps.length==0"></ac-noavail>
-        </div>
-        <div class="tab-pane fade in active" id="allapps">
-            
-        </div>
+
+        <ac-nofav *ngIf="tabselected==2 && apps.length==0"></ac-nofav>
+        <ac-noavail *ngIf="tabselected==1 && apps.length==0"></ac-noavail>
     </div>
 </div>

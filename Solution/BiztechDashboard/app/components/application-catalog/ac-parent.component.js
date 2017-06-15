@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var getauth_service_1 = require("../../services/getauth.service");
 var getauth_1 = require("../../entities/getauth");
+var Observable_1 = require("rxjs/Observable");
 var ACComponent = (function () {
     function ACComponent(fn, getAuthService) {
         this.fn = fn;
@@ -26,43 +27,52 @@ var ACComponent = (function () {
     }
     ACComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getAllApps(this.searchApp);
+        this.data = new Observable_1.Observable(function () {
+            _this.getMyAvailApps(_this.searchApp);
+            setTimeout(function () {
+                if (_this.apps.length == 0) {
+                    _this.getAllApps(_this.searchApp);
+                }
+            }, 500);
+        });
+        this.data.subscribe();
         this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
     };
     //all biztech apps
     ACComponent.prototype.getAllApps = function (appName) {
         var _this = this;
+        this.tabselected = 0;
         this.apps = [];
         this.fn.getAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
         });
-        this.tabselected = 0;
     };
     //my available app
     ACComponent.prototype.getMyAvailApps = function (appName) {
         var _this = this;
+        this.tabselected = 1;
         this.apps = [];
         this.fn.getAvailAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
         });
-        this.tabselected = 1;
     };
     //favorites
     ACComponent.prototype.getMyFavApps = function (appName) {
         var _this = this;
+        this.tabselected = 2;
         this.apps = [];
         this.fn.getFavAppsClient(appName)
             .then(function (apps) {
             _this.apps = apps;
             _this.sliceToFour();
         });
-        this.tabselected = 2;
     };
-    ACComponent.prototype.refresh = function () {
+    ACComponent.prototype.refresh = function (selection) {
+        this.tabselected = selection;
         if (this.tabselected == 0)
             this.getAllApps(this.searchApp);
         else if (this.tabselected == 1)

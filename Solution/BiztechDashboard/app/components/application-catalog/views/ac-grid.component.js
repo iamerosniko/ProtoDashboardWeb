@@ -17,7 +17,7 @@ var ACGridComponent = (function () {
         this.listApps = [];
     }
     ACGridComponent.prototype.refresh = function () {
-        this.thisParent.refresh();
+        this.thisParent.refresh(this.thisParent.tabselected);
     };
     return ACGridComponent;
 }());
