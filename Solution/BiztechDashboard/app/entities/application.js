@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Application = (function () {
     function Application(AppID, //primary key
         AppName, //foreign key
-        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsUatAvail) {
+        AppBU, FrontTechnology, BackTechnology, AppLifespan, PrimaryBUContact, SecondaryBUContact, AppIsActive, AppPII, AppSecurity, DateImplemented, LastProdDate, AppVersion, ProjectID, AppDesc, AppisWeb, ProjectDevID, ProjectModID, ProjectOpsID, IsFGUatAvail, AppIconPath) {
         this.AppID = AppID;
         this.AppName = AppName;
         this.AppBU = AppBU;
@@ -24,7 +24,8 @@ var Application = (function () {
         this.ProjectDevID = ProjectDevID;
         this.ProjectModID = ProjectModID;
         this.ProjectOpsID = ProjectOpsID;
-        this.IsUatAvail = IsUatAvail;
+        this.IsFGUatAvail = IsFGUatAvail;
+        this.AppIconPath = AppIconPath;
     }
     return Application;
 }());

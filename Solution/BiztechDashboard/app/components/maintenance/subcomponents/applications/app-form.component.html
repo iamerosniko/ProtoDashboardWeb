@@ -1,10 +1,20 @@
 <div class="tab-pane fade in active"  id="tableApp">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <a href="#tableApp" class="close" 
-                aria-controls="tableApp" role="tab" 
+            <a href="#tableApp" class="close"
+                aria-controls="tableApp" role="tab"
                 (click)="applicationView()" data-toggle="tab">&times;</a>
             <h4>{{formMode}} Application</h4>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group pull-right">
+                        <button [disabled]="checkState()" (click)="submitApp()" class="btn btn-primary btn-md">Submit&nbsp;<span class="glyphicon glyphicon-floppy-disk"></span></button>
+                        <a (click)="applicationView()" class="btn btn-default btn-md" aria-controls="tableApp" role="tab" data-toggle="tab">Go Back</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="panel-body">
             <br />
@@ -15,7 +25,7 @@
                             <a href="#appDetails" aria-controls="appDetails" role="tab" data-toggle="tab">Details</a>
                         </li>
                         <li role="presentation" *ngIf="selectedApp.AppID == 0 ? false : true" >
-                            <a href="#appFeatures" 
+                            <a href="#appFeatures"
                              aria-controls="appFeatures" role="tab" data-toggle="tab">Features</a>
                         </li>
                     </ul>
@@ -35,6 +45,25 @@
                                             </div>
                                             <div id="primaryDetails" class="panel-collapse collapse in">
                                                 <div class="panel-body">
+                                                    <label>App Icon Path</label>
+                                                    <br />
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="input-group">
+                                                                <input type="text" [(ngModel)]="selectedApp.AppIconPath"
+                                                                    class="form-control input-sm"
+                                                                    placeholder="App Icon Path"/>
+                                                                <span class="input-group-btn">
+                                                                    <a (click)="selectedApp.AppIconPath=browseFile('screenshot')" class="btn btn-default btn-sm" id="btnOpenFile">
+                                                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div hidden class="col-md-6">
+                                                            <input type="text" class="form-control input-sm" placeholder="Project Name"/>
+                                                        </div>
+                                                    </div>
                                                     <label>Application Name</label>
                                                     <input type="text" [(ngModel)]="selectedApp.AppName" class="form-control input-sm" />
                                                     <br />
@@ -68,7 +97,7 @@
                                                                 [(ngModel)]="selectedApp.DateImplemented"
                                                                 class="form-control input-sm"
                                                                 ng2-datetime-picker
-                                                                date-only="true" 
+                                                                date-only="true"
                                                             />
                                                             <!--<a (click)="applicationView(app.AppID)" class="btn btn-default btn-sm" >
                                                                 <span class="glyphicon glyphicon-edit"></span>
@@ -86,7 +115,7 @@
                                                                 [(ngModel)]="selectedApp.LastProdDate"
                                                                 class="form-control input-sm"
                                                                 ng2-datetime-picker
-                                                                date-only="true" 
+                                                                date-only="true"
                                                             />
                                                             <!--<a (click)="applicationView(app.AppID)" class="btn btn-default btn-sm" >
                                                                 <span class="glyphicon glyphicon-edit"></span>
@@ -151,14 +180,14 @@
                                                 <div class="panel-body">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <input id="chkWeb"  type="checkbox" 
+                                                            <input id="chkWeb"  type="checkbox"
                                                                 [(ngModel)]="selectedApp.AppIsWeb"
                                                                 class="css-checkbox med" >
                                                             <label for="chkWeb" class="css-label med elegant">Is Web?</label>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input id="chkUat" type="checkbox"
-                                                                [(ngModel)]="selectedApp.IsUatAvail" 
+                                                                [(ngModel)]="selectedApp.IsUatAvail"
                                                                 class="css-checkbox med" >
                                                             <label for="chkUat" class="css-label med elegant">UAT Accessible?</label>
                                                         </div>
@@ -181,7 +210,7 @@
                                                                 <option *ngFor="let be of beTech" [value]="be">{{be}}</option>
                                                             </select>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <br />
                                                     <div class="row">
@@ -196,7 +225,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label>Version</label>
-                                                            <input type="text" [(ngModel)]="selectedApp.AppVersion"  
+                                                            <input type="text" [(ngModel)]="selectedApp.AppVersion"
                                                                 class="form-control input-sm" />
                                                         </div>
                                                     </div>
@@ -207,7 +236,7 @@
                                                         <div class="col-md-6">
                                                             <div class="input-group">
                                                                 <input type="text" [(ngModel)]="selectedApp.ProjectDevID"
-                                                                    class="form-control input-sm" 
+                                                                    class="form-control input-sm"
                                                                     placeholder="Project ID"/>
                                                                 <span class="input-group-btn">
                                                                     <a (click)="mode=1" class="btn btn-default btn-sm"  data-toggle="modal" data-target="#modalSearchProject">
@@ -297,7 +326,6 @@
                                                                         <a (click)="feat.ScreenshotPath=browseFile('screenshot')" class="btn btn-default btn-sm" id="btnOpenFile">
                                                                             <span class="glyphicon glyphicon-folder-open"></span>
                                                                         </a>
-                                                                        <input type="file" style="display:none" id="screenshot">
                                                                         <!--<input type="file" id="fileInput" />-->
                                                                     </span>
                                                                 </div>
@@ -330,3 +358,5 @@
         </div>
     </div>
 </div>
+
+<input type="file" style="display:none" id="screenshot">
