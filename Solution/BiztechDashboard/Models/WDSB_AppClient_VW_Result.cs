@@ -23,6 +23,7 @@ namespace BiztechDashboard.Models
         public string OpsFront { get; set; }
         public Nullable<bool> IsUatAvail { get; set; }
         public Nullable<bool> AppIsActive { get; set; }
+        public string AppIconPath { get; set; }
         public int canProd { get; set; }
         public int canMod { get; set; }
         public Nullable<bool> myFav { get; set; }

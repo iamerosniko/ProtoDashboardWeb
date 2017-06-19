@@ -16,13 +16,15 @@ var router_1 = require("@angular/router");
 var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var appforclient_1 = require("../../entities/appforclient");
 var comment_service_1 = require("../../services/comment.service");
+var platform_browser_1 = require("@angular/platform-browser");
 var ACDetail = (function () {
-    function ACDetail(route, fnMainApp, router, commentService, favService) {
+    function ACDetail(route, fnMainApp, router, commentService, favService, sanitizer) {
         this.route = route;
         this.fnMainApp = fnMainApp;
         this.router = router;
         this.commentService = commentService;
         this.favService = favService;
+        this.sanitizer = sanitizer;
         this.selectedID = 0;
         this.comments = [];
         this.app = new appforclient_1.AppForClient(0, '', 0, '', '', 0, 0, 0, false, false, '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, null);
@@ -62,7 +64,9 @@ var ACDetail = (function () {
             .then(function (comments) { return _this.comments = comments; });
     };
     ACDetail.prototype.getFile = function () {
-        return this.app.AppIconPath.length == 0 || this.app.AppIconPath == null ? "images/AppLogo.png " : this.app.AppIconPath;
+        if (this.app.AppIconPath == null)
+            return "images/AppLogo.png";
+        return this.app.AppIconPath.length == 0 ? "images/AppLogo.png " : this.app.AppIconPath;
     };
     return ACDetail;
 }());
@@ -76,6 +80,7 @@ ACDetail = __decorate([
         fn_main_app_1.FnMainApp,
         router_1.Router,
         comment_service_1.CommentService,
-        favorite_service_1.FavoriteService])
+        favorite_service_1.FavoriteService,
+        platform_browser_1.DomSanitizer])
 ], ACDetail);
 exports.ACDetail = ACDetail;

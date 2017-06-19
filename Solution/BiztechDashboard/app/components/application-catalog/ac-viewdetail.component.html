@@ -65,7 +65,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img [src]="getFile()" class="thumbnail-display-img">
+                                            <img [src]="sanitizer.bypassSecurityTrustUrl(getFile())" class="thumbnail-display-img">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="btn-group pull-right" role="group">

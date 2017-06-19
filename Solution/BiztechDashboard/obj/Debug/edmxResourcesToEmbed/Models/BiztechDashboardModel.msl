@@ -170,6 +170,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_AppAvgRating_VW">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
+        <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
+          <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
+          <ScalarProperty Name="AppID" ColumnName="AppID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WDSB_Domains">
+      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
+        <MappingFragment StoreEntitySet="WDSB_Domains">
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="DomainID" ColumnName="DomainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="WDSB_AppClient_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppClient_VW">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
@@ -183,6 +199,7 @@
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
           <ScalarProperty Name="canProd" ColumnName="canProd" />
           <ScalarProperty Name="canMod" ColumnName="canMod" />
           <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -238,6 +255,7 @@
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
           <ScalarProperty Name="canProd" ColumnName="canProd" />
           <ScalarProperty Name="canMod" ColumnName="canMod" />
           <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -257,27 +275,12 @@
           <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
           <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
           <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+          <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
           <ScalarProperty Name="canProd" ColumnName="canProd" />
           <ScalarProperty Name="canMod" ColumnName="canMod" />
           <ScalarProperty Name="myFav" ColumnName="myFav" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="WDSB_AppAvgRating_VW">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
-        <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
-          <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
-          <ScalarProperty Name="AppID" ColumnName="AppID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="WDSB_Domains">
-      <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
-        <MappingFragment StoreEntitySet="WDSB_Domains">
-          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
-          <ScalarProperty Name="DomainID" ColumnName="DomainID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

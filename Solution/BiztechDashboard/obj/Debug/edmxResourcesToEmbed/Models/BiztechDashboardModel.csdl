@@ -90,6 +90,8 @@
       <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
       <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
     </AssociationSet>
+    <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
+    <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
     <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
       <Parameter Name="myusername" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
@@ -106,8 +108,6 @@
       <Parameter Name="myname" Mode="In" Type="String" />
       <Parameter Name="appName" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
-    <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
   </EntityContainer>
   <EntityType Name="WDSB_TempProjects">
     <Key>
@@ -333,6 +333,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="WDSB_AppAvgRating_VW">
+    <Key>
+      <PropertyRef Name="AppID" />
+    </Key>
+    <Property Name="AppID" Type="Int32" Nullable="false" />
+    <Property Name="AvgRating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WDSB_Domains">
+    <Key>
+      <PropertyRef Name="DomainID" />
+    </Key>
+    <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
   <ComplexType Name="WDSB_AppClient_VW_Result">
     <Property Type="Int32" Name="AppID" Nullable="false" />
     <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -344,6 +358,7 @@
     <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
     <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
     <Property Type="Int32" Name="canProd" Nullable="false" />
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -391,6 +406,7 @@
     <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
     <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
     <Property Type="Int32" Name="canProd" Nullable="false" />
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -406,22 +422,9 @@
     <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
     <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
     <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+    <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
     <Property Type="Int32" Name="canProd" Nullable="false" />
     <Property Type="Int32" Name="canMod" Nullable="false" />
     <Property Type="Boolean" Name="myFav" Nullable="true" />
   </ComplexType>
-  <EntityType Name="WDSB_AppAvgRating_VW">
-    <Key>
-      <PropertyRef Name="AppID" />
-    </Key>
-    <Property Name="AppID" Type="Int32" Nullable="false" />
-    <Property Name="AvgRating" Type="Int32" />
-  </EntityType>
-  <EntityType Name="WDSB_Domains">
-    <Key>
-      <PropertyRef Name="DomainID" />
-    </Key>
-    <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-  </EntityType>
 </Schema>

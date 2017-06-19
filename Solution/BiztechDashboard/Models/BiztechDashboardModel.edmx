@@ -457,6 +457,8 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             <End Role="WDSB_Applications" EntitySet="WDSB_Applications" />
             <End Role="WDSB_Ratings" EntitySet="WDSB_Ratings" />
           </AssociationSet>
+          <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
+          <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
           <FunctionImport Name="WDSB_AppClient_VW" ReturnType="Collection(BiztechDashboardModel.WDSB_AppClient_VW_Result)">
             <Parameter Name="myusername" Mode="In" Type="String" />
             <Parameter Name="appName" Mode="In" Type="String" />
@@ -473,8 +475,6 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             <Parameter Name="myname" Mode="In" Type="String" />
             <Parameter Name="appName" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="WDSB_AppAvgRating_VW" EntityType="BiztechDashboardModel.WDSB_AppAvgRating_VW" />
-          <EntitySet Name="WDSB_Domains" EntityType="BiztechDashboardModel.WDSB_Domains" />
           </EntityContainer>
         <EntityType Name="WDSB_TempProjects">
           <Key>
@@ -700,6 +700,20 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="WDSB_AppAvgRating_VW">
+          <Key>
+            <PropertyRef Name="AppID" />
+          </Key>
+          <Property Name="AppID" Type="Int32" Nullable="false" />
+          <Property Name="AvgRating" Type="Int32" />
+        </EntityType>
+        <EntityType Name="WDSB_Domains">
+          <Key>
+            <PropertyRef Name="DomainID" />
+          </Key>
+          <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         <ComplexType Name="WDSB_AppClient_VW_Result">
           <Property Type="Int32" Name="AppID" Nullable="false" />
           <Property Type="String" Name="AppName" Nullable="true" MaxLength="150" />
@@ -711,6 +725,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
           <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
           <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+          <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="canProd" Nullable="false" />
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -758,6 +773,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
           <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
           <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+          <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="canProd" Nullable="false" />
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
@@ -773,24 +789,11 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
           <Property Type="String" Name="OpsFront" Nullable="true" MaxLength="250" />
           <Property Type="Boolean" Name="IsUatAvail" Nullable="true" />
           <Property Type="Boolean" Name="AppIsActive" Nullable="true" />
+          <Property Type="String" Name="AppIconPath" Nullable="true" MaxLength="250" />
           <Property Type="Int32" Name="canProd" Nullable="false" />
           <Property Type="Int32" Name="canMod" Nullable="false" />
           <Property Type="Boolean" Name="myFav" Nullable="true" />
         </ComplexType>
-        <EntityType Name="WDSB_AppAvgRating_VW">
-          <Key>
-            <PropertyRef Name="AppID" />
-          </Key>
-          <Property Name="AppID" Type="Int32" Nullable="false" />
-          <Property Name="AvgRating" Type="Int32" />
-        </EntityType>
-        <EntityType Name="WDSB_Domains">
-          <Key>
-            <PropertyRef Name="DomainID" />
-          </Key>
-          <Property Name="DomainID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DomainName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -966,6 +969,22 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_AppAvgRating_VW">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
+              <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
+                <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
+                <ScalarProperty Name="AppID" ColumnName="AppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WDSB_Domains">
+            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
+              <MappingFragment StoreEntitySet="WDSB_Domains">
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="DomainID" ColumnName="DomainID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="WDSB_AppClient_VW" FunctionName="BiztechDashboardModel.Store.WDSB_AppClient_VW">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BiztechDashboardModel.WDSB_AppClient_VW_Result">
@@ -979,6 +998,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
                 <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
                 <ScalarProperty Name="canProd" ColumnName="canProd" />
                 <ScalarProperty Name="canMod" ColumnName="canMod" />
                 <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -1034,6 +1054,7 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
                 <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
                 <ScalarProperty Name="canProd" ColumnName="canProd" />
                 <ScalarProperty Name="canMod" ColumnName="canMod" />
                 <ScalarProperty Name="myFav" ColumnName="myFav" />
@@ -1053,28 +1074,13 @@ warning 6002: The table/view 'dbbtWEBD.dbo.WDSB_VW_ApplicationsDB' does not have
                 <ScalarProperty Name="OpsFront" ColumnName="OpsFront" />
                 <ScalarProperty Name="IsUatAvail" ColumnName="IsUatAvail" />
                 <ScalarProperty Name="AppIsActive" ColumnName="AppIsActive" />
+                <ScalarProperty Name="AppIconPath" ColumnName="AppIconPath" />
                 <ScalarProperty Name="canProd" ColumnName="canProd" />
                 <ScalarProperty Name="canMod" ColumnName="canMod" />
                 <ScalarProperty Name="myFav" ColumnName="myFav" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="WDSB_AppAvgRating_VW">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_AppAvgRating_VW">
-              <MappingFragment StoreEntitySet="WDSB_AppAvgRating_VW">
-                <ScalarProperty Name="AvgRating" ColumnName="AvgRating" />
-                <ScalarProperty Name="AppID" ColumnName="AppID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WDSB_Domains">
-            <EntityTypeMapping TypeName="BiztechDashboardModel.WDSB_Domains">
-              <MappingFragment StoreEntitySet="WDSB_Domains">
-                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
-                <ScalarProperty Name="DomainID" ColumnName="DomainID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
