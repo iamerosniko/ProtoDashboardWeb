@@ -33,7 +33,7 @@ var ACComponent = (function () {
                 if (_this.apps.length == 0) {
                     _this.getAllApps(_this.searchApp);
                 }
-            }, 500);
+            }, 1000);
         });
         this.data.subscribe();
         this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
