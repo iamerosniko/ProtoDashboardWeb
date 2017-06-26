@@ -37,7 +37,8 @@ var MaintenanceComponent = (function () {
         //main
         this.showForm = false;
         this.formMode = 'New';
-        this.selectedForm = 0;
+        this.selectedForm = 4;
+        this.applicationView('Lists');
         this.isUserAdmin();
         this.refreshLists();
     }

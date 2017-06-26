@@ -1,104 +1,106 @@
-<tabset>
-    <tab heading='Projects From BTSS'>
-        <br />
-        <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
-        <div [hidden]="newApps.length==0">
-            # of projects found in BTSS that are not in WDSB : {{newApps.length}}
-            <!--[disabled]="!checkComplete()"-->
-            <button class="btn btn-default btn-sm" type="button"  (click)="saveNewApplications(newApps); initAppSync();">Add to Projects</button>
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th colspan="2">Front End Path</th>
-                        <th colspan="2">Back End Path</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let app of newApps | paginate: config1">
-                        <td>{{app.ProjectName}}</td>
-                        <td>
-                            <input type="text" [(ngModel)]="app.FrontEndPath"
-                            required class="form-control input-sm" />
+<div>
+  <tabset>
+      <tab heading='Projects From BTSS'>
+          <br />
+          <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Find new Projects from BTSS</button>
+          <div [hidden]="newApps.length==0">
+              # of projects found in BTSS that are not in WDSB : {{newApps.length}}
+              <!--[disabled]="!checkComplete()"-->
+              <button class="btn btn-default btn-sm" type="button"  (click)="saveNewApplications(newApps); initAppSync();">Add to Projects</button>
+              <table class="table table-hover table-striped">
+                  <thead>
+                      <tr>
+                          <th>Project Name</th>
+                          <th colspan="2">Front End Path</th>
+                          <th colspan="2">Back End Path</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let app of newApps | paginate: config1">
+                          <td>{{app.ProjectName}}</td>
+                          <td>
+                              <input type="text" [(ngModel)]="app.FrontEndPath"
+                              required class="form-control input-sm" />
 
-                        </td>
-                        <td>
-                            <span class="input-group-btn">
-                                <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
-                                    <span class="glyphicon glyphicon-folder-open"></span>
-                                </a>
-                            </span>
-                        </td>
-                        <td>
-                            <input type="text" [(ngModel)]="app.BackEndPath"
-                            required class="form-control input-sm" />
-                        </td>
-                        <td>
-                            <span class="input-group-btn">
-                                <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
-                                    <span class="glyphicon glyphicon-folder-open"></span>
-                                </a>
-                            </span>
-                        </td>
-                        <!--<td>{{app.ProjectDatasource}}</td>-->
-                        <!--<td>{{app.ProjectDatabaseName}}</td>-->
-                    </tr>
-                </tbody>
-            </table>
-            <pagination-controls [id]="config1.id"
-                (pageChange)="onPageChange($event,config1)"></pagination-controls>
-        </div>
-        <div [hidden]="!newApps.length==0">
-            no new applications found
-        </div>
-    </tab>
-    <tab heading='Projects saved in Web Dashboard'>
-        <br />
-        <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Refresh</button>
-        <div [hidden]="syncApps.length==0">
-            # of projects found in WDSB : {{syncApps.length}}
-            <button class="btn btn-default btn-sm" type="button" (click)="updateApplications(syncApps);">Update Projects</button>
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th>Project Name</th>
-                        <th colspan="2">Front End Path</th>
-                        <th colspan="2">Back End Path</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let app of syncApps | paginate: config2">
-                        <td>{{app.ProjectName}}</td>
-                        <td>
-                            <input type="text" [(ngModel)]="app.FrontEndPath"
-                            required class="form-control input-sm" />
-                        </td>
-                        <td>
-                            <span class="input-group-btn">
-                                <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
-                                    <span class="glyphicon glyphicon-folder-open"></span>
-                                </a>
-                            </span>
-                        </td>
-                        <td>
-                            <input type="text" [(ngModel)]="app.BackEndPath"
-                            required class="form-control input-sm" />
-                        </td>
-                        <td>
-                            <span class="input-group-btn">
-                                <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
-                                    <span class="glyphicon glyphicon-folder-open"></span>
-                                </a>
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                          </td>
+                          <td>
+                              <span class="input-group-btn">
+                                  <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                      <span class="glyphicon glyphicon-folder-open"></span>
+                                  </a>
+                              </span>
+                          </td>
+                          <td>
+                              <input type="text" [(ngModel)]="app.BackEndPath"
+                              required class="form-control input-sm" />
+                          </td>
+                          <td>
+                              <span class="input-group-btn">
+                                  <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                      <span class="glyphicon glyphicon-folder-open"></span>
+                                  </a>
+                              </span>
+                          </td>
+                          <!--<td>{{app.ProjectDatasource}}</td>-->
+                          <!--<td>{{app.ProjectDatabaseName}}</td>-->
+                      </tr>
+                  </tbody>
+              </table>
+              <pagination-controls [id]="config1.id"
+                  (pageChange)="onPageChange($event,config1)"></pagination-controls>
+          </div>
+          <div [hidden]="!newApps.length==0">
+              no new applications found
+          </div>
+      </tab>
+      <tab heading='Projects saved in Web Dashboard'>
+          <br />
+          <button class="btn btn-default btn-sm" (click)="initAppSync()" type="button" >Refresh</button>
+          <div [hidden]="syncApps.length==0">
+              # of projects found in WDSB : {{syncApps.length}}
+              <button class="btn btn-default btn-sm" type="button" (click)="updateApplications(syncApps);">Update Projects</button>
+              <table class="table table-hover table-striped">
+                  <thead>
+                      <tr>
+                          <th>Project Name</th>
+                          <th colspan="2">Front End Path</th>
+                          <th colspan="2">Back End Path</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let app of syncApps | paginate: config2">
+                          <td>{{app.ProjectName}}</td>
+                          <td>
+                              <input type="text" [(ngModel)]="app.FrontEndPath"
+                              required class="form-control input-sm" />
+                          </td>
+                          <td>
+                              <span class="input-group-btn">
+                                  <a (click)="app.FrontEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                      <span class="glyphicon glyphicon-folder-open"></span>
+                                  </a>
+                              </span>
+                          </td>
+                          <td>
+                              <input type="text" [(ngModel)]="app.BackEndPath"
+                              required class="form-control input-sm" />
+                          </td>
+                          <td>
+                              <span class="input-group-btn">
+                                  <a (click)="app.BackEndPath=browseFile()" class="btn btn-default btn-sm" id="btnOpenFile">
+                                      <span class="glyphicon glyphicon-folder-open"></span>
+                                  </a>
+                              </span>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
 
-            <pagination-controls [id]="config2.id"
-                (pageChange)="onPageChange($event,config2)"></pagination-controls>
-        </div>
-    </tab>
-</tabset>
+              <pagination-controls [id]="config2.id"
+                  (pageChange)="onPageChange($event,config2)"></pagination-controls>
+          </div>
+      </tab>
+  </tabset>
 
-<input type="file" style="display:none" id="pathfinder">
+  <input type="file" style="display:none" id="pathfinder">
+</div>

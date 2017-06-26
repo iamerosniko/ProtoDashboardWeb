@@ -14,10 +14,12 @@ var fn_main_app_1 = require("../maintenance/functions/fn-main-app");
 var getauth_service_1 = require("../../services/getauth.service");
 var getauth_1 = require("../../entities/getauth");
 var Observable_1 = require("rxjs/Observable");
+var router_1 = require("@angular/router");
 var ACComponent = (function () {
-    function ACComponent(fn, getAuthService) {
+    function ACComponent(fn, getAuthService, router) {
         this.fn = fn;
         this.getAuthService = getAuthService;
+        this.router = router;
         this.searchApp = '';
         this.viewtype = 0;
         this.tabselected = 0;
@@ -37,6 +39,11 @@ var ACComponent = (function () {
         });
         this.data.subscribe();
         this.getAuthService.getAuth().then(function (auth) { return _this.myAuth = auth; });
+    };
+    //gotomaintenance
+    ACComponent.prototype.maintenanceView = function () {
+        //[routerLink]="['/Maintenance', {outlets: {'apps': ['Lists']}}]"
+        this.router.navigate(['/Maintenance', { outlets: { 'apps': ['Lists'] } }]);
     };
     //all biztech apps
     ACComponent.prototype.getAllApps = function (appName) {
@@ -105,6 +112,7 @@ ACComponent = __decorate([
         templateUrl: "ac-parent.component.html"
     }),
     __metadata("design:paramtypes", [fn_main_app_1.FnMainApp,
-        getauth_service_1.GetAuthService])
+        getauth_service_1.GetAuthService,
+        router_1.Router])
 ], ACComponent);
 exports.ACComponent = ACComponent;

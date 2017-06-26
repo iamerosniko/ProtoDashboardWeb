@@ -24,12 +24,12 @@
     <h3>Maintenance</h3>
 </div>
 <!--Container-->
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-2">
                 <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active">
+                    <li role="presentation">
                         <a href="#bu" aria-controls="bu"
                             (click)="toFormView('New',false,0)" role="tab" data-toggle="tab">Business Units</a>
                     </li>
@@ -45,25 +45,24 @@
                         <a href="#users" aria-controls="users"
                             (click)="toFormView('New',false,3)" role="tab" data-toggle="tab">App Users</a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" class="active">
                         <a href="#applications" aria-controls="applications"
-                           (click)="toFormView('New',false,2); applicationView('Lists');" role="tab" data-toggle="tab">Applications</a>
+                           (click)="toFormView('New',false,4); applicationView('Lists'); " role="tab" data-toggle="tab">Applications</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-10 tab-content">
                 <!--Applications SECTION-->
-                <div class="tab-pane fade" id="applications">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="tab-content">
-                              <router-outlet name="apps"></router-outlet>
-                          </div>
-                      </div>
-                  </div>
-                </div>
+                <!-- <div class="tab-pane fade in active" id="applications"> -->
+                  <!-- <div class="row">
+                      <div class="col-md-12"> -->
+                          <router-outlet name="apps"></router-outlet>
+
+                      <!-- </div>
+                  </div> -->
+                <!-- </div> -->
                 <!--Business Unit SECTION-->
-                <div class="tab-pane fade in active" id="bu">
+                <div class="tab-pane fade " id="bu">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="tab-content">
